@@ -8,11 +8,16 @@ public class Pickup : MonoBehaviour
     public Inventory inventory;
     public Sprite itemButton;
     public GameObject ButtonChoix;
+    public bool EnleveItem;
+    public GameObject EnleveItemScene;
     public NombreInteraction nombreInteraction;
+    public List<GameObject> ChoixSupprime = new List<GameObject>();
     public bool ObjetRecupere;
     public bool DebloqueNouveauxChoix;
     public List<GameObject> nouveauxChoix = new List<GameObject>();
     public int NumeroStockageSlot;
+
+    public bool PerdInteractionOuPas;
 
     public void Ramasse()
     {
@@ -28,9 +33,18 @@ public class Pickup : MonoBehaviour
                     NumeroStockageSlot=i;
                     ButtonChoix.SetActive(false);
                     Debug.Log("Ajout");
-                   // nombreInteraction.PerdInteraction();
+
+                    if(PerdInteractionOuPas)
+                    {
+                        nombreInteraction.PerdInteraction();
+                    }
+                  
                     ObjetRecupere=true;
 
+                    if(EnleveItem)
+                    {
+                        EnleveItemScene.SetActive(false);
+                    }
                     if(DebloqueNouveauxChoix)
                     {
                         for (int j = 0; j < nouveauxChoix.Count; j++)
@@ -38,6 +52,14 @@ public class Pickup : MonoBehaviour
                             nouveauxChoix[j].SetActive(true);
                         }
                     }
+
+
+                    for (int k = 0; k < ChoixSupprime.Count; k++)
+                        {
+                            ChoixSupprime[k].SetActive(false);
+                        }
+
+
                     break;
                 }
         }
