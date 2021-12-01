@@ -6,6 +6,7 @@ public class Glitch : MonoBehaviour
 {
     private Material material;
     public float time;
+    public bool Bug;
 
     private void Awake()
     {
@@ -16,6 +17,10 @@ public class Glitch : MonoBehaviour
 
     private IEnumerator GlitchRoutine()
     {
+        if(Bug)
+        {
+
+        
         while(true)
         {
             material.SetFloat("_GlitchStrength", 0.0f);
@@ -57,6 +62,8 @@ public class Glitch : MonoBehaviour
             material.SetFloat("_ScanlineOffset", 0.5f);
             time=Random.Range(0.1f,0.6f);
             yield return new WaitForSeconds(time);
+        }
+
         }
     }
 }
