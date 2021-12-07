@@ -8,10 +8,12 @@ public class TriggerObject : MonoBehaviour
     public GameObject PressE;
     public bool dedans;
     public List<GameObject>ChoixBoutons=new List<GameObject>();
+    public bool Anim;
+    public float ChoixRestant;
     // Start is called before the first frame update
     void Start()
     {
-        
+        ChoixRestant=ChoixBoutons.Count;
     }
 
     // Update is called once per frame
@@ -24,7 +26,17 @@ public class TriggerObject : MonoBehaviour
             for (int i = 0; i < ChoixBoutons.Count; i++)
         {
             ChoixBoutons[i].SetActive(true);
+            if(Anim)
+            {
+                ChoixBoutons[i].GetComponent<Animator>().SetTrigger("Choix");
+            }
         }
+        }
+
+        if(ChoixRestant<=0) // Si le nombre de choix qu'il reste à l'objet est 0 alors on ne peut plus intéragir avec donc l'effet de surbrillance est désactiver et le " E pour intéragir " aussi 
+        {
+            this.GetComponent<BoxCollider>().enabled=false;
+            outline.enabled=false;
         }
     }
 
@@ -47,6 +59,7 @@ public class TriggerObject : MonoBehaviour
 
             for (int i = 0; i < ChoixBoutons.Count; i++)
         {
+             ChoixBoutons[i].GetComponent<Animator>().SetTrigger("Retour");
             ChoixBoutons[i].SetActive(false);
         }
         }
