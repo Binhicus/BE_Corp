@@ -10,6 +10,7 @@ public class DropItem : MonoBehaviour
     public bool DebloqueNouveauxChoix;
     public Sprite None;
     public List<GameObject> nouveauxChoix = new List<GameObject>();
+    public bool PerdInteraction;
     public NombreInteraction nombreInteraction;
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,11 @@ public class DropItem : MonoBehaviour
         {
             BoutonChoix[i].SetActive(false);
         }
-        nombreInteraction.PerdInteraction();
+
+        if(PerdInteraction)
+        {
+            nombreInteraction.PerdInteraction();
+        }
+        
     }
 }
