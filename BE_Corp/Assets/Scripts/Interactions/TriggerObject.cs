@@ -35,6 +35,7 @@ public class TriggerObject : MonoBehaviour
 
         if(ChoixRestant<=0) // Si le nombre de choix qu'il reste à l'objet est 0 alors on ne peut plus intéragir avec donc l'effet de surbrillance est désactiver et le " E pour intéragir " aussi 
         {
+            dedans=false;
             this.GetComponent<BoxCollider>().enabled=false;
             outline.enabled=false;
         }

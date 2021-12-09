@@ -7,23 +7,29 @@ public class Dialogue : MonoBehaviour
     public TextMeshProUGUI textComponent;
     public string[] lines;
     public float textSpeed;
+    public AudioSource SonNext;
+    public DissolutionItem dissolutionItem;
+    public bool PeutCliquer;
 
-    private int index;
+    public int index;
 
     // Start is called before the first frame update
     void Start()
     {
         textComponent.text = string.Empty;
         StartDialogue();
+        coroutineWait();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0)&&PeutCliquer)
         {
             if (textComponent.text == lines[index])
             {
+                PeutCliquer=false;
+                SonNext.Play();
                 NextLine();
             }
             else
@@ -32,9 +38,14 @@ public class Dialogue : MonoBehaviour
                 textComponent.text = lines[index];
             }
         }
+
+        if(PeutCliquer==false)
+        {
+            StartCoroutine(coroutineWait());
+        }
     }
 
-    void StartDialogue()
+    public void StartDialogue()
     {
         index = 0;
         StartCoroutine(TypeLine());
@@ -59,8 +70,19 @@ public class Dialogue : MonoBehaviour
         }
         else
         {
-            
-
+             dissolutionItem.DisAp();
+             PeutCliquer=false;
+            StopAllCoroutines();
+             this.gameObject.SetActive(false);
         }
+    }
+
+
+    IEnumerator coroutineWait()
+    {
+        
+        yield return new WaitForSeconds(1.0f);
+        PeutCliquer=true;
+       
     }
 }

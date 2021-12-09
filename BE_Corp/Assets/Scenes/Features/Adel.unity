@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 33846402}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.65, y: -0.55, z: -1.32}
+  m_LocalPosition: {x: -5.65, y: -0.55, z: -0.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 60405552}
@@ -1078,9 +1078,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 701357b730c0d40409c1c8b6f4c96aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rb: {fileID: 1877123920}
-  _speed: 5
-  _turnSpeed: 360
+  speed: 5
+  rotationSpeed: 720
 --- !u!136 &1877123916
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1501,9 +1500,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 2113216865}
   lines:
-  - yyjhyjtyjjyjyjtyyjtyjkyjytjytjtyjyjytjtyjyttyj
-  - tyjtyjtyjtyjtyjuykuyrkrtykuytktuykuykuykuykukuyk
-  textSpeed: 0.1
+  - Ah oui ! je me souviens maintenant !
+  - "Vous savez c'\xE9tait il y'a longtemps..."
+  - "Cette pi\xE8ce, c'est le Salon !"
+  textSpeed: 0.05
+  SonNext: {fileID: 0}
+  dissolutionItem: {fileID: 0}
+  PeutCliquer: 0
+  index: 0
 --- !u!114 &2104111906
 MonoBehaviour:
   m_ObjectHideFlags: 0
