@@ -10,6 +10,8 @@ public class TriggerObject : MonoBehaviour
     public List<GameObject>ChoixBoutons=new List<GameObject>();
     public bool Anim;
     public float ChoixRestant;
+    public AudioSource SonE;
+    public AudioSource Vole;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,12 +24,14 @@ public class TriggerObject : MonoBehaviour
         if(dedans==true&&Input.GetKeyDown(KeyCode.E))
         {
             PressE.SetActive(false);
+            SonE.Play();
 
             for (int i = 0; i < ChoixBoutons.Count; i++)
         {
             ChoixBoutons[i].SetActive(true);
             if(Anim)
             {
+                Vole.Play();
                 ChoixBoutons[i].GetComponent<Animator>().SetTrigger("Choix");
             }
         }
@@ -37,6 +41,7 @@ public class TriggerObject : MonoBehaviour
         {
             dedans=false;
             this.GetComponent<BoxCollider>().enabled=false;
+            PressE.SetActive(false);
             outline.enabled=false;
         }
     }

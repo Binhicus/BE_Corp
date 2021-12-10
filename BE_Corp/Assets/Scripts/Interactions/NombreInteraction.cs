@@ -8,7 +8,10 @@ public class NombreInteraction : MonoBehaviour
     public int NbreInteractionActuelle;
     public GameObject Papillon3;
     public GameObject Papillon2;
+    public GameObject BleuEffet;
     public GameObject Papillon1;
+    public AudioSource PerdInteraSon;
+    private bool Une;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +22,7 @@ public class NombreInteraction : MonoBehaviour
     void Update()
     {
         
-    if(NbreInteractionTotale==3){
+    /*if(NbreInteractionTotale==3){
         
         if(NbreInteractionActuelle==3)
         {
@@ -32,7 +35,8 @@ public class NombreInteraction : MonoBehaviour
         {
             Papillon1.SetActive(true);
             Papillon2.SetActive(true);
-            Papillon3.SetActive(false);
+            Papillon3.GetComponent<Animator>().SetTrigger("Perd");
+                StartCoroutine(coroutineA());
         }
 
         if(NbreInteractionActuelle==1)
@@ -47,15 +51,63 @@ public class NombreInteraction : MonoBehaviour
             Papillon2.SetActive(false);
             Papillon3.SetActive(false);
         }
-    }
+    }*/
 
     }
 
     public void PerdInteraction()
     {
-        if(NbreInteractionActuelle>0)
+        if(NbreInteractionActuelle>0&&!Une)
         {
+            Une=true;
             NbreInteractionActuelle-=1;
+            PerdInteraSon.Play();
+            BleuEffet.GetComponent<Animator>().SetTrigger("Go");
+
+        }    
+
+
+        if(NbreInteractionActuelle==2)
+        {
+            Papillon3.GetComponent<Animator>().SetTrigger("Perd");
+                StartCoroutine(coroutineA());
         }
+
+        if(NbreInteractionActuelle==1)
+        {
+            Papillon2.GetComponent<Animator>().SetTrigger("Perd");
+            StartCoroutine(coroutineB());
+            
+        }
+        if(NbreInteractionActuelle==0)
+        {
+            Papillon1.GetComponent<Animator>().SetTrigger("Perd");
+            Debug.Log("FINI");
+        }
+    }
+
+
+    IEnumerator coroutineA()
+    {
+        
+        yield return new WaitForSeconds(2.0f);
+        Une=false;
+       Papillon3.SetActive(false);
+    }
+
+    IEnumerator coroutineB()
+    {
+        
+        yield return new WaitForSeconds(2.0f);
+        Une=false;
+       Papillon2.SetActive(false);
+    }
+
+    IEnumerator coroutineC()
+    {
+        
+        yield return new WaitForSeconds(2.0f);
+        Une=false;
+       Papillon1.SetActive(false);
     }
 }

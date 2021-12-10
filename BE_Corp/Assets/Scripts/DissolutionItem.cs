@@ -9,12 +9,14 @@ public class DissolutionItem : MonoBehaviour
     public List<Outline> listObjetDissOutline = new List<Outline>();
     public List<GameObject> listObjetDissE = new List<GameObject>();
     public List<BoxCollider> listPhysicDiss = new List<BoxCollider>();   // Pour que l'objet n'ai plus de physique
+    public GameObject ParticleFour;      // Genre enlever des particules ou quoi
 
     public List<GameObject> listObjetApp = new List<GameObject>();
     public List<BoxCollider> listObjetAppCollider = new List<BoxCollider>();
     public List<Outline> listObjetAppOutline = new List<Outline>();
     public List<GameObject> listObjetAppE = new List<GameObject>();
     public List<BoxCollider> listPhysicApp = new List<BoxCollider>();       // Pour que l'objet n'ai plus de physique
+    public List<GameObject> listObjetRemet = new List<GameObject>();        // Genre remttre des particules ou quoi
 
     public AudioSource Disso;
     public GameObject MettreAJourSouvenir;
@@ -90,6 +92,8 @@ public class DissolutionItem : MonoBehaviour
             listObjetAppCollider[j].enabled=true;
             listPhysicApp[j].enabled=true;
         }
+
+        StartCoroutine(coroutineEnleve());
     }
 
     public void ApDis()
@@ -115,7 +119,6 @@ public class DissolutionItem : MonoBehaviour
         BackSouvenir.GetComponent<Animator>().SetTrigger("Retour");
         BackSouvenir.SetActive(false);*/
 
-
     }
 
      IEnumerator coroutineA()
@@ -130,5 +133,18 @@ public class DissolutionItem : MonoBehaviour
         
         yield return new WaitForSeconds(0.3f);
         Dis=false;
+    }
+    IEnumerator coroutineEnleve()
+    {
+        
+        yield return new WaitForSeconds(1.5f);
+         ParticleFour.SetActive(false);
+        
+    }
+    IEnumerator coroutineRemet()
+    {
+        
+        yield return new WaitForSeconds(1.5f);
+        ParticleFour.SetActive(true);
     }
 }
