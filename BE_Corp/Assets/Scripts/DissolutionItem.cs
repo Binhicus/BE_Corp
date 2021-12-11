@@ -114,12 +114,39 @@ public class DissolutionItem : MonoBehaviour
             listObjetDissCollider[i].enabled=true;
             listPhysicDiss[i].enabled=true;
         }
+    }
+
+            public void ApparaitVoid()
+        {
+            Disso.Play();
+            
+            for (int m = 0; m < listObjetApp.Count; m++)
+            {
+            listObjetApp[m].GetComponent<Animator>().SetTrigger("Apparait");
+            }
+
+            for (int j = 0; j < listObjetAppCollider.Count; j++)
+        {
+            listObjetAppCollider[j].enabled=true;
+        }
+
+
+        for (int o = 0; o < listObjetAppOutline.Count; o++)
+        {
+            listObjetAppOutline[o].enabled=false;
+        }
+
+        for (int p = 0; p < listObjetAppE.Count; p++)
+        {
+            listObjetAppE[p].SetActive(false);
+        }
+
+            
+        }
         /*MettreAJourSouvenir.SetActive(true);
         MettreAJourSouvenir.GetComponent<Animator>().SetTrigger("Choix");
         BackSouvenir.GetComponent<Animator>().SetTrigger("Retour");
         BackSouvenir.SetActive(false);*/
-
-    }
 
      IEnumerator coroutineA()
     {

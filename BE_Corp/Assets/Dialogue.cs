@@ -5,6 +5,9 @@ using TMPro;
 public class Dialogue : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
+    public bool disAp;
+    public bool Apdis;
+    public bool Apparait;
     public string[] lines;
     public float textSpeed;
     public AudioSource SonNext;
@@ -70,7 +73,19 @@ public class Dialogue : MonoBehaviour
         }
         else
         {
-             dissolutionItem.DisAp();
+            if(disAp)
+            {
+                dissolutionItem.DisAp();
+            }
+            if(Apdis)
+            {
+                dissolutionItem.ApDis();
+            }
+            if(Apparait)
+            {
+                dissolutionItem.ApparaitVoid();
+            }
+             
              PeutCliquer=false;
             StopAllCoroutines();
              this.gameObject.SetActive(false);

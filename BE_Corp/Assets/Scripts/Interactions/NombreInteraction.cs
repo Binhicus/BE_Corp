@@ -12,6 +12,9 @@ public class NombreInteraction : MonoBehaviour
     public GameObject Papillon1;
     public AudioSource PerdInteraSon;
     private bool Une;
+    public AudioSource FinFadeSon;
+
+    public GameObject FadeFin;
     // Start is called before the first frame update
     void Start()
     {
@@ -81,9 +84,17 @@ public class NombreInteraction : MonoBehaviour
         }
         if(NbreInteractionActuelle==0)
         {
-            Papillon1.GetComponent<Animator>().SetTrigger("Perd");
+            Papillon2.GetComponent<Animator>().SetTrigger("Perd");  //Remettre Papillon 1 s'il y'a 3 interactions
             Debug.Log("FINI");
+            FinInteraction();
         }
+    }
+
+    public void FinInteraction()
+    {
+        FinFadeSon.Play();
+        FadeFin.SetActive(true);
+        FadeFin.GetComponent<Animator>().SetTrigger("Go");
     }
 
 
