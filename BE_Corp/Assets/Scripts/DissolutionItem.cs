@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DissolutionItem : MonoBehaviour
 {
+    public bool PressSpace;
     public List<GameObject> listObjetDiss = new List<GameObject>();
     public List<BoxCollider> listObjetDissCollider = new List<BoxCollider>();
     public List<Outline> listObjetDissOutline = new List<Outline>();
@@ -32,14 +33,14 @@ public class DissolutionItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space)&&!Dis)
+        if(Input.GetKeyDown(KeyCode.Space)&&!Dis&&PressSpace)
         {
             DisAp();
             
             StartCoroutine(coroutineA());
         }
 
-        if(Input.GetKeyDown(KeyCode.Space)&&Dis)
+        if(Input.GetKeyDown(KeyCode.Space)&&Dis&&PressSpace)
         {
             ApDis();
             
