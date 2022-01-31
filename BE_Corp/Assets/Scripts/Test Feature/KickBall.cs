@@ -7,10 +7,16 @@ public class KickBall : MonoBehaviour
     public float hauteur = 1.0f;
     public float allant = 3.0f;
     public Rigidbody rb;
+    public Collider ball;
+    public VaseSwitch vaseSwitch;
+    public SplCameraShake shaker;
     // Start is called before the first frame update
     void Start()
     {
+        ball = gameObject.GetComponent<Collider>();
+        shaker = GameObject.Find("CameraShaker").GetComponent<SplCameraShake>();
         rb = GetComponent<Rigidbody>();
+        vaseSwitch = GameObject.Find("Switch").GetComponent<VaseSwitch>();
     }
 
     // Update is called once per frame
@@ -22,5 +28,20 @@ public class KickBall : MonoBehaviour
     public void Kicked()
     {
         rb.AddForce(0, hauteur, allant, ForceMode.Impulse);
-    } 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "MurTrigger")
+        {
+            shaker.Shaker();
+            vaseSwitch.KicksCount();
+
+        }
+    }
+
+    public void Consequence()
+    {
+
+    }
 }
