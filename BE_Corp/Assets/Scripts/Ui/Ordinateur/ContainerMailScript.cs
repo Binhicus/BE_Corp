@@ -15,16 +15,20 @@ public class ContainerMailScript : MonoBehaviour
     public GameObject PrefabMailDisplayer ;
 
     public bool AllMailAsRead ;
-    [HideInInspector] public string CurrentDate ;
+    /*[HideInInspector] */public string CurrentDate ;
     private string[] DateJour = new string[] {"Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Diamnche"} ;
     private string[] DateMois = new string[] {"Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"} ;
 
 
     void Start()
     {
+        StartCoroutine(WaitAndSet());
+    }
+    IEnumerator WaitAndSet()
+    {
+        yield return new WaitForSeconds(1f);
         SetMailSort();
     }
-
 
 
 
@@ -58,7 +62,7 @@ public class ContainerMailScript : MonoBehaviour
     {
         long CompletedDate ;
         string[] Dates = Date.Split('/') ; //  JJ / MM / YYYY 
-
+    
         string NumerateDate = Dates[2] + Dates[1] + Dates[0] ;
 
         CompletedDate = System.Convert.ToInt64(NumerateDate);
@@ -120,15 +124,47 @@ public class ContainerMailScript : MonoBehaviour
         if(GetDate(DateBeChecked) == GetDate(DateRef))    GetRibbonText = "Aujourd'hui" ;
         if((GetDate(DateBeChecked) + 1) == GetDate(DateRef))    GetRibbonText = "Hier" ;
 
-        if((GetDate(DateBeChecked) + 2) <=  GetDate(DateRef))
+        if((GetDate(DateBeChecked) + 2) <  GetDate(DateRef))
         {
-            GetRibbonText = "Faut encore que je le fasse zebis" ;
+            //GetRibbonText = "Faut encore que je le fasse zebis" ;
+            GetRibbonText = GetDayOfTheDate(DateBeChecked) + " " + GetPartOfTheDate(DateBeChecked, 0) + " " + GetPartOfTheDate(DateBeChecked, 1) + " " + GetPartOfTheDate(DateBeChecked, 2) ;
         }    
 
         return GetRibbonText ;
     }
 
+    string GetDayOfTheDate(string Date)
+    {
+        string DaysReturn = "" ;
+        string[] Days = new string[] {"lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"} ;
+        string[] Dates = Date.Split('/') ; //  JJ / MM / YYYY      
 
+        int Etape1, Etape2, Etape3, Etape4, Etape5, Etape6, Etape7 = 0 ;
+
+
+        /* Etape 1 : Avoir le jour du mois */
+        Etape1 = int.Parse(Dates[0]) ;
+
+        /* Etape 2 : Enlever les siècle et ne gardez que les décénies */
+
+
+        /* Etape 3 : Divisez par 4 pour retire les années bisextile, si le résultat est net et que le mois est janvier ou février, on retire 1, si le résultat est décimale, on ajoute 1 */
+        /* Etape 4 : Ajouté un indicatif par mois ;     J:+0  |  F:+3  |  M:+3  |  A:+6  |  M:+1  |  J:+4  |  J:+6  |  A:+2  |  S:+5  |  O:+0  |  N:+3  |  D+5      */
+        /* Etape 5 : Ajouté un indicatif par sicèle ;   Si,     Siècles/4=x,00: +6   |   Siècle/4=x,25: +4   |   Siècle/4=x,5: +2  |  Siècle/4=x,75: +0     */
+        /* Etape 6 : On additionne toute les étapes précédentes */
+        /* Etape 7 : On fait le modulo 7 du résulta de l'étape 6, le reste donne le jour :      0:Dimanche  |  1:Lundi  |  2:Mardi  |  3:Mercredi  |  4:Jeudi  |  5:Vendredi  |  6:Samedi */
+
+
+
+        return DaysReturn ;
+    }
+
+    string GetPartOfTheDate(string Date, int PartNeed)
+    {
+        string[] Dates = Date.Split('/') ; //  JJ / MM / YYYY 
+
+        return Dates[PartNeed] ;
+    }
 
 
 
