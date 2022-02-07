@@ -6,6 +6,7 @@ public class FallChecker : MonoBehaviour
 {
     public Collider checker;
     public VaseSwitch vaseSwitch;
+    public GameObject key;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,13 @@ public class FallChecker : MonoBehaviour
         if (other.tag == "Vase")
         {
             vaseSwitch.Destroyed();
+            key.SetActive(true);
         }
+    }
+
+    private void OnEnable()
+    {
+        key = GameObject.Find("Clé");
+        key.SetActive(false);
     }
 }
