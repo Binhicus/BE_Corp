@@ -539,6 +539,7 @@ GameObject:
   m_Component:
   - component: {fileID: 258625624}
   - component: {fileID: 258625625}
+  - component: {fileID: 258625626}
   m_Layer: 5
   m_Name: Email Displayer
   m_TagString: Untagged
@@ -593,6 +594,27 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &258625626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258625623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a31980df6633c4041a6e9e30e77b0eaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MailDisplay: {fileID: 0}
+  ColorMailBanner: {fileID: 1720622005}
+  MailObject: {fileID: 1790812955}
+  ContactLogo: {fileID: 1544592092}
+  FondContactInitiale: {fileID: 775555253}
+  ContactInitiale: {fileID: 1104191201}
+  ContactAdress: {fileID: 1021825283}
+  DateReception: {fileID: 1215083244}
+  Destinataire: {fileID: 943933032}
 --- !u!1 &337038217
 GameObject:
   m_ObjectHideFlags: 0
@@ -1418,6 +1440,7 @@ MonoBehaviour:
   PrefabDateRibbon: {fileID: 4292192168112418928, guid: 1bd65b5d9ac98ad4094bedbed2329e03, type: 3}
   PrefabMailDisplayer: {fileID: 7663123928662654684, guid: f7a6139008bb9f24a939f5d6e5d21bd5, type: 3}
   AllMailAsRead: 0
+  EmailDisplayerManager: {fileID: 258625626}
   CurrentDate: 
 --- !u!1 &812647510
 GameObject:
@@ -4225,6 +4248,7 @@ MonoBehaviour:
   Date: 24/01/2022
   Heure: 23:38
   InformationMail: {fileID: 781656934}
+  MailAdress: bidule@gmail.com
   MailPastille: {fileID: 202657819}
   MailStateBar: {fileID: 1339778881}
   WindowMail: {fileID: 1685873651}

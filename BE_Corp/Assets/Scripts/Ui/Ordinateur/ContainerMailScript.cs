@@ -13,8 +13,11 @@ public class ContainerMailScript : MonoBehaviour
     [Space(25)]
     public GameObject PrefabDateRibbon ;
     public GameObject PrefabMailDisplayer ;
-
+    [Space(5)]
     public bool AllMailAsRead ;
+    [Space(15)]
+    public EmailDisplayerScript EmailDisplayerManager ;
+    
     [HideInInspector] public string CurrentDate ;
     private string[] DateJour = new string[] {"Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Diamnche"} ;
     private string[] DateMois = new string[] {"Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"} ;
@@ -194,7 +197,6 @@ public class ContainerMailScript : MonoBehaviour
 
         /* Etape 6 : On additionne toute les étapes précédentes */
         Etape6 = Etape1 + Etape2 + Etape3 + Etape4 + Etape5 ; 
-        Debug.Log(Etape6 + " = " + Etape1 + " + " + Etape2 + " + " + Etape3 + " + " + Etape4 + " + " + Etape5);
         
 
         /* Etape 7 : On fait le modulo 7 du résulta de l'étape 6, le reste donne le jour :      0:Dimanche  |  1:Lundi  |  2:Mardi  |  3:Mercredi  |  4:Jeudi  |  5:Vendredi  |  6:Samedi */
@@ -203,7 +205,6 @@ public class ContainerMailScript : MonoBehaviour
         {
             Modulo -= 7 ;
         }
-        Debug.Log(Modulo);
 
         return Days[Modulo] ;
     }
