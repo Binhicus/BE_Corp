@@ -10,6 +10,7 @@ public class ComputerNavigationScript : MonoBehaviour
     public string Date ;
     public string Heure ;
     public ContainerMailScript InformationMail ;
+    public string MailAdress;
     public GameObject MailPastille ;
     public Transform MailStateBar ;
 
