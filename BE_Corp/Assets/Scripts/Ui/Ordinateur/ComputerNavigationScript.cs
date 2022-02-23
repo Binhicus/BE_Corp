@@ -14,6 +14,13 @@ public class ComputerNavigationScript : MonoBehaviour
     public GameObject MailPastille ;
     public Transform MailStateBar ;
 
+    
+    public RectTransform LunchWindow ;
+    private bool LunchWindowOpen ;
+
+    public RectTransform ShutdownPanel ;
+
+
     public RectTransform WindowMail ;
     private bool MailIsInFullscreen ;
     private bool MailWindowIsOpen = false ;
@@ -40,6 +47,37 @@ public class ComputerNavigationScript : MonoBehaviour
 
         HeureDisplay.text = Heure ;
     }
+
+    public void OpenLunchWindow()
+    {
+        if(!LunchWindowOpen)
+        {
+            LunchWindow.GetComponent<CanvasGroup>().DOFade(1f, 0.5f);
+            LunchWindow.DOAnchorPosY(0, 0.5f);
+        } else {
+            LunchWindow.GetComponent<CanvasGroup>().DOFade(0, 0.5f);
+            LunchWindow.DOAnchorPosY(-1100f, 0.75f);
+
+            if(ShutdownPanel.gameObject.activeSelf) OpenShutdownPanel();
+        }
+
+        LunchWindowOpen = !LunchWindowOpen ;
+    }
+
+    public void OpenShutdownPanel()
+    {
+        if(!ShutdownPanel.gameObject.activeSelf)
+        {
+            ShutdownPanel.gameObject.SetActive(true) ;
+            ShutdownPanel.GetComponent<CanvasGroup>().DOFade(1f, 0.25f);
+            ShutdownPanel.DOAnchorPosY(0, 0.25f);
+        } else {
+            ShutdownPanel.gameObject.SetActive(false) ;
+            ShutdownPanel.GetComponent<CanvasGroup>().alpha = 0 ;
+            ShutdownPanel.DOAnchorPosY(-50f, 0f);
+        }
+    }
+
 
     public void OpenMail()
     {
