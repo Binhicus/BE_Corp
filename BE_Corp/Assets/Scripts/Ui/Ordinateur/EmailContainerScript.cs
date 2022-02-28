@@ -107,6 +107,8 @@ public class EmailContainerScript : MonoBehaviour
     {
         ThisMailAsBeRead = true ;
         MailReadOrNot(ThisMailAsBeRead) ;
+
+        GetComponentInParent<ContainerMailScript>().EmailDisplayerManager.SetMailDisplay(MailInformations);
     }
 
 

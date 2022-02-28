@@ -13,8 +13,17 @@ public class ContainerMailScript : MonoBehaviour
     [Space(25)]
     public GameObject PrefabDateRibbon ;
     public GameObject PrefabMailDisplayer ;
-
+    [Space(5)]
     public bool AllMailAsRead ;
+    [Space(15)]
+    public EmailDisplayerScript EmailDisplayerManager ;
+
+    private float HeightRibbon = 64f;
+    private int RibbonInstatiate = 0 ;
+    private float HeightMailChoice = 128f;
+    private int MailChoiceInstantiate = 0 ;
+
+    
     [HideInInspector] public string CurrentDate ;
     private string[] DateJour = new string[] {"Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Diamnche"} ;
     private string[] DateMois = new string[] {"Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"} ;
@@ -85,6 +94,8 @@ public class ContainerMailScript : MonoBehaviour
             if(Ms == 0 || (GetDate(MailSort[Ms].Date) != GetDate(MailSort[Ms-1].Date)))
             {
                 GameObject DateBox = Instantiate(PrefabDateRibbon);
+                RibbonInstatiate ++ ;
+
                 DateBox.transform.SetParent(this.transform);
 
                 DateBox.transform.localPosition = new Vector3(DateBox.transform.localPosition.x, DateBox.transform.localPosition.y, 0);
@@ -100,6 +111,8 @@ public class ContainerMailScript : MonoBehaviour
             }
 
             GameObject MailInBox = Instantiate(PrefabMailDisplayer);
+            MailChoiceInstantiate ++ ;
+
             MailInBox.transform.SetParent(this.transform);
 
             MailInBox.transform.localPosition = new Vector3(MailInBox.transform.localPosition.x, MailInBox.transform.localPosition.y, 0);
@@ -112,6 +125,8 @@ public class ContainerMailScript : MonoBehaviour
             MailInBoxContainerScript.SetMailButton();
             EmailInstantiate ++ ;
         }
+
+        GetComponent<RectTransform>().sizeDelta = new Vector2(GetComponent<RectTransform>().sizeDelta.x, HeightContainerMailChoice()) ;
     }
 
     string GetRibbonText(string DateBeChecked, string DateRef)
@@ -194,7 +209,6 @@ public class ContainerMailScript : MonoBehaviour
 
         /* Etape 6 : On additionne toute les étapes précédentes */
         Etape6 = Etape1 + Etape2 + Etape3 + Etape4 + Etape5 ; 
-        Debug.Log(Etape6 + " = " + Etape1 + " + " + Etape2 + " + " + Etape3 + " + " + Etape4 + " + " + Etape5);
         
 
         /* Etape 7 : On fait le modulo 7 du résulta de l'étape 6, le reste donne le jour :      0:Dimanche  |  1:Lundi  |  2:Mardi  |  3:Mercredi  |  4:Jeudi  |  5:Vendredi  |  6:Samedi */
@@ -203,11 +217,9 @@ public class ContainerMailScript : MonoBehaviour
         {
             Modulo -= 7 ;
         }
-        Debug.Log(Modulo);
 
         return Days[Modulo] ;
     }
-
 
     string GetPartOfTheDate(string Date, int PartNeed)
     {
@@ -216,7 +228,21 @@ public class ContainerMailScript : MonoBehaviour
         return Dates[PartNeed] ;
     }
 
+    float HeightContainerMailChoice()
+    {
+        float ContainerChoice = 0 ;
 
+        float HeightCalculate = HeightMailChoice + (HeightRibbon * RibbonInstatiate) + (HeightMailChoice * MailChoiceInstantiate) ;
+        
+        if(HeightCalculate > transform.parent.GetComponent<RectTransform>().sizeDelta.y)
+        {
+            ContainerChoice = HeightCalculate ;
+        } else {
+            ContainerChoice = transform.parent.GetComponent<RectTransform>().sizeDelta.y ;
+        }
+
+        return ContainerChoice ;
+    }
 
 
 

@@ -6,6 +6,7 @@ using UnityEngine;
 public class AccountMail : ScriptableObject
 {
     public string NameAccount ;
+    public string MailAdress ;
 
     [Space(10)]
     public Sprite LogoContact ;
