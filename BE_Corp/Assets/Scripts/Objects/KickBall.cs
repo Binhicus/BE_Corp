@@ -13,7 +13,7 @@ public class KickBall : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ball = gameObject.GetComponent<Collider>();
+        ball = gameObject.GetComponentInChildren<Collider>();
         shaker = GameObject.Find("CameraShaker").GetComponent<SplCameraShake>();
         rb = GetComponent<Rigidbody>();
         vaseSwitch = GameObject.Find("Switch").GetComponent<VaseSwitch>();
