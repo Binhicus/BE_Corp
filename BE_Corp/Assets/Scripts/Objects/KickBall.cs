@@ -11,7 +11,7 @@ public class KickBall : MonoBehaviour
     public VaseSwitch vaseSwitch;
     public SplCameraShake shaker;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         ball = gameObject.GetComponentInChildren<Collider>();
         shaker = GameObject.Find("CameraShaker").GetComponent<SplCameraShake>();
