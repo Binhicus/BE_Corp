@@ -35,7 +35,7 @@ public class ContainerMailScript : MonoBehaviour
     }
     IEnumerator WaitAndSet()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.25f);
         SetMailSort();
     }
 
@@ -150,6 +150,7 @@ public class ContainerMailScript : MonoBehaviour
     string GetDayOfTheDate(string Date)
     {
         //string DaysReturn = "" ;
+
         string[] Days = new string[] {"dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"} ;
         string[] Dates = Date.Split('/') ; //  JJ / MM / YYYY      
 
@@ -224,8 +225,10 @@ public class ContainerMailScript : MonoBehaviour
     string GetPartOfTheDate(string Date, int PartNeed)
     {
         string[] Dates = Date.Split('/') ; //  JJ / MM / YYYY 
+        string[] Month = new string[] {"janvier", "février", "mars", "avril", "mai", "juin", "juillet", "aout", "septembre"," octobre", "novembre", "décembre"};
 
-        return Dates[PartNeed] ;
+        if(PartNeed != 1) return Dates[PartNeed];
+        else return Month[PartNeed] ;
     }
 
     float HeightContainerMailChoice()

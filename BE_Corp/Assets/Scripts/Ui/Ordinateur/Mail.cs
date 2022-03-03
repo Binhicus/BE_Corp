@@ -17,4 +17,7 @@ public class Mail : ScriptableObject
 
     public bool MailLu ;
 
+
+    [Header ("Mail Display")]
+    public Sprite BannerMail ;
 }

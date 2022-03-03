@@ -24,6 +24,11 @@ public class EmailDisplayerScript : MonoBehaviour
     [SerializeField] private TextMeshProUGUI Destinataire ;
     
 
+    [SerializeField] private RectTransform EmailDisplay ;
+    [SerializeField] private Image BannerMailDisplay ;
+    private Vector3 ScalePubMail = new Vector3(0.8f, 0.8f, 0.8f);
+    private Vector3 ScaleContactMail = new Vector3(0.95f, 0.95f, 0.95f);
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +56,7 @@ public class EmailDisplayerScript : MonoBehaviour
     {
         if(MailDisplay != null)
         {
+            this.gameObject.SetActive(true);
             ColorMailBanner.color = MailDisplay.Account.AccountColor ;
             MailObject.text = MailDisplay.Objet ;
 
@@ -75,6 +81,17 @@ public class EmailDisplayerScript : MonoBehaviour
 
             Destinataire.text = "A: " + MailBoxAdress ;
 
+
+
+
+            if(MailDisplay.BannerMail != null) 
+            {
+                EmailDisplay.localScale = ScalePubMail ;
+                BannerMailDisplay.gameObject.SetActive(true);
+            } else {
+                EmailDisplay.localScale = ScaleContactMail ;
+                BannerMailDisplay.gameObject.SetActive(false);
+            }
         } else {
             this.gameObject.SetActive(false);
         }

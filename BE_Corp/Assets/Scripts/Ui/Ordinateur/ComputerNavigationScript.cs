@@ -22,6 +22,9 @@ public class ComputerNavigationScript : MonoBehaviour
 
 
     public RectTransform WindowMail ;
+    public RectTransform WindoWMailContainer ;
+    public RectTransform WindowScroll ;
+    public RectTransform WindowMailDisplayer ;
     private bool MailIsInFullscreen ;
     private bool MailWindowIsOpen = false ;
 
@@ -86,24 +89,24 @@ public class ComputerNavigationScript : MonoBehaviour
             MailStateBar.gameObject.SetActive(true);
             MailWindowIsOpen = true ;
         } else {
-            if(!WindowMail.gameObject.activeSelf) MailStateBar.localScale = new Vector2(1f, 1);
-            else MailStateBar.localScale = new Vector2(0.5f, 1);
+            if(!WindowMail.gameObject.activeSelf) MailStateBar.localScale = new Vector2(1f, 0.25f);
+            else MailStateBar.localScale = new Vector2(0.5f, 0.25f);
         }
 
 
         if(!WindowMail.gameObject.activeSelf)
         {
             WindowMail.gameObject.SetActive(!WindowMail.gameObject.activeSelf) ;
-            WindowMail.GetComponent<CanvasGroup>().DOFade(1f, 1f) ;
+            WindowMail.GetComponent<CanvasGroup>().DOFade(1f, 0.25f) ;
 
-            WindowMail.DOScale(Vector3.one, 1f);
-            WindowMail.DOAnchorPos(MailIsInFullscreen ? new Vector2(0, 50f) : new Vector2(45f, 50f) , 1f);
+            WindowMail.DOScale(Vector3.one, .25f);
+            WindowMail.DOAnchorPos(MailIsInFullscreen ? new Vector2(0, 50f) : new Vector2(45f, 50f) , 0.25f);
         } else {
 
-            WindowMail.GetComponent<CanvasGroup>().DOFade(0f, 1f) ;
+            WindowMail.GetComponent<CanvasGroup>().DOFade(0f, 0.25f) ;
 
-            WindowMail.DOScale(new Vector3(0.4f, 0.4f, 0.4f), 1f);
-            WindowMail.DOAnchorPos(new Vector3(-635f, -275f, 0), 1f).OnComplete(() => WindowMail.gameObject.SetActive(!WindowMail.gameObject.activeSelf));
+            WindowMail.DOScale(new Vector3(0.4f, 0.4f, 0.4f), 0.25f);
+            WindowMail.DOAnchorPos(new Vector3(-635f, -275f, 0), 0.25f).OnComplete(() => WindowMail.gameObject.SetActive(!WindowMail.gameObject.activeSelf));
         }
     }
 
@@ -112,23 +115,33 @@ public class ComputerNavigationScript : MonoBehaviour
         if(!MailIsInFullscreen)
         {
             MailIsInFullscreen = true ;
-            WindowMail.DOAnchorPos(new Vector3(0, 50f, 0), 1f);
-            WindowMail.DOSizeDelta(new Vector2(1920f, 980f), 1f);
+            WindowMail.DOAnchorPos(new Vector3(0, 50f, 0), 0.25f);
+            WindowMail.DOSizeDelta(new Vector2(1920f, 980f), 0.25f);
+            WindoWMailContainer.DOSizeDelta(new Vector2(WindoWMailContainer.sizeDelta.x, 836f), 0.25f);
+            WindowScroll.DOSizeDelta(new Vector2(512f, 980f), 0.25f);
+            WindowMailDisplayer.DOSizeDelta(new Vector2(1408f, 980f), 0.25f);
+            WindowMailDisplayer.transform.GetChild(0).GetComponent<RectTransform>().DOSizeDelta(new Vector2(1408f, 980f), 0.25f);
 
-            InformationMail.transform.parent.GetComponent<RectTransform>().DOSizeDelta(new Vector3(512f, 836f), 1f) ;
+
+            InformationMail.transform.parent.GetComponent<RectTransform>().DOSizeDelta(new Vector3(512f, 836f), 0.25f) ;
         } else {
             MailIsInFullscreen = false ;
-            WindowMail.DOAnchorPos(new Vector3(45f, 50f, 0), 1f);
-            WindowMail.DOSizeDelta(new Vector2(1536f, 784f), 1f);
+            WindowMail.DOAnchorPos(new Vector3(45f, 50f, 0), 0.25f);
+            WindowMail.DOSizeDelta(new Vector2(1536f, 784f), 0.25f);
+            WindoWMailContainer.DOSizeDelta(new Vector2(WindoWMailContainer.sizeDelta.x, 640f), 0.25f);
+            WindowScroll.DOSizeDelta(new Vector2(512f, 980f), 0.25f);
+            WindowMailDisplayer.DOSizeDelta(new Vector2(1024f, 980f), 0.25f);
+            WindowMailDisplayer.transform.GetChild(0).GetComponent<RectTransform>().DOSizeDelta(new Vector2(1024f, 980f), 0.25f);
 
-            InformationMail.transform.parent.GetComponent<RectTransform>().DOSizeDelta(new Vector3(512f, 640f), 1f) ;                
+
+            InformationMail.transform.parent.GetComponent<RectTransform>().DOSizeDelta(new Vector3(512f, 640f), 0.25f) ;                
         }      
     }
 
     public void CloseMail()
     {
         WindowMail.GetComponent<CanvasGroup>().DOFade(0f, .25f) ;
-        WindowMail.DOScale(Vector3.zero, .35f).OnComplete(() => CloseMailWindow());
+        WindowMail.DOScale(Vector3.zero, .25f).OnComplete(() => CloseMailWindow());
     }
 
     void CloseMailWindow()
