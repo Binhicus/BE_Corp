@@ -8,34 +8,39 @@ public enum CheckMethod
     Distance, 
     Trigger
 }
-public class DynamicLoad : MonoBehaviour
+public class DynamicLoad : MonoBehaviour, IClicked
 {
     public Transform player;
     public CheckMethod checkMethod;
     public float loadRange;
 
+    public string roomACharger, roomActuelle;
+
+    public GameObject CamACharger, CamActuelle;
+
     //Scene state
-    bool isLoaded; //eviter de charger 2x
-    bool shouldLoad; //pour la méthode en trigger
+    public bool isLoaded; //eviter de charger 2x
+    public bool shouldLoad; //pour la méthode en trigger
 
 
     private void Awake() {
         
-        if(GameObject.Find("Player") != null)
+        if(GameObject.Find("Cursor") != null)
         {
-            player = GameObject.Find("Player").transform ;
+            player = GameObject.Find("Cursor").transform ;
         }
 
     }
-    void Start()
+    void OnEnable()
     {
-        
+        //roomActuelle = SceneManager.GetActiveScene().name;
+
     }
     void LoadScene()
     {
         if (!isLoaded)
         {
-            SceneManager.LoadSceneAsync(gameObject.name, LoadSceneMode.Additive); // le nom du game object "Part n+1" doit être identique à celui de la scène à charger
+            SceneManager.LoadSceneAsync(roomACharger, LoadSceneMode.Additive); // le nom du game object "Part n+1" doit être identique à celui de la scène à charger
             isLoaded = true;
         }
     }
@@ -44,7 +49,7 @@ public class DynamicLoad : MonoBehaviour
     {
         if (isLoaded)
         {
-            SceneManager.UnloadSceneAsync(gameObject.name);
+            SceneManager.UnloadSceneAsync(roomActuelle);
             isLoaded = false;
         }
     }
@@ -102,5 +107,13 @@ public class DynamicLoad : MonoBehaviour
         {
             shouldLoad = false;
         }
+    }
+
+    public void OnClickAction()
+    {
+        CamACharger.SetActive(true);
+        CamActuelle.SetActive(false);
+        UnloadScene();
+        LoadScene();
     }
 }
