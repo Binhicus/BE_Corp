@@ -29,6 +29,9 @@ public class EmailDisplayerScript : MonoBehaviour
     private Vector3 ScalePubMail = new Vector3(0.8f, 0.8f, 0.8f);
     private Vector3 ScaleContactMail = new Vector3(0.95f, 0.95f, 0.95f);
 
+    [SerializeField] private TextMeshProUGUI TextMailDisplay ;
+    [HideInInspector] public float HeightTextMail ;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -88,10 +91,15 @@ public class EmailDisplayerScript : MonoBehaviour
             {
                 EmailDisplay.localScale = ScalePubMail ;
                 BannerMailDisplay.gameObject.SetActive(true);
+                TextMailDisplay.fontSize = 30f ; // 50px = 1.2 ligne
             } else {
                 EmailDisplay.localScale = ScaleContactMail ;
                 BannerMailDisplay.gameObject.SetActive(false);
+                TextMailDisplay.fontSize = 20f ; // 50px = 2 ligne
             }
+            HeightTextMail = MailDisplay.HeightTextBloc ;
+            TextMailDisplay.text = MailDisplay.TextMail ;
+
         } else {
             this.gameObject.SetActive(false);
         }

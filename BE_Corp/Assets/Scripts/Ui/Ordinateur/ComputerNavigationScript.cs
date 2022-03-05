@@ -131,11 +131,23 @@ public class ComputerNavigationScript : MonoBehaviour
             WindoWMailContainer.DOSizeDelta(new Vector2(WindoWMailContainer.sizeDelta.x, 640f), 0.25f);
             WindowScroll.DOSizeDelta(new Vector2(512f, 980f), 0.25f);
             WindowMailDisplayer.DOSizeDelta(new Vector2(1024f, 980f), 0.25f);
-            WindowMailDisplayer.transform.GetChild(0).GetComponent<RectTransform>().DOSizeDelta(new Vector2(1024f, 980f), 0.25f);
+            WindowMailDisplayer.transform.GetChild(0).GetComponent<RectTransform>().DOSizeDelta(new Vector2(1024f, 980f), 0.25f); // Ajouter tout les y afin d'avoir la height total et d'afficher le scroll ou non
 
 
             InformationMail.transform.parent.GetComponent<RectTransform>().DOSizeDelta(new Vector3(512f, 640f), 0.25f) ;                
         }      
+        GetMailHeihgt();
+    }
+
+    void GetMailHeihgt()
+    {
+        float HeightHeadMail = 0 ;
+        float HeightBlocText = 0 ;
+
+        HeightHeadMail = WindowMailDisplayer.transform.GetChild(0).transform.GetChild(0).GetComponent<RectTransform>().sizeDelta.y ;
+        HeightBlocText = WindowMailDisplayer.transform.GetChild(0).GetComponent<EmailDisplayerScript>().HeightTextMail ;
+
+        Debug.Log(HeightHeadMail + HeightBlocText) ;
     }
 
     public void CloseMail()
