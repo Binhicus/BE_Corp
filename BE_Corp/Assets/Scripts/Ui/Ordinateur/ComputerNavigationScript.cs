@@ -7,9 +7,14 @@ using DG.Tweening ;
 
 public class ComputerNavigationScript : MonoBehaviour
 {
+    public string ComputerName ;
+    public Sprite Avatar ;
     public string Date ;
     public string Heure ;
     public ContainerMailScript InformationMail ;
+
+    public Image AvatarLunch ;
+    public TextMeshProUGUI NameComputerLunch ;
     public string MailAdress;
     public GameObject MailPastille ;
     public Transform MailStateBar ;
@@ -35,6 +40,9 @@ public class ComputerNavigationScript : MonoBehaviour
     void Start()
     {
         InformationMail.CurrentDate = Date ;
+
+        AvatarLunch.sprite = Avatar ;
+        NameComputerLunch.text = ComputerName ;
     }
 
     // Update is called once per frame
@@ -84,6 +92,10 @@ public class ComputerNavigationScript : MonoBehaviour
 
     public void OpenMail()
     {
+        //Affiche la scroll bar et le fond a l'ouverture de la fenêtre
+        if(WindowMailDisplayer.transform.GetChild(0).GetComponent<EmailDisplayerScript>().MailDisplay == null) MailDisplaying(false);
+        else MailDisplaying(true);
+
         if(!MailWindowIsOpen)
         {
             MailStateBar.gameObject.SetActive(true);
@@ -120,10 +132,9 @@ public class ComputerNavigationScript : MonoBehaviour
             WindoWMailContainer.DOSizeDelta(new Vector2(WindoWMailContainer.sizeDelta.x, 836f), 0.25f);
             WindowScroll.DOSizeDelta(new Vector2(512f, 980f), 0.25f);
             WindowMailDisplayer.DOSizeDelta(new Vector2(1408f, 980f), 0.25f);
-            WindowMailDisplayer.transform.GetChild(0).GetComponent<RectTransform>().DOSizeDelta(new Vector2(1408f, 980f), 0.25f);
 
-
-            InformationMail.transform.parent.GetComponent<RectTransform>().DOSizeDelta(new Vector3(512f, 836f), 0.25f) ;
+            InformationMail.transform.parent.GetComponent<RectTransform>().DOSizeDelta(new Vector3(512f, 836f), 0.05f) ;
+            SetMailHeihgt(836f); 
         } else {
             MailIsInFullscreen = false ;
             WindowMail.DOAnchorPos(new Vector3(45f, 50f, 0), 0.25f);
@@ -131,23 +142,55 @@ public class ComputerNavigationScript : MonoBehaviour
             WindoWMailContainer.DOSizeDelta(new Vector2(WindoWMailContainer.sizeDelta.x, 640f), 0.25f);
             WindowScroll.DOSizeDelta(new Vector2(512f, 980f), 0.25f);
             WindowMailDisplayer.DOSizeDelta(new Vector2(1024f, 980f), 0.25f);
-            WindowMailDisplayer.transform.GetChild(0).GetComponent<RectTransform>().DOSizeDelta(new Vector2(1024f, 980f), 0.25f); // Ajouter tout les y afin d'avoir la height total et d'afficher le scroll ou non
 
 
-            InformationMail.transform.parent.GetComponent<RectTransform>().DOSizeDelta(new Vector3(512f, 640f), 0.25f) ;                
+            InformationMail.transform.parent.GetComponent<RectTransform>().DOSizeDelta(new Vector3(512f, 640f), 0.05f) ;               
+            SetMailHeihgt(640f);             
         }      
-        GetMailHeihgt();
+
+        
+
     }
 
-    void GetMailHeihgt()
+    public void SetMailHeihgt(float FinalHeightAfterAnimation)
     {
+
         float HeightHeadMail = 0 ;
         float HeightBlocText = 0 ;
+        float MailHeightCalc = 0 ;
+        float TotalHeight = 0 ;
+        bool MailIsPub = false ;
 
         HeightHeadMail = WindowMailDisplayer.transform.GetChild(0).transform.GetChild(0).GetComponent<RectTransform>().sizeDelta.y ;
         HeightBlocText = WindowMailDisplayer.transform.GetChild(0).GetComponent<EmailDisplayerScript>().HeightTextMail ;
+        MailIsPub = WindowMailDisplayer.transform.GetChild(0).GetComponent<EmailDisplayerScript>().MailPub ;
 
-        Debug.Log(HeightHeadMail + HeightBlocText) ;
+        if(!MailIsPub) MailHeightCalc = HeightHeadMail + HeightBlocText ;
+        else MailHeightCalc = HeightHeadMail + HeightBlocText + 128f ;
+
+
+        if(MailHeightCalc < FinalHeightAfterAnimation) TotalHeight = FinalHeightAfterAnimation ;
+        else TotalHeight = MailHeightCalc ;
+
+        if(MailIsInFullscreen) WindowMailDisplayer.transform.GetChild(0).GetComponent<RectTransform>().DOSizeDelta(new Vector2(1408f, TotalHeight), 0.25f);
+        else WindowMailDisplayer.transform.GetChild(0).GetComponent<RectTransform>().DOSizeDelta(new Vector2(1024f, TotalHeight), 0.25f);
+    }
+
+    public void MailDisplaying(bool MailIsDisplay)
+    {
+        if(MailIsDisplay)
+        {
+            WindowMailDisplayer.GetComponent<Image>().enabled = true ;
+
+            WindowMailDisplayer.GetComponent<ScrollRect>().enabled = true ;
+            WindowMailDisplayer.transform.GetChild(1).gameObject.SetActive(true);
+        } else {
+            WindowMailDisplayer.GetComponent<Image>().enabled = false ;
+
+            WindowMailDisplayer.GetComponent<ScrollRect>().enabled = false ;
+            WindowMailDisplayer.transform.GetChild(1).gameObject.SetActive(false); 
+        }
+        
     }
 
     public void CloseMail()

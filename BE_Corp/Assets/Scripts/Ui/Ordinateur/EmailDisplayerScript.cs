@@ -8,7 +8,7 @@ using DG.Tweening;
 public class EmailDisplayerScript : MonoBehaviour
 {
     public Mail MailDisplay ;
-    private string MailBoxAdress ;
+    public string MailBoxAdress ;
     
     [Header ("Display Mail Information")]
     [SerializeField] private Image ColorMailBanner ;
@@ -31,17 +31,26 @@ public class EmailDisplayerScript : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI TextMailDisplay ;
     [HideInInspector] public float HeightTextMail ;
+    [HideInInspector] public bool MailPub ;
+    private float HeightMailCompleted ;
+    private bool DisplayScrollBar = false ;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        MailBoxAdress = GetComponentInParent<ComputerNavigationScript>().MailAdress ;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Affiche la scrollbar ou non en fonction des heights
+        if(HeightMailCompleted > GetComponent<RectTransform>().sizeDelta.y) DisplayScrollBar = true ;
+        else DisplayScrollBar = false ;            
 
+
+        if(!DisplayScrollBar) transform.parent.GetComponent<ScrollRect>().verticalScrollbarVisibility = ScrollRect.ScrollbarVisibility.AutoHide ;
+        else transform.parent.GetComponent<ScrollRect>().verticalScrollbarVisibility = ScrollRect.ScrollbarVisibility.Permanent ;
     }
 
     public void SetMailDisplay(Mail NewMailDisplay)
@@ -56,12 +65,17 @@ public class EmailDisplayerScript : MonoBehaviour
     }
 
     public void SetDisplayer()
-    {
+    {        
+        MailBoxAdress = GetComponentInParent<ComputerNavigationScript>().MailAdress ;
+        Destinataire.text = "A: " + MailBoxAdress ;        
+        
         if(MailDisplay != null)
         {
             this.gameObject.SetActive(true);
+            GetComponentInParent<ComputerNavigationScript>().MailDisplaying(true);
             ColorMailBanner.color = MailDisplay.Account.AccountColor ;
             MailObject.text = MailDisplay.Objet ;
+
 
             // Affichage d'un logo ou des initiale 
             if(MailDisplay.Account.LogoContact != null)
@@ -82,17 +96,19 @@ public class EmailDisplayerScript : MonoBehaviour
             // Affichage Date et Heure : xx/xx/xxxx xx:xx
             DateReception.text = MailDisplay.Date + " " + MailDisplay.Heure ;
 
-            Destinataire.text = "A: " + MailBoxAdress ;
+
 
 
 
 
             if(MailDisplay.BannerMail != null) 
             {
+                MailPub = true ;
                 EmailDisplay.localScale = ScalePubMail ;
                 BannerMailDisplay.gameObject.SetActive(true);
                 TextMailDisplay.fontSize = 30f ; // 50px = 1.2 ligne
             } else {
+                MailPub = false ;
                 EmailDisplay.localScale = ScaleContactMail ;
                 BannerMailDisplay.gameObject.SetActive(false);
                 TextMailDisplay.fontSize = 20f ; // 50px = 2 ligne
@@ -100,8 +116,12 @@ public class EmailDisplayerScript : MonoBehaviour
             HeightTextMail = MailDisplay.HeightTextBloc ;
             TextMailDisplay.text = MailDisplay.TextMail ;
 
-        } else {
+            GetComponentInParent<ComputerNavigationScript>().SetMailHeihgt(transform.parent.GetComponent<RectTransform>().sizeDelta.y);
+
+        } else {   
+            GetComponentInParent<ComputerNavigationScript>().MailDisplaying(false);
             this.gameObject.SetActive(false);
+           
         }
     }
 
