@@ -193,10 +193,16 @@ public class ComputerNavigationScript : MonoBehaviour
         
     }
 
-    public void CloseMail()
+    public void CloseMail(bool EraseMailDisplay)
     {
         WindowMail.GetComponent<CanvasGroup>().DOFade(0f, .25f) ;
         WindowMail.DOScale(Vector3.zero, .25f).OnComplete(() => CloseMailWindow());
+
+        if(EraseMailDisplay) 
+        {
+            WindowMailDisplayer.transform.GetChild(0).GetComponent<EmailDisplayerScript>().MailDisplay = null ;
+            WindowMailDisplayer.transform.GetChild(0).GetComponent<EmailDisplayerScript>().SetDisplayer() ;
+        }
     }
 
     void CloseMailWindow()

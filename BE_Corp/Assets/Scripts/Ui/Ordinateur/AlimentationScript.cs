@@ -8,31 +8,46 @@ using DG.Tweening;
 public class AlimentationScript : MonoBehaviour
 {
     [SerializeField] private ComputerNavigationScript ComputerInformation ; 
+    [SerializeField] private Image ThisImageComponnent ;
+    [SerializeField] private CanvasGroup ThisCanvasGroup ;
+
     [SerializeField] private GameObject LogoWindows ;
     [SerializeField] private GameObject FondVeille ;    
+    private Material BlurMaterial ;  
+    private float BlurValue = 0;  
+
+    [SerializeField] private RectTransform ContainerVeilleInformation ;    
+
     [SerializeField] private TextMeshProUGUI HeureEcranVeille ;
     [SerializeField] private TextMeshProUGUI DateEcranVeille ;
+    private bool EcranVeilleDisplay = false ;
+    [SerializeField] private GameObject LogComponnent ;
     [SerializeField] private GameObject UserAvatar ;
     [SerializeField] private TextMeshProUGUI NameComputer ;
     [SerializeField] private GameObject InputLogIn ;
     [SerializeField] private GameObject IndiceObj ;
     [SerializeField] private GameObject WelcomeObj ;
+    public RectTransform ShutdownPanel ;
 
     [SerializeField] private List<string> PassWordRequest ;
     [SerializeField] private string PassWordHelp = "Il dort tout le temps" ;
 
+    public Color BackgroundShutDown ;
     public Color BackgroundOff ;
     public Color BackgroundColor ;
     // Start is called before the first frame update
     void Start()
     {
+        ThisImageComponnent = GetComponent<Image>();
+        ThisCanvasGroup = GetComponent<CanvasGroup>();
         UserAvatar.GetComponent<Image>().sprite = ComputerInformation.Avatar ;
         NameComputer.text = ComputerInformation.ComputerName ;
 
+        BlurMaterial = FondVeille.GetComponent<Image>().material ;
         HeureEcranVeille.text = ComputerInformation.Heure ;
         DateEcranVeille.text = GetDayOfTheDate(ComputerInformation.Date) + ", " + GetPartOfTheDate(ComputerInformation.Date, 0) + " " + GetPartOfTheDate(ComputerInformation.Date, 1);
 
-        StartCoroutine(ComputerLunch());
+        LunchComputer();
     }
 
     string GetDayOfTheDate(string Date)
@@ -120,16 +135,20 @@ public class AlimentationScript : MonoBehaviour
     }
 
 
+    public void LunchComputer()
+    {
+        StartCoroutine(ComputerLunch());        
+    }
+
     IEnumerator ComputerLunch()
     {
-        StartComputer();
+        ResetComputerAlimentation();
         yield return new WaitForSeconds(1f);
+        ThisImageComponnent.color = BackgroundOff ;    
         LogoWindows.SetActive(true) ;
         // Loader
 
-        yield return new WaitForSeconds(5f);
-        // Ecran de veille
-        GetComponent<Image>().color = BackgroundColor ;
+        yield return new WaitForSeconds(Random.Range(3f, 6f));
         StartCoroutine(FadeInFondVeille());
 
     }
@@ -137,20 +156,59 @@ public class AlimentationScript : MonoBehaviour
 
     IEnumerator FadeInFondVeille()
     {
+        ThisImageComponnent.color = BackgroundColor ;        
+        LogoWindows.SetActive(false);  
+             
+        ContainerVeilleInformation.DOAnchorPosY(0f, 0f);
         FondVeille.GetComponent<Image>().DOFade(0, 0f);
+
+        BlurValue = 0 ;         
         FondVeille.SetActive(true);
+      
         yield return new WaitForSeconds(0.1f);
         FondVeille.GetComponent<Image>().DOFade(1, 1f);
+        EcranVeilleDisplay = true ;
         ShowLogin();
     }
 
-    void ShowLogin()
+    private void Update() {
+        if(EcranVeilleDisplay && Input.anyKeyDown)
+        {
+            EcranVeilleDisplay = false ;
+            StartCoroutine(ShowLogin()) ;
+        }
+        BlurMaterial.SetFloat("_BlurValue", BlurValue);
+    }
+
+
+    IEnumerator ShowLogin()
     {
-        LogoWindows.SetActive(false);
-        UserAvatar.SetActive(true);
         
-        NameComputer.gameObject.SetActive(true);
+        ContainerVeilleInformation.DOAnchorPosY(1080f, 0.25f);
+        yield return new WaitForSeconds(0.25f);
+        DOTween.To(x => BlurValue = x, 0f, 0.006f, 0.5f);
+
+
+        LogComponnent.GetComponent<CanvasGroup>().alpha = 0;
+        LogComponnent.SetActive(true);
+
+
+        LogComponnent.GetComponent<CanvasGroup>().DOFade(1, 0.5f);
         InputLogIn.SetActive(true);        
+    }
+
+    public void OpenShutdownPanel()
+    {
+        if(!ShutdownPanel.gameObject.activeSelf)
+        {
+            ShutdownPanel.gameObject.SetActive(true) ;
+            ShutdownPanel.GetComponent<CanvasGroup>().DOFade(1f, 0.25f);
+            ShutdownPanel.DOAnchorPosY(135f, 0.25f);
+        } else {
+            ShutdownPanel.gameObject.SetActive(false) ;
+            ShutdownPanel.GetComponent<CanvasGroup>().alpha = 0 ;
+            ShutdownPanel.DOAnchorPosY(0f, 0f);
+        }
     }
 
     public void VerifPassword(string InputReturn)
@@ -163,7 +221,6 @@ public class AlimentationScript : MonoBehaviour
             InputLogIn.GetComponent<InputField>().text = null ;
             IndiceObj.SetActive(true) ;
         }
-
     }
 
     IEnumerator UnlockComputer()
@@ -174,50 +231,97 @@ public class AlimentationScript : MonoBehaviour
         WelcomeObj.SetActive(true);
 
         yield return new WaitForSeconds(3f);
-        GetComponent<CanvasGroup>().DOFade(0, 0.5f);
+        ThisCanvasGroup.DOFade(0, 0.5f);
         yield return new WaitForSeconds(0.5f);
-        GetComponent<Image>().enabled = false ;
+        ThisImageComponnent.enabled = false ;
 
+        FondVeille.SetActive(false);
         LogoWindows.SetActive(false);
-        UserAvatar.SetActive(false);
-        NameComputer.gameObject.SetActive(false);
+        LogComponnent.SetActive(false);
         IndiceObj.SetActive(false);
         InputLogIn.SetActive(false);
         WelcomeObj.SetActive(false);
-
-        GetComponent<CanvasGroup>().alpha = 1 ;
     }
 
 
-    void StartComputer()
+    void ResetComputerAlimentation()
     {
-        GetComponent<Image>().enabled = true ;
-        GetComponent<Image>().color = BackgroundOff ;
+        ThisImageComponnent.enabled = true ;
+        ThisImageComponnent.color = BackgroundShutDown ;
+
         LogoWindows.SetActive(false);
         FondVeille.SetActive(false);
-        UserAvatar.SetActive(false);
-        NameComputer.gameObject.SetActive(false);
         IndiceObj.SetActive(false);
-        InputLogIn.SetActive(false);
+        LogComponnent.SetActive(false);        
+        InputLogIn.SetActive(true);
         WelcomeObj.SetActive(false);
     }
+
+
+    public void MiseEnVeilleComputer()
+    {
+        ThisImageComponnent.enabled = true ;
+        if(!LogComponnent.activeSelf) ThisCanvasGroup.alpha = 0 ;
+        ThisCanvasGroup.DOFade(1, 0.25f);
+        StartCoroutine(ComputerMiseEnVeille());
+    }
+
+    IEnumerator ComputerMiseEnVeille()
+    {
+        ResetComputerAlimentation();
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(FadeInFondVeille());
+    }
+
+
+
+    public void CloseComputer()
+    {
+
+        ThisImageComponnent.enabled = true ;
+
+        if(!LogComponnent.activeSelf)
+        {
+            ComputerInformation.CloseMail(true);
+            ComputerInformation.OpenLunchWindow();            
+            ThisCanvasGroup.alpha = 0 ; 
+        } 
+
+        StartCoroutine(ComputerShutDown());
+    }
+
+    IEnumerator ComputerShutDown()
+    {
+        ResetComputerAlimentation();
+        yield return new WaitForSeconds(0.5f);
+        ThisCanvasGroup.DOFade(1f, 0.25f);
+
+        Debug.Log("Zoom Out");
+    }
+
+
+
+
 
     public void RestartComputer()
     {
-        ComputerInformation.CloseMail();
-        ComputerInformation.OpenLunchWindow();
+        ThisImageComponnent.enabled = true ;  
 
-        GetComponent<Image>().enabled = true ;
-        GetComponent<CanvasGroup>().alpha = 0 ;
+        if(!LogComponnent.activeSelf)
+        {
+            ComputerInformation.CloseMail(true);
+            ComputerInformation.OpenLunchWindow();            
+            ThisCanvasGroup.alpha = 0 ; 
+        } 
 
-        StartCoroutine(ComputerShutdown());
+        StartCoroutine(ComputerRestart());
     }
 
-    IEnumerator ComputerShutdown()
+    IEnumerator ComputerRestart()
     {
-        StartComputer();
+        ResetComputerAlimentation();
         yield return new WaitForSeconds(0.5f);
-        GetComponent<CanvasGroup>().DOFade(1, 0.25f);
+        ThisCanvasGroup.DOFade(1, 0.25f);
 
         // Loader
 
