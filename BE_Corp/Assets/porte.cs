@@ -6,10 +6,15 @@ public class porte : MonoBehaviour
 {
     public ScreenShake cameraShake;
     public GameObject Panel;
+    
+    
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        Panel = GameObject.Find("Panel").gameObject;     
+      
+        Panel.SetActive(false);
        
 
     }
@@ -22,12 +27,15 @@ public class porte : MonoBehaviour
     void OnMouseOver()
     {
        
-        StartCoroutine(cameraShake.Shaking());
-        GameObject.Find("Panel").SetActive(true);
+     StartCoroutine(cameraShake.Shaking());
+     Panel.SetActive(true);
 
     }
     void OnMouseExit()
     {
-        GameObject.Find("Panel").SetActive(false);
+
+        
+        Panel.SetActive(false);
+
     }
 }
