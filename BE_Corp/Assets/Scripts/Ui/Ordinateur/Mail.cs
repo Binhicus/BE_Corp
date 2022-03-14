@@ -17,4 +17,10 @@ public class Mail : ScriptableObject
 
     public bool MailLu ;
 
+
+    [Header ("Mail Display")]
+    public Sprite BannerMail ;
+
+    [TextArea(5,10)] public string TextMail ;
+    public float HeightTextBloc ;
 }
