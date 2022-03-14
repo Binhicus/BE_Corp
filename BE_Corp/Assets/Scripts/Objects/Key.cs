@@ -2,27 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IKey : MonoBehaviour, IClicked, IItemInventaire 
+public class Key : MonoBehaviour, IClicked, IItemInventaire 
 {
     public string nomDeLaClef;
     private GameObject key;
 
-    public string Name
-    {
-        get
-        {
-            return "Clef";
-        }
-    }
+    public string Name => "Clef";
     public Sprite _Image;
+    public Sprite Image => _Image;
 
-    public Sprite Image
-    {
-        get
-        {
-            return _Image;
-        }
-    }
+    public int matricule = 1;
+    public int itemID => matricule;
 
     private void OnEnable()
     {
@@ -41,6 +31,7 @@ public class IKey : MonoBehaviour, IClicked, IItemInventaire
 
     public void OnDrop()
     {
+        Debug.Log(this);
         RaycastHit hit = new RaycastHit();
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if(Physics.Raycast(ray, out hit, 1000))

@@ -8,6 +8,7 @@ public interface IItemInventaire
     string Name { get; }
     Sprite Image { get; }
 
+
     void OnPickUp();
 
     void OnDrop();

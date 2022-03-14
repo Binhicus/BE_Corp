@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventaire : MonoBehaviour
+public class Inventaire : Singleton<Inventaire>
 {
     private const int SLOTS = 9;
     
@@ -12,6 +12,12 @@ public class Inventaire : MonoBehaviour
     public event EventHandler<InventoryEventArgs> ItemAdded;
 
     public event EventHandler<InventoryEventArgs> ItemRemoved;
+
+    protected override void Awake()
+    {
+        base.Awake();
+    }
+
 
     public void AddItem(IItemInventaire item)
     {
@@ -22,6 +28,8 @@ public class Inventaire : MonoBehaviour
             {
                 collider.enabled = false;
                 mItems.Add(item);
+                Debug.Log("Added, Count " + mItems.Count);
+
                 item.OnPickUp();
 
                 if(ItemAdded != null)
@@ -34,8 +42,10 @@ public class Inventaire : MonoBehaviour
 
     public void RemoveItem(IItemInventaire item)
     {
+        Debug.Log("on remove Count " + mItems.Count);
         if (mItems.Contains(item))
         {
+            Debug.Log(item);
             mItems.Remove(item);
 
             item.OnDrop();

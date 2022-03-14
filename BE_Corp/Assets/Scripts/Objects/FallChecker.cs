@@ -26,7 +26,7 @@ public class FallChecker : MonoBehaviour
 
     private void OnEnable()
     {
-        key = GameObject.Find("Clé");
+        key = GameObject.Find("I_Clef");
         key.SetActive(false);
     }
 }

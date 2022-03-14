@@ -17,9 +17,10 @@ public class DynamicLoad : MonoBehaviour, IClicked
     public string roomACharger, roomActuelle;
 
     public GameObject CamACharger, CamActuelle;
+    public GameObject[] chargeur;
 
     //Scene state
-    public bool isLoaded; //eviter de charger 2x
+    public bool isLoaded = true; //eviter de charger 2x
     public bool shouldLoad; //pour la méthode en trigger
 
 
@@ -110,10 +111,23 @@ public class DynamicLoad : MonoBehaviour, IClicked
     }
 
     public void OnClickAction()
-    {
-        CamACharger.SetActive(true);
+    {        
         CamActuelle.SetActive(false);
-        UnloadScene();
+        CamACharger.SetActive(true);
+        LockRoom();
         LoadScene();
+        UnloadScene();                       
+    }
+
+    public void LockRoom()
+    {
+        if(chargeur != null)
+        {
+            this.gameObject.GetComponent<BoxCollider>().enabled = false;
+            for (int i = 0; i < chargeur.Length; i++)
+            {
+                chargeur[i].GetComponent<BoxCollider>().enabled = true;
+            }
+        }
     }
 }

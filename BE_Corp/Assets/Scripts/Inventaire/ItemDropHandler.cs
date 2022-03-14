@@ -5,32 +5,18 @@ using UnityEngine.EventSystems;
 
 public class ItemDropHandler : MonoBehaviour, IDropHandler
 {
-    public Inventaire inventaire;
     public void OnDrop(PointerEventData eventData)
     {
         RectTransform invPanel = transform as RectTransform;
 
         if(!RectTransformUtility.RectangleContainsScreenPoint(invPanel, Input.mousePosition))
         {
-            IItemInventaire item = eventData.pointerDrag.gameObject.GetComponent<ItemDragHandler>().Item;
+            UIInventoryItem item = eventData.pointerDrag.gameObject.GetComponent<UIInventoryItem>();
             if (item != null)
             {
-                inventaire.RemoveItem(item);
-                item.OnDrop();
+                item.OnEndDrag(eventData);
             }
 
         }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
