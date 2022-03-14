@@ -1,20 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SwitchingLevels : MonoBehaviour
 {
 
     // Storing different levels'
     public GameObject[] levels;
+
     // Counting current level
     int current_level = 0;
+
+    public UnityEvent OnSwitch;
 
     public void Upgrade()
     {
         // Check if we're safe to upgrade (We haven't reached the last level)
         if (current_level < levels.Length - 1)
         {
+            OnSwitch.Invoke();
             // Increase current level
             current_level++;
             // Switch to the updated level
@@ -33,6 +38,7 @@ public class SwitchingLevels : MonoBehaviour
             else
                 //Otherwise, hdie it
                 levels[i].SetActive(false);
+            
         }
     }
 }
