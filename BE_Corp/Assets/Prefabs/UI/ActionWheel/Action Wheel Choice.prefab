@@ -146,6 +146,7 @@ MonoBehaviour:
   colorCircle: {fileID: 6102783755479871566}
   textObject: {fileID: 6102783755132406938}
   iconObject: {fileID: 6102783755006474581}
+  StateMouseOver: 0
 --- !u!1 &6102783755006474579
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,7 +230,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6102783755006474579}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -410,6 +411,7 @@ GameObject:
   - component: {fileID: 6102783755479871565}
   - component: {fileID: 6102783755479871567}
   - component: {fileID: 6102783755479871566}
+  - component: {fileID: 9125197792762699953}
   m_Layer: 5
   m_Name: Color Circle
   m_TagString: Untagged
@@ -458,7 +460,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0.6462264, b: 0.6462264, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -474,3 +476,16 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &9125197792762699953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6102783755479871564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc501f4085163cc49ad534e08e16c614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActionWheelChoiceParentScript: {fileID: -7281310497122656755}
