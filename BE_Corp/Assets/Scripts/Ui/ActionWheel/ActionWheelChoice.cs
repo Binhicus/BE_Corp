@@ -23,14 +23,35 @@ public class ActionWheelChoice : MonoBehaviour
 
     void Update()
     {
-        if(StateMouseOver != ActionOveringState.NotOvering)
+     /*   if(StateMouseOver != ActionOveringState.NotOvering)
         {
             StateOvering();
-        }
+        }*/
     }
 
-    public void StateOvering()
+    public void StateOvering(bool State)
     {
-        Debug.Log("Over : " + textObject.text + "   /   " + StateMouseOver); 
+        if(State == false) 
+        {
+            StateMouseOver = ActionOveringState.NotOvering ;
+
+        //    iconObject.GetComponent<RectTransform>().localScale = Vector3.one;
+            colorCircle.GetComponent<Image>().raycastTarget = false ;
+        }
+
+        if(State == true)
+        {
+            StateMouseOver = ActionOveringState.Overing ;
+
+          //  iconObject.GetComponent<RectTransform>().localScale = new Vector3(1.25f, 1.25f, 1.25f);
+            colorCircle.GetComponent<Image>().raycastTarget = true ;
+        } 
+
+         
+    }
+
+    public void ClickButton()
+    {
+        Debug.Log("Hey : " + textObject.text );
     }
 }

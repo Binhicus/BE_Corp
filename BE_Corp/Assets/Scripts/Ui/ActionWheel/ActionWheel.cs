@@ -27,7 +27,7 @@ public class ActionWheel : MonoBehaviour
     public void SetWheel()
     {SetActionWheel();}
 
-    public async void SetActionWheel()
+    public void SetActionWheel()
     {
         for (int i = 0; i < transform.childCount; i++)
         {
@@ -47,24 +47,19 @@ public class ActionWheel : MonoBehaviour
             if(i == 0) 
             {
                 angle = 360f - (45f * (ChoicesDisplay.Count - 1)) ;
-                //angle = 135f ; 
+
                 choiceObject.mainCircle.fillAmount = angle / 360f;         
-          
-                //rotation.z = angle * i - (angle / ChoicesDisplay.Count); 
+
                 rotation.z = 90f - (22.5f * (ChoicesDisplay.Count - 1)); 
                 radianAngle = -1.5f;    
-
-                //Debug.Log(angle + " = " + "180f - " + (180f / (ChoicesDisplay.Count - 1) / 2));
             } else {
-                angle = 45f ; //(180f + (/*360f*/180f / (ChoicesDisplay.Count - 1) / 2)) / (ChoicesDisplay.Count - 1) ;
+                angle = 45f ; 
                 choiceObject.mainCircle.fillAmount = angle / 360f ;  
 
-                //float Angle0 = 360f - (45f * (ChoicesDisplay.Count - 1)) ;
                 float Angle0 = 90f - (22.5f * (ChoicesDisplay.Count - 1));
 
-
                 rotation.z = angle * i + Angle0 ; 
-                //radianAngle = angle * i * Mathf.Deg2Rad - (angle * Mathf.Deg2Rad * 1f);                     
+                  
                 radianAngle = rotation.z * Mathf.Deg2Rad - (angle * Mathf.Deg2Rad * 0.5f);                     
             }
             
@@ -78,14 +73,12 @@ public class ActionWheel : MonoBehaviour
         //    choiceObject.mainButton.onClick.AddListener(() => Debug.Log("Hey"));
             choiceObject.textObject.transform.rotation = Quaternion.identity;
             choiceObject.iconObject.transform.rotation = Quaternion.identity;
-
-            //float radianAngle = angle * i * Mathf.Deg2Rad - (angle * 2 * Mathf.Deg2Rad * 0.5f);
-                Debug.Log("2; " + angle + " " + radianAngle);            
+      
             SetAngledPosition(choiceObject.textObject.transform, transform.position, radianAngle, 150f);
             SetAngledPosition(choiceObject.iconObject.transform, transform.position, radianAngle, 90f);
-
         }
     }
+    
 
     void SetAngledPosition(Transform obj, Vector3 center, float angle, float radius)
     {
@@ -93,5 +86,42 @@ public class ActionWheel : MonoBehaviour
         position.x = center.x + Mathf.Cos(angle) * radius;
         position.y = center.y + Mathf.Sin(angle) * radius;
         obj.position = position;
+    }
+
+
+
+    private void Update() 
+    {
+        for (int CAW = 0; CAW < transform.childCount; CAW++)
+        {
+            transform.GetChild(CAW).GetComponent<ActionWheelChoice>().StateOvering(false);
+        }
+
+        if(GetAngleMouseOvered() == 0 || (GetAngleMouseOvered() >= transform.childCount && GetAngleMouseOvered() <= 7))
+        {
+            transform.GetChild(0).GetComponent<ActionWheelChoice>().StateOvering(true);
+        } else {
+            transform.GetChild(GetAngleMouseOvered()).GetComponent<ActionWheelChoice>().StateOvering(true);            
+        }   
+    }
+
+
+
+    private Vector2 NormalizedMousePosition ;
+    private float CurrentAngle ;
+    private int Selection ;
+
+    int GetAngleMouseOvered()
+    {
+        NormalizedMousePosition = new Vector2(Input.mousePosition.x - Screen.width/2, Input.mousePosition.y - Screen.height/2);
+        CurrentAngle = Mathf.Atan2(NormalizedMousePosition.y, NormalizedMousePosition.x)*Mathf.Rad2Deg ;
+
+        //CurrentAngle = (CurrentAngle + 360 + (22.5f * (ChoicesDisplay.Count - 1)) -45f )%360 ;
+        CurrentAngle = (CurrentAngle + 360)%360 ;
+
+        Selection = (int) CurrentAngle / 45 ;
+
+        Debug.Log(Selection + " " + CurrentAngle);
+        return Selection ;
     }
 }
