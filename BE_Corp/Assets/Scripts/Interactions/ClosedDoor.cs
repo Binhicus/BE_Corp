@@ -6,22 +6,13 @@ public class ClosedDoor : MonoBehaviour, IHasItemInteraction
 {
     public string nomItem;
     public string inventoryItemID => nomItem;
+    public AudioSource unlocked;
 
 
     public void DoItemInteraction()
     {
         Debug.Log("C'est ouvert merci beaucoup pour la participation");
-    }
+       // unlocked.Play();
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

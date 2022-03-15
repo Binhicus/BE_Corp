@@ -21,12 +21,15 @@ public class HUD : MonoBehaviour
             Transform imageTransform = slot.GetChild(0).GetChild(0);
             Image image = imageTransform.GetComponent<Image>();
             UIInventoryItem itemDragHandler = imageTransform.GetComponent<UIInventoryItem>();
+             
+
 
             //On a trouvé le slot vide
             if (!image.enabled)
             {
                 image.enabled = true;
                 image.sprite = e.Item.Image;
+                imageTransform.GetComponent<UIInventoryItem>().objectID = e.Item.Name; 
 
                 break;
             }
@@ -35,7 +38,7 @@ public class HUD : MonoBehaviour
 
     void Inventory_ItemRemoved(object sender, InventoryEventArgs e)
     {
-        /*Transform inventoryPanel = transform.Find("Inventaire");
+       /* Transform inventoryPanel = transform.Find("Inventaire");
         foreach (Transform slot in inventoryPanel)
         {
             //Border ... Image
@@ -55,10 +58,5 @@ public class HUD : MonoBehaviour
                 break;
             }
         }*/
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

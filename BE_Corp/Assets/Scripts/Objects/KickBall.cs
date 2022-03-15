@@ -10,10 +10,11 @@ public class KickBall : MonoBehaviour
     public Collider ball;
     public VaseSwitch vaseSwitch;
     public SplCameraShake shaker;
+    bool hitting = false;
     // Start is called before the first frame update
     void Awake()
     {
-        ball = gameObject.GetComponentInChildren<Collider>();
+        ball = gameObject.GetComponent<SphereCollider>();
         shaker = GameObject.Find("CameraShaker").GetComponent<SplCameraShake>();
         rb = GetComponent<Rigidbody>();
         vaseSwitch = GameObject.Find("Switch").GetComponent<VaseSwitch>();
@@ -27,21 +28,30 @@ public class KickBall : MonoBehaviour
 
     public void Kicked()
     {
-        rb.AddForce(0, hauteur, allant, ForceMode.Impulse);
+        rb.AddForce(allant, hauteur, 0, ForceMode.Impulse);
+       // rb.AddForce(Vector3.right);
     }
 
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "MurTrigger")
         {
-            shaker.Shaker();
-            vaseSwitch.KicksCount();
-
+            hitting = true;
+            Consequence();
         }
     }
 
-    public void Consequence()
+    private void OnTriggerExit(Collider other)
     {
-
+        if (other.tag == "MurTrigger")
+        {
+            hitting = false;
+        }
+    }*/
+    public void Consequence()
+    {      
+       shaker.Shaker();
+       vaseSwitch.KicksCount();
+       Debug.Log("ouille ouille je suis le mur trigger et j'ai mal" + gameObject);
     }
 }

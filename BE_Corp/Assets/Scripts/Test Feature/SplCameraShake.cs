@@ -20,7 +20,7 @@ public class SplCameraShake : MonoBehaviour
     public bool triggered = false; 
 
     // Start is called before the first frame update
-    void OnEnable()
+    void Awake()
     {
         vCam = GameObject.Find(nomDeLaCam).GetComponent<CinemachineVirtualCamera>();
         if (vCam != null)

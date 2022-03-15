@@ -11,8 +11,8 @@ public class Key : MonoBehaviour, IClicked, IItemInventaire
     public Sprite _Image;
     public Sprite Image => _Image;
 
-    public int matricule = 1;
-    public int itemID => matricule;
+    //public string matricule;
+    //public string itemID => matricule;
 
     private void OnEnable()
     {
