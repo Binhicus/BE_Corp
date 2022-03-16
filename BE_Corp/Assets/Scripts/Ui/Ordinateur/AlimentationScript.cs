@@ -16,6 +16,9 @@ public class AlimentationScript : MonoBehaviour
     private Material BlurMaterial ;  
     private float BlurValue = 0;  
 
+    [SerializeField] private GameObject LoaderContainer ;
+    [SerializeField] private List<RectTransform> LoadList = new List<RectTransform>();
+
     [SerializeField] private RectTransform ContainerVeilleInformation ;    
 
     [SerializeField] private TextMeshProUGUI HeureEcranVeille ;
@@ -146,11 +149,39 @@ public class AlimentationScript : MonoBehaviour
         yield return new WaitForSeconds(1f);
         ThisImageComponnent.color = BackgroundOff ;    
         LogoWindows.SetActive(true) ;
+        PlayLoad(true);
         // Loader
 
         yield return new WaitForSeconds(Random.Range(3f, 6f));
         StartCoroutine(FadeInFondVeille());
+    }
 
+    void PlayLoad(bool Play) {
+        {
+            if(!Play)
+            {
+                LoaderContainer.SetActive(false) ;
+                StopCoroutine(LoadAnimation());
+                for (int Ll = 0; Ll < LoadList.Count; Ll++)
+                {
+                    LoadList[Ll].DOLocalRotate(Vector3.zero, 0f) ;
+                }
+            } else {
+                LoaderContainer.SetActive(true) ;
+                StartCoroutine(LoadAnimation());
+            }
+        }
+    }
+    IEnumerator LoadAnimation()
+    {
+        for (int Ll = 0; Ll < LoadList.Count; Ll++)
+        {
+            LoadList[Ll].DORotate(new Vector3(0,0, LoadList[Ll].rotation.z + 180f), 1.5f) ;
+            yield return new WaitForSeconds(0.2f);
+        }
+
+        yield return new WaitForSeconds(2f);
+        StartCoroutine(LoadAnimation());
     }
 
 
@@ -158,6 +189,7 @@ public class AlimentationScript : MonoBehaviour
     {
         ThisImageComponnent.color = BackgroundColor ;        
         LogoWindows.SetActive(false);  
+        PlayLoad(false);
              
         ContainerVeilleInformation.DOAnchorPosY(0f, 0f);
         FondVeille.GetComponent<Image>().DOFade(0, 0f);

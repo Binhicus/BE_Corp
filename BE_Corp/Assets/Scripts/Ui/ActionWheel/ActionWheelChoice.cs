@@ -13,11 +13,8 @@ public enum ActionOveringState
 }
 public class ActionWheelChoice : MonoBehaviour
 {
-    public Image mainCircle;
-    public Button mainButton;
-    public Image colorCircle;
-    public TextMeshProUGUI textObject;
-    public Image iconObject;
+    public Image MainCircle;
+    public Image IconObject;
 
     [HideInInspector] public ActionOveringState StateMouseOver = ActionOveringState.NotOvering ;
 
@@ -35,23 +32,23 @@ public class ActionWheelChoice : MonoBehaviour
         {
             StateMouseOver = ActionOveringState.NotOvering ;
 
-        //    iconObject.GetComponent<RectTransform>().localScale = Vector3.one;
-            colorCircle.GetComponent<Image>().raycastTarget = false ;
+            IconObject.GetComponent<RectTransform>().localScale = new Vector3(1.5f, 1.5f, 1.5f);
+            MainCircle.GetComponent<Image>().raycastTarget = false ;
         }
 
         if(State == true)
         {
             StateMouseOver = ActionOveringState.Overing ;
 
-          //  iconObject.GetComponent<RectTransform>().localScale = new Vector3(1.25f, 1.25f, 1.25f);
-            colorCircle.GetComponent<Image>().raycastTarget = true ;
+            IconObject.GetComponent<RectTransform>().localScale = new Vector3(2f, 2f, 2f);
+            MainCircle.GetComponent<Image>().raycastTarget = true ;
         } 
-
-         
     }
 
-    public void ClickButton()
+
+    public void ClickAction()
     {
-        Debug.Log("Hey : " + textObject.text );
+        Debug.Log(GetComponentInParent<ActionWheel>().TitleCurrentActionChoice.text);
     }
+
 }
