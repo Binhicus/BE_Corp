@@ -29,25 +29,8 @@ public class KickBall : MonoBehaviour
     public void Kicked()
     {
         rb.AddForce(allant, hauteur, 0, ForceMode.Impulse);
-       // rb.AddForce(Vector3.right);
     }
 
-    /*private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "MurTrigger")
-        {
-            hitting = true;
-            Consequence();
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "MurTrigger")
-        {
-            hitting = false;
-        }
-    }*/
     public void Consequence()
     {      
        shaker.Shaker();

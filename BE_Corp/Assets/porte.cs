@@ -15,8 +15,6 @@ public class porte : MonoBehaviour
         Panel = GameObject.Find("Panel").gameObject;     
       
         Panel.SetActive(false);
-       
-
     }
 
     // Update is called once per frame

@@ -25,6 +25,7 @@ public class ScreenShake : MonoBehaviour
 
         while (elapsedTime < duration)
         {
+            Debug.Log("je shake" + gameObject.name);
             elapsedTime += Time.deltaTime;
             float strength = curve.Evaluate(elapsedTime / duration);
             transform.position = startPosition + Random.insideUnitSphere * strength;

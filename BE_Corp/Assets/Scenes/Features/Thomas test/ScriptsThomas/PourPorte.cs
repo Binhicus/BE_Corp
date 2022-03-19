@@ -48,7 +48,7 @@ public class PourPorte : MonoBehaviour
     IEnumerator coroutineA()
     {
         TextePo.SetActive(true);
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(6.0f);
         TextePo.SetActive(false);
         Peut=false;
        

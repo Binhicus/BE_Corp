@@ -13,10 +13,14 @@ public class Epouvan : MonoBehaviour
     public AudioSource Son;
 
     public PourPorte pourPorte;
+
+    private ScreenShake camShake;
+    private porte porte;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        camShake = GameObject.Find("Camera").GetComponent<ScreenShake>();
+        porte = GameObject.Find("door").GetComponent<porte>();
     }
 
     // Update is called once per frame
@@ -43,11 +47,13 @@ public class Epouvan : MonoBehaviour
         if(Une==false)
         {
             ButtonChange.SetActive(false);
-        Son.Play();
-        Epouvantail.GetComponent<Animator>().SetTrigger("Go");
-        PorteManteau.GetComponent<Animator>().SetTrigger("Go");
-        Une=true;
-        pourPorte.PeutOuvrir=true;
+            Son.Play();
+            Epouvantail.GetComponent<Animator>().SetTrigger("Go");
+            PorteManteau.GetComponent<Animator>().SetTrigger("Go");
+            Destroy(camShake);
+            Destroy(porte);
+            Une=true;
+            pourPorte.PeutOuvrir=true;
         }
         
     }
