@@ -19,8 +19,9 @@ public class Epouvan : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        camShake = GameObject.Find("Camera").GetComponent<ScreenShake>();
+        //camShake = GameObject.Find("Camera").GetComponent<ScreenShake>();
         porte = GameObject.Find("door").GetComponent<porte>();
+        this.enabled = true;
     }
 
     // Update is called once per frame
@@ -50,7 +51,7 @@ public class Epouvan : MonoBehaviour
             Son.Play();
             Epouvantail.GetComponent<Animator>().SetTrigger("Go");
             PorteManteau.GetComponent<Animator>().SetTrigger("Go");
-            Destroy(camShake);
+            //Destroy(camShake);
             Destroy(porte);
             Une=true;
             pourPorte.PeutOuvrir=true;

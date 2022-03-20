@@ -26,7 +26,8 @@ public class Key : MonoBehaviour, IClicked, IItemInventaire
     //les 2 fonctions suivantes sont à reprendre pour chaque objet nécessitant d'être dans l'inventaire
     public void OnPickUp()
     {
-        gameObject.SetActive(false); // Se qu'il se passe si l'objet est ramassable
+        gameObject.SetActive(false);
+
     }
 
     public void OnDrop()
