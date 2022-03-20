@@ -38,6 +38,8 @@ public class AlimentationScript : MonoBehaviour
     public Color BackgroundShutDown ;
     public Color BackgroundOff ;
     public Color BackgroundColor ;
+    
+    private IEnumerator LoadAnimCoroutine ; 
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +52,7 @@ public class AlimentationScript : MonoBehaviour
         HeureEcranVeille.text = ComputerInformation.Heure ;
         DateEcranVeille.text = GetDayOfTheDate(ComputerInformation.Date) + ", " + GetPartOfTheDate(ComputerInformation.Date, 0) + " " + GetPartOfTheDate(ComputerInformation.Date, 1);
 
+        LoadAnimCoroutine = LoadAnimation();
         LunchComputer();
     }
 
@@ -149,23 +152,23 @@ public class AlimentationScript : MonoBehaviour
         yield return new WaitForSeconds(1f);
         ThisImageComponnent.color = BackgroundOff ;    
         LogoWindows.SetActive(true) ;
+
+        // Loader        
+        yield return new WaitForSeconds(0.5f);
+        LoaderContainer.GetComponent<RectTransform>().anchoredPosition = new Vector2(LoaderContainer.GetComponent<RectTransform>().anchoredPosition.x, -250f);
         PlayLoad(true);
-        // Loader
+
 
         yield return new WaitForSeconds(Random.Range(3f, 6f));
         StartCoroutine(FadeInFondVeille());
     }
+
 
     void PlayLoad(bool Play) {
         {
             if(!Play)
             {
                 LoaderContainer.SetActive(false) ;
-                StopCoroutine(LoadAnimation());
-                for (int Ll = 0; Ll < LoadList.Count; Ll++)
-                {
-                    LoadList[Ll].DOLocalRotate(Vector3.zero, 0f) ;
-                }
             } else {
                 LoaderContainer.SetActive(true) ;
                 StartCoroutine(LoadAnimation());
@@ -176,12 +179,12 @@ public class AlimentationScript : MonoBehaviour
     {
         for (int Ll = 0; Ll < LoadList.Count; Ll++)
         {
-            LoadList[Ll].DORotate(new Vector3(0,0, LoadList[Ll].rotation.z + 180f), 1.5f) ;
-            yield return new WaitForSeconds(0.2f);
+            LoadList[Ll].DORotate(new Vector3(0,0, LoadList[Ll].rotation.z + 360f), 1f, RotateMode.LocalAxisAdd) ;
+            yield return new WaitForSeconds(0.1f);
         }
 
-        yield return new WaitForSeconds(2f);
-        StartCoroutine(LoadAnimation());
+        yield return new WaitForSeconds(1f);
+        if(LoaderContainer.activeSelf)    StartCoroutine(LoadAnimation());
     }
 
 
@@ -262,11 +265,15 @@ public class AlimentationScript : MonoBehaviour
         InputLogIn.GetComponent<InputField>().text = null ;
         WelcomeObj.SetActive(true);
 
-        yield return new WaitForSeconds(3f);
+        LoaderContainer.GetComponent<RectTransform>().anchoredPosition = new Vector2(LoaderContainer.GetComponent<RectTransform>().anchoredPosition.x, -325f);
+        PlayLoad(true);
+
+        yield return new WaitForSeconds(Random.Range(3f, 5f));
         ThisCanvasGroup.DOFade(0, 0.5f);
         yield return new WaitForSeconds(0.5f);
         ThisImageComponnent.enabled = false ;
 
+        PlayLoad(false);
         FondVeille.SetActive(false);
         LogoWindows.SetActive(false);
         LogComponnent.SetActive(false);
@@ -287,6 +294,7 @@ public class AlimentationScript : MonoBehaviour
         LogComponnent.SetActive(false);        
         InputLogIn.SetActive(true);
         WelcomeObj.SetActive(false);
+        if(ShutdownPanel.gameObject.activeSelf) OpenShutdownPanel();
     }
 
 
