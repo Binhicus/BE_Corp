@@ -10,7 +10,8 @@ public enum ACharger{
 
 public enum ADecharger{
     Une,
-    Deux
+    Deux,
+    None
 }
 public class SceneCaller : MonoBehaviour
 {
@@ -62,6 +63,10 @@ public class SceneCaller : MonoBehaviour
         {
             SceneManager.UnloadSceneAsync(sceneADecharger);
             SceneManager.UnloadSceneAsync(scene2ADecharger);
+        }
+        else if(aDecharger == ADecharger.None)
+        {
+
         }
     }
 }
