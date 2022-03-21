@@ -384,8 +384,8 @@ Transform:
   - {fileID: 60405552}
   - {fileID: 337484683}
   - {fileID: 543450651788907062}
-  - {fileID: 329791909}
   - {fileID: 1603652748}
+  - {fileID: 329791909}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1593,6 +1593,56 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _circleWipe: {fileID: 355589264}
+--- !u!1 &357107020
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 357107022}
+  - component: {fileID: 357107021}
+  m_Layer: 0
+  m_Name: Game Manager Save
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &357107021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357107020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f73f3d7efdc65e49a77ffd991ceb255, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Vase: {fileID: 0}
+  Tenebres: {fileID: 289114915}
+  EpouvantailObj: {fileID: 60405551}
+  PorteManteau: {fileID: 329791907}
+  Porte: {fileID: 919132147852593292}
+  Pas: {fileID: 534310016}
+  Test: 0
+--- !u!4 &357107022
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357107020}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -22.63703, y: 4.3636527, z: -6.774028}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &402422997
 GameObject:
   m_ObjectHideFlags: 0
@@ -5043,7 +5093,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6555443650470269943, guid: cb45ed880e5f5f64fa4a8846814e9092, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6963676236135089961, guid: cb45ed880e5f5f64fa4a8846814e9092, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6938,6 +6988,7 @@ MonoBehaviour:
   PeutOuvrir: 0
   TextePo: {fileID: 2104111903}
   Pas: {fileID: 534310016}
+  gameManager: {fileID: 357107021}
 --- !u!95 &919132147852593294
 Animator:
   serializedVersion: 3
