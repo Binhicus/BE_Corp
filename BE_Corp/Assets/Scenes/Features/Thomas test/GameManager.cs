@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Une);
+        Debug.Log(PlayerPrefs.GetInt("Tenebres"));
     }
 
     public void EpouvantailOk()
@@ -79,6 +79,7 @@ public class GameManager : MonoBehaviour
     }
     public void TenebreOk()
     {
+        Debug.Log("OK BAK");
         PlayerPrefs.SetInt("Tenebres",1);
         Tenebres.SetActive(false);
     }
