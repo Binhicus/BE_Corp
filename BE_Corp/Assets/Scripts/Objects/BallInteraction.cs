@@ -7,6 +7,7 @@ public class BallInteraction : MonoBehaviour, IClicked
     private KickBall kickBall;
     public string nomDuBallon;
 
+
     private void OnEnable()
     {
         kickBall = GameObject.Find(nomDuBallon).GetComponent<KickBall>();
@@ -15,4 +16,6 @@ public class BallInteraction : MonoBehaviour, IClicked
     {
         kickBall.Kicked();
     }
+
+
 }

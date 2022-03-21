@@ -22,6 +22,18 @@ public class DynamicLoad : MonoBehaviour, IClicked
     //Scene state
     public bool isLoaded = true; //eviter de charger 2x
     public bool shouldLoad; //pour la méthode en trigger
+    public Texture2D cursor;
+    public Texture2D regularCursor;
+
+    void OnMouseOver()
+    {
+        Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
+    }
+
+    void OnMouseExit()
+    {
+        Cursor.SetCursor(regularCursor, Vector2.zero, CursorMode.Auto);
+    }
 
 
     private void Awake() {

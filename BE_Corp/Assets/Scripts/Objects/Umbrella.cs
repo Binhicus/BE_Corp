@@ -11,6 +11,9 @@ public class Umbrella : MonoBehaviour, IClicked, IItemInventaire
     public Sprite _Image;
     public Sprite Image => _Image;
 
+    public Texture2D cursor;
+    public Texture2D regularCursor;
+
     public void OnClickAction()
     {
         // pour l'instant rien de spécial
@@ -36,5 +39,15 @@ public class Umbrella : MonoBehaviour, IClicked, IItemInventaire
     private void OnEnable()
     {
         parapluie = GameObject.Find(nomDuParapluie);
+    }
+
+    void OnMouseOver()
+    {
+        Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
+    }
+
+    void OnMouseExit()
+    {
+        Cursor.SetCursor(regularCursor, Vector2.zero, CursorMode.Auto);
     }
 }

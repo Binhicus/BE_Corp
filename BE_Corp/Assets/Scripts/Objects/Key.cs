@@ -11,6 +11,9 @@ public class Key : MonoBehaviour, IClicked, IItemInventaire
     public Sprite _Image;
     public Sprite Image => _Image;
 
+    public Texture2D cursor;
+    public Texture2D regularCursor;
+
     //public string matricule;
     //public string itemID => matricule;
 
@@ -40,5 +43,15 @@ public class Key : MonoBehaviour, IClicked, IItemInventaire
             gameObject.SetActive(true);
             gameObject.transform.position = hit.point;
         }
+    }
+
+    void OnMouseOver()
+    {
+        Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
+    }
+
+    void OnMouseExit()
+    {
+        Cursor.SetCursor(regularCursor, Vector2.zero, CursorMode.Auto);
     }
 }

@@ -11,6 +11,18 @@ public class KickBall : MonoBehaviour
     public VaseSwitch vaseSwitch;
     public SplCameraShake shaker;
     bool hitting = false;
+    public Texture2D cursor;
+    public Texture2D regularCursor;
+
+    void OnMouseOver()
+    {
+        Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
+    }
+
+    void OnMouseExit()
+    {
+        Cursor.SetCursor(regularCursor, Vector2.zero, CursorMode.Auto);
+    }
     // Start is called before the first frame update
     void Awake()
     {

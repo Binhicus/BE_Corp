@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class porte : MonoBehaviour
 {
-    public ScreenShake cameraShake;
+    public SplCameraShake cameraShake;
     public GameObject Panel;
     
     
@@ -12,8 +12,8 @@ public class porte : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        Panel = GameObject.Find("Panel").gameObject;     
-      
+        Panel = GameObject.Find("Panel").gameObject;
+        cameraShake = this.gameObject.GetComponent<SplCameraShake>();
         Panel.SetActive(false);
     }
 
@@ -24,9 +24,9 @@ public class porte : MonoBehaviour
     }
     void OnMouseOver()
     {
-       
-     StartCoroutine(cameraShake.Shaking());
-     Panel.SetActive(true);
+
+        cameraShake.Shaker();
+        Panel.SetActive(true);
 
     }
     void OnMouseExit()
