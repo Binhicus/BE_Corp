@@ -8,21 +8,30 @@ public class ClosedSpace : MonoBehaviour,IHasItemInteraction
     public string inventoryItemID => nomItem;
     public AudioSource unlocked;
     public GameObject fog;
+    public GameManager gameManager;
 
     public void DoItemInteraction()
     {
         fog.SetActive(false);
+        gameManager.TenebreOk();
     }
 
     // Start is called before the first frame update
     void OnEnable()
     {
         fog = GameObject.Find("Gray Volume Fog");
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    void Awake()
+    {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 }

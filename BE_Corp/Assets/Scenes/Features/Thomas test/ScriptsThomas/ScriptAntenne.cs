@@ -19,6 +19,7 @@ public class ScriptAntenne : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        TexteMeteo=GameObject.FindWithTag("Finish");
         RadioBug.Play();
         RadioBug.volume=0;
     }
