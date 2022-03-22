@@ -5,10 +5,10 @@ using UnityEngine.EventSystems;
 
 public class ActionWheelMouseManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public ActionWheelChoice ActionWheelChoiceParentScript ;
+    public ActionWheel ActionWheelParentScript ;
 
     private void Awake() {
-        ActionWheelChoiceParentScript = transform.parent.transform.parent.GetComponent<ActionWheelChoice>();
+        ActionWheelParentScript = transform.parent.GetComponent<ActionWheel>();
     }
 
  /*   void Update()
@@ -25,11 +25,11 @@ public class ActionWheelMouseManager : MonoBehaviour, IPointerEnterHandler, IPoi
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        ActionWheelChoiceParentScript.StateMouseOver = ActionOveringState.Overing ;
+        //ActionWheelParentScript.Hover() ;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        ActionWheelChoiceParentScript.StateMouseOver = ActionOveringState.NotOvering ;
+        //ActionWheelParentScript.EndHover();
     }
 }

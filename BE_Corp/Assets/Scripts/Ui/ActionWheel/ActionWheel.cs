@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.EventSystems;
 
 [System.Serializable]
 public class ActionWheelActionData
@@ -11,7 +12,7 @@ public class ActionWheelActionData
     public GameObject action;
 }
 
-public class ActionWheel : MonoBehaviour
+public class ActionWheel : MonoBehaviour//, IPointerEnterHandler, IPointerExitHandler
 {
     //public List<ActionWheelActionData> choices = new List<ActionWheelActionData>();
     public List<ActionWheelChoiceData> ChoicesDisplay = new List<ActionWheelChoiceData>();
@@ -22,13 +23,16 @@ public class ActionWheel : MonoBehaviour
 
     public List<Color> colors = new List<Color>();
 
+    private bool MouseHover = false ;
 
     void Start() 
     {
         SetActionWheel();
     }
+
     public void SetWheel()
-    {SetActionWheel();}
+    { SetActionWheel(); }
+
     private void OnEnable() {
         SetActionWheel();
     }
@@ -48,27 +52,10 @@ public class ActionWheel : MonoBehaviour
             choiceObjects.Add(choiceObject);
             Vector3 rotation = choiceObject.transform.localRotation.eulerAngles;
 
-            float angle = 0 ;
-            float radianAngle = 0 ;
-            if(i == 0) 
-            {
-                angle = 360f - (45f * (ChoicesDisplay.Count - 1)) ;
-
-                choiceObject.MainCircle.fillAmount = angle / 360f;         
-
-                rotation.z = 90f - (22.5f * (ChoicesDisplay.Count - 1)); 
-                radianAngle = -1.5f;    
-            } else {
-                angle = 45f ; 
-                choiceObject.MainCircle.fillAmount = angle / 360f ;  
-
-                float Angle0 = 90f - (22.5f * (ChoicesDisplay.Count - 1));
-
-                rotation.z = angle * i + Angle0 ; 
-                  
-                radianAngle = rotation.z * Mathf.Deg2Rad - (angle * Mathf.Deg2Rad * 0.5f);                     
-            }
-            
+            float angle = 360f / ChoicesDisplay.Count ;    
+            choiceObject.MainCircle.fillAmount = angle / 360f;     
+            rotation.z = angle * i ; 
+            float radianAngle = rotation.z * Mathf.Deg2Rad - (angle * Mathf.Deg2Rad * 0.5f);    
 
             choiceObject.transform.localRotation = Quaternion.Euler(rotation);
 
@@ -97,14 +84,11 @@ public class ActionWheel : MonoBehaviour
             ActionChoiceContainer.transform.GetChild(CAW).GetComponent<ActionWheelChoice>().StateOvering(false);
         }
 
-        if(GetAngleMouseOvered() == 0 || (GetAngleMouseOvered() >= ActionChoiceContainer.transform.childCount && GetAngleMouseOvered() <= 7))
+        if(GetAngleMouseOvered() >= 0 && GetAngleMouseOvered() < ActionChoiceContainer.transform.childCount)
         {
-            ActionChoiceContainer.transform.GetChild(0).GetComponent<ActionWheelChoice>().StateOvering(true);
-            TitleCurrentActionChoice.text = ChoicesDisplay[0].NameActionFR ;
-        } else {
-            ActionChoiceContainer.transform.GetChild(GetAngleMouseOvered()).GetComponent<ActionWheelChoice>().StateOvering(true);     
-            TitleCurrentActionChoice.text = ChoicesDisplay[GetAngleMouseOvered()].NameActionFR ;       
-        }   
+            ActionChoiceContainer.transform.GetChild(GetAngleMouseOvered()).GetComponent<ActionWheelChoice>().StateOvering(true);
+            TitleCurrentActionChoice.text = ChoicesDisplay[GetAngleMouseOvered()].NameActionFR ;
+        }
     }
 
 
@@ -118,11 +102,17 @@ public class ActionWheel : MonoBehaviour
         NormalizedMousePosition = new Vector2((Input.mousePosition.x - (Screen.width/ 2 + GetComponent<RectTransform>().anchoredPosition.x *1.375f)) , (Input.mousePosition.y - (Screen.height/ 2 + GetComponent<RectTransform>().anchoredPosition.y*1.375f)));
         CurrentAngle = Mathf.Atan2(NormalizedMousePosition.y, NormalizedMousePosition.x) * Mathf.Rad2Deg ;
 
-        CurrentAngle = (CurrentAngle + 360 + (22.5f * (ChoicesDisplay.Count - 1)) -45f ) % 360 ;
+        CurrentAngle = (CurrentAngle + 360f + (360 / ChoicesDisplay.Count)) % 360f ;
 
-        Selection = (int) CurrentAngle / 45 ;
+        Selection = (int) CurrentAngle / (360 / ChoicesDisplay.Count) ;
 
 
         return Selection ;
     }
+
+    public void CloseWheel()
+    {
+        gameObject.SetActive(false);
+    }
+
 }
