@@ -31,7 +31,7 @@ public class PourPorte : MonoBehaviour
         {
             Un=true;
             this.GetComponent<Animator>().SetTrigger("Go");
-            gameManager.EpouvantailOk();
+           // gameManager.EpouvantailOk();
             Pas.SetActive(true);
         }
     }

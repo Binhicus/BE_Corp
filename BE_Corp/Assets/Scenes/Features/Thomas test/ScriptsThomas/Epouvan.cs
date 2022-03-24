@@ -55,6 +55,7 @@ public class Epouvan : MonoBehaviour
             Destroy(porte);
             Une=true;
             pourPorte.PeutOuvrir=true;
+            PlayerPrefs.SetInt("Scarecrow", 1);
         }
         
     }
