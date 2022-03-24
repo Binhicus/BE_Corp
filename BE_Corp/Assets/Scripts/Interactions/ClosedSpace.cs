@@ -20,8 +20,7 @@ public class ClosedSpace : MonoBehaviour,IHasItemInteraction
     void OnEnable()
     {
         fog = GameObject.Find("Gray Volume Fog");
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-
+        gameManager = GameObject.Find("Game Manager Save").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -32,6 +31,6 @@ public class ClosedSpace : MonoBehaviour,IHasItemInteraction
 
     void Awake()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        gameManager = GameObject.Find("Game Manager Save").GetComponent<GameManager>();
     }
 }
