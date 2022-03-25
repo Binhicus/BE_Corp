@@ -13,9 +13,10 @@ public class ActionWheelChoiceData : ScriptableObject
     public GameObject action;
 
 
-    private void Update() {
+    private void Update() 
+    {
         if(PlayerPrefs.GetInt("Langue") == 0) NameAction = NameActionFR ;
-        if(PlayerPrefs.GetInt("Langue") == 0) NameAction = NameActionEN ;
+        if(PlayerPrefs.GetInt("Langue") == 1) NameAction = NameActionEN ;
 
     }
 }
