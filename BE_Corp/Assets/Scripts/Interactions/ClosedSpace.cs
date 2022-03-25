@@ -13,14 +13,14 @@ public class ClosedSpace : MonoBehaviour,IHasItemInteraction
     public void DoItemInteraction()
     {
         fog.SetActive(false);
-        gameManager.TenebreOk();
+        PlayerPrefs.SetInt("Fog", 1);
     }
 
     // Start is called before the first frame update
     void OnEnable()
     {
         fog = GameObject.Find("Gray Volume Fog");
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        //gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
     }
 
@@ -32,6 +32,6 @@ public class ClosedSpace : MonoBehaviour,IHasItemInteraction
 
     void Awake()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        //gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 }

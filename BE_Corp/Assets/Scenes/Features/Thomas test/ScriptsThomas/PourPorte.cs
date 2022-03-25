@@ -12,6 +12,7 @@ public class PourPorte : MonoBehaviour
     private bool Un;
     public GameObject Pas;
     public GameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +32,7 @@ public class PourPorte : MonoBehaviour
         {
             Un=true;
             this.GetComponent<Animator>().SetTrigger("Go");
-            gameManager.EpouvantailOk();
+           // gameManager.EpouvantailOk();
             Pas.SetActive(true);
         }
     }
@@ -52,7 +53,6 @@ public class PourPorte : MonoBehaviour
         TextePo.SetActive(true);
         yield return new WaitForSeconds(6.0f);
         TextePo.SetActive(false);
-        Peut=false;
-       
+        Peut=false;  
     }
 }

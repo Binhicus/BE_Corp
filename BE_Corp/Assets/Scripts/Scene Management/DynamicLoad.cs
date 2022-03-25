@@ -8,10 +8,19 @@ public enum CheckMethod
     Distance, 
     Trigger
 }
-public class DynamicLoad : MonoBehaviour, IClicked
+
+/*public enum SceneToCheck
+{
+    Entrée,
+    Salon,
+    Cuisine,
+    Chambre
+}*/
+public class DynamicLoad : ClickableSteps, IClicked
 {
     public Transform player;
     public CheckMethod checkMethod;
+    //public SceneToCheck sceneAVerifier;
     public float loadRange;
 
     public string roomACharger, roomActuelle;
@@ -22,18 +31,6 @@ public class DynamicLoad : MonoBehaviour, IClicked
     //Scene state
     public bool isLoaded = true; //eviter de charger 2x
     public bool shouldLoad; //pour la méthode en trigger
-    public Texture2D cursor;
-    public Texture2D regularCursor;
-
-    void OnMouseOver()
-    {
-        Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
-    }
-
-    void OnMouseExit()
-    {
-        Cursor.SetCursor(regularCursor, Vector2.zero, CursorMode.Auto);
-    }
 
 
     private void Awake() {
@@ -128,7 +125,7 @@ public class DynamicLoad : MonoBehaviour, IClicked
         CamACharger.SetActive(true);
         LockRoom();
         LoadScene();
-        UnloadScene();                       
+        UnloadScene();
     }
 
     public void LockRoom()

@@ -17,7 +17,7 @@ public class ScriptAntenne : MonoBehaviour
      private Vector3 startPosition;
      private bool gagne;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         TexteMeteo=GameObject.FindWithTag("Finish");
         RadioBug.Play();
@@ -58,6 +58,7 @@ public class ScriptAntenne : MonoBehaviour
                 BulletinMeteo.Play();
                 RadioBug.volume=0; 
                 TexteMeteo.GetComponent<Animator>().SetBool("Trouve", true);
+                PlayerPrefs.SetInt("Parapluie", 1);
             }
         }
 

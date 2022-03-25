@@ -2,12 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum CursorType { Default, Object, SceneChange }
+
 public class CursorController : Singleton<CursorController>
 {
     public Texture2D cursor;
     public Texture2D cursorClicked;
     public CursorControls controls;
     private Camera mainCamera;
+
+    public Texture2D defaultCursor;
+    public Texture2D objectCursor;
+    public Texture2D sceneChangeCursor;
+
     // Start is called before the first frame update
     protected override void Awake()
     {
@@ -92,5 +99,19 @@ public class CursorController : Singleton<CursorController>
     {
         //Vector2 hotspot = new Vector2(cursorType.width / 2, cursorType.height / 2);  // à mettre si le hotspot du curseur est au centre du sprite
         Cursor.SetCursor(cursorType, Vector2.zero, CursorMode.Auto);
+    }
+
+    public void ChangeCursor(CursorType cursorType)
+    {
+        Texture2D cursorTexture = GetCursorTexture(cursorType);
+        Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
+    }
+
+    Texture2D GetCursorTexture(CursorType cursorType)
+    {
+        if (cursorType == CursorType.Default) return defaultCursor;
+        if (cursorType == CursorType.Object) return objectCursor;
+        if (cursorType == CursorType.SceneChange) return sceneChangeCursor;
+        return null;
     }
 }
