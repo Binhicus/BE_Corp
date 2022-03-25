@@ -353,6 +353,9 @@ MonoBehaviour:
   PorteManteau: {fileID: 329791907}
   Son: {fileID: 745407625}
   pourPorte: {fileID: 919132147852593293}
+  ListInteractPossible:
+  - {fileID: 11400000, guid: 0293a694598fa3745a3f1ba6f5f72c28, type: 2}
+  - {fileID: 11400000, guid: fd9a468eca2158d43834b7cad0de46ed, type: 2}
 --- !u!65 &102117374
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1396,13 +1399,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f73f3d7efdc65e49a77ffd991ceb255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Vase: {fileID: 0}
-  Tenebres: {fileID: 289114915}
-  EpouvantailObj: {fileID: 60405551}
-  PorteManteau: {fileID: 329791907}
+  fog: {fileID: 0}
+  epouvantail: {fileID: 0}
+  porteManteau: {fileID: 0}
   Porte: {fileID: 919132147852593292}
   Pas: {fileID: 534310016}
-  Test: 1
+  vase: {fileID: 0}
+  key: {fileID: 0}
+  objetsMeteo: {fileID: 0}
+  "zoneCach\xE9e": {fileID: 0}
 --- !u!4 &357107022
 Transform:
   m_ObjectHideFlags: 0
@@ -4758,8 +4763,8 @@ GameObject:
   - component: {fileID: 919132147852593293}
   - component: {fileID: 102117374}
   - component: {fileID: 919132147852593294}
-  - component: {fileID: 919132147852593295}
   - component: {fileID: 919132147852593296}
+  - component: {fileID: 919132147852593295}
   m_Layer: 0
   m_Name: door
   m_TagString: Untagged
@@ -4812,11 +4817,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 919132147852593292}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1120bc502b14174ab15ae386c358615, type: 3}
+  m_Script: {fileID: 11500000, guid: b6f0773716e8c3247b388ce4c6f2585d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraShake: {fileID: 919132147852593296}
+  TextePo: {fileID: 0}
+  cameraShake: {fileID: 0}
   Panel: {fileID: 0}
+  PasDePorte: {fileID: 0}
 --- !u!114 &919132147852593296
 MonoBehaviour:
   m_ObjectHideFlags: 0

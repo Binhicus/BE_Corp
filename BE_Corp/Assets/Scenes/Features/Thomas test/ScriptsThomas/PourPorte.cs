@@ -37,14 +37,14 @@ public class PourPorte : MonoBehaviour
         }
     }
 
-     private void OnMouseEnter() {
+    private void OnMouseEnter() {
         Dessus=true;
-        Debug.Log("Mouse enter");
+     //   Debug.Log("Mouse enter");
     }
 
     private void OnMouseExit() {
         Dessus=false;
-        Debug.Log("Mouse enter");
+   //     Debug.Log("Mouse enter");
     }
 
 
@@ -54,5 +54,17 @@ public class PourPorte : MonoBehaviour
         yield return new WaitForSeconds(6.0f);
         TextePo.SetActive(false);
         Peut=false;  
+    }
+
+    public void OpenDoorAnimation()
+    {
+        StartCoroutine(DoorAnimation());
+    }
+
+    IEnumerator DoorAnimation()
+    {
+        TextePo.SetActive(true);
+        yield return new WaitForSeconds(6.0f);
+        TextePo.SetActive(false);
     }
 }

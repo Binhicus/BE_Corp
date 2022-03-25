@@ -50,7 +50,7 @@ public class GameManager : Singleton<GameManager>
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(PlayerPrefs.GetInt("Tenebres"));
+//        Debug.Log(PlayerPrefs.GetInt("Tenebres"));
     }
     
     #region Objets dans l'entrée
