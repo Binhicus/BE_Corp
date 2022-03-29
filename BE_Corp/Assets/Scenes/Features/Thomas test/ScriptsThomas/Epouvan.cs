@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Epouvan : MonoBehaviour
+public class Epouvan : MonoBehaviour, IClicked, IAction
 {
     public bool Dessus;
     private bool Une;
@@ -16,37 +16,32 @@ public class Epouvan : MonoBehaviour
 
     private ScreenShake camShake;
     private porte porte;
-    // Start is called before the first frame update
+
+    public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>() ;
+    private CursorController CursorManager ;
+
+
     void Awake()
     {
+        CursorManager = GameObject.Find("Cursor").GetComponent<CursorController>();
         //camShake = GameObject.Find("Camera").GetComponent<ScreenShake>();
         porte = GameObject.Find("door").GetComponent<porte>();
         this.enabled = true;
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void OnClickAction()
     {
-        if (Input.GetMouseButtonDown(0)&&Dessus)
-        {
-            ButtonChange.SetActive(true);
-        }
-    }
-
-    private void OnMouseEnter() {
-        Dessus=true;
-        Debug.Log("Mouse enter");
-    }
-
-    private void OnMouseExit() {
-        Dessus=false;
-        Debug.Log("Mouse enter");
+        CursorManager.ActionWheelScript.ChoicesDisplay = ListInteractPossible ;
+        CursorManager.ActionWheelScript.TargetAction = this;
+        CursorManager.ActionWheelScript.gameObject.SetActive(true);
     }
 
     public void Disparait()
     {
         if(Une==false)
         {
+            GetComponent<BoxCollider>().enabled = false ;
             ButtonChange.SetActive(false);
             Son.Play();
             Epouvantail.GetComponent<Animator>().SetTrigger("Go");
@@ -54,8 +49,17 @@ public class Epouvan : MonoBehaviour
             //Destroy(camShake);
             Destroy(porte);
             Une=true;
-            pourPorte.PeutOuvrir=true;
-        }
-        
+            pourPorte.PeutOuvrir = true;
+            PlayerPrefs.SetInt("Scarecrow", 1);
+        }  
     }
+
+    public void OnOpen() {Debug.Log("Open") ;}
+    public void OnClose() {Debug.Log("Close") ;}
+    public void OnTake() {Debug.Log("Take") ;}
+    public void OnUse() {Debug.Log("Use") ;}
+    public void OnInspect() {Debug.Log("Inspect") ;}
+    public void OnQuestion() {Disparait() ;}
+    
+
 }

@@ -12,6 +12,7 @@ public class ClosedDoor : MonoBehaviour, IHasItemInteraction
     public void DoItemInteraction()
     {
         Debug.Log("C'est ouvert merci beaucoup pour la participation");
+
        // unlocked.Play();
 
     }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Key : MonoBehaviour, IClicked, IItemInventaire 
+public class Key : ClickableObject, IClicked, IItemInventaire 
 {
     public string nomDeLaClef;
     private GameObject key;
@@ -30,6 +30,7 @@ public class Key : MonoBehaviour, IClicked, IItemInventaire
     public void OnPickUp()
     {
         gameObject.SetActive(false);
+        PlayerPrefs.SetInt("VaseAndKey", 2);
 
     }
 
@@ -43,15 +44,5 @@ public class Key : MonoBehaviour, IClicked, IItemInventaire
             gameObject.SetActive(true);
             gameObject.transform.position = hit.point;
         }
-    }
-
-    void OnMouseOver()
-    {
-        Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
-    }
-
-    void OnMouseExit()
-    {
-        Cursor.SetCursor(regularCursor, Vector2.zero, CursorMode.Auto);
     }
 }
