@@ -23,7 +23,7 @@ public class Glitch : MonoBehaviour
         
         while(true)
         {
-            material.SetFloat("_GlitchStrength", 0.0f);
+            material.SetFloat("_GlitchStrength", -0.20f);
             material.SetFloat("_ScanlineOffset", 0.0f);
             time=Random.Range(0.3f,0.6f);
             yield return new WaitForSeconds(time);
@@ -43,12 +43,12 @@ public class Glitch : MonoBehaviour
             time=Random.Range(0.1f,0.6f);
             yield return new WaitForSeconds(time);
 
-            material.SetFloat("_GlitchStrength", 0.0f);
+            material.SetFloat("_GlitchStrength", 0.2f);
             material.SetFloat("_ScanlineOffset", 0.0f);
             time=Random.Range(0.1f,0.6f);
             yield return new WaitForSeconds(time);
 
-            material.SetFloat("_GlitchStrength", 0.05f);
+            material.SetFloat("_GlitchStrength", -0.15f);
             material.SetFloat("_ScanlineOffset", 0.5f);
             time=Random.Range(0.1f,0.6f);
             yield return new WaitForSeconds(time);
