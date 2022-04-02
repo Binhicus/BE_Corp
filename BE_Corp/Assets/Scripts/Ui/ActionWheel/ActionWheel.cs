@@ -14,16 +14,15 @@ public class ActionWheelActionData
     public GameObject action;
 }
 
-public class ActionWheel : MonoBehaviour//, IPointerEnterHandler, IPointerExitHandler
+public class ActionWheel : MonoBehaviour
 {
-    //public List<ActionWheelActionData> choices = new List<ActionWheelActionData>();
     public List<ActionWheelChoiceData> ChoicesDisplay = new List<ActionWheelChoiceData>();
     public Transform ActionChoiceContainer ;
     public TextMeshProUGUI TitleCurrentActionChoice ;
     public GameObject choicePrefab;
     List<ActionWheelChoice> choiceObjects = new List<ActionWheelChoice>();
 
-    public List<Color> colors = new List<Color>();
+   /* public List<Color> colors = new List<Color>();*/
 
     private bool MouseHover = false ;
     private bool CanClick = false ;
@@ -32,6 +31,8 @@ public class ActionWheel : MonoBehaviour//, IPointerEnterHandler, IPointerExitHa
     private RectTransform TransformParent ;
     private Canvas UICanvas ;
     private Camera UICamera ;
+
+    public IAction TargetAction ;
 
     void Start() 
     {
@@ -49,6 +50,7 @@ public class ActionWheel : MonoBehaviour//, IPointerEnterHandler, IPointerExitHa
     { 
         StartCoroutine(CloseWheel()); 
     }
+
 
 
     void SetActionWheelPos()
@@ -104,8 +106,8 @@ public class ActionWheel : MonoBehaviour//, IPointerEnterHandler, IPointerExitHa
 
             choiceObject.IconObject.sprite = ChoicesDisplay[i].IconAction;
             choiceObject.IconObject.transform.rotation = Quaternion.identity;
-            SetAngledPosition(choiceObject.IconObject.transform, ActionChoiceContainer.transform.position, radianAngle, 67.5f);
-            choiceObject.IconObject.transform.GetComponent<RectTransform>().DOScale(new Vector3(1.5f, 1.5f, 1.5f), 0.125f);
+            SetAngledPosition(choiceObject.IconObject.transform, ActionChoiceContainer.transform.position, radianAngle, 50f);
+            choiceObject.IconObject.transform.GetComponent<RectTransform>().DOScale(new Vector3(0.75f, 0.75f, 0.75f), 0.125f);
 
             choiceObject.NameAction.text = ChoicesDisplay[i].NameActionFR;
             choiceObject.NameAction.transform.rotation = Quaternion.identity;    
@@ -133,7 +135,7 @@ public class ActionWheel : MonoBehaviour//, IPointerEnterHandler, IPointerExitHa
             if(choiceObject.NameAction.GetComponent<RectTransform>().pivot.x == 0.5f) choiceObject.NameAction.alignment = TextAlignmentOptions.Center ;
             if(choiceObject.NameAction.GetComponent<RectTransform>().pivot.x == 1f) choiceObject.NameAction.alignment = TextAlignmentOptions.Right ;
 
-
+            SetPartActionWheel(TargetAction, choiceObject.NameAction.text, choiceObject);
             yield return new WaitForSeconds(0.075f);            
         }
 
@@ -163,6 +165,20 @@ public class ActionWheel : MonoBehaviour//, IPointerEnterHandler, IPointerExitHa
         position.y = center.y + Mathf.Sin(angle) * radius;
         obj.position = position;
     }
+
+    void SetPartActionWheel(IAction TargetRef, string NamePartAction, ActionWheelChoice PartPrefab)
+    {
+        PartPrefab.TargetAction = TargetRef ;
+
+        if(NamePartAction == "") PartPrefab.StateAction = ActionPossible.Rien ;
+        if(NamePartAction == "Ouvrir" || NamePartAction == "Open") PartPrefab.StateAction = ActionPossible.Ouvrir ;
+        if(NamePartAction == "Fermer" || NamePartAction == "Close") PartPrefab.StateAction = ActionPossible.Fermer ;
+        if(NamePartAction == "Prendre" || NamePartAction == "Take") PartPrefab.StateAction = ActionPossible.Prendre ;
+        if(NamePartAction == "Utiliser" || NamePartAction == "Use") PartPrefab.StateAction = ActionPossible.Utiliser ;
+        if(NamePartAction == "Inspecter" || NamePartAction == "Inspect") PartPrefab.StateAction = ActionPossible.Inspecter ;
+        if(NamePartAction == "Questionner" || NamePartAction == "Question") PartPrefab.StateAction = ActionPossible.Questionner ;
+    }
+
 
 
 
@@ -228,7 +244,7 @@ public class ActionWheel : MonoBehaviour//, IPointerEnterHandler, IPointerExitHa
 
     bool MouseOverBool()
     {
-        float radius = 90f ;
+        float radius = 65f ;
 
         Vector2 Center = GetComponent<RectTransform>().anchoredPosition ;
 

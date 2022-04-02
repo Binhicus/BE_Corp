@@ -15,6 +15,9 @@ public class CursorController : Singleton<CursorController>
     public Texture2D objectCursor;
     public Texture2D sceneChangeCursor;
 
+
+    public ActionWheel ActionWheelScript ;
+
     // Start is called before the first frame update
     protected override void Awake()
     {
