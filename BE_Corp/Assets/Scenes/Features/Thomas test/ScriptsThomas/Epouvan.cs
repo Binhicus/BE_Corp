@@ -12,10 +12,8 @@ public class Epouvan : MonoBehaviour, IClicked, IAction
 
     public AudioSource Son;
 
-    public PourPorte pourPorte;
-
     private ScreenShake camShake;
-    private porte porte;
+    private DoorScript Door;
 
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>() ;
     private CursorController CursorManager ;
@@ -25,7 +23,7 @@ public class Epouvan : MonoBehaviour, IClicked, IAction
     {
         CursorManager = GameObject.Find("Cursor").GetComponent<CursorController>();
         //camShake = GameObject.Find("Camera").GetComponent<ScreenShake>();
-        porte = GameObject.Find("door").GetComponent<porte>();
+        Door = GameObject.Find("Door Leaving Room").GetComponent<DoorScript>();
         this.enabled = true;
     }
 
@@ -47,10 +45,11 @@ public class Epouvan : MonoBehaviour, IClicked, IAction
             Epouvantail.GetComponent<Animator>().SetTrigger("Go");
             PorteManteau.GetComponent<Animator>().SetTrigger("Go");
             //Destroy(camShake);
-            Destroy(porte);
+            //Destroy(Door);
             Une=true;
-            pourPorte.PeutOuvrir = true;
+
             PlayerPrefs.SetInt("Scarecrow", 1);
+            Door.OpenDoorAnimation();
         }  
     }
 

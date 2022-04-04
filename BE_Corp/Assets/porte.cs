@@ -12,7 +12,7 @@ public class porte : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        Panel = GameObject.Find("Panel").gameObject;
+        //Panel = GameObject.Find("Panel").gameObject;
         cameraShake = this.gameObject.GetComponent<SplCameraShake>();
         Panel.SetActive(false);
     }

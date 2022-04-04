@@ -74,7 +74,21 @@ public class DynamicLoad : ClickableSteps, IClicked
         {
             TriggerCheck();
         }
+
+        if(transform.childCount != 0)
+        {
+            if(GetComponent<BoxCollider>().enabled == false) transform.GetChild(0).gameObject.SetActive(false);
+            if(GetComponent<BoxCollider>().enabled == true) transform.GetChild(0).gameObject.SetActive(true);            
+        }
     }
+
+    public void DispStep(bool State)
+    {
+        if(!State) GetComponent<BoxCollider>().enabled = false ;
+        else GetComponent<BoxCollider>().enabled = true ;
+    }
+
+
 //method Distance
     void DistanceCheck()
     {
