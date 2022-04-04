@@ -20,6 +20,7 @@ public class HUD : MonoBehaviour
             //Border ... Image
             Transform imageTransform = slot.GetChild(0).GetChild(0);
             Image image = imageTransform.GetComponent<Image>();
+            slot.GetChild(0).GetComponent<Image>().enabled=true;
             UIInventoryItem itemDragHandler = imageTransform.GetComponent<UIInventoryItem>();
              
 
