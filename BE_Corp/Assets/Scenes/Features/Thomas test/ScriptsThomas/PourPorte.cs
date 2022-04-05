@@ -31,7 +31,7 @@ public class PourPorte : MonoBehaviour
         if (Input.GetMouseButtonDown(0)&&Dessus&&PeutOuvrir&&!Un)
         {
             Un=true;
-            this.GetComponent<Animator>().SetTrigger("Go");
+            this.GetComponent<Animator>().SetTrigger("Door Animation");
            // gameManager.EpouvantailOk();
             Pas.SetActive(true);
         }
