@@ -29,6 +29,7 @@ public class Key : ClickableObject, IClicked, IItemInventaire
     //les 2 fonctions suivantes sont à reprendre pour chaque objet nécessitant d'être dans l'inventaire
     public void OnPickUp()
     {
+        Debug.Log("Oui oui rab");
         gameObject.SetActive(false);
         PlayerPrefs.SetInt("VaseAndKey", 2);
 
