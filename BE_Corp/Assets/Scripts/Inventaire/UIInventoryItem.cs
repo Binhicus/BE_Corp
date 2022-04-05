@@ -10,10 +10,14 @@ public class UIInventoryItem : MonoBehaviour, IDragHandler, IEndDragHandler
     private CursorController cursorController;
     public string objectID;
     private Transform uiPos;
+    public GameObject Inventaire;
+    public MouseOnInventory mouseOnInventory;
 
     private void Awake()
     {
        // mainCamera = CamScript.camInstance.GetComponent<Camera>();
+       Inventaire=GameObject.Find("Inventaire");
+       mouseOnInventory=GameObject.Find("Mouse On").GetComponent<MouseOnInventory>();
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -30,12 +34,13 @@ public class UIInventoryItem : MonoBehaviour, IDragHandler, IEndDragHandler
         {
             if (hits[i].collider != null)
             {
-                hitSomething = true;
+
                 IHasItemInteraction[] itemInteractions = hits[i].collider.GetComponents<IHasItemInteraction>();
                 foreach(var interaction in itemInteractions)
                 {
                     if (interaction.inventoryItemID == objectID)
                     {
+                        hitSomething = true;
                         interaction.DoItemInteraction();
                         GetComponent<Image>().enabled = false;
                     }
@@ -50,6 +55,7 @@ public class UIInventoryItem : MonoBehaviour, IDragHandler, IEndDragHandler
             {
                 transform.localPosition = Vector3.zero;
                 Debug.Log("hihihi je vais serrer???");
+                StartCoroutine(coroutineA());
             }
         /*
         // Remplacer "true" par la condition (raycast scène)
@@ -62,7 +68,15 @@ public class UIInventoryItem : MonoBehaviour, IDragHandler, IEndDragHandler
         else
        
        transform.localPosition = Vector3.zero;*/
-            
+            IEnumerator coroutineA()
+    {
+        mouseOnInventory.Vasy=false;
+        Inventaire.GetComponent<RectTransform>().anchoredPosition = new Vector3(-79, 0,0);
+        yield return new WaitForSeconds(1.0f);
+        mouseOnInventory.Vasy=true;
+        Inventaire.GetComponent<RectTransform>().anchoredPosition = new Vector3(100, 0,0);
+        
+    }
         
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Umbrella : MonoBehaviour, IClicked, IItemInventaire
+public class Umbrella : ClickableObject, IClicked, IItemInventaire
 {
     public string nomDuParapluie;
     private GameObject parapluie;

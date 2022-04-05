@@ -8,30 +8,34 @@ public class ClosedSpace : MonoBehaviour,IHasItemInteraction
     public string inventoryItemID => nomItem;
     public AudioSource unlocked;
     public GameObject fog;
-    public GameManager gameManager;
-
+    public GameObject OuverturePorteChambre;
+    //public GameObject DetectouvrePorte;
     public void DoItemInteraction()
     {
         fog.SetActive(false);
         PlayerPrefs.SetInt("Fog", 1);
+        OuverturePorteChambre.GetComponent<BoxCollider>().enabled=true;
     }
 
     // Start is called before the first frame update
     void OnEnable()
     {
         fog = GameObject.Find("Gray Volume Fog");
-        //gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+    
     }
 
     void Awake()
     {
-        //gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        OuverturePorteChambre=GameObject.Find("Ouverture");
+
+        if(PlayerPrefs.GetInt("Fog")==1)
+        {
+            OuverturePorteChambre.GetComponent<BoxCollider>().enabled=true;
+        }
     }
 }
