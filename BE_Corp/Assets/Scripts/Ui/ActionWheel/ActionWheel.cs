@@ -22,6 +22,8 @@ public class ActionWheel : MonoBehaviour
     public GameObject choicePrefab;
     List<ActionWheelChoice> choiceObjects = new List<ActionWheelChoice>();
 
+    public GameObject DialogueDisplayer ;
+
    /* public List<Color> colors = new List<Color>();*/
 
     private bool MouseHover = false ;

@@ -60,12 +60,17 @@ public class ScarecrowScript : MonoBehaviour, IClicked, IAction
         Door.OpenDoorAnimation();
     }
 
+    void DisplayDialogue()
+    {
+        CursorController.Instance.ActionWheelScript.DialogueDisplayer.SetActive(true);
+    }
+
     public void OnOpen() {Debug.Log("Open") ;}
     public void OnClose() {Debug.Log("Close") ;}
     public void OnTake() {Debug.Log("Take") ;}
     public void OnUse() {Debug.Log("Use") ;}
-    public void OnInspect() {Debug.Log("Inspect") ;}
-    public void OnQuestion() {Disparait() ;}
+    public void OnInspect() {DisplayDialogue(); }
+    public void OnQuestion() {DisplayDialogue(); }
     
 
 }
