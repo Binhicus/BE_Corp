@@ -7,9 +7,9 @@ public class GameManager : Singleton<GameManager>
     protected override void Awake()
     {
         base.Awake();
+
     }
     // Start is called before the first frame update
-
 
     /*private void Awake() {
 

@@ -26,6 +26,13 @@ public class CursorController : Singleton<CursorController>
         ChangeCursor(cursor);
         Cursor.lockState = CursorLockMode.Confined;
         mainCamera = Camera.main;
+
+        ResetPlayerPref();
+    }
+
+    void ResetPlayerPref()
+    {
+        PlayerPrefs.SetInt("Scarecrow", 0);
     }
 
     private void OnEnable()

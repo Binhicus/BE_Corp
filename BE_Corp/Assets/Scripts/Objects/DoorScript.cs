@@ -2,22 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent (typeof(Animator))]
 public class DoorScript : MonoBehaviour
 {
-    public GameObject TextePo;
-    public SplCameraShake cameraShake;
-    public GameObject Panel;
+    private SplCameraShake cameraShake;
+    [SerializeField] private GameObject Panel;
 
-    public GameObject PasDePorte ;
 
+    private Animator DoorAnimator ;
+    [SerializeField] private string PlayerPrefNameState ;
+    [SerializeField] private string LeaveStepNameRef ;
+    private GameObject LeaveStepRef ;
+    private bool MouseOver = false ;
     private bool DoorIsOpen = false ;
     private bool AsCameraShake = false ;
 
     void Awake()
     {
-        if(GameObject.Find("Panel").gameObject != null)
+        DoorAnimator = this.GetComponent<Animator>();     
+        if(GameObject.Find(LeaveStepNameRef) != null) LeaveStepRef = GameObject.Find(LeaveStepNameRef);   
+
+        if(GameObject.Find("Panel") != null)
         {
-            Panel = GameObject.Find("Panel").gameObject;
+            Panel = GameObject.Find("Panel");
             Panel.SetActive(false);            
         }
 
@@ -26,11 +33,28 @@ public class DoorScript : MonoBehaviour
             cameraShake = this.gameObject.GetComponent<SplCameraShake>();   
             AsCameraShake = true ;         
         }
+        
+
     }
+
+    private void Start() 
+    {
+        if(PlayerPrefs.GetInt(PlayerPrefNameState) == 0)
+        {
+            LeaveStepRef.GetComponent<DynamicLoad>().DispStep(false);
+        } else {
+            LeaveStepRef.GetComponent<DynamicLoad>().DispStep(true);
+            DoorIsOpen = true ;
+            DoorAnimator.SetTrigger("Open");            
+        }
+    }
+
 
     void OnMouseOver()
     {
-        if(!DoorIsOpen && AsCameraShake)
+        MouseOver = true ;
+
+        if(!DoorIsOpen && AsCameraShake && cameraShake.enabled == true)
         {
             cameraShake.Shaker();
             Panel.SetActive(true);         
@@ -39,6 +63,8 @@ public class DoorScript : MonoBehaviour
 
     void OnMouseExit()
     {
+        MouseOver = false ;
+
         if(!DoorIsOpen && AsCameraShake)
         {
             Panel.SetActive(false);            
@@ -48,15 +74,18 @@ public class DoorScript : MonoBehaviour
 
     public void OpenDoorAnimation()
     {
+        cameraShake.enabled = false ;
+        cameraShake.triggered = false ;
         DoorIsOpen = true ;
         StartCoroutine(DoorAnimation());
     }
+    
 
     IEnumerator DoorAnimation()
     {
-        this.GetComponent<Animator>().SetTrigger("Go");
-        yield return new WaitForSeconds(6.0f);
-        PasDePorte.SetActive(true);
-
+        yield return new WaitForSeconds(3.0f);
+        DoorAnimator.SetTrigger("Door Animation");        
+        yield return new WaitForSeconds(1.0f);
+        LeaveStepRef.GetComponent<DynamicLoad>().DispStep(true);
     }
 }
