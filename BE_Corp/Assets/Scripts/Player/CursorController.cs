@@ -71,10 +71,10 @@ public class CursorController : Singleton<CursorController>
             if (hit.collider != null)
             {
                 IClicked click =  hit.collider.gameObject.GetComponent<IClicked>();
-                IItemInventaire item = hit.collider.gameObject.GetComponent<IItemInventaire>();
+                //* IItemInventaire item = hit.collider.gameObject.GetComponent<IItemInventaire>();
                 if (click != null) click.OnClickAction();
                 //if (click == null) return;
-                if (item != null) Inventaire.Instance.AddItem(item);
+                //* if (item != null) Inventaire.Instance.AddItem(item);
                 //Debug.Log("3D Hit: " + hit.collider.tag + " " + hit.collider.gameObject);
                 //Debug.DrawRay(transform.position, Vector3.forward, Color.green);
             }

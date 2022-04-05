@@ -16,12 +16,10 @@ public class Epouvan : MonoBehaviour, IClicked, IAction
     private DoorScript Door;
 
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>() ;
-    private CursorController CursorManager ;
 
 
     void Awake()
     {
-        CursorManager = GameObject.Find("Cursor").GetComponent<CursorController>();
         //camShake = GameObject.Find("Camera").GetComponent<ScreenShake>();
         Door = GameObject.Find("Door Leaving Room").GetComponent<DoorScript>();
         this.enabled = true;
@@ -30,9 +28,9 @@ public class Epouvan : MonoBehaviour, IClicked, IAction
 
     public void OnClickAction()
     {
-        CursorManager.ActionWheelScript.ChoicesDisplay = ListInteractPossible ;
-        CursorManager.ActionWheelScript.TargetAction = this;
-        CursorManager.ActionWheelScript.gameObject.SetActive(true);
+        CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible ;
+        CursorController.Instance.ActionWheelScript.TargetAction = this;
+        CursorController.Instance.ActionWheelScript.gameObject.SetActive(true);
     }
 
     public void Disparait()
