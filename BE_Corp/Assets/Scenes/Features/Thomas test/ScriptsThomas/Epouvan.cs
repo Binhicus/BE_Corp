@@ -60,5 +60,5 @@ public class Epouvan : MonoBehaviour, IClicked, IAction
     public void OnInspect() {Debug.Log("Inspect") ;}
     public void OnQuestion() {Disparait() ;}
     
-
+    public void OnLunchActionAfterCloseDialogue() {Disparait(); }
 }

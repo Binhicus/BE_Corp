@@ -87,7 +87,7 @@ public class DoorScript : MonoBehaviour
 
     IEnumerator DoorAnimation()
     {
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(2.0f);
         DoorAnimator.SetTrigger("Door Animation");        
         yield return new WaitForSeconds(1.0f);
         LeaveStepRef.GetComponent<DynamicLoad>().DispStep(true);

@@ -60,17 +60,29 @@ public class ScarecrowScript : MonoBehaviour, IClicked, IAction
         Door.OpenDoorAnimation();
     }
 
-    void DisplayDialogue()
+    void DisplayInspection()
     {
         CursorController.Instance.ActionWheelScript.DialogueDisplayer.SetActive(true);
     }
+
+    void DisplayDialogue()
+    {
+        CursorController.Instance.ActionWheelScript.DialogueDisplayer.GetComponent<DialogueControllerScript>().TargetAction = this ;
+        CursorController.Instance.ActionWheelScript.DialogueDisplayer.GetComponent<DialogueControllerScript>().LunchActionAfterClose = true ;
+        CursorController.Instance.ActionWheelScript.DialogueDisplayer.SetActive(true);
+    }
+
+
 
     public void OnOpen() {Debug.Log("Open") ;}
     public void OnClose() {Debug.Log("Close") ;}
     public void OnTake() {Debug.Log("Take") ;}
     public void OnUse() {Debug.Log("Use") ;}
-    public void OnInspect() {DisplayDialogue(); }
+    public void OnInspect() {DisplayInspection(); }
     public void OnQuestion() {DisplayDialogue(); }
+
+
+    public void OnLunchActionAfterCloseDialogue() {Disparait(); }
     
 
 }

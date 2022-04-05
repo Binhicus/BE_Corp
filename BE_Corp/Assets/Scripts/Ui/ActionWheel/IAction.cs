@@ -10,4 +10,7 @@ public interface IAction
     void OnUse() ;    
     void OnInspect() ; 
     void OnQuestion() ;
+
+
+    void OnLunchActionAfterCloseDialogue();
 }
