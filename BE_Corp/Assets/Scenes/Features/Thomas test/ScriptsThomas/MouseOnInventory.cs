@@ -5,11 +5,11 @@ using UnityEngine;
 public class MouseOnInventory : MonoBehaviour
 {
     public GameObject Inventory;
-    public bool Appuie;
+    public bool Vasy;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Vasy=true;
     }
 
     // Update is called once per frame
@@ -24,7 +24,11 @@ public class MouseOnInventory : MonoBehaviour
     }
     public void PasDessus()
     {
-       Inventory.GetComponent<RectTransform>().anchoredPosition = new Vector3(100, 0,0);
+        if(Vasy==true)
+        {
+            Inventory.GetComponent<RectTransform>().anchoredPosition = new Vector3(100, 0,0);
+        }
+       
     }
 
 
