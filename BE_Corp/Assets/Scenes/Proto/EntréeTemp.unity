@@ -227,13 +227,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 60405552}
-  - component: {fileID: 60405555}
-  - component: {fileID: 60405554}
   - component: {fileID: 60405553}
-  - component: {fileID: 60405557}
+  - component: {fileID: 60405554}
   - component: {fileID: 60405556}
   m_Layer: 0
-  m_Name: Epouvantail
+  m_Name: Scarecrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -267,55 +265,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5286703, y: 4.647165, z: 2.5789173}
   m_Center: {x: 3.1045709, y: 1.8235823, z: 0.78945875}
---- !u!23 &60405554
-MeshRenderer:
+--- !u!114 &60405554
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 60405551}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 239378781582670930, guid: 225dbe3d398d01743bfa087d24065138, type: 3}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &60405555
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 60405551}
-  m_Mesh: {fileID: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4edc6eda687b5c4db128914d17544a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Epouvantail: {fileID: 60405551}
+  PorteManteau: {fileID: 329791907}
+  Son: {fileID: 745407625}
+  ListInteractPossible:
+  - {fileID: 11400000, guid: fd9a468eca2158d43834b7cad0de46ed, type: 2}
+  - {fileID: 11400000, guid: 0293a694598fa3745a3f1ba6f5f72c28, type: 2}
 --- !u!95 &60405556
 Animator:
   serializedVersion: 3
@@ -335,26 +302,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &60405557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 60405551}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9049536a039112842b267de09407a5b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Dessus: 0
-  ButtonChange: {fileID: 667708815}
-  Epouvantail: {fileID: 60405551}
-  PorteManteau: {fileID: 329791907}
-  Son: {fileID: 745407625}
-  ListInteractPossible:
-  - {fileID: 11400000, guid: fd9a468eca2158d43834b7cad0de46ed, type: 2}
-  - {fileID: 11400000, guid: 0293a694598fa3745a3f1ba6f5f72c28, type: 2}
 --- !u!1 &99577783
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,9 +817,9 @@ Transform:
   - {fileID: 215823537}
   - {fileID: 543450651788907062}
   - {fileID: 60405552}
+  - {fileID: 329791909}
   - {fileID: 745407626}
   - {fileID: 1603652748}
-  - {fileID: 329791909}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -955,7 +902,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 2a9a0d292267cc343a6496d1195e72fd, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2a9a0d292267cc343a6496d1195e72fd, type: 3}
       propertyPath: m_LocalScale.x
@@ -1043,7 +990,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2a9a0d292267cc343a6496d1195e72fd, type: 3}
       propertyPath: m_Name
-      value: PorteManteau
+      value: Coat Rack
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2a9a0d292267cc343a6496d1195e72fd, type: 3}
       propertyPath: m_IsActive
@@ -1959,7 +1906,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 60405557}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Epouvan, Assembly-CSharp
         m_MethodName: Disparait
         m_Mode: 1
@@ -2130,7 +2077,7 @@ GameObject:
   - component: {fileID: 745407626}
   - component: {fileID: 745407625}
   m_Layer: 0
-  m_Name: BruitDissolve
+  m_Name: Dissolve Sound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2244,7 +2191,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 251803284}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &791535994
 GameObject:
@@ -3861,7 +3808,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7431666735180143259, guid: cb45ed880e5f5f64fa4a8846814e9092, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7431666735180143259, guid: cb45ed880e5f5f64fa4a8846814e9092, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5101,7 +5048,7 @@ GameObject:
   - component: {fileID: 3469287837032519797}
   - component: {fileID: 1711813856260058303}
   m_Layer: 0
-  m_Name: scarecrow
+  m_Name: Scarecrow Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

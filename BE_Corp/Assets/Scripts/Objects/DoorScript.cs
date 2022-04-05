@@ -39,6 +39,11 @@ public class DoorScript : MonoBehaviour
 
     private void Start() 
     {
+        VerifAnimation();
+    }
+
+    void VerifAnimation()
+    {
         if(PlayerPrefs.GetInt(PlayerPrefNameState) == 0)
         {
             LeaveStepRef.GetComponent<DynamicLoad>().DispStep(false);
@@ -48,7 +53,6 @@ public class DoorScript : MonoBehaviour
             DoorAnimator.SetTrigger("Open");            
         }
     }
-
 
     void OnMouseOver()
     {
