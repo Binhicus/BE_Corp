@@ -1566,7 +1566,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &788556129
 Transform:
   m_ObjectHideFlags: 0
@@ -1596,8 +1596,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nomDuParapluie: Umbrella
   _Image: {fileID: 21300000, guid: 725b382e22df29842942b1452059e62b, type: 3}
-  cursor: {fileID: 2800000, guid: 77f74a419f18b514d9053b8c4fa6fdb8, type: 3}
-  regularCursor: {fileID: 2800000, guid: 38265378852fda64b901743719d06f05, type: 3}
+  ListInteractPossible:
+  - {fileID: 11400000, guid: abdd5633d3b222a47b1e711cbb26bf1e, type: 2}
 --- !u!136 &788556131
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2506,7 +2506,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1535692242
 Transform:
   m_ObjectHideFlags: 0
@@ -11794,6 +11794,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[2]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2977389835557003164, guid: 71b946561e8c8ff4bb4a69f24e34c210, type: 3}
+      propertyPath: ListInteractPossible.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2977389835557003164, guid: 71b946561e8c8ff4bb4a69f24e34c210, type: 3}
+      propertyPath: ListInteractPossible.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: abdd5633d3b222a47b1e711cbb26bf1e, type: 2}
     - target: {fileID: 2977389835557003166, guid: 71b946561e8c8ff4bb4a69f24e34c210, type: 3}
       propertyPath: m_RootOrder
       value: 3
