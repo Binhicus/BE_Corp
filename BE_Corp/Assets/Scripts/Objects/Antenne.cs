@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Antenne : ClickableObject, IClicked, IItemInventaire, IAction
+public class Antenne : ClickableObject, IClicked, IItemInventaire//, IAction
 {
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>();
     public string Name => "Antenne";
