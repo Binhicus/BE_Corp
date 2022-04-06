@@ -11,8 +11,9 @@ public class ZoomRadio : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TexteMeteo=GameObject.FindWithTag("Finish");
+        TexteMeteo=GameObject.Find("Nord meteo");
         CamCuisine=GameObject.FindWithTag("CamCuisine");
+        TexteMeteo.SetActive(false);
     }
 
     // Update is called once per frame
@@ -32,7 +33,16 @@ Ok=false;
         {
             CamCuisine.GetComponent<Animator>().SetTrigger("Radio");
             Ok=true;
-            TexteMeteo.SetActive(true);
+            StartCoroutine(coroutineA());
         }
+    }
+
+
+    IEnumerator coroutineA()
+    {
+        
+        yield return new WaitForSeconds(2.0f);
+        TexteMeteo.SetActive(true);
+       
     }
 }

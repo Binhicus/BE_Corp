@@ -13,13 +13,14 @@ public class ScriptAntenne : MonoBehaviour
     public AudioSource BulletinMeteo;
 
     public GameObject TexteMeteo;
+    public GameObject Umbrella;
 
      private Vector3 startPosition;
      private bool gagne;
     // Start is called before the first frame update
     void Awake()
     {
-        TexteMeteo=GameObject.FindWithTag("Finish");
+        TexteMeteo=GameObject.Find("Nord meteo");
         RadioBug.Play();
         RadioBug.volume=0;
     }
@@ -53,32 +54,27 @@ public class ScriptAntenne : MonoBehaviour
 
             if(Maintiens==false&&gagne==false)
             {
-                gagne=true;
-                Debug.Log("Ba trouve");
-                BulletinMeteo.Play();
-                RadioBug.volume=0; 
-                TexteMeteo.GetComponent<Animator>().SetBool("Trouve", true);
-                PlayerPrefs.SetInt("Parapluie", 1);
+                TermineMiniJeu();
             }
         }
 
         if(TowerAngle>10&&TowerAngle<10.9f)
         {
-            Debug.Log("2");
+            //Debug.Log("2");
             TexteMeteo.GetComponent<Animator>().SetBool("PasLoin", true);
             RadioBug.volume=0.5f;
             TexteMeteo.GetComponent<Animator>().SetBool("Trouve", false);
         }
         if(TowerAngle>12.6f)
         {
-            Debug.Log("3");
+            //Debug.Log("3");
             TexteMeteo.GetComponent<Animator>().SetBool("PasLoin", false);
             TexteMeteo.GetComponent<Animator>().SetBool("Trouve", false);
             RadioBug.volume=0f;
         }
          if(TowerAngle<9f)
         {
-            Debug.Log("4");
+            //Debug.Log("4");
             TexteMeteo.GetComponent<Animator>().SetBool("PasLoin", false);
             TexteMeteo.GetComponent<Animator>().SetBool("Trouve", false);
             RadioBug.volume=0f;
@@ -86,7 +82,7 @@ public class ScriptAntenne : MonoBehaviour
 
         if(TowerAngle>11.6f&&TowerAngle<12.3f)
         {
-            Debug.Log("5");
+           // Debug.Log("5");
             TexteMeteo.GetComponent<Animator>().SetBool("Trouve", false);
             TexteMeteo.GetComponent<Animator>().SetBool("PasLoin", true);
             RadioBug.volume=0.5f;
@@ -94,6 +90,15 @@ public class ScriptAntenne : MonoBehaviour
         
 
 
+    }
+
+    public void TermineMiniJeu()
+    {
+        gagne=true;
+        BulletinMeteo.Play();
+        RadioBug.volume=0; 
+        TexteMeteo.GetComponent<Animator>().SetBool("Trouve", true);
+        PlayerPrefs.SetInt("Parapluie", 1);
     }
 
 
