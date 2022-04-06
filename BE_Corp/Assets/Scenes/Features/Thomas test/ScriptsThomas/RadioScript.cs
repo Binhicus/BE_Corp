@@ -16,11 +16,7 @@ public class RadioScript : MonoBehaviour,IClicked, IAction
 
     void Awake()
     {
-        //camShake = GameObject.Find("Camera").GetComponent<ScreenShake>();
-        this.enabled = true;
-        CameraActivate=GameObject.Find("Cam_Radio");
-        CameraActivate.SetActive(false);
-        CameraActivate.GameObject.Find("---- CAMERAS ----");
+        CameraActivate=GameObject.Find("---- CAMERAS ----").GetComponent<CameraContainerScript>().CameraRadio;
     }
 
     private void Start() 
