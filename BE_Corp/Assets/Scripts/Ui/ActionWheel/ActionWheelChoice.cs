@@ -22,7 +22,8 @@ public enum ActionPossible
     Prendre,
     Utiliser,
     Inspecter,
-    Questionner
+    Questionner,
+    Regarder
 }
 public class ActionWheelChoice : MonoBehaviour
 {
@@ -102,6 +103,12 @@ public class ActionWheelChoice : MonoBehaviour
         if(StateAction == ActionPossible.Questionner)
         {
             TargetAction.OnQuestion();          
+        }
+
+        // State Questionner
+        if(StateAction == ActionPossible.Regarder)
+        {
+            TargetAction.OnLook();          
         }
 
         transform.parent.transform.parent.GetComponent<ActionWheel>().DisableWheel();

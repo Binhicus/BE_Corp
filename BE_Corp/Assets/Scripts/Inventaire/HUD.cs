@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class HUD : MonoBehaviour
 {
+    public GameObject DezoomButton ;
 
     void Start()
     {
@@ -59,5 +60,27 @@ public class HUD : MonoBehaviour
                 break;
             }
         }*/
+    }
+
+    private void Update() {
+        if(GameObject.FindGameObjectWithTag("Camera Zoom") != null) DezoomButton.SetActive(true);
+    }
+
+    public void DezoomCamera()
+    {
+        if(GameObject.FindGameObjectWithTag("Camera Zoom") != null)
+        {
+            GameObject.FindGameObjectWithTag("Camera Zoom").SetActive(false);
+            DezoomButton.SetActive(false);
+        } 
+
+
+        GameObject[] IndiceZoneCollider ;
+        IndiceZoneCollider = GameObject.FindGameObjectsWithTag("Indice Zone");
+
+        foreach (GameObject GameCol in IndiceZoneCollider)
+        {
+            GameCol.GetComponent<BoxCollider>().enabled = true ;
+        }
     }
 }

@@ -43,6 +43,6 @@ public class Antenne : ClickableObject, IClicked, IItemInventaire, IAction
             gameObject.transform.position = hit.point;
         }
     }
-
+    public void OnLook() {}
     public void OnLunchActionAfterCloseDialogue() {}
 }

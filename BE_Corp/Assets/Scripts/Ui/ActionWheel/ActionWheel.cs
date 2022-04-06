@@ -179,6 +179,8 @@ public class ActionWheel : MonoBehaviour
         if(NamePartAction == "Utiliser" || NamePartAction == "Use") PartPrefab.StateAction = ActionPossible.Utiliser ;
         if(NamePartAction == "Inspecter" || NamePartAction == "Inspect") PartPrefab.StateAction = ActionPossible.Inspecter ;
         if(NamePartAction == "Questionner" || NamePartAction == "Question") PartPrefab.StateAction = ActionPossible.Questionner ;
+        if(NamePartAction == "Regarder" || NamePartAction == "Look") PartPrefab.StateAction = ActionPossible.Regarder ;
+
     }
 
 

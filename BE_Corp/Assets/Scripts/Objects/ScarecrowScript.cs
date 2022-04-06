@@ -80,6 +80,7 @@ public class ScarecrowScript : MonoBehaviour, IClicked, IAction
     public void OnUse() {Debug.Log("Use") ;}
     public void OnInspect() {DisplayInspection(); }
     public void OnQuestion() {DisplayDialogue(); }
+    public void OnLook() {}
 
 
     public void OnLunchActionAfterCloseDialogue() {Disparait(); }
