@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KickBall : MonoBehaviour
+public class KickBall : ClickableObject
 {
     public float hauteur = 1.0f;
     public float allant = 3.0f;
@@ -24,12 +24,16 @@ public class KickBall : MonoBehaviour
         Cursor.SetCursor(regularCursor, Vector2.zero, CursorMode.Auto);
     }
     // Start is called before the first frame update
-    void Awake()
+    void OnEnable()
     {
         ball = gameObject.GetComponent<SphereCollider>();
         shaker = GameObject.Find("CameraShaker").GetComponent<SplCameraShake>();
         rb = GetComponent<Rigidbody>();
         vaseSwitch = GameObject.Find("Switch").GetComponent<VaseSwitch>();
+        if (vaseSwitch == null)
+        {
+            vaseSwitch = null;
+        }
     }
 
     // Update is called once per frame
