@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Umbrella : ClickableObject, IClicked, IItemInventaire
+public class Umbrella : ClickableObject, IClicked, IItemInventaire, IAction
 {
     public string nomDuParapluie;
     private GameObject parapluie;
@@ -11,12 +11,13 @@ public class Umbrella : ClickableObject, IClicked, IItemInventaire
     public Sprite _Image;
     public Sprite Image => _Image;
 
-    public Texture2D cursor;
-    public Texture2D regularCursor;
+    public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>();
 
     public void OnClickAction()
     {
-        // pour l'instant rien de spécial
+        CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible;
+        CursorController.Instance.ActionWheelScript.TargetAction = this;
+        CursorController.Instance.ActionWheelScript.gameObject.SetActive(true);
     }
 
     public void OnDrop()
@@ -41,13 +42,38 @@ public class Umbrella : ClickableObject, IClicked, IItemInventaire
         parapluie = GameObject.Find(nomDuParapluie);
     }
 
-    void OnMouseOver()
+    public void OnOpen()
     {
-        Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
+        throw new System.NotImplementedException();
     }
 
-    void OnMouseExit()
+    public void OnClose()
     {
-        Cursor.SetCursor(regularCursor, Vector2.zero, CursorMode.Auto);
+        throw new System.NotImplementedException();
+    }
+
+    public void OnTake()
+    {
+        Inventaire.Instance.AddItem(this);
+    }
+
+    public void OnUse()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void OnInspect()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void OnQuestion()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void OnLunchActionAfterCloseDialogue()
+    {
+        throw new System.NotImplementedException();
     }
 }
