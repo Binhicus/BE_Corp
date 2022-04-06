@@ -684,7 +684,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 599940754}
-  - component: {fileID: 599940755}
   - component: {fileID: 599940756}
   m_Layer: 0
   m_Name: PourZoom Radio
@@ -707,19 +706,6 @@ Transform:
   m_Father: {fileID: 7661828704897474470}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &599940755
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 599940753}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.4893353, y: 0.49476814, z: 0.62234545}
-  m_Center: {x: -0.098226905, y: -3.5197706, z: 0.9304631}
 --- !u!114 &599940756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -727,7 +713,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 599940753}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b01d7d4b0aaf1ba459fb19dec33f4c49, type: 3}
   m_Name: 
@@ -1185,6 +1171,24 @@ Transform:
   m_Father: {fileID: 152522763}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1477620949 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1284822145366497377, guid: dce096879898c764aaee24b26425b9ba, type: 3}
+  m_PrefabInstance: {fileID: 7661828704897474469}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1477620951
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1477620949}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.60081434, y: 0.76338935, z: 0.91982126}
+  m_Center: {x: -6.3681545, y: 1.7909874, z: 2.570217}
 --- !u!1 &1535030114
 GameObject:
   m_ObjectHideFlags: 0
@@ -1373,7 +1377,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1651206318
 Transform:
   m_ObjectHideFlags: 0
@@ -1409,6 +1413,7 @@ MonoBehaviour:
   RadioBug: {fileID: 1730057867}
   BulletinMeteo: {fileID: 1724752515}
   TexteMeteo: {fileID: 0}
+  Umbrella: {fileID: 0}
 --- !u!65 &1651206320
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15629,6 +15634,10 @@ PrefabInstance:
     - target: {fileID: 1284822145366497377, guid: dce096879898c764aaee24b26425b9ba, type: 3}
       propertyPath: m_Name
       value: Radio
+      objectReference: {fileID: 0}
+    - target: {fileID: 1284822145366497377, guid: dce096879898c764aaee24b26425b9ba, type: 3}
+      propertyPath: m_TagString
+      value: Indice Zone
       objectReference: {fileID: 0}
     - target: {fileID: 1754500071682986411, guid: dce096879898c764aaee24b26425b9ba, type: 3}
       propertyPath: m_LocalScale.x
