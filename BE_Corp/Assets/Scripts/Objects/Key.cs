@@ -66,4 +66,9 @@ public class Key : ClickableObject, IClicked, IItemInventaire, IAction
     {
 
     }
+
+    public void OnLook()
+    {
+        Debug.Log("Observe");
+    }
 }

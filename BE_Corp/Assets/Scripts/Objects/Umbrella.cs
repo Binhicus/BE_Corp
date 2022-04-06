@@ -42,38 +42,25 @@ public class Umbrella : ClickableObject, IClicked, IItemInventaire, IAction
         parapluie = GameObject.Find(nomDuParapluie);
     }
 
-    public void OnOpen()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void OnClose()
-    {
-        throw new System.NotImplementedException();
-    }
+    public void OnOpen() { Debug.Log("Open"); }
+    public void OnClose() { Debug.Log("Close"); }
 
     public void OnTake()
     {
         Inventaire.Instance.AddItem(this);
     }
 
-    public void OnUse()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void OnInspect()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void OnQuestion()
-    {
-        throw new System.NotImplementedException();
-    }
+    public void OnUse() { Debug.Log("Use"); }
+    public void OnInspect() { Debug.Log("Inspect"); }
+    public void OnQuestion() { Debug.Log("Question"); }
 
     public void OnLunchActionAfterCloseDialogue()
     {
-        throw new System.NotImplementedException();
+
+    }
+
+    public void OnLook()
+    {
+        Debug.Log("Observe");
     }
 }

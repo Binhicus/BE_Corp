@@ -40,4 +40,9 @@ public class BallInteraction : ClickableObject, IClicked, IAction
     {
 
     }
+
+    public void OnLook()
+    {
+        Debug.Log("Observe"); 
+    }
 }
