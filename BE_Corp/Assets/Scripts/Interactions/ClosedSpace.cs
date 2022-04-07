@@ -9,7 +9,6 @@ public class ClosedSpace : MonoBehaviour,IHasItemInteraction
     public AudioSource unlocked;
     public GameObject fog;
     public GameObject OuverturePorteChambre;
-    //public GameObject DetectouvrePorte;
     public void DoItemInteraction()
     {
         fog.SetActive(false);
@@ -31,11 +30,11 @@ public class ClosedSpace : MonoBehaviour,IHasItemInteraction
 
     void Awake()
     {
-        OuverturePorteChambre=GameObject.Find("Ouverture");
+        fog = GameObject.Find("Gray Volume Fog");
 
-        if(PlayerPrefs.GetInt("Fog")==1)
+        if(PlayerPrefs.GetInt("fog")==1)
         {
-            OuverturePorteChambre.GetComponent<BoxCollider>().enabled=true;
+            fog.SetActive(false);
         }
     }
 }
