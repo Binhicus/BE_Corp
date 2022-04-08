@@ -31,6 +31,7 @@ public class ClosedSpace : MonoBehaviour,IHasItemInteraction
     void Awake()
     {
         fog = GameObject.Find("Gray Volume Fog");
+        OuverturePorteChambre=GameObject.Find("Ouverture");
 
         if(PlayerPrefs.GetInt("fog")==1)
         {
