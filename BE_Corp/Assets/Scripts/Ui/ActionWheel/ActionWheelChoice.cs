@@ -60,6 +60,10 @@ public class ActionWheelChoice : MonoBehaviour
         } 
     }
 
+    private void Update() {
+        if(NameAction.gameObject.activeSelf && Input.GetMouseButtonDown(0)) ClickAction();
+    }
+
 
     public void ClickAction()
     {
