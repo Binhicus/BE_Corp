@@ -1,5 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9044187448236286329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dd97976b1b34884cb4d887afa3c27e2, type: 3}
+  m_Name: GlitchEffect
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    Event: 550
+    blitMaterial: {fileID: 2100000, guid: 9925143a767e5704f995df89622ade7c, type: 2}
+    blitMaterialPassIndex: 0
+    destination: 0
+    textureId: _BlitPassTexture
 --- !u!114 &-467400368529195709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54,7 +73,8 @@ MonoBehaviour:
   m_RendererFeatures:
   - {fileID: -467400368529195709}
   - {fileID: 4688401736518054552}
-  m_RendererFeatureMap: 433dee59d77583f998b27b058a8c1041
+  - {fileID: -9044187448236286329}
+  m_RendererFeatureMap: 433dee59d77583f998b27b058a8c1041875ed4196f977c82
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   shaders:
     blitPS: {fileID: 4800000, guid: c17132b1f77d20942aa75f8429c0f8bc, type: 3}
