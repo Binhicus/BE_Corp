@@ -40,7 +40,7 @@ public class SalonManager : MonoBehaviour
 
     public void PilesState()
     {
-        Debug.Log(PlayerPrefs.GetInt("Piles"));
+      /*  Debug.Log(PlayerPrefs.GetInt("Piles"));
         
         if (PlayerPrefs.GetInt("Piles") == 0) //            le joueur a cassé le vase mais n'a pas ramassé la clef
         {
@@ -54,7 +54,7 @@ public class SalonManager : MonoBehaviour
         if (PlayerPrefs.GetInt("Piles") == 2) //            le joueur a cassé le vase mais n'a pas ramassé la clef
         {
              PilesRobot.SetActive(false);
-        }
+        }*/
     }
 
     public void UmbrellaState()
