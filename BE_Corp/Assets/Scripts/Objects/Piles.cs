@@ -2,22 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Umbrella : ClickableObject, IClicked, IItemInventaire, IAction
+public class Piles : ClickableObject, IClicked, IItemInventaire, IAction
 {
-    public string nomDuParapluie;
-    private GameObject parapluie;
-    public string Name => "Umbrella";
-
-    public Sprite _Image;
-    public Sprite Image => _Image;
-
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>();
+    public string Name => "Piles";
+    public Sprite _Image;
+
+    public Sprite Image => _Image;
 
     public void OnClickAction()
     {
         CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible;
         CursorController.Instance.ActionWheelScript.TargetAction = this;
         CursorController.Instance.ActionWheelScript.gameObject.SetActive(true);
+    }
+
+    public void OnOpen() { Debug.Log("Open"); }
+    public void OnClose() { Debug.Log("Close"); }
+    public void OnTake()
+    {
+        Inventaire.Instance.AddItem(this);
+    }
+    public void OnUse() { Debug.Log("Use"); }
+    public void OnInspect() { Debug.Log("Inspect"); }
+    public void OnQuestion() { Debug.Log("Question"); }
+
+    public void OnPickUp()
+    {
+        gameObject.SetActive(false);
     }
 
     public void OnDrop()
@@ -32,31 +44,13 @@ public class Umbrella : ClickableObject, IClicked, IItemInventaire, IAction
         }
     }
 
-    public void OnPickUp()
+    public void OnLook()
     {
-        gameObject.SetActive(false);
+        
     }
-
-
-    public void OnOpen() { Debug.Log("Open"); }
-    public void OnClose() { Debug.Log("Close"); }
-
-    public void OnTake()
-    {
-        Inventaire.Instance.AddItem(this);
-    }
-
-    public void OnUse() { Debug.Log("Use"); }
-    public void OnInspect() { Debug.Log("Inspect"); }
-    public void OnQuestion() { Debug.Log("Question"); }
 
     public void OnLunchActionAfterCloseDialogue()
     {
-
-    }
-
-    public void OnLook()
-    {
-        Debug.Log("Observe");
+        
     }
 }
