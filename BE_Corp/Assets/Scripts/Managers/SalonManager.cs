@@ -7,6 +7,7 @@ public class SalonManager : MonoBehaviour
     public GameObject vase;
     public GameObject key;
     public GameObject objetsMeteo;
+    public GameObject PilesRobot;
     public KickBall ballon;
 
     private void OnEnable()
@@ -14,6 +15,7 @@ public class SalonManager : MonoBehaviour
         vase = GameObject.Find("Switch");
         key = GameObject.Find("I_Clef");
         objetsMeteo = GameObject.Find("Umbrella");
+        PilesRobot = GameObject.FindWithTag("Test");
         ballon = GameObject.Find("Soccer Ball").GetComponent<KickBall>();
         SalonLoader();
     }
@@ -33,6 +35,25 @@ public class SalonManager : MonoBehaviour
             vase.SetActive(false);
             Destroy(ballon);
             //key.SetActive(false);
+        }
+    }
+
+    public void PilesState()
+    {
+        Debug.Log(PlayerPrefs.GetInt("Piles"));
+        
+        if (PlayerPrefs.GetInt("Piles") == 0) //            le joueur a cassé le vase mais n'a pas ramassé la clef
+        {
+            PilesRobot.SetActive(false);
+        }
+
+        if (PlayerPrefs.GetInt("Piles") == 1) //            le joueur a cassé le vase mais n'a pas ramassé la clef
+        {
+            PilesRobot.SetActive(true);
+        }
+        if (PlayerPrefs.GetInt("Piles") == 2) //            le joueur a cassé le vase mais n'a pas ramassé la clef
+        {
+             PilesRobot.SetActive(false);
         }
     }
 
@@ -57,5 +78,6 @@ public class SalonManager : MonoBehaviour
     {
         VaseState();
         UmbrellaState();
+        PilesState();
     }
 }

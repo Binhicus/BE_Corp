@@ -27,7 +27,7 @@ public class UIInventoryItem : MonoBehaviour, IDragHandler, IEndDragHandler
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Ray ray = Camera.main.ScreenPointToRay(CursorController.Instance.controls.Mouse.Position.ReadValue<Vector2>());
+     Ray ray = Camera.main.ScreenPointToRay(CursorController.Instance.controls.Mouse.Position.ReadValue<Vector2>());
         RaycastHit[] hits = Physics.RaycastAll(ray, 200);
         bool hitSomething = false;
         for (int i = 0; i < hits.Length; i++)

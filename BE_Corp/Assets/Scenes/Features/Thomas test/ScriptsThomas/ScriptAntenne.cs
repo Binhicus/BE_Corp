@@ -13,7 +13,6 @@ public class ScriptAntenne : MonoBehaviour
     public AudioSource BulletinMeteo;
 
     public GameObject TexteMeteo;
-    public GameObject Umbrella;
 
      private Vector3 startPosition;
      private bool gagne;

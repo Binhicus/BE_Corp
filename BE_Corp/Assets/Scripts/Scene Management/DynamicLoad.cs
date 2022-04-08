@@ -27,6 +27,7 @@ public class DynamicLoad : ClickableSteps, IClicked
 
     public GameObject CamACharger, CamActuelle;
     public GameObject[] chargeur;
+    public GameObject[] StepActivate ;
 
     //Scene state
     public bool isLoaded = true; //eviter de charger 2x
@@ -146,10 +147,22 @@ public class DynamicLoad : ClickableSteps, IClicked
     {
         if(chargeur != null)
         {
-            this.gameObject.GetComponent<BoxCollider>().enabled = false;
+            //this.gameObject.GetComponent<BoxCollider>().enabled = false;
             for (int i = 0; i < chargeur.Length; i++)
             {
-                chargeur[i].GetComponent<BoxCollider>().enabled = true;
+                chargeur[i].GetComponent<BoxCollider>().enabled = false;
+            }
+        }
+        UnlockStepRoom();
+    }
+
+    public void UnlockStepRoom()
+    {
+        if(chargeur != null)
+        {
+            for (int i = 0; i < StepActivate.Length; i++)
+            {
+                StepActivate[i].GetComponent<BoxCollider>().enabled = true ;
             }
         }
     }
