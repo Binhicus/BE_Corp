@@ -14,6 +14,8 @@ public class RadioScript : MonoBehaviour,IClicked, IAction
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>() ;
 
 
+
+
     void Awake()
     {
         CameraActivate = GameObject.Find("---- CAMERAS ----").GetComponent<CameraContainerScript>().CameraRadio;
@@ -25,7 +27,9 @@ public class RadioScript : MonoBehaviour,IClicked, IAction
 
     void LookZone()
     {
-        Debug.Log("Go");
+        if(PlayerPrefs.GetInt("Antenne")==1&&PlayerPrefs.GetInt("PileDansRadio")==1)
+     {
+            Debug.Log("Go");
         CameraActivate.SetActive(true);
 
         GameObject[] IndiceZoneCollider ;
@@ -35,6 +39,14 @@ public class RadioScript : MonoBehaviour,IClicked, IAction
         {
             GameCol.GetComponent<BoxCollider>().enabled = false ;
         }
+     }
+     
+     else
+
+     {
+        Debug.Log("Desole gros mais tu peux pas encore");
+     }
+        
     }
 
 
