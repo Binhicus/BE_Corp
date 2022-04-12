@@ -62,8 +62,10 @@ public class HUD : MonoBehaviour
         }*/
     }
 
-    private void Update() {
+    private void Update() 
+    {
         if(GameObject.FindGameObjectWithTag("Camera Zoom") != null) DezoomButton.SetActive(true);
+
     }
 
     public void DezoomCamera()

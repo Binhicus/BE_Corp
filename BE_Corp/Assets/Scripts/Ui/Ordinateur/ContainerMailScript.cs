@@ -100,6 +100,7 @@ public class ContainerMailScript : MonoBehaviour
 
                 DateBox.transform.localPosition = new Vector3(DateBox.transform.localPosition.x, DateBox.transform.localPosition.y, 0);
                 DateBox.transform.localScale = Vector3.one ;
+                DateBox.transform.localRotation = Quaternion.identity ;
 
 
                 TextMeshProUGUI DateBoxchild = DateBox.GetComponentInChildren<TextMeshProUGUI>() ;
@@ -117,6 +118,7 @@ public class ContainerMailScript : MonoBehaviour
 
             MailInBox.transform.localPosition = new Vector3(MailInBox.transform.localPosition.x, MailInBox.transform.localPosition.y, 0);
             MailInBox.transform.localScale = Vector3.one ;
+            MailInBox.transform.localRotation = Quaternion.identity ;
 
             EmailContainerScript MailInBoxContainerScript = MailInBox.GetComponent<EmailContainerScript>();
             MailInBoxContainerScript.MailInformations = MailSort[Ms];

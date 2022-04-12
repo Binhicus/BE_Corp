@@ -20,7 +20,11 @@ public class MouseOnInventory : MonoBehaviour
 
     public void Dessus()
     {
-        Inventory.GetComponent<RectTransform>().anchoredPosition = new Vector3(-79, 0,0);
+        if(!GameObject.Find("---- CAMERAS ----").GetComponent<CameraContainerScript>().CameraOrdi.activeSelf) 
+        {
+            Inventory.GetComponent<RectTransform>().anchoredPosition = new Vector3(-79, 0,0);            
+        }
+
     }
     public void PasDessus()
     {

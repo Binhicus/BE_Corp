@@ -111,10 +111,9 @@ public class ComputerNavigationScript : MonoBehaviour
             WindowMail.gameObject.SetActive(!WindowMail.gameObject.activeSelf) ;
             WindowMail.GetComponent<CanvasGroup>().DOFade(1f, 0.25f) ;
 
-            WindowMail.DOScale(Vector3.one, .25f);
+            WindowMail.DOScale(new Vector3(1.001f, 1.001f, 1f), .25f);
             WindowMail.DOAnchorPos(MailIsInFullscreen ? new Vector2(0, 50f) : new Vector2(45f, 50f) , 0.25f);
         } else {
-
             WindowMail.GetComponent<CanvasGroup>().DOFade(0f, 0.25f) ;
 
             WindowMail.DOScale(new Vector3(0.4f, 0.4f, 0.4f), 0.25f);

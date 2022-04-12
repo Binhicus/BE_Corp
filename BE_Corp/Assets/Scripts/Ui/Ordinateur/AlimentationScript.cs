@@ -24,6 +24,7 @@ public class AlimentationScript : MonoBehaviour
     [SerializeField] private TextMeshProUGUI HeureEcranVeille ;
     [SerializeField] private TextMeshProUGUI DateEcranVeille ;
     private bool EcranVeilleDisplay = false ;
+    public bool ComputerAsBeLunch = false ;
     [SerializeField] private GameObject LogComponnent ;
     [SerializeField] private GameObject UserAvatar ;
     [SerializeField] private TextMeshProUGUI NameComputer ;
@@ -51,10 +52,10 @@ public class AlimentationScript : MonoBehaviour
         BlurMaterial = FondVeille.GetComponent<Image>().material ;
         HeureEcranVeille.text = ComputerInformation.Heure ;
         DateEcranVeille.text = GetDayOfTheDate(ComputerInformation.Date) + ", " + GetPartOfTheDate(ComputerInformation.Date, 0) + " " + GetPartOfTheDate(ComputerInformation.Date, 1);
-
-        LoadAnimCoroutine = LoadAnimation();
-        LunchComputer();
+    
+        LoadAnimCoroutine = LoadAnimation();    
     }
+
 
     string GetDayOfTheDate(string Date)
     {
@@ -143,6 +144,7 @@ public class AlimentationScript : MonoBehaviour
 
     public void LunchComputer()
     {
+        ComputerAsBeLunch = true ;
         StartCoroutine(ComputerLunch());        
     }
 
