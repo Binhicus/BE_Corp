@@ -5616,7 +5616,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!33 &781988262433833236
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -6297,7 +6297,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &1005171453287652163
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6588,13 +6588,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5271913940050949764}
-  m_LocalRotation: {x: 0.2805045, y: 0.9401902, z: -0.048701033, w: -0.18705069}
-  m_LocalPosition: {x: -5.3757367, y: 0.57259226, z: 1.4632752}
+  m_LocalRotation: {x: 0.65320116, y: 0.7320987, z: -0.12352133, w: -0.14866814}
+  m_LocalPosition: {x: -5.242, y: 0.575, z: 1.403}
   m_LocalScale: {x: 1.5622219, y: 1.5622219, z: 1.5622227}
   m_Children: []
   m_Father: {fileID: 1224817664}
   m_RootOrder: 98
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.766, y: -157.723, z: 83.33}
 --- !u!33 &1084902976159541785
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8411,7 +8411,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1690998904173572244
 Transform:
   m_ObjectHideFlags: 0
@@ -15122,6 +15122,8 @@ GameObject:
   - component: {fileID: 6904700644059534749}
   - component: {fileID: 8471783053102795513}
   - component: {fileID: 6674734182843887373}
+  - component: {fileID: 4035015025252962117}
+  - component: {fileID: 4035015025252962116}
   m_Layer: 0
   m_Name: Meuble_BD
   m_TagString: Untagged
@@ -15129,6 +15131,34 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &4035015025252962116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4035015025252962115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed53e05a86fae3c4dba8e78297be240d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListInteractPossible:
+  - {fileID: 11400000, guid: fd9a468eca2158d43834b7cad0de46ed, type: 2}
+  CameraActivate: {fileID: 30281234}
+--- !u!65 &4035015025252962117
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4035015025252962115}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.030340211, y: 0.018409278, z: 0.018521218}
+  m_Center: {x: 0.000000078231096, y: 0.000000014901161, z: 0.0000000037252903}
 --- !u!4 &4044717213327668574
 Transform:
   m_ObjectHideFlags: 0
@@ -15415,7 +15445,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!33 &4271095495598506050
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -18278,13 +18308,43 @@ GameObject:
   - component: {fileID: 1081491932472084572}
   - component: {fileID: 6399644668904097163}
   - component: {fileID: 3737840952000219202}
+  - component: {fileID: 5271913940050949766}
+  - component: {fileID: 5271913940050949765}
   m_Layer: 0
-  m_Name: Pinceau06
+  m_Name: Fausse Antenne
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &5271913940050949765
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5271913940050949764}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.008678395, y: 0.0087629175, z: 0.14057682}
+  m_Center: {x: 0.0000010703502, y: -0.00000047114665, z: 0.04250438}
+--- !u!114 &5271913940050949766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5271913940050949764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46685c1219deff24ea9010356cbfd18c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListInteractPossible:
+  - {fileID: 11400000, guid: abdd5633d3b222a47b1e711cbb26bf1e, type: 2}
+  _Image: {fileID: 21300000, guid: 3eaac653b01b65c41a94dc6298df460b, type: 3}
 --- !u!1 &5273652680240555089
 GameObject:
   m_ObjectHideFlags: 0
@@ -20449,7 +20509,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!33 &6060388120846951203
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -28521,7 +28581,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &8373460299266781929
 MeshRenderer:
   m_ObjectHideFlags: 0

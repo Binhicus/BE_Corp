@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZoomIndiceScript : MonoBehaviour, IClicked, IAction
+public class ZoomMeubleSalon : MonoBehaviour,IClicked, IAction
 {
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>() ;
 
     public GameObject CameraActivate ;
-
     // Start is called before the first frame update
     void Start()
     {
+        CameraActivate = GameObject.Find("---- CAMERAS ----").GetComponent<CameraContainerScript>().CameraMeuble;
     }
 
     // Update is called once per frame
@@ -23,6 +23,8 @@ public class ZoomIndiceScript : MonoBehaviour, IClicked, IAction
     {
         CameraActivate.SetActive(true);
 
+        this.GetComponent<BoxCollider>().enabled=false;
+
         GameObject[] IndiceZoneCollider ;
         IndiceZoneCollider = GameObject.FindGameObjectsWithTag("Indice Zone");
 
@@ -32,7 +34,6 @@ public class ZoomIndiceScript : MonoBehaviour, IClicked, IAction
         }
     }
 
-
     public void OnClickAction()
     {
         CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible;
@@ -40,14 +41,21 @@ public class ZoomIndiceScript : MonoBehaviour, IClicked, IAction
         CursorController.Instance.ActionWheelScript.gameObject.SetActive(true);
     }
 
+    void DisplayInspection()
+    {
+        CursorController.Instance.ActionWheelScript.DialogueDisplayer.SetActive(true);
+    }
+
     public void OnOpen() {Debug.Log("Open") ;}
     public void OnClose() {Debug.Log("Close") ;}
     public void OnTake() {Debug.Log("Take") ;}
-    public void OnUse() {Debug.Log("Use") ;}
-    public void OnInspect() { }
+    public void OnUse() {}
+    public void OnInspect() {LookZone(); }
     public void OnQuestion() { }
-    public void OnLook() { LookZone(); }
+    public void OnLook() {}
 
 
     public void OnLunchActionAfterCloseDialogue() { }
+    
+
 }
