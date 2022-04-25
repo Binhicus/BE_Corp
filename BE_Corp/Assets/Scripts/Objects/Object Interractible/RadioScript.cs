@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Fungus;
 
 public class RadioScript : MonoBehaviour,IClicked, IAction
 {
+    public BlockReference blockRef;
 
     public AudioSource Son;
 
@@ -67,7 +69,13 @@ public class RadioScript : MonoBehaviour,IClicked, IAction
     {
         CursorController.Instance.ActionWheelScript.DialogueDisplayer.GetComponent<DialogueControllerScript>().TargetAction = this ;
         CursorController.Instance.ActionWheelScript.DialogueDisplayer.GetComponent<DialogueControllerScript>().LunchActionAfterClose = true ;
-        CursorController.Instance.ActionWheelScript.DialogueDisplayer.SetActive(true);
+       // CursorController.Instance.ActionWheelScript.DialogueDisplayer.SetActive(true);
+        blockRef.Execute();
+    }
+
+    public void DialogRadio()
+    {
+        blockRef.Execute();
     }
 
 
