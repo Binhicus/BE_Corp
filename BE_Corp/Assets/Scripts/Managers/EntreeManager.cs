@@ -5,18 +5,16 @@ using UnityEngine;
 public class EntreeManager : MonoBehaviour
 {
 
-    public GameObject fog;
-    public GameObject epouvantail;
-    public GameObject porteManteau;
-    public GameObject Porte;
-    public GameObject Pas;
+    public GameObject fog, epouvantail, porteManteau, Porte, Pas, Tournevis, antenne;
 
 
     private void OnEnable()
     {
-        epouvantail = GameObject.Find("Epouvantail");
-        porteManteau = GameObject.Find("PorteManteau");
+        epouvantail = GameObject.Find("Scarecrow");
+        porteManteau = GameObject.Find("Coat Rack");
         fog = GameObject.Find("Gray Volume Fog");
+        Tournevis = GameObject.Find("Tournevis");
+        antenne = GameObject.Find("Antenne");
         EntreeLoader();
     }
     public void EpouvantailState()
@@ -29,6 +27,21 @@ public class EntreeManager : MonoBehaviour
         }
     }
 
+    public void TournevisState()
+    {
+        if (PlayerPrefs.GetInt("Tournevis") == 1)
+        {
+            Tournevis.SetActive(false);
+        }
+    }
+
+    public void AntenneState()
+    {
+        if (PlayerPrefs.GetInt("Antenne") == 1)
+        {
+            antenne.SetActive(false);
+        }
+    }
 
     public void FogState()
     {

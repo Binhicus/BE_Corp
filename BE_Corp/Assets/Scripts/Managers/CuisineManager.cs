@@ -4,18 +4,11 @@ using UnityEngine;
 
 public class CuisineManager : MonoBehaviour
 {
-    public GameObject Vase;
+    public GameObject radio, gateau, microOndes;
     // Start is called before the first frame update
-   void Awake()
+   void OnEnable()
    {
-       if(PlayerPrefs.GetInt("Vase")==1)
-        {
-            Debug.Log("Vase Cassé");
-        }
-        if(PlayerPrefs.GetInt("Key")==1)
-        {
-            
-        }
+       
    }
 
     // Update is called once per frame

@@ -21,7 +21,8 @@ public class Tournevis : ClickableObject, IClicked, IItemInventaire,IAction
     public void OnClose() { Debug.Log("Close"); }
     public void OnTake()
     {
-        Inventaire.Instance.AddItem(this); 
+        Inventaire.Instance.AddItem(this);
+        PlayerPrefs.SetInt("Tournevis", 1);
     }
     public void OnUse() { Debug.Log("Use"); }
     public void OnInspect() { Debug.Log("Inspect"); }
