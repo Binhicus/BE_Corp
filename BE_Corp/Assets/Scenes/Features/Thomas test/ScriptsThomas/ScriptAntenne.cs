@@ -33,7 +33,7 @@ public class ScriptAntenne : MonoBehaviour
 
         Vector3 mousePos = Input.mousePosition;
 
-        if ((Input.GetMouseButtonDown(0))&&dedans==true&&gagne==false)
+        if ((Input.GetMouseButtonDown(0))&&dedans==true&&gagne==false&&PlayerPrefs.GetInt("Parapluie")==0)
         {
             Maintiens=true;
             Debug.Log("click");
@@ -97,11 +97,15 @@ public class ScriptAntenne : MonoBehaviour
 
     public void TermineMiniJeu()
     {
-        gagne=true;
+        if(PlayerPrefs.GetInt("Parapluie")==0)
+        {
+            gagne=true;
         BulletinMeteo.Play();
         RadioBug.volume=0; 
         TexteMeteo.GetComponent<Animator>().SetBool("Trouve", true);
         PlayerPrefs.SetInt("Parapluie", 1);
+        }
+        
     }
 
 
