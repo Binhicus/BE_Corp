@@ -6,9 +6,11 @@ using UnityEngine;
 public class HUD : MonoBehaviour
 {
     public GameObject DezoomButton ;
+    public GameObject TexteMeteo;
 
     void Start()
     {
+        TexteMeteo=GameObject.Find("Nord meteo");
         Inventaire.Instance.ItemAdded += InventoryScript_ItemAdded;
         Inventaire.Instance.ItemRemoved += Inventory_ItemRemoved;
     }
@@ -72,6 +74,7 @@ public class HUD : MonoBehaviour
     {
         if(GameObject.FindGameObjectWithTag("Camera Zoom") != null)
         {
+            TexteMeteo.GetComponent<Animator>().SetBool("Zero",true);
             GameObject.FindGameObjectWithTag("Camera Zoom").SetActive(false);
             DezoomButton.SetActive(false);
         } 

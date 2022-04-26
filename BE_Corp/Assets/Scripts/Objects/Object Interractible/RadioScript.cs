@@ -12,6 +12,7 @@ public class RadioScript : MonoBehaviour,IClicked, IAction
     private ScreenShake camShake;
 
     public GameObject CameraActivate ;
+    public GameObject TexteMeteo;
 
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>() ;
 
@@ -20,15 +21,18 @@ public class RadioScript : MonoBehaviour,IClicked, IAction
 
     void Awake()
     {
+        
         CameraActivate = GameObject.Find("---- CAMERAS ----").GetComponent<CameraContainerScript>().CameraRadio;
     }
 
     private void Start() 
     {
+        TexteMeteo=GameObject.Find("Nord meteo");
     }
 
     void LookZone()
     {
+
         if(PlayerPrefs.GetInt("Antenne")==1&&PlayerPrefs.GetInt("PileDansRadio")==1)
         {
             Debug.Log("Go");
@@ -41,6 +45,8 @@ public class RadioScript : MonoBehaviour,IClicked, IAction
         {
             GameCol.GetComponent<BoxCollider>().enabled = false ;
         }
+
+        StartCoroutine(coroutineA());
      }
      
      else
@@ -76,6 +82,14 @@ public class RadioScript : MonoBehaviour,IClicked, IAction
     public void DialogRadio()
     {
         blockRef.Execute();
+    }
+
+    IEnumerator coroutineA()
+    {
+        
+        yield return new WaitForSeconds(1.25f);
+        TexteMeteo.GetComponent<Animator>().SetBool("Zero", false);
+       
     }
 
 
