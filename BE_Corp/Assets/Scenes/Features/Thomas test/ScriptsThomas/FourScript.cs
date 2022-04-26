@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Fungus;
 
 public class FourScript : MonoBehaviour,IClicked, IAction
 {
@@ -60,7 +61,6 @@ public class FourScript : MonoBehaviour,IClicked, IAction
     {
         CursorController.Instance.ActionWheelScript.DialogueDisplayer.GetComponent<DialogueControllerScript>().TargetAction = this ;
         CursorController.Instance.ActionWheelScript.DialogueDisplayer.GetComponent<DialogueControllerScript>().LunchActionAfterClose = true ;
-        CursorController.Instance.ActionWheelScript.DialogueDisplayer.SetActive(true);
     }
 
 
