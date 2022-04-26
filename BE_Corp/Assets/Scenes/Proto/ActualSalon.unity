@@ -475,7 +475,7 @@ Transform:
   m_Children:
   - {fileID: 369941051}
   m_Father: {fileID: 745309455}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &47557068
 CapsuleCollider:
@@ -1417,7 +1417,7 @@ MonoBehaviour:
   key: {fileID: 2977389835865973200}
   objetsMeteo: {fileID: 788556128}
   PilesRobot: {fileID: 0}
-  ballon: {fileID: 765167897}
+  ballon: {fileID: 0}
 --- !u!1 &745309454
 GameObject:
   m_ObjectHideFlags: 0
@@ -1448,6 +1448,7 @@ Transform:
   - {fileID: 765167896}
   - {fileID: 1440595031}
   - {fileID: 1078025247}
+  - {fileID: 1818055282}
   - {fileID: 933226988}
   - {fileID: 47557067}
   - {fileID: 2013968222}
@@ -1906,7 +1907,7 @@ Transform:
   m_LocalScale: {x: 0.20000002, y: 8, z: 5}
   m_Children: []
   m_Father: {fileID: 745309455}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &933226989
 BoxCollider:
@@ -2943,6 +2944,50 @@ Transform:
   m_Father: {fileID: 1224817664}
   m_RootOrder: 146
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!1 &1818055281
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1818055282}
+  - component: {fileID: 1818055283}
+  m_Layer: 2
+  m_Name: Mur_tactique2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1818055282
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818055281}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.52, y: 1.52, z: -9.64}
+  m_LocalScale: {x: 0.20000002, y: 2, z: 5}
+  m_Children: []
+  m_Father: {fileID: 745309455}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1818055283
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818055281}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1876320196
 PrefabInstance:
   m_ObjectHideFlags: 0
