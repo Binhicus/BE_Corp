@@ -1,13 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+using UnityEngine.Rendering.Universal;
 
 [RequireComponent (typeof(Animator))]
 public class DoorScript : MonoBehaviour
 {
     private SplCameraShake cameraShake;
     [SerializeField] private GameObject Panel;
-
+    [SerializeField] private Material glitchEffectOn, glitchEffectOff;
+    [SerializeField] ForwardRendererData rendererData;
+    //public Material glitchMat;
 
     private Animator DoorAnimator ;
     [SerializeField] private string PlayerPrefNameState ;
@@ -33,8 +37,8 @@ public class DoorScript : MonoBehaviour
             cameraShake = this.gameObject.GetComponent<SplCameraShake>();   
             AsCameraShake = true ;         
         }
-        
 
+        //glitchEffect = GameObject.Find("EffectManager").GetComponent<GlitchyBreak>().glitchMat;
     }
 
     private void Start() 
@@ -61,7 +65,7 @@ public class DoorScript : MonoBehaviour
         if(!DoorIsOpen && AsCameraShake && cameraShake.enabled == true)
         {
             cameraShake.Shaker();
-            Panel.SetActive(true);         
+            GlitchyBreak.Instance.GlitchEffectOn();
         }
     }
 
@@ -71,10 +75,25 @@ public class DoorScript : MonoBehaviour
 
         if(!DoorIsOpen && AsCameraShake)
         {
-            Panel.SetActive(false);            
+            GlitchyBreak.Instance.GlitchEffectOff();
         }
     }
 
+    /*void GlitchEffectOn()
+    {
+        var blitFeature = rendererData.rendererFeatures.OfType<UnityEngine.Experiemntal.Rendering.Universal.Blit>().FirstOrDefault();
+        Debug.Log("glitched");
+        blitFeature.settings.blitMaterial = glitchEffectOn;
+        rendererData.SetDirty();
+    }
+
+    void GlitchEffectOff()
+    {
+        var blitFeature = rendererData.rendererFeatures.OfType<UnityEngine.Experiemntal.Rendering.Universal.Blit>().FirstOrDefault();
+        Debug.Log("unglitched");
+        blitFeature.settings.blitMaterial = glitchEffectOff;
+        rendererData.SetDirty();
+    }*/
 
     public void OpenDoorAnimation()
     {

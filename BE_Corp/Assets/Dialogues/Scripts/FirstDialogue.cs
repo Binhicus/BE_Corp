@@ -8,7 +8,11 @@ public class FirstDialogue : MonoBehaviour
     public BlockReference blockRef;
     void Start()
     {
-        Invoke("DialogDebut", 3);
+        if (PlayerPrefs.GetInt("Début") == 0)
+        {
+            Invoke("DialogDebut", 3);
+        }
+
     }
 
     // Update is called once per frame
@@ -20,5 +24,6 @@ public class FirstDialogue : MonoBehaviour
     public void DialogDebut()
     {
         blockRef.Execute();
+        PlayerPrefs.SetInt("Début", 1);
     }
 }
