@@ -8,7 +8,7 @@ public class FirstDialogue : MonoBehaviour
     public BlockReference blockRef;
     void Start()
     {
-        Invoke("DialogDebut", 3);
+        Invoke("DialogDebut", 1);
     }
 
     // Update is called once per frame
