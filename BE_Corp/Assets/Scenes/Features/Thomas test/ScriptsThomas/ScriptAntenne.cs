@@ -16,17 +16,21 @@ public class ScriptAntenne : MonoBehaviour
 
      private Vector3 startPosition;
      private bool gagne;
+     public float RotZ;
     // Start is called before the first frame update
     void Awake()
     {
         TexteMeteo=GameObject.Find("Nord meteo");
         RadioBug.Play();
         RadioBug.volume=0;
+        transform.rotation = Quaternion.Euler(0, 0, PlayerPrefs.GetFloat("RotationAntenne"));
     }
 
     // Update is called once per frame
     void Update()
     {
+        PlayerPrefs.SetFloat("RotationAntenne",transform.rotation.eulerAngles.z );
+
         Vector3 mousePos = Input.mousePosition;
 
         if ((Input.GetMouseButtonDown(0))&&dedans==true&&gagne==false)

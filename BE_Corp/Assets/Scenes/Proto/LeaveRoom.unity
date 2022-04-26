@@ -4076,53 +4076,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 583460837}
   m_Mesh: {fileID: 2901760249352249239, guid: 15810c9d394205b45899c66764399ee5, type: 3}
---- !u!1 &599940753
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 599940754}
-  - component: {fileID: 599940756}
-  m_Layer: 0
-  m_Name: PourZoom Radio
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &599940754
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 599940753}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.37, y: 5.48, z: 2.04}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2229123460092435878}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &599940756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 599940753}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b01d7d4b0aaf1ba459fb19dec33f4c49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Ok: 0
-  CamCuisine: {fileID: 0}
-  TexteMeteo: {fileID: 0}
-  SonRadio: {fileID: 1730057867}
 --- !u!1 &610347351
 GameObject:
   m_ObjectHideFlags: 0
@@ -15389,6 +15342,7 @@ MonoBehaviour:
     block: {fileID: 2100376866017748643}
   Son: {fileID: 0}
   CameraActivate: {fileID: 0}
+  TexteMeteo: {fileID: 0}
   ListInteractPossible:
   - {fileID: 11400000, guid: 34cee9d07ecbd2443b457b9dd5f50d37, type: 2}
   - {fileID: 11400000, guid: fd9a468eca2158d43834b7cad0de46ed, type: 2}
@@ -17690,7 +17644,6 @@ Transform:
   - {fileID: 2832406150343092699}
   - {fileID: 2660640660938085549}
   - {fileID: 1651206318}
-  - {fileID: 599940754}
   m_Father: {fileID: 543450653602137784}
   m_RootOrder: 61
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

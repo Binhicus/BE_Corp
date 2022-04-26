@@ -87,7 +87,7 @@ public class RadioScript : MonoBehaviour,IClicked, IAction
     IEnumerator coroutineA()
     {
         
-        yield return new WaitForSeconds(1.25f);
+        yield return new WaitForSeconds(0.6f);
         TexteMeteo.GetComponent<Animator>().SetBool("Zero", false);
        
     }
