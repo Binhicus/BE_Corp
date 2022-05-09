@@ -83,7 +83,7 @@ public class MessageManager : MonoBehaviour
             SetFinalHeight(725f, DiscussionWriterText);
 
             GameObject EmployeeTextIns = Instantiate(EmployeeTextPrefab, DiscussionDisplay.transform);
-            EmployeeTextIns.transform.SetSiblingIndex(1);
+            //EmployeeTextIns.transform.SetSiblingIndex(1);
             EmployeeTextIns.GetComponentInChildren<TextMeshProUGUI>().text = StoryTextReference.text ;
 
             Vector2 NewSize ;
@@ -117,13 +117,13 @@ public class MessageManager : MonoBehaviour
         TheClientWritePrefabInst = true ;
         GameObject ClientWriteIns = Instantiate(ClientWritePrefab, DiscussionDisplay.transform);
         ClientWritePrefabInst = ClientWriteIns ;   
-        ClientWritePrefabInst.transform.SetSiblingIndex(1);
+       // ClientWritePrefabInst.transform.SetSiblingIndex(1);
     }
 
     void DisplayCompleteClientMessage()
     {
         GameObject ClientTextIns = Instantiate(ClientTextPrefab, DiscussionDisplay.transform);
-        ClientTextIns.transform.SetSiblingIndex(1);
+       // ClientTextIns.transform.SetSiblingIndex(1);
         ClientTextIns.GetComponentInChildren<TextMeshProUGUI>().text = StoryTextReference.text ;
 
         Vector2 NewSize ;
@@ -215,7 +215,7 @@ public class MessageManager : MonoBehaviour
             NewSize.y =  50f + (28f * GoodHeightIns) ; 
 
             TMPCurrent.transform.parent.GetComponent<RectTransform>().sizeDelta = new Vector2(TMPCurrent.transform.parent.GetComponent<RectTransform>().sizeDelta.x, NewSize.y)  ;
-            TMPCurrent.transform.parent.transform.parent.GetComponent<RectTransform>().sizeDelta = new Vector2(TMPCurrent.transform.parent.transform.parent.GetComponent<RectTransform>().sizeDelta.x, NewSize.y)  ;  
+            TMPCurrent.transform.parent.transform.parent.GetComponent<RectTransform>().sizeDelta = new Vector2(TMPCurrent.transform.parent.transform.parent.GetComponent<RectTransform>().sizeDelta.x, NewSize.y +10f)  ;  
             DiscussionDisplay.GetComponent<VerticalLayoutGroup>().spacing = 9 ;
             DiscussionDisplay.GetComponent<VerticalLayoutGroup>().spacing = 10 ;
 
