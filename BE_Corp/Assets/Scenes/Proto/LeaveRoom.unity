@@ -808,7 +808,7 @@ RectTransform:
   - {fileID: 1315838250}
   - {fileID: 1535030115}
   m_Father: {fileID: 634549827}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1039,7 +1039,7 @@ Transform:
   - {fileID: 152522763}
   - {fileID: 1141909491964350221}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &130496183
 GameObject:
@@ -1255,7 +1255,7 @@ Transform:
   - {fileID: 26760619}
   - {fileID: 378811241}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &164696354
 GameObject:
@@ -4994,10 +4994,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1112295829}
   - {fileID: 105753604}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &661349180
 GameObject:
@@ -6770,8 +6769,9 @@ GameObject:
   - component: {fileID: 901390097}
   - component: {fileID: 901390096}
   - component: {fileID: 901390095}
+  - component: {fileID: 901390098}
   m_Layer: 0
-  m_Name: "Nord m\xE9t\xE9o"
+  m_Name: Nord meteo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6806,8 +6806,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 503316479
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0.11372549}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6860,7 +6860,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: -1.0086915, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -6917,18 +6917,37 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 901390094}
-  m_LocalRotation: {x: 0, y: 0.538109, z: 0, w: 0.8428753}
-  m_LocalPosition: {x: 0, y: 0, z: -3.1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.020782022, y: 0.97872293, z: 0.0043335115, w: 0.20408545}
+  m_LocalPosition: {x: 0, y: 0, z: 2.6929998}
+  m_LocalScale: {x: 0.032492742, y: 0.038400237, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2229123460092435878}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 65.11, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 156.443, z: 2.433}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.2, y: 2.23}
-  m_SizeDelta: {x: 20, y: 4.2}
+  m_AnchoredPosition: {x: -6.293, y: 1.6809998}
+  m_SizeDelta: {x: 8.157051, y: 0.7611685}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &901390098
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901390094}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dc8152da7d8833949a5603721065a143, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &903802688
 GameObject:
   m_ObjectHideFlags: 0
@@ -8090,105 +8109,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 1
   Bug: 1
---- !u!1 &1112295828
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1112295829}
-  - component: {fileID: 1112295832}
-  - component: {fileID: 1112295831}
-  - component: {fileID: 1112295830}
-  m_Layer: 5
-  m_Name: Nord meteo
-  m_TagString: Finish
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1112295829
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1112295828}
-  m_LocalRotation: {x: -0, y: -0, z: -0.07902167, w: 0.9968729}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 634549827}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -9.065}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1963, y: 987}
-  m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &1112295830
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1112295828}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: dc8152da7d8833949a5603721065a143, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1112295831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1112295828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.47058824}
-  m_RaycastTarget: 0
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
-    m_FontSize: 14
-    m_FontStyle: 1
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: "Nord m\xE9t\xE9o"
---- !u!222 &1112295832
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1112295828}
-  m_CullTransparentMesh: 0
 --- !u!1 &1135788480
 GameObject:
   m_ObjectHideFlags: 0
@@ -11865,7 +11785,7 @@ Transform:
   m_Children:
   - {fileID: 1650440211}
   m_Father: {fileID: 2229123460092435878}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1651206319
 MonoBehaviour:
@@ -11886,7 +11806,7 @@ MonoBehaviour:
   Maintiens: 0
   RadioBug: {fileID: 1730057867}
   BulletinMeteo: {fileID: 1724752515}
-  TexteMeteo: {fileID: 1112295828}
+  TexteMeteo: {fileID: 901390094}
   RotZ: 0
 --- !u!65 &1651206320
 BoxCollider:
@@ -12697,7 +12617,7 @@ Transform:
   - {fileID: 462467668}
   - {fileID: 1546891620647283610}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1817701109
 GameObject:
@@ -18526,6 +18446,7 @@ GameObject:
   - component: {fileID: 4865064391243616444}
   - component: {fileID: 8897240367452387817}
   - component: {fileID: 3129779573403271445}
+  - component: {fileID: 1582813067170525490}
   m_Layer: 0
   m_Name: Cube.004
   m_TagString: Untagged
@@ -18533,6 +18454,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1582813067170525490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582813067170525489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!23 &1604464986707766268
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19774,6 +19713,7 @@ Transform:
   m_LocalPosition: {x: 3, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 901390097}
   - {fileID: 4865064391243616444}
   - {fileID: 3732820751444062893}
   - {fileID: 8218352541822471694}
@@ -20594,7 +20534,7 @@ Transform:
   m_LocalScale: {x: 0.046330765, y: 0.024680704, z: 0.043395698}
   m_Children: []
   m_Father: {fileID: 2229123460092435878}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2664315668127931769
 GameObject:
@@ -20831,7 +20771,7 @@ Transform:
   m_LocalScale: {x: 0.046330765, y: 0.024680704, z: 0.043395698}
   m_Children: []
   m_Father: {fileID: 2229123460092435878}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2833633311178625691
 MonoBehaviour:
@@ -22829,7 +22769,7 @@ Transform:
   m_LocalScale: {x: 0.020211985, y: 0.015710833, z: 0.018931555}
   m_Children: []
   m_Father: {fileID: 2229123460092435878}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3768805143839644928
 GameObject:
@@ -24923,7 +24863,7 @@ Transform:
   m_LocalScale: {x: 0.5032268, y: 0.3014256, z: 0.11726618}
   m_Children: []
   m_Father: {fileID: 2229123460092435878}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4870004671261778311
 MeshFilter:
@@ -31858,7 +31798,7 @@ Transform:
   m_LocalScale: {x: 0.020211985, y: 0.015710833, z: 0.018931555}
   m_Children: []
   m_Father: {fileID: 2229123460092435878}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8224663808935724605
 GameObject:
@@ -33184,7 +33124,7 @@ Transform:
   - {fileID: 8580882006964292871}
   - {fileID: 2034235788}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8580882007231200603
 GameObject:
