@@ -21,7 +21,7 @@ public class KickBall : MonoBehaviour
         shaker = GameObject.Find("CameraShaker").GetComponent<SplCameraShake>();
         rb = GetComponent<Rigidbody>();
 
-        if (vaseSwitch != null)
+        if (PlayerPrefs.GetInt("VaseAndKey") <= 1)
         {
             vaseSwitch = GameObject.Find("Switch").GetComponent<VaseSwitch>();            
         }

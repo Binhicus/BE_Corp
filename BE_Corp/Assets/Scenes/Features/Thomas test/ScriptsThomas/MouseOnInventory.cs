@@ -32,6 +32,18 @@ public class MouseOnInventory : MonoBehaviour
         {
             Inventory.GetComponent<RectTransform>().anchoredPosition = new Vector3(100, 0,0);
         }
+    }
+
+    public void MontreObjetRecup()
+    {
+         StartCoroutine(coroutineA());
+    }
+
+    IEnumerator coroutineA()
+    {
+       Inventory.GetComponent<RectTransform>().anchoredPosition = new Vector3(-79, 0,0);  
+        yield return new WaitForSeconds(1.5f);
+        Inventory.GetComponent<RectTransform>().anchoredPosition = new Vector3(100, 0,0);
        
     }
 

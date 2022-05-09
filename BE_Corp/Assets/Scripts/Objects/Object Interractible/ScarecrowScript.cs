@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Fungus;
 
 public class ScarecrowScript : MonoBehaviour, IClicked, IAction
 {
     public GameObject Epouvantail;
     public GameObject PorteManteau;
-
+    public BlockReference question;
     public AudioSource Son;
 
     private ScreenShake camShake;
@@ -79,11 +80,11 @@ public class ScarecrowScript : MonoBehaviour, IClicked, IAction
     public void OnTake() {Debug.Log("Take") ;}
     public void OnUse() {Debug.Log("Use") ;}
     public void OnInspect() {DisplayInspection(); }
-    public void OnQuestion() {DisplayDialogue(); }
+    public void OnQuestion() {question.Execute(); }
     public void OnLook() {}
 
 
-    public void OnLunchActionAfterCloseDialogue() {Disparait(); }
+    public void OnLunchActionAfterCloseDialogue() { }
     
 
 }
