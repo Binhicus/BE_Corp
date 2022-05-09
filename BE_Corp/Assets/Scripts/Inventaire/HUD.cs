@@ -74,10 +74,13 @@ public class HUD : MonoBehaviour
     {
         if(GameObject.FindGameObjectWithTag("Camera Zoom") != null)
         {
-            TexteMeteo.GetComponent<Animator>().SetBool("Zero",true);
+            if(TexteMeteo != null)
+            {
+                TexteMeteo.GetComponent<Animator>().SetBool("Zero",true);
+            }           
             GameObject.FindGameObjectWithTag("Camera Zoom").SetActive(false);
             DezoomButton.SetActive(false);
-        } 
+        }
 
 
         GameObject[] IndiceZoneCollider ;
