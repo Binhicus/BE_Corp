@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,8 +7,14 @@ public class Tournevis : ClickableObject, IClicked, IItemInventaire,IAction
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>();
     public string Name => "Tournevis";
     public Sprite _Image;
+    public AudioSource PickUpSon;
 
     public Sprite Image => _Image;
+
+    public void Start()
+{
+    PickUpSon = GameObject.Find("Pickup").GetComponent<AudioSource>();
+}
 
     public void OnClickAction()
     {
@@ -23,6 +29,7 @@ public class Tournevis : ClickableObject, IClicked, IItemInventaire,IAction
     {
         Inventaire.Instance.AddItem(this);
         PlayerPrefs.SetInt("Tournevis", 1);
+        
     }
     public void OnUse() { Debug.Log("Use"); }
     public void OnInspect() { Debug.Log("Inspect"); }
@@ -30,7 +37,9 @@ public class Tournevis : ClickableObject, IClicked, IItemInventaire,IAction
 
     public void OnPickUp()
     {
+        PickUpSon.Play();
         gameObject.SetActive(false);
+        PickUpSon.Play();
     }
 
     public void OnDrop()
