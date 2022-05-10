@@ -67,7 +67,7 @@ public class MessageManager : MonoBehaviour
                 DiscussionWriterText.text = StoryTextReference.text ;                           
                 StopAllCoroutines(); 
             }
-        }
+        }      
     }
 
     public void CallNextDialog()
@@ -83,6 +83,7 @@ public class MessageManager : MonoBehaviour
             SetFinalHeight(725f, DiscussionWriterText);
 
             GameObject EmployeeTextIns = Instantiate(EmployeeTextPrefab, DiscussionDisplay.transform);
+            HeightDialogueDisplay();
             //EmployeeTextIns.transform.SetSiblingIndex(1);
             EmployeeTextIns.GetComponentInChildren<TextMeshProUGUI>().text = StoryTextReference.text ;
 
@@ -116,6 +117,7 @@ public class MessageManager : MonoBehaviour
     {
         TheClientWritePrefabInst = true ;
         GameObject ClientWriteIns = Instantiate(ClientWritePrefab, DiscussionDisplay.transform);
+        HeightDialogueDisplay();
         ClientWritePrefabInst = ClientWriteIns ;   
        // ClientWritePrefabInst.transform.SetSiblingIndex(1);
     }
@@ -153,6 +155,31 @@ public class MessageManager : MonoBehaviour
         if(DiscussionDisplay.childCount < 2)    BR.Execute();
     }
 
+    void HeightDialogueDisplay()
+    {
+        float TotalHeight = 0 ;
+        foreach (RectTransform Child in DiscussionDisplay)
+        {
+            TotalHeight += Child.GetComponent<RectTransform>().sizeDelta.y ;
+        }
+
+        if(TotalHeight < 850f) 
+        {
+            DiscussionDisplay.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 0f);
+            DiscussionDisplay.GetComponent<RectTransform>().sizeDelta = new Vector2(840f,  850f) ;
+
+            DiscussionDisplay.transform.parent.GetComponent<ScrollRect>().enabled = false ;
+            DiscussionDisplay.transform.parent.GetComponent<ScrollRect>().verticalScrollbar.gameObject.SetActive(false) ;
+
+        } else {
+            DiscussionDisplay.GetComponent<RectTransform>().anchoredPosition = new Vector2(-15f, 0);
+            DiscussionDisplay.GetComponent<RectTransform>().sizeDelta = new Vector2(820f, TotalHeight) ;
+
+            DiscussionDisplay.transform.parent.GetComponent<ScrollRect>().enabled = true ;
+            DiscussionDisplay.transform.parent.GetComponent<ScrollRect>().verticalScrollbar.gameObject.SetActive(true) ;
+        }
+    }
+
     void NewDialog()
     {
         if(CurrentName == DifferentNameInMessage.Bots.ToString())
@@ -162,6 +189,7 @@ public class MessageManager : MonoBehaviour
             BotsNarratorIns.GetComponent<RectTransform>().sizeDelta = new Vector2(BotsNarratorIns.GetComponent<RectTransform>().sizeDelta.x, BotsNarratorIns.GetComponentInChildren<TextMeshProUGUI>().preferredHeight + 10f)  ;
             BR.block.DOTogglePause();            
             StartCoroutine(WaitBeforeAutorizedNextDialogue(0.1f));
+            HeightDialogueDisplay();            
         }  
 
     /*    if(CurrentName == DifferentNameInMessage.Employee.ToString())
@@ -215,9 +243,9 @@ public class MessageManager : MonoBehaviour
             NewSize.y =  50f + (28f * GoodHeightIns) ; 
 
             TMPCurrent.transform.parent.GetComponent<RectTransform>().sizeDelta = new Vector2(TMPCurrent.transform.parent.GetComponent<RectTransform>().sizeDelta.x, NewSize.y)  ;
-            TMPCurrent.transform.parent.transform.parent.GetComponent<RectTransform>().sizeDelta = new Vector2(TMPCurrent.transform.parent.transform.parent.GetComponent<RectTransform>().sizeDelta.x, NewSize.y +10f)  ;  
-            DiscussionDisplay.GetComponent<VerticalLayoutGroup>().spacing = 9 ;
-            DiscussionDisplay.GetComponent<VerticalLayoutGroup>().spacing = 10 ;
+            TMPCurrent.transform.parent.transform.parent.GetComponent<RectTransform>().sizeDelta = new Vector2(TMPCurrent.transform.parent.transform.parent.GetComponent<RectTransform>().sizeDelta.x, NewSize.y + 20f)  ;  
+            DiscussionDisplay.GetComponent<VerticalLayoutGroup>().spacing = 0f ;
+            DiscussionDisplay.GetComponent<VerticalLayoutGroup>().spacing = 0f ;
 
             yield return new WaitForSeconds(1.25f) ;    
             GoodHeightIns++ ;                                          
@@ -237,9 +265,13 @@ public class MessageManager : MonoBehaviour
         NewSize.y =  50f + (25f * NumDivision) ; 
 
         TMPCurrent.transform.parent.GetComponent<RectTransform>().sizeDelta = new Vector2(TMPCurrent.transform.parent.GetComponent<RectTransform>().sizeDelta.x, NewSize.y)  ;
-        TMPCurrent.transform.parent.transform.parent.GetComponent<RectTransform>().sizeDelta = new Vector2(TMPCurrent.transform.parent.transform.parent.GetComponent<RectTransform>().sizeDelta.x, NewSize.y)  ;  
-        DiscussionDisplay.GetComponent<VerticalLayoutGroup>().spacing = 9 ;
-        DiscussionDisplay.GetComponent<VerticalLayoutGroup>().spacing = 10 ;
+        TMPCurrent.transform.parent.transform.parent.GetComponent<RectTransform>().sizeDelta = new Vector2(TMPCurrent.transform.parent.transform.parent.GetComponent<RectTransform>().sizeDelta.x, NewSize.y + 20f)  ;  
+        TMPCurrent.transform.parent.transform.parent.transform.parent.GetComponent<RectTransform>().sizeDelta = new Vector2(TMPCurrent.transform.parent.transform.parent.transform.parent.GetComponent<RectTransform>().sizeDelta.x, NewSize.y + 30f)  ;  
+        
+        DiscussionDisplay.transform.parent.GetComponent<RectTransform>().offsetMin = new Vector2(DiscussionDisplay.transform.parent.GetComponent<RectTransform>().offsetMin.x, (NewSize.y + 31f));
+        
+        DiscussionDisplay.GetComponent<VerticalLayoutGroup>().spacing = 0f ;
+        DiscussionDisplay.GetComponent<VerticalLayoutGroup>().spacing = 0f ;
     }
 
 
