@@ -33,7 +33,7 @@ public class RadioScript : MonoBehaviour,IClicked, IAction
     void LookZone()
     {
 
-        if(PlayerPrefs.GetInt("Antenne")==1&&PlayerPrefs.GetInt("PileDansRadio")==1)
+        if(PlayerPrefs.GetInt("Antenne")==1&&PlayerPrefs.GetInt("PileDansRadio")==1&&PlayerPrefs.GetInt("Parapluie")==0)
         {
             Debug.Log("Go");
         CameraActivate.SetActive(true);

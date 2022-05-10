@@ -17,10 +17,12 @@ public class ScriptAntenne : MonoBehaviour
      private Vector3 startPosition;
      private bool gagne;
      public float RotZ;
+     public AudioSource pluie;
     // Start is called before the first frame update
     void Awake()
     {
         TexteMeteo=GameObject.Find("Nord meteo");
+        pluie=GameObject.Find("SonPluie").GetComponent<AudioSource>();
         RadioBug.Play();
         RadioBug.volume=0;
         PlayerPrefs.SetInt("Parapluie", 0);
@@ -50,7 +52,7 @@ public class ScriptAntenne : MonoBehaviour
             Rotate();
         }
 
-        if(TowerAngle>10.8f&&TowerAngle<11.3f)
+        if(TowerAngle>10.8f&&TowerAngle<11.3f&&Maintiens==false)
         {
             //Debug.Log("1");
             TexteMeteo.GetComponent<Animator>().SetBool("Trouve", true);
@@ -96,13 +98,23 @@ public class ScriptAntenne : MonoBehaviour
 
     public void TermineMiniJeu()
     {
+        StartCoroutine(coroutineA());
+    }
+
+    IEnumerator coroutineA()
+    {
+        
+        yield return new WaitForSeconds(2.0f);
         BulletinMeteo.Play();
         Debug.Log("ENIGME REUSSIE");
         gagne=true;
         RadioBug.volume=0; 
         TexteMeteo.GetComponent<Animator>().SetBool("Trouve", true);
         PlayerPrefs.SetInt("Parapluie", 1);
-        
+        MisAJourEffect.Instance.MiseAJour();
+        yield return new WaitForSeconds(2.0f);
+        pluie.Play();
+       
     }
 
 
