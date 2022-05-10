@@ -23,17 +23,19 @@ public class ScriptAntenne : MonoBehaviour
         TexteMeteo=GameObject.Find("Nord meteo");
         RadioBug.Play();
         RadioBug.volume=0;
-        transform.rotation = Quaternion.Euler(0, 0, PlayerPrefs.GetFloat("RotationAntenne"));
+        PlayerPrefs.SetInt("Parapluie", 0);
+        //transform.rotation = Quaternion.Euler(0, 0, PlayerPrefs.GetFloat("RotationAntenne"));
     }
 
     // Update is called once per frame
     void Update()
     {
-        PlayerPrefs.SetFloat("RotationAntenne",transform.rotation.eulerAngles.z );
+
+        //Debug.Log(TowerAngle);
 
         Vector3 mousePos = Input.mousePosition;
 
-        if ((Input.GetMouseButtonDown(0))&&dedans==true&&gagne==false&&PlayerPrefs.GetInt("Parapluie")==0)
+        if ((Input.GetMouseButtonDown(0))&&dedans==true&&gagne==false&&PlayerPrefs.GetInt("Parapluie")!=1)
         {
             Maintiens=true;
             Debug.Log("click");
@@ -48,22 +50,19 @@ public class ScriptAntenne : MonoBehaviour
             Rotate();
         }
 
-        if(TowerAngle>11&&TowerAngle<11.5f)
+        if(TowerAngle>10.8f&&TowerAngle<11.3f)
         {
-
+            //Debug.Log("1");
             TexteMeteo.GetComponent<Animator>().SetBool("Trouve", true);
                 TexteMeteo.GetComponent<Animator>().SetBool("PasLoin", false);
                 RadioBug.volume=0; 
-
-            if(Maintiens==false&&gagne==false)
-            {
-                TermineMiniJeu();
-            }
+            TermineMiniJeu();
+            
         }
 
-        if(TowerAngle>10&&TowerAngle<10.9f)
+        if(TowerAngle>10&&TowerAngle<10.7f)
         {
-            //Debug.Log("2");
+           // Debug.Log("2");
             TexteMeteo.GetComponent<Animator>().SetBool("PasLoin", true);
             RadioBug.volume=0.5f;
             TexteMeteo.GetComponent<Animator>().SetBool("Trouve", false);
@@ -77,7 +76,7 @@ public class ScriptAntenne : MonoBehaviour
         }
          if(TowerAngle<9f)
         {
-            //Debug.Log("4");
+           // Debug.Log("4");
             TexteMeteo.GetComponent<Animator>().SetBool("PasLoin", false);
             TexteMeteo.GetComponent<Animator>().SetBool("Trouve", false);
             RadioBug.volume=0f;
@@ -97,14 +96,12 @@ public class ScriptAntenne : MonoBehaviour
 
     public void TermineMiniJeu()
     {
-        if(PlayerPrefs.GetInt("Parapluie")==0)
-        {
-            gagne=true;
         BulletinMeteo.Play();
+        Debug.Log("ENIGME REUSSIE");
+        gagne=true;
         RadioBug.volume=0; 
         TexteMeteo.GetComponent<Animator>().SetBool("Trouve", true);
         PlayerPrefs.SetInt("Parapluie", 1);
-        }
         
     }
 
@@ -118,6 +115,7 @@ private void OnMouseEnter()
 private void OnMouseExit() 
 {
     dedans=false;
+    PlayerPrefs.SetFloat("RotationAntenne",transform.rotation.eulerAngles.z );
 }
 
 public void Rotate()
