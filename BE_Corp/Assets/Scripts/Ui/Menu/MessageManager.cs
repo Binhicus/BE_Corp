@@ -29,7 +29,9 @@ public class MessageManager : MonoBehaviour
     private GameObject ClientWritePrefabInst ;
     public GameObject LunchMissionButtonPrefab ;
 
+    public Button SendEmployeeMessageButton ;
 
+    public SayDialog SD ;
     public BlockReference BR ;
 
     // Start is called before the first frame update
@@ -41,6 +43,8 @@ public class MessageManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(DiscussionDisplay.childCount > 2) SD.GetComponent<Writer>().writingSpeed = 20f ;
+
         CurrentName = FlowchartTextMenu.GetStringVariable("Name"); 
 
         if(FlowchartTextMenu.GetBooleanVariable("ClientWrite"))
@@ -62,7 +66,7 @@ public class MessageManager : MonoBehaviour
             DiscussionWriterText.text = EmployeeStoryTextRef.text.Substring(0, FlowchartTextMenu.GetIntegerVariable("EmployeeMessageDisp")) ;
             if(DiscussionWriterText.text.Length != EmployeeStoryTextRef.text.Length)
             {
-                if(Input.anyKey && (!Input.GetMouseButtonDown(0) && !Input.GetMouseButtonDown(1) && !Input.GetMouseButtonDown(2) && !Input.GetKeyDown(KeyCode.KeypadEnter)))
+                if(Input.anyKey && (!Input.GetMouseButton(0) && !Input.GetMouseButton(1) && !Input.GetMouseButton(2) && !Input.GetKey(KeyCode.KeypadEnter)))
                 {
                     SetHeightWriterBox(725f, DiscussionWriterText);                       
                     FlowchartTextMenu.SetIntegerVariable("EmployeeMessageDisp", FlowchartTextMenu.GetIntegerVariable("EmployeeMessageDisp") + 1);
@@ -75,6 +79,13 @@ public class MessageManager : MonoBehaviour
                 }
             } 
         }   
+
+        if(!FlowchartTextMenu.GetBooleanVariable("EmployeeWrite") || (FlowchartTextMenu.GetBooleanVariable("EmployeeWrite") && DiscussionWriterText.text.Length != EmployeeStoryTextRef.text.Length))
+        {
+            SetEmployeeButton(false);
+        } else {
+            SetEmployeeButton(true);
+        }
     }
 
     public void CallNextDialog()
@@ -294,5 +305,16 @@ public class MessageManager : MonoBehaviour
     {
         yield return new WaitForSeconds(Delay);
         FlowchartTextMenu.SetBooleanVariable("CanDisplayNext", true) ; 
+    }
+
+
+    void SetEmployeeButton(bool StateDisplay)
+    {
+        if(!StateDisplay)
+        {
+            SendEmployeeMessageButton.interactable = false ;
+        } else {
+            SendEmployeeMessageButton.interactable = true ;
+        }
     }
 }
