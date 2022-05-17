@@ -630,7 +630,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh120270
+  m_Name: pb_Mesh22746
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1543,6 +1543,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &893650241 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5485938757465630772, guid: 18acadb194160484fa4452fd2190012d, type: 3}
+  m_PrefabInstance: {fileID: 236641360035212126}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &928912770
 GameObject:
   m_ObjectHideFlags: 0
@@ -2081,12 +2092,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1165100743}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43b85556abd314f3f870c18c013fdcef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickMode: 1
+  clickMode: 0
   nextClickDelay: 0
   cancelEnabled: 1
   ignoreMenuClicks: 1
@@ -2243,7 +2254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTextObject: {fileID: 72066553}
   punchObject: {fileID: 325799280}
-  writingSpeed: 60
+  writingSpeed: 10000
   punctuationPause: 0
   hiddenTextColor: {r: 1, g: 1, b: 1, a: 0}
   writeWholeWords: 0
@@ -3862,6 +3873,8 @@ GameObject:
   - component: {fileID: 1891983081}
   - component: {fileID: 1891983082}
   - component: {fileID: 1891983083}
+  - component: {fileID: 1891983084}
+  - component: {fileID: 1891983085}
   m_Layer: 0
   m_Name: Flowchart Text Menu
   m_TagString: Untagged
@@ -3882,7 +3895,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -299.54398, y: 742.272}
+  scrollPos: {x: -423.17767, y: 406.81488}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 431
@@ -3896,7 +3909,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 1891982914}
   selectedCommands:
-  - {fileID: 1891983083}
+  - {fileID: 1891982958}
   variables:
   - {fileID: 1891982932}
   - {fileID: 1891982969}
@@ -4185,8 +4198,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 810.6777
-    y: -187.8149
+    x: 832.6777
+    y: -199.8149
     width: 137
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -4209,8 +4222,10 @@ MonoBehaviour:
   - {fileID: 1891983018}
   - {fileID: 1891982916}
   - {fileID: 1891982983}
-  - {fileID: 1891982942}
   - {fileID: 1891982980}
+  - {fileID: 1891983084}
+  - {fileID: 1891982942}
+  - {fileID: 1891983085}
   - {fileID: 1891983048}
   - {fileID: 1891983050}
   - {fileID: 1891982930}
@@ -9133,7 +9148,7 @@ MonoBehaviour:
   indentLevel: 0
   _duration:
     floatRef: {fileID: 0}
-    floatVal: 0.001
+    floatVal: 1.5
   durationOLD: 0
 --- !u!114 &1891982959
 MonoBehaviour:
@@ -10451,7 +10466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 123
-  indentLevel: 1
+  indentLevel: 0
   _duration:
     floatRef: {fileID: 0}
     floatVal: 0.01
@@ -19403,7 +19418,7 @@ MonoBehaviour:
   callMode: 0
 --- !u!114 &1891983083
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -19417,7 +19432,53 @@ MonoBehaviour:
   indentLevel: 0
   _duration:
     floatRef: {fileID: 0}
-    floatVal: 0.001
+    floatVal: 1
+  durationOLD: 0
+--- !u!114 &1891983084
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891982910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 223
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 1165100743}
+  targetComponentAssemblyName: Fungus.DialogInput, Fungus, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: DialogInput
+  targetMethod: SetClickAnywhereClickedFlag
+  targetMethodText: 'SetClickAnywhereClickedFlag (): Void'
+  methodParameters: []
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
+--- !u!114 &1891983085
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891982910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 224
+  indentLevel: 1
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 0.01
   durationOLD: 0
 --- !u!1 &1948621036
 GameObject:
@@ -20103,6 +20164,30 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5485938757465630772, guid: 18acadb194160484fa4452fd2190012d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5485938757465630772, guid: 18acadb194160484fa4452fd2190012d, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5485938757465630772, guid: 18acadb194160484fa4452fd2190012d, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.a
+      value: 0.9019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 5485938757465630772, guid: 18acadb194160484fa4452fd2190012d, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.b
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5485938757465630772, guid: 18acadb194160484fa4452fd2190012d, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.g
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5485938757465630772, guid: 18acadb194160484fa4452fd2190012d, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.r
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5485938757465630772, guid: 18acadb194160484fa4452fd2190012d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1824242609}
@@ -20151,6 +20236,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6549840960990223367, guid: 18acadb194160484fa4452fd2190012d, type: 3}
+      propertyPath: SD
+      value: 
+      objectReference: {fileID: 1165100744}
+    - target: {fileID: 6549840960990223367, guid: 18acadb194160484fa4452fd2190012d, type: 3}
       propertyPath: BR.block
       value: 
       objectReference: {fileID: 1891982914}
@@ -20183,9 +20272,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 563742000}
     - target: {fileID: 6549840960990223367, guid: 18acadb194160484fa4452fd2190012d, type: 3}
-      propertyPath: LunchMissionButtonPrefab
+      propertyPath: SendEmployeeMessageButton
       value: 
-      objectReference: {fileID: 3775962202220596282, guid: a938fe9da56b5bd4485499cd1c03869d, type: 3}
+      objectReference: {fileID: 893650241}
     - target: {fileID: 6963246646383196462, guid: 18acadb194160484fa4452fd2190012d, type: 3}
       propertyPath: m_Size
       value: 1
