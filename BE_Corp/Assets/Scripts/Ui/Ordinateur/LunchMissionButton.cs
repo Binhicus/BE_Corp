@@ -9,6 +9,7 @@ public class LunchMissionButton : MonoBehaviour
     public void LunchMission()
     {
         SceneManager.LoadScene("Gameplay");
+        SceneManager.LoadSceneAsync("EntréeTemp", LoadSceneMode.Additive);
     }
 
 }
