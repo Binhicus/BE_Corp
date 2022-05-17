@@ -16,6 +16,7 @@ public class ClosedDoor : MonoBehaviour, IHasItemInteraction
         this.GetComponentInParent<Animator>().SetTrigger("Door Animation");
         LeaveStep.SetActive(true);
         LeaveStep.GetComponentInParent<BoxCollider>().enabled=true;
+        this.GetComponent<BoxCollider>().enabled = false;
        // unlocked.Play();
     }
 

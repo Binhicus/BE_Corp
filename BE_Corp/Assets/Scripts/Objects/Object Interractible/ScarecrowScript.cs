@@ -7,7 +7,7 @@ public class ScarecrowScript : MonoBehaviour, IClicked, IAction
 {
     public GameObject Epouvantail;
     public GameObject PorteManteau;
-    public BlockReference question;
+    public BlockReference question, inspect,maj;
     public AudioSource Son;
 
     private ScreenShake camShake;
@@ -51,10 +51,12 @@ public class ScarecrowScript : MonoBehaviour, IClicked, IAction
 
     public void Disparait()
     {
+        maj.Execute();
         GetComponent<BoxCollider>().enabled = false ;
         Son.Play();
         Epouvantail.GetComponent<Animator>().SetTrigger("Scarecrow Animation");
         PorteManteau.GetComponent<Animator>().SetTrigger("CoatRack Animation");
+        Jauge.Instance.current += 10;
 
 
         PlayerPrefs.SetInt("Scarecrow", 1);
@@ -79,7 +81,7 @@ public class ScarecrowScript : MonoBehaviour, IClicked, IAction
     public void OnClose() {Debug.Log("Close") ;}
     public void OnTake() {Debug.Log("Take") ;}
     public void OnUse() {Debug.Log("Use") ;}
-    public void OnInspect() {DisplayInspection(); }
+    public void OnInspect() {inspect.Execute(); }
     public void OnQuestion() {question.Execute(); }
     public void OnLook() {}
 

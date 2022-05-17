@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZoomMeubleSalon : MonoBehaviour,IClicked, IAction
+public class ZoomMeubleSalon : ClickableObject,IClicked, IAction
 {
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>() ;
 

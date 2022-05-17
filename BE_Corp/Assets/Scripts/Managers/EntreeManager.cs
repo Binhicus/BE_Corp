@@ -60,6 +60,8 @@ public class EntreeManager : MonoBehaviour
 
     public void EntreeLoader()
     {
+        TournevisState();
+        AntenneState();
         FogState();
         EpouvantailState();
     }
