@@ -35,6 +35,7 @@ public class Umbrella : ClickableObject, IClicked, IItemInventaire, IAction
     public void OnPickUp()
     {
         gameObject.SetActive(false);
+        PlayerPrefs.SetInt("Parapluie", 0);
     }
 
 

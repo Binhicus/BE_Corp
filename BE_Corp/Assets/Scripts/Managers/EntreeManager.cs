@@ -31,7 +31,10 @@ public class EntreeManager : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("Tournevis") == 1)
         {
-            Tournevis.SetActive(false);
+            if(Tournevis != null)
+            {
+                Tournevis.SetActive(false);
+            }
         }
     }
 
@@ -39,7 +42,11 @@ public class EntreeManager : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("Antenne") == 1)
         {
-            antenne.SetActive(false);
+            if(antenne != null)
+            {
+                antenne.SetActive(false);
+            }
+
         }
     }
 
@@ -48,7 +55,10 @@ public class EntreeManager : MonoBehaviour
         fog = GameObject.Find("Gray Volume Fog");
         if (PlayerPrefs.GetInt("Brume") == 1)
         {
-            fog.SetActive(false);
+            if(fog != null)
+            {
+                fog.SetActive(false);
+            }
         }
         //ajouter seconde condition pour débloquer la porte
     }

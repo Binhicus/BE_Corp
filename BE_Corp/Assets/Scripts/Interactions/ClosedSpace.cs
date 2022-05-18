@@ -12,7 +12,7 @@ public class ClosedSpace : MonoBehaviour,IHasItemInteraction
     public void DoItemInteraction()
     {
         fog.SetActive(false);
-        PlayerPrefs.SetInt("Fog", 1);
+        PlayerPrefs.SetInt("Brume", 1);
         OuverturePorteChambre.GetComponent<BoxCollider>().enabled=true;
         Jauge.Instance.current += 10;
     }
@@ -33,10 +33,5 @@ public class ClosedSpace : MonoBehaviour,IHasItemInteraction
     {
         fog = GameObject.Find("Gray Volume Fog");
         OuverturePorteChambre=GameObject.Find("Ouverture");
-
-        if(PlayerPrefs.GetInt("fog")==1)
-        {
-            fog.SetActive(false);
-        }
     }
 }
