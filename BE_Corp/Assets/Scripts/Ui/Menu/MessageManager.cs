@@ -237,6 +237,8 @@ public class MessageManager : MonoBehaviour
     public void DisplayMission(int BRNumber)
     {
         ChooseDiscussion.SetActive(false);
+        DiscussionLoading.SetActive(false);
+        
         if(FlowchartTextMenu.GetStringVariable("DiscussionCurrent") != "")
         {
             if(FlowchartTextMenu.GetIntegerVariable("CurrentStateDiscussion") >= PlayerPrefs.GetInt(FlowchartTextMenu.GetStringVariable("DiscussionCurrent")) && DiscussionDisplay.childCount != 0) PlayerPrefs.SetInt(FlowchartTextMenu.GetStringVariable("DiscussionCurrent"), FlowchartTextMenu.GetIntegerVariable("CurrentStateDiscussion")) ;
