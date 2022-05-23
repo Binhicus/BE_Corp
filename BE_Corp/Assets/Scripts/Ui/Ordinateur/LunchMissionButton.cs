@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+
 public class LunchMissionButton : MonoBehaviour
 {
 
@@ -10,4 +10,10 @@ public class LunchMissionButton : MonoBehaviour
     {
         SceneManager.LoadScene("Gameplay");
     }
+
+    void LoadFirstRoom()
+    {
+        SceneManager.LoadSceneAsync("EntréeTemp", LoadSceneMode.Additive);
+    }
+
 }

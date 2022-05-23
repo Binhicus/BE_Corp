@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Fungus;
 
 public class ScriptAntenne : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class ScriptAntenne : MonoBehaviour
     public AudioSource BulletinMeteo;
 
     public GameObject TexteMeteo;
+    public BlockReference maj;
 
      private Vector3 startPosition;
      private bool gagne;
@@ -112,8 +114,10 @@ public class ScriptAntenne : MonoBehaviour
         TexteMeteo.GetComponent<Animator>().SetBool("Trouve", true);
         PlayerPrefs.SetInt("Parapluie", 1);
         MisAJourEffect.Instance.MiseAJour();
+        Jauge.Instance.current += 10;
         yield return new WaitForSeconds(2.0f);
         pluie.Play();
+        maj.Execute();
        
     }
 

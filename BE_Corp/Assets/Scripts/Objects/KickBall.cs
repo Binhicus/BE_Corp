@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KickBall : MonoBehaviour
+public class KickBall : ClickableObject
 {
     public float hauteur = 1.0f;
     public float allant = 3.0f;
