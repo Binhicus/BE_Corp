@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
 
-public class ScarecrowScript : MonoBehaviour, IClicked, IAction
+public class ScarecrowScript : ClickableObject, IClicked, IAction
 {
     public GameObject Epouvantail;
     public GameObject PorteManteau;
