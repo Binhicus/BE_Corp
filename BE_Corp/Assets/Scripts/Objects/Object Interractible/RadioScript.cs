@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
 
-public class RadioScript : MonoBehaviour,IClicked, IAction
+public class RadioScript : ClickableObject,IClicked, IAction
 {
-    public BlockReference blockRef;
+    public BlockReference etatZero, etatUn, etatDeux, etatTrois, remarqueClient;
 
     public AudioSource Son;
 
@@ -33,8 +33,8 @@ public class RadioScript : MonoBehaviour,IClicked, IAction
     void LookZone()
     {
 
-        if(PlayerPrefs.GetInt("Antenne")==1&&PlayerPrefs.GetInt("PileDansRadio")==1)
-        {
+       // if(PlayerPrefs.GetInt("Antenne")==1&&PlayerPrefs.GetInt("PileDansRadio")==1&&PlayerPrefs.GetInt("Parapluie")==0)
+       // {
             Debug.Log("Go");
         CameraActivate.SetActive(true);
 
@@ -47,13 +47,13 @@ public class RadioScript : MonoBehaviour,IClicked, IAction
         }
 
         StartCoroutine(coroutineA());
-     }
+     //}
      
-     else
+    /* else
 
      {
         Debug.Log("Desole gros mais tu peux pas encore");
-     }
+     }*/
         
     }
 
@@ -76,12 +76,31 @@ public class RadioScript : MonoBehaviour,IClicked, IAction
         CursorController.Instance.ActionWheelScript.DialogueDisplayer.GetComponent<DialogueControllerScript>().TargetAction = this ;
         CursorController.Instance.ActionWheelScript.DialogueDisplayer.GetComponent<DialogueControllerScript>().LunchActionAfterClose = true ;
        // CursorController.Instance.ActionWheelScript.DialogueDisplayer.SetActive(true);
-        blockRef.Execute();
+        remarqueClient.Execute();
     }
 
     public void DialogRadio()
     {
-        blockRef.Execute();
+        if(PlayerPrefs.GetInt("Antenne Branchée") == 0 && PlayerPrefs.GetInt("PileDansRadio") == 0)
+        {
+            etatZero.Execute();
+        }
+
+        if (PlayerPrefs.GetInt("Antenne Branchée") == 1 && PlayerPrefs.GetInt("PileDansRadio") == 0)
+        {
+            etatUn.Execute();
+        }
+
+        if (PlayerPrefs.GetInt("Antenne Branchée") == 0 && PlayerPrefs.GetInt("PileDansRadio") == 1)
+        {
+            etatDeux.Execute();
+        }
+
+        if (PlayerPrefs.GetInt("Antenne Branchée") == 1 && PlayerPrefs.GetInt("PileDansRadio") == 1)
+        {
+            etatTrois.Execute();
+        }
+
     }
 
     IEnumerator coroutineA()
@@ -98,7 +117,7 @@ public class RadioScript : MonoBehaviour,IClicked, IAction
     public void OnClose() {Debug.Log("Close") ;}
     public void OnTake() {Debug.Log("Take") ;}
     public void OnUse() {LookZone();}
-    public void OnInspect() {DisplayInspection(); }
+    public void OnInspect() {DialogRadio(); }
     public void OnQuestion() {DisplayDialogue(); }
     public void OnLook() {}
 

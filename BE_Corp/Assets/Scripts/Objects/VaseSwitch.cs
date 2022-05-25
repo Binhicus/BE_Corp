@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class VaseSwitch : MonoBehaviour
+public class VaseSwitch : ClickableObject
 {
     [Header("   Objets")]
     public GameObject vase;
@@ -65,6 +65,7 @@ public class VaseSwitch : MonoBehaviour
     public void Destroyed()
     {
         casse.Play();
+        Jauge.Instance.current += 10;
         vase.SetActive(false);
         brokenVase.SetActive(true);
     }

@@ -9,6 +9,7 @@ public class SalonManager : MonoBehaviour
     public GameObject objetsMeteo;
     public GameObject PilesRobot;
     public GameObject ballon;
+    public GameObject salonAvant, salonApres;
 
     private void OnEnable()
     {
@@ -34,7 +35,7 @@ public class SalonManager : MonoBehaviour
         {
             vase.SetActive(false);
             ballon.SetActive(false);
-            //key.SetActive(false);
+            key.SetActive(false);
         }
     }
 
@@ -72,10 +73,23 @@ public class SalonManager : MonoBehaviour
         }
     }
 
-    public void SalonState() { }
+    public void SalonState() 
+    { 
+        if(PlayerPrefs.GetInt("Salon Révélé") == 0)
+        {
+            salonAvant.SetActive(true);
+            salonApres.SetActive(false);
+        }
+        if (PlayerPrefs.GetInt("Salon Révélé") == 1)
+        {
+            salonAvant.SetActive(false);
+            salonApres.SetActive(true);
+        }
+    }
 
     public void SalonLoader()
     {
+        SalonState();
         VaseState();
         UmbrellaState();
         PilesState();
