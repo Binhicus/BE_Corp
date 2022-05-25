@@ -35,7 +35,7 @@ public class KickBall : ClickableObject
 
     public void Kicked()
     {
-        rb.AddForce(allant, hauteur, 0, ForceMode.Impulse);
+        rb.AddForce(0, hauteur, allant, ForceMode.Impulse);
     }
 
     public void Consequence()
