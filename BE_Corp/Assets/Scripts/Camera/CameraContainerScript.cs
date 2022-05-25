@@ -7,6 +7,7 @@ public class CameraContainerScript : MonoBehaviour
     [Header ("Cuisine Camera")]
     public GameObject CameraRadio ;
     public GameObject CameraFour ;
+    public GameObject CameraMicro ;
 
     [Header ("Chambre Camera")]
     public GameObject CameraOrdi ;

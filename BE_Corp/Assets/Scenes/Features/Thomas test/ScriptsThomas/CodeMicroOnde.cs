@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CodeMicroOnde : MonoBehaviour
 {
-    public Text Tcode;
+    public GameObject Tcode;
     public static string num1;
     public static string num2;
     public static  string deuxpoints;
@@ -24,14 +25,25 @@ public class CodeMicroOnde : MonoBehaviour
     public bool Bout8;
     public bool Bout9;
 
+    public GameObject porteMicro;
+
     public static bool PeutAppuyer;
 
-    public SpriteRenderer Bon;
+    //public SpriteRenderer Bon;
 
     public string LeBonCode;
-    public GameObject CodeBonOuvrir;
+    //public GameObject CodeBonOuvrir;
     public AudioSource BruitMicro;
     // Start is called before the first frame update
+
+    void Awake()
+    {
+        //Tcode = gameObject.AddComponent<TextMesh>();
+
+       // Tcode.text = Time.time.ToString();
+
+       porteMicro=GameObject.Find("Porte_Microondes");
+    }
     void Start()
     {
         NumActuel=1;
@@ -46,12 +58,14 @@ public class CodeMicroOnde : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Tcode.text=num1+num2+deuxpoints+num3+num4;
+        Tcode.GetComponent<TextMeshPro>().text=num1+num2+deuxpoints+num3+num4;
 
         if(NumActuel>4)
         {
             NumActuel=1;
         }
+
+        //Tcode.text = Time.time.ToString();
 
       //  Debug.Log(NumActuel);
     }
@@ -315,13 +329,21 @@ public class CodeMicroOnde : MonoBehaviour
         }
     }
 
+    public void OnMouseOver() {
+        this.GetComponentInChildren<SpriteRenderer>().enabled=true;
+    }
+
+    public void OnMouseExit() {
+         this.GetComponentInChildren<SpriteRenderer>().enabled=false;
+    }
+
     IEnumerator coroutineA()
     {
         Debug.Log("+1");
         yield return new WaitForSeconds(0.1f);
         NumActuel+=1;
 
-        if(Tcode.text==LeBonCode)
+        if(Tcode.GetComponent<TextMeshPro>().text==LeBonCode)
         {
             gagne();
         }
@@ -330,8 +352,10 @@ public class CodeMicroOnde : MonoBehaviour
 
     public void gagne()
     {
-        CodeBonOuvrir.SetActive(true);
+        Debug.Log("OKKK");
+       // CodeBonOuvrir.SetActive(true);
         PeutAppuyer=false;
-        Bon.color=new Color32(139,255,0,255);
+        //Bon.color=new Color32(139,255,0,255);
+        porteMicro.GetComponent<Animator>().SetTrigger("Ouvre");
     }
 }
