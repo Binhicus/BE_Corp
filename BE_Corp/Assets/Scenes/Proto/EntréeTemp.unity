@@ -382,7 +382,7 @@ MonoBehaviour:
   Panel: {fileID: 0}
   glitchEffectOn: {fileID: 0}
   glitchEffectOff: {fileID: 0}
-  rendererData: {fileID: 0}
+  rendererData: {fileID: 11400000, guid: 4a8e21d5c33334b11b34a596161b9360, type: 2}
   PlayerPrefNameState: Master Room Locked Door
   LeaveStepNameRef: "Entr\xE9e > Chambre"
 --- !u!95 &215823539
@@ -1671,6 +1671,30 @@ Transform:
   m_Father: {fileID: 251803284}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &790900359 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1201228044992442879, guid: d2f3d44dc2f9a7b42b1e8cc369a807c8, type: 3}
+  m_PrefabInstance: {fileID: 1065892058}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &790900360
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790900359}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b430cd550ced7154987c195e63bb772e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &791535994
 GameObject:
   m_ObjectHideFlags: 0
@@ -2195,8 +2219,20 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1201228044992442878, guid: d2f3d44dc2f9a7b42b1e8cc369a807c8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1201228044992442878, guid: d2f3d44dc2f9a7b42b1e8cc369a807c8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1201228044992442878, guid: d2f3d44dc2f9a7b42b1e8cc369a807c8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1201228044992442878, guid: d2f3d44dc2f9a7b42b1e8cc369a807c8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -23.313818
+      value: -23.31382
       objectReference: {fileID: 0}
     - target: {fileID: 1201228044992442878, guid: d2f3d44dc2f9a7b42b1e8cc369a807c8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2204,7 +2240,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1201228044992442878, guid: d2f3d44dc2f9a7b42b1e8cc369a807c8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.84170294
+      value: 0.8417029
       objectReference: {fileID: 0}
     - target: {fileID: 1201228044992442878, guid: d2f3d44dc2f9a7b42b1e8cc369a807c8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2237,6 +2273,10 @@ PrefabInstance:
     - target: {fileID: 1201228044992442879, guid: d2f3d44dc2f9a7b42b1e8cc369a807c8, type: 3}
       propertyPath: m_Name
       value: Tournevis
+      objectReference: {fileID: 0}
+    - target: {fileID: 1201228044992442879, guid: d2f3d44dc2f9a7b42b1e8cc369a807c8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2f3d44dc2f9a7b42b1e8cc369a807c8, type: 3}

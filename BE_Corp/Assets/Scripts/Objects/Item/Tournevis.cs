@@ -10,6 +10,14 @@ public class Tournevis : ClickableObject, IClicked, IItemInventaire,IAction
 
     public Sprite Image => _Image;
 
+    Animator anim;
+
+    void Awake()
+    {
+        anim = GetComponent<Animator>();
+        GetComponent<Animator>().keepAnimatorControllerStateOnDisable = true;
+    }
+
     public void OnClickAction()
     {
         CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible;
@@ -30,6 +38,7 @@ public class Tournevis : ClickableObject, IClicked, IItemInventaire,IAction
 
     public void OnPickUp()
     {
+        StartCoroutine(DelayAnimPickNDrop());
         gameObject.SetActive(false);
     }
 
@@ -41,9 +50,24 @@ public class Tournevis : ClickableObject, IClicked, IItemInventaire,IAction
         if (Physics.Raycast(ray, out hit, 1000))
         {
             gameObject.SetActive(true);
+            StartCoroutine(DelayAnimPickNDrop());
             gameObject.transform.position = hit.point;
         }
     }
     public void OnLook() {}
     public void OnLunchActionAfterCloseDialogue() {}
+
+    IEnumerator DelayAnimPickNDrop()
+    {
+        if (anim.GetBool("PickUp") == false)
+        {
+            anim.SetBool("PickUp", true);
+            yield return new WaitForSeconds(3f);
+        }
+        else
+        {
+            anim.SetBool("PickUp", false);
+            yield return new WaitForSeconds(3f);
+        }
+    }
 }
