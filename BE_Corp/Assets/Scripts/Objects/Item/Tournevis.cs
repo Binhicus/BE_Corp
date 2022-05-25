@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,14 +7,16 @@ public class Tournevis : ClickableObject, IClicked, IItemInventaire,IAction
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>();
     public string Name => "Tournevis";
     public Sprite _Image;
-    public AudioSource PickUpSon;
 
     public Sprite Image => _Image;
 
-    public void Start()
-{
-    PickUpSon = GameObject.Find("Pickup").GetComponent<AudioSource>();
-}
+    Animator anim;
+
+    void Awake()
+    {
+        anim = GetComponent<Animator>();
+        GetComponent<Animator>().keepAnimatorControllerStateOnDisable = true;
+    }
 
     public void OnClickAction()
     {
@@ -29,7 +31,6 @@ public class Tournevis : ClickableObject, IClicked, IItemInventaire,IAction
     {
         Inventaire.Instance.AddItem(this);
         PlayerPrefs.SetInt("Tournevis", 1);
-        
     }
     public void OnUse() { Debug.Log("Use"); }
     public void OnInspect() { Debug.Log("Inspect"); }
@@ -37,9 +38,8 @@ public class Tournevis : ClickableObject, IClicked, IItemInventaire,IAction
 
     public void OnPickUp()
     {
-        PickUpSon.Play();
+        StartCoroutine(DelayAnimPickNDrop());
         gameObject.SetActive(false);
-        PickUpSon.Play();
     }
 
     public void OnDrop()
@@ -50,9 +50,24 @@ public class Tournevis : ClickableObject, IClicked, IItemInventaire,IAction
         if (Physics.Raycast(ray, out hit, 1000))
         {
             gameObject.SetActive(true);
+            StartCoroutine(DelayAnimPickNDrop());
             gameObject.transform.position = hit.point;
         }
     }
     public void OnLook() {}
     public void OnLunchActionAfterCloseDialogue() {}
+
+    IEnumerator DelayAnimPickNDrop()
+    {
+        if (anim.GetBool("PickUp") == false)
+        {
+            anim.SetBool("PickUp", true);
+            yield return new WaitForSeconds(3f);
+        }
+        else
+        {
+            anim.SetBool("PickUp", false);
+            yield return new WaitForSeconds(3f);
+        }
+    }
 }
