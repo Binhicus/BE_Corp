@@ -1,32 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Fungus;
 
-public class OrdinateurScript : ClickableObject, IClicked, IAction
+public class MicroOndeScript : ClickableObject,IClicked, IAction
 {
-    private GameObject CameraActivate ;
+     public BlockReference etatZero, etatUn, etatDeux, etatTrois, remarqueClient;
+
+    public AudioSource Son;
+
+    private ScreenShake camShake;
+
+    public GameObject CameraActivate ;
+
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>() ;
 
-    public AlimentationScript ScriptAlimentationComputer ;
+
+
 
     void Awake()
     {
-        CameraActivate = GameObject.Find("---- CAMERAS ----").GetComponent<CameraContainerScript>().CameraOrdi;
+        
+        CameraActivate = GameObject.Find("---- CAMERAS ----").GetComponent<CameraContainerScript>().CameraMicro;
     }
 
-
-
+    private void Start() 
+    {
+       
+    }
 
     void LookZone()
     {
-        CameraActivate.SetActive(true);        
 
-        if(ScriptAlimentationComputer.ComputerAsBeLunch == false)
-        {
-            ScriptAlimentationComputer.LunchComputer();            
-        }
-
-
+        this.GetComponent<BoxCollider>().enabled=false;
+        CameraActivate.SetActive(true);
 
         GameObject[] IndiceZoneCollider ;
         IndiceZoneCollider = GameObject.FindGameObjectsWithTag("Indice Zone");
@@ -37,6 +44,8 @@ public class OrdinateurScript : ClickableObject, IClicked, IAction
         }
         
     }
+
+
 
     public void OnClickAction()
     {
@@ -54,8 +63,16 @@ public class OrdinateurScript : ClickableObject, IClicked, IAction
     {
         CursorController.Instance.ActionWheelScript.DialogueDisplayer.GetComponent<DialogueControllerScript>().TargetAction = this ;
         CursorController.Instance.ActionWheelScript.DialogueDisplayer.GetComponent<DialogueControllerScript>().LunchActionAfterClose = true ;
-        CursorController.Instance.ActionWheelScript.DialogueDisplayer.SetActive(true);
+       // CursorController.Instance.ActionWheelScript.DialogueDisplayer.SetActive(true);
+        remarqueClient.Execute();
     }
+
+    public void DialogMicro()
+    {
+        
+
+    }
+
 
 
 
@@ -63,10 +80,14 @@ public class OrdinateurScript : ClickableObject, IClicked, IAction
     public void OnClose() {Debug.Log("Close") ;}
     public void OnTake() {Debug.Log("Take") ;}
     public void OnUse() {LookZone();}
-    public void OnInspect() {DisplayInspection(); }
+    public void OnInspect() {DialogMicro(); }
     public void OnQuestion() {DisplayDialogue(); }
     public void OnLook() {}
 
 
     public void OnLunchActionAfterCloseDialogue() { }
+    
+
 }
+
+

@@ -20,6 +20,7 @@ public class ScriptAntenne : MonoBehaviour
      private bool gagne;
      public float RotZ;
      public AudioSource pluie;
+     public float speed;
     // Start is called before the first frame update
     void Awake()
     {
@@ -35,7 +36,7 @@ public class ScriptAntenne : MonoBehaviour
     void Update()
     {
 
-        Debug.Log(TowerAngle);
+        //Debug.Log(TowerAngle);
 
         TowerAngle=this.transform.rotation.eulerAngles.y;
 
@@ -56,7 +57,7 @@ public class ScriptAntenne : MonoBehaviour
             Rotate();
         }
 
-        if(TowerAngle>93&&TowerAngle<94&&Maintiens==false)
+        if(TowerAngle>43&&TowerAngle<46&&Maintiens==false)
         {
             //Debug.Log("1");
             TexteMeteo.GetComponent<Animator>().SetBool("Trouve", true);
@@ -66,21 +67,21 @@ public class ScriptAntenne : MonoBehaviour
             
         }
 
-        if(TowerAngle>90&&TowerAngle<93f)
+        if(TowerAngle>40&&TowerAngle<43f)
         {
            // Debug.Log("2");
             TexteMeteo.GetComponent<Animator>().SetBool("PasLoin", true);
             RadioBug.volume=0.5f;
             TexteMeteo.GetComponent<Animator>().SetBool("Trouve", false);
         }
-        if(TowerAngle>95f)
+        if(TowerAngle>49f)
         {
             //Debug.Log("3");
             TexteMeteo.GetComponent<Animator>().SetBool("PasLoin", false);
             TexteMeteo.GetComponent<Animator>().SetBool("Trouve", false);
             RadioBug.volume=0f;
         }
-         if(TowerAngle<90f)
+         if(TowerAngle<40f)
         {
            // Debug.Log("4");
             TexteMeteo.GetComponent<Animator>().SetBool("PasLoin", false);
@@ -88,7 +89,7 @@ public class ScriptAntenne : MonoBehaviour
             RadioBug.volume=0f;
         }
 
-        if(TowerAngle>88&&TowerAngle<93f)
+        if(TowerAngle>46&&TowerAngle<49f)
         {
            // Debug.Log("5");
             TexteMeteo.GetComponent<Animator>().SetBool("Trouve", false);
@@ -141,7 +142,7 @@ public void Rotate()
     TowerAngle += Input.GetAxis("Mouse X") * TowerSpeed * Time.deltaTime;
     //TowerAngle=Mathf.Clamp(TowerAngle,0,-180);
 
-    transform.rotation = Quaternion.Euler(0,(TowerAngle),0);
+    transform.rotation = Quaternion.Euler(0,(TowerAngle*speed),0);
     //Antenne.Rotate (new Vector3 (0, 0, TowerAngle) * Time.deltaTime); 
     //Antenne.localRotation = Quaternion.Euler(0,0,TowerAngle);  */        
 }
