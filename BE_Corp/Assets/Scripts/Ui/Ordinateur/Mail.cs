@@ -16,6 +16,7 @@ public class Mail : ScriptableObject
     public string Heure ;
 
     public bool MailLu ;
+    public bool IsStoryMail ;
 
 
     [Header ("Mail Display")]

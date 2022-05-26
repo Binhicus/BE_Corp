@@ -314,7 +314,8 @@ public class MessageManager : MonoBehaviour
         if(CurrentName == DifferentNameInMessage.Mission.ToString())
         {
             GameObject LunchMissionInst = Instantiate(LunchMissionButtonPrefab, DiscussionDisplay.transform);
-            if(FlowchartTextMenu.GetStringVariable("DiscussionCurrent") == "Discussion E1") LunchMissionInst.GetComponentInChildren<Button>().interactable = false ;
+            if(FlowchartTextMenu.GetStringVariable("DiscussionCurrent") == "Discussion L1") LunchMissionInst.GetComponentInChildren<LunchMissionButton>().PlayerCanPlayThisMission(true) ;
+            if(FlowchartTextMenu.GetStringVariable("DiscussionCurrent") == "Discussion E1") LunchMissionInst.GetComponentInChildren<LunchMissionButton>().PlayerCanPlayThisMission(false) ;
 
            if(FlowchartTextMenu.GetStringVariable("DiscussionCurrent") != "")
             {
