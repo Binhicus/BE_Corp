@@ -15,7 +15,7 @@ public class HUD : MonoBehaviour
 
     void InventoryScript_ItemAdded(object sender, InventoryEventArgs e)
     {
-        Transform inventoryPanel = transform.Find("Inventaire");
+        Transform inventoryPanel = GameObject.Find("Inventaire").transform;
         foreach(Transform slot in inventoryPanel)
         {
             //Border ... Image

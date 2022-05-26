@@ -109,6 +109,8 @@ public class EmailContainerScript : MonoBehaviour
         MailReadOrNot(ThisMailAsBeRead) ;
 
         GetComponentInParent<ContainerMailScript>().EmailDisplayerManager.SetMailDisplay(MailInformations);
+
+        if(MailInformations.IsStoryMail) PlayerPrefs.SetInt("Salon Révélé", 1);
     }
 
 
