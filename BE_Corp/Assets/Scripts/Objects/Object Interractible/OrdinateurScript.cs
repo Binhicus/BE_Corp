@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OrdinateurScript : MonoBehaviour, IClicked, IAction
+public class OrdinateurScript : ClickableObject, IClicked, IAction
 {
     private GameObject CameraActivate ;
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>() ;
