@@ -638,7 +638,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh22306
+  m_Name: pb_Mesh141792
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -796,6 +796,51 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &299982924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 299982926}
+  - component: {fileID: 299982925}
+  m_Layer: 0
+  m_Name: Localization
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &299982925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299982924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5724422a635e425bae0af9ffe2615d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeLanguage: 
+  localizationFile: {fileID: 4900000, guid: 3022fc9e27b88764c9d602a1317a2327, type: 3}
+--- !u!4 &299982926
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299982924}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &322117607
 GameObject:
   m_ObjectHideFlags: 0
@@ -1532,6 +1577,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CameraRadio: {fileID: 0}
   CameraFour: {fileID: 0}
+  CameraMicro: {fileID: 0}
   CameraOrdi: {fileID: 0}
   CameraMeuble: {fileID: 0}
 --- !u!4 &641352627
@@ -2128,10 +2174,10 @@ AudioSource:
   m_GameObject: {fileID: 1165100743}
   m_Enabled: 0
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 2596591923537881330, guid: bec30fffcea7d664a9db982b6ecc9420, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4335,10 +4381,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -339.17767, y: 408.81488}
+  scrollPos: {x: -162.17773, y: 785.3149}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
-  blockViewHeight: 690
+  blockViewHeight: 522
   zoom: 1
   scrollViewRect:
     serializedVersion: 2
@@ -4346,10 +4392,8 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks:
-  - {fileID: 1891982914}
-  selectedCommands:
-  - {fileID: 1891983083}
+  selectedBlocks: []
+  selectedCommands: []
   variables:
   - {fileID: 1891982932}
   - {fileID: 1891982969}
@@ -4641,7 +4685,7 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 1053.6777
-    y: -298.81488
+    y: -299.81488
     width: 137
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -4865,7 +4909,7 @@ MonoBehaviour:
   itemId: 3
   indentLevel: 0
   storyText: "Bonjour, je souhaiterais r\xE9cup\xE9rer un tableau disparu depuis
-    des ann\xE9es"
+    des ann\xE9es."
   description: 
   character: {fileID: 343843893}
   portrait: {fileID: 0}
@@ -4894,7 +4938,7 @@ MonoBehaviour:
   indentLevel: 0
   storyText: "Bonjour Madame, pour pouvoir r\xE9cup\xE9rer un objet dans le pass\xE9,
     nous aurions besoin de nous assurer que vous ayez \xE9t\xE9 en pr\xE9sence de
-    cette objet dans le pass\xE9"
+    cette objet dans le pass\xE9."
   description: 
   character: {fileID: 1955317708}
   portrait: {fileID: 0}
@@ -4949,7 +4993,7 @@ MonoBehaviour:
   itemId: 6
   indentLevel: 0
   storyText: "J'ai \xE9t\xE9 en pr\xE9sence de ce tableau lors du denier venissage
-    du peintre, avant sa mort"
+    du peintre, avant sa mort."
   description: 
   character: {fileID: 343843893}
   portrait: {fileID: 0}
@@ -4976,7 +5020,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 7
   indentLevel: 0
-  storyText: "Un vernissage auquel seul les gens de la haute \xE9tait convi\xE9"
+  storyText: "Un vernissage auquel seul les gens de la haute \xE9tait convi\xE9s."
   description: 
   character: {fileID: 343843893}
   portrait: {fileID: 0}
@@ -5003,9 +5047,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 8
   indentLevel: 0
-  storyText: "Tr\xE8s bien\nNous tennons \xE0 vous rappellez que notre technologie
+  storyText: "Tr\xE8s bien.\nNous tenons \xE0 vous rappellez que notre technologie
     n'en est qu'\xE0 ces d\xE9buts, et il se pourrait que certaines anomalies se
-    produisent. Toutefois, votre \xE9tat de sant\xE9 ne sera pas impact\xE9"
+    produisent. Toutefois, votre \xE9tat de sant\xE9 ne sera pas impact\xE9."
   description: 
   character: {fileID: 1955317708}
   portrait: {fileID: 0}
@@ -5032,7 +5076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 9
   indentLevel: 0
-  storyText: "Commencer pas \xE0 vous chercher des excuses !"
+  storyText: "Ne commencez pas \xE0 vous chercher des excuses !"
   description: 
   character: {fileID: 343843893}
   portrait: {fileID: 0}
@@ -5059,8 +5103,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 10
   indentLevel: 0
-  storyText: "Si je vous payes c'est pour quelque chose, et j'ai int\xE9ret \xE0
-    l'avoir !"
+  storyText: "Si je vous paie c'est pour quelque chose, et j'ai int\xE9ret \xE0 l'avoir
+    !"
   description: 
   character: {fileID: 343843893}
   portrait: {fileID: 0}
@@ -5087,7 +5131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 12
   indentLevel: 0
-  storyText: "Oui oui c'est \xE7a, bien s\xFBr"
+  storyText: "Oui oui c'est \xE7a, bien s\xFBr..."
   description: 
   character: {fileID: 343843893}
   portrait: {fileID: 0}
@@ -5115,7 +5159,7 @@ MonoBehaviour:
   itemId: 11
   indentLevel: 0
   storyText: "Madame, nous sommes simplement dans l'obligation l\xE9gale de vous
-    pr\xE9venir au cas o\xF9 il y aurait quelconque anomalie durant le proc\xE9ssus"
+    pr\xE9venir au cas o\xF9 il y aurait quelconque anomalie durant le processus."
   description: 
   character: {fileID: 1955317708}
   portrait: {fileID: 0}
@@ -5142,8 +5186,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 14
   indentLevel: 0
-  storyText: "Nous avons un cr\xE9naux disponnible le 8 juin 2046, cela vous irais
-    t'il ?"
+  storyText: "Nous avons un cr\xE9neau disponible le 8 juin 2046, cette date vous
+    convient-elle ?"
   description: 
   character: {fileID: 1955317708}
   portrait: {fileID: 0}
@@ -5197,8 +5241,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 15
   indentLevel: 0
-  storyText: "Et bien, faut pas \xEAtre presser \xE0 ce que je vois... on va dire
-    que \xE7a ira"
+  storyText: "Et bien, il ne faut pas \xEAtre press\xE9 \xE0 ce que je vois... Disons
+    que \xE7a ira, faute de mieux."
   description: 
   character: {fileID: 343843893}
   portrait: {fileID: 0}
@@ -5225,7 +5269,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 16
   indentLevel: 0
-  storyText: "Tr\xE8s bien\nBonne journ\xE9e madame et \xE0 bient\xF4t"
+  storyText: "Fort bien, une bonne journ\xE9e \xE0 vous Madame, et \xE0 bient\xF4t
+    !"
   description: 
   character: {fileID: 1955317708}
   portrait: {fileID: 0}
@@ -13313,7 +13358,7 @@ MonoBehaviour:
   text:
     stringRef: {fileID: 0}
     stringVal: "Bonjour, je souhaiterais r\xE9cup\xE9rer un tableau disparu depuis
-      des ann\xE9es"
+      des ann\xE9es."
   description: 
   _textObjectObsolete: {fileID: 0}
 --- !u!114 &1891983019
@@ -13335,7 +13380,7 @@ MonoBehaviour:
     stringRef: {fileID: 0}
     stringVal: "Bonjour Madame, pour pouvoir r\xE9cup\xE9rer un objet dans le pass\xE9,
       nous aurions besoin de nous assurer que vous ayez \xE9t\xE9 en pr\xE9sence
-      de cette objet dans le pass\xE9"
+      de cette objet dans le pass\xE9."
   description: 
   _textObjectObsolete: {fileID: 0}
 --- !u!114 &1891983020
@@ -13811,8 +13856,8 @@ MonoBehaviour:
   targetTextObject: {fileID: 631674782}
   text:
     stringRef: {fileID: 0}
-    stringVal: "Et bien, faut pas \xEAtre presser \xE0 ce que je vois... on va dire
-      que \xE7a ira"
+    stringVal: "Et bien, il ne faut pas \xEAtre press\xE9 \xE0 ce que je vois...
+      Disons que \xE7a ira, faute de mieux."
   description: 
   _textObjectObsolete: {fileID: 0}
 --- !u!114 &1891983024
@@ -13853,7 +13898,7 @@ MonoBehaviour:
   text:
     stringRef: {fileID: 0}
     stringVal: "J'ai \xE9t\xE9 en pr\xE9sence de ce tableau lors du denier venissage
-      du peintre, avant sa mort"
+      du peintre, avant sa mort."
   description: 
   _textObjectObsolete: {fileID: 0}
 --- !u!114 &1891983026
@@ -13873,7 +13918,7 @@ MonoBehaviour:
   targetTextObject: {fileID: 631674782}
   text:
     stringRef: {fileID: 0}
-    stringVal: "Un vernissage auquel seul les gens de la haute \xE9tait convi\xE9"
+    stringVal: "Un vernissage auquel seul les gens de la haute \xE9tait convi\xE9s."
   description: 
   _textObjectObsolete: {fileID: 0}
 --- !u!114 &1891983027
@@ -13893,7 +13938,7 @@ MonoBehaviour:
   targetTextObject: {fileID: 631674782}
   text:
     stringRef: {fileID: 0}
-    stringVal: "Commencer pas \xE0 vous chercher des excuses !"
+    stringVal: "Ne commencez pas \xE0 vous chercher des excuses !"
   description: 
   _textObjectObsolete: {fileID: 0}
 --- !u!114 &1891983028
@@ -13913,7 +13958,7 @@ MonoBehaviour:
   targetTextObject: {fileID: 631674782}
   text:
     stringRef: {fileID: 0}
-    stringVal: "Si je vous payes c'est pour quelque chose, et j'ai int\xE9ret \xE0
+    stringVal: "Si je vous paie c'est pour quelque chose, et j'ai int\xE9ret \xE0
       l'avoir !"
   description: 
   _textObjectObsolete: {fileID: 0}
@@ -13934,7 +13979,7 @@ MonoBehaviour:
   targetTextObject: {fileID: 631674782}
   text:
     stringRef: {fileID: 0}
-    stringVal: "Oui oui c'est \xE7a, bien s\xFBr"
+    stringVal: "Oui oui c'est \xE7a, bien s\xFBr..."
   description: 
   _textObjectObsolete: {fileID: 0}
 --- !u!114 &1891983030
@@ -13974,7 +14019,8 @@ MonoBehaviour:
   targetTextObject: {fileID: 563741997}
   text:
     stringRef: {fileID: 0}
-    stringVal: "Tr\xE8s bien\nBonne journ\xE9e madame et \xE0 bient\xF4t"
+    stringVal: "Fort bien, une bonne journ\xE9e \xE0 vous Madame, et \xE0 bient\xF4t
+      !"
   description: 
   _textObjectObsolete: {fileID: 0}
 --- !u!114 &1891983032
@@ -13995,7 +14041,7 @@ MonoBehaviour:
   text:
     stringRef: {fileID: 0}
     stringVal: "Madame, nous sommes simplement dans l'obligation l\xE9gale de vous
-      pr\xE9venir au cas o\xF9 il y aurait quelconque anomalie durant le proc\xE9ssus"
+      pr\xE9venir au cas o\xF9 il y aurait quelconque anomalie durant le processus."
   description: 
   _textObjectObsolete: {fileID: 0}
 --- !u!114 &1891983033
@@ -14015,9 +14061,9 @@ MonoBehaviour:
   targetTextObject: {fileID: 563741997}
   text:
     stringRef: {fileID: 0}
-    stringVal: "Tr\xE8s bien\nNous tennons \xE0 vous rappellez que notre technologie
+    stringVal: "Tr\xE8s bien.\nNous tenons \xE0 vous rappellez que notre technologie
       n'en est qu'\xE0 ces d\xE9buts, et il se pourrait que certaines anomalies se
-      produisent. Toutefois, votre \xE9tat de sant\xE9 ne sera pas impact\xE9"
+      produisent. Toutefois, votre \xE9tat de sant\xE9 ne sera pas impact\xE9."
   description: 
   _textObjectObsolete: {fileID: 0}
 --- !u!114 &1891983034
@@ -14037,8 +14083,8 @@ MonoBehaviour:
   targetTextObject: {fileID: 563741997}
   text:
     stringRef: {fileID: 0}
-    stringVal: "Nous avons un cr\xE9naux disponnible le 8 juin 2046, cela vous irais
-      t'il ?"
+    stringVal: "Nous avons un cr\xE9neau disponible le 8 juin 2046, cette date vous
+      convient-elle ?"
   description: 
   _textObjectObsolete: {fileID: 0}
 --- !u!114 &1891983035
