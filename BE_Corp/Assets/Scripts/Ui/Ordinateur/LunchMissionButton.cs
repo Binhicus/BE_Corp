@@ -43,7 +43,7 @@ public class LunchMissionButton : MonoBehaviour
         GameObject.Find("FADE").GetComponent<Image>().DOFade(1f, 0.95f) ;
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene("Gameplay");        
-      //  SceneManager.LoadSceneAsync("EntréeTemp", LoadSceneMode.Additive);    
+        SceneManager.LoadSceneAsync("EntréeTemp", LoadSceneMode.Additive);    
     }
 
 }
