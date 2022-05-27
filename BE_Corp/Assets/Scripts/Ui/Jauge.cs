@@ -2,19 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.VFX;
 
 //[ExecuteInEditMode()]
 public class Jauge : Singleton<Jauge>
 {
-    /*
+    
     public GameObject[] orbes;
     public int stadeProg = 0;
-    */
+    /*
     public int maximum,minimum;
     public int current;
     public Image mask, fill;
     public Color color;
-
+    */
     protected override void Awake()
     {
         base.Awake();
@@ -27,20 +28,22 @@ public class Jauge : Singleton<Jauge>
 
     void Illuminate()
     {
-       /* for (int i = 0; i < orbes.Length; i++)
+        for (int i = 0; i < orbes.Length; i++)
         {
             if(i <= stadeProg - 1)
             {
                 orbes[i].SetActive(true);
+                //orbes[i].GetComponent<VisualEffect>().Play();         
             }
-        }*/
+        }
     }
     // Update is called once per frame
     void Update()
     {
-        GetCurrentFill();
+        Illuminate();
     }
 
+    /*
     void GetCurrentFill()
     {
         float currentOffset = current - minimum;
@@ -49,5 +52,5 @@ public class Jauge : Singleton<Jauge>
         mask.fillAmount = fillAmount;
 
         fill.color = color;
-    }
+    }*/
 }

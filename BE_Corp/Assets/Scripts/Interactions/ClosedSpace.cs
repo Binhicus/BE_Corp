@@ -14,7 +14,7 @@ public class ClosedSpace : MonoBehaviour,IHasItemInteraction
         fog.SetActive(false);
         PlayerPrefs.SetInt("Brume", 1);
         OuverturePorteChambre.GetComponent<BoxCollider>().enabled=true;
-        Jauge.Instance.current += 10;
+        Jauge.Instance.stadeProg += 1;
     }
 
     // Start is called before the first frame update

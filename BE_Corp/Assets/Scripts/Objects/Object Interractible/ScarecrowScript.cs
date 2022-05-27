@@ -56,7 +56,7 @@ public class ScarecrowScript : ClickableObject, IClicked, IAction
         Son.Play();
         Epouvantail.GetComponent<Animator>().SetTrigger("Scarecrow Animation");
         PorteManteau.GetComponent<Animator>().SetTrigger("CoatRack Animation");
-        Jauge.Instance.current += 10;
+        Jauge.Instance.stadeProg += 1;
 
 
         PlayerPrefs.SetInt("Scarecrow", 1);

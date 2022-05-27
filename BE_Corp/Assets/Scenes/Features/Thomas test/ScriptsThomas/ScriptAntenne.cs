@@ -117,7 +117,7 @@ public class ScriptAntenne : MonoBehaviour
         TexteMeteo.GetComponent<Animator>().SetBool("Trouve", true);
         PlayerPrefs.SetInt("Parapluie", 1);
         MisAJourEffect.Instance.MiseAJour();
-        Jauge.Instance.current += 10;
+        Jauge.Instance.stadeProg += 1;
         yield return new WaitForSeconds(2.0f);
         pluie.Play();
         maj.Execute();
