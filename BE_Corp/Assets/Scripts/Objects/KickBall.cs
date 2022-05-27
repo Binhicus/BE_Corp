@@ -42,6 +42,6 @@ public class KickBall : ClickableObject
     {      
        shaker.Shaker();
        vaseSwitch.KicksCount();
-       Debug.Log("ouille ouille je suis le mur trigger et j'ai mal" + gameObject);
+       //Debug.Log("ouille ouille je suis le mur trigger et j'ai mal" + gameObject);
     }
 }

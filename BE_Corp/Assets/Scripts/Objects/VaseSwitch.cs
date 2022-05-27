@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class VaseSwitch : ClickableObject
 {
     [Header("   Objets")]
-    public GameObject vase;
+    public GameObject vase, vasePivot;
     public GameObject brokenTransform;
     public GameObject brokenVase;
     
@@ -43,14 +43,14 @@ public class VaseSwitch : ClickableObject
             StartCoroutine(Desactivate());
         }*/
 
-        brokenTransform.transform.position = vase.transform.position;
-        brokenTransform.transform.rotation = vase.transform.rotation;
+        brokenTransform.transform.position = vasePivot.transform.position;
+        brokenTransform.transform.rotation = vasePivot.transform.rotation;
     }
 
     public void KicksCount() // pour l'instant assigné à un bouton 
     {
         ++kicks;
-        roll.Play();
+        //roll.Play();
         vaseAnimator.SetTrigger("hop");
     }
 
@@ -68,5 +68,6 @@ public class VaseSwitch : ClickableObject
         Jauge.Instance.current += 10;
         vase.SetActive(false);
         brokenVase.SetActive(true);
+        PlayerPrefs.SetInt("VaseAndKey", 1);
     }
 }
