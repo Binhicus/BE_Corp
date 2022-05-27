@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZoomIndiceScript : MonoBehaviour, IClicked, IAction
+public class ZoomIndiceScript : ClickableObject, IClicked, IAction
 {
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>() ;
 

@@ -483,6 +483,7 @@ GameObject:
   - component: {fileID: 284854652}
   - component: {fileID: 284854651}
   - component: {fileID: 284854650}
+  - component: {fileID: 284854655}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -628,17 +629,42 @@ Camera:
   m_HDR: 1
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
+  m_ForceIntoRT: 1
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &284854655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284854648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bb42831ee5422f409e7f24f9e7488ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stage: 1
+  renderingStrategy: 0
+  renderingMode: 0
+  outlineLayerMask: -1
+  primaryBufferSizeMode: 0
+  primaryRendererScale: 0.75
+  primarySizeReference: 800
+  blurShift: 1
+  dilateShift: 1
+  dilateIterations: 1
+  dilateQuality: 0
+  blurIterations: 1
+  blurType: 1
 --- !u!43 &287957059
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh141792
+  m_Name: pb_Mesh692878
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1448,6 +1474,8 @@ GameObject:
   - component: {fileID: 637770876}
   - component: {fileID: 637770875}
   - component: {fileID: 637770874}
+  - component: {fileID: 637770879}
+  - component: {fileID: 637770878}
   m_Layer: 0
   m_Name: Cube (3)
   m_TagString: Untagged
@@ -1546,6 +1574,75 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 637770872}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &637770878
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637770872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 034bc47afcbf5e141a58d5c20b7808e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &637770879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637770872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fe91dc294731a9428c0941ea7579110, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  complexMaskingMode: 0
+  drawingMode: 1
+  outlineLayer: 0
+  outlineTargets:
+  - IsVisible: 1
+    CutoutMask: 8
+    edgeDilateAmount: 5
+    frontEdgeDilateAmount: 5
+    backEdgeDilateAmount: 5
+    renderer: {fileID: 637770876}
+    SubmeshIndex: 0
+    BoundsMode: 0
+    Bounds:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0.5, y: 0.5, z: 0.5}
+    CutoutThreshold: 0.5
+    CullMode: 2
+    cutoutTextureName: 
+    DilateRenderingMode: 0
+    cutoutTextureIndex: 0
+  renderStyle: 1
+  outlineParameters:
+    enabled: 1
+    color: {r: 0.9245283, g: 0.6778969, b: 0.24770378, a: 1}
+    dilateShift: 1
+    blurShift: 1
+    fillPass:
+      shader: {fileID: 0}
+      serializedProperties: []
+  backParameters:
+    enabled: 1
+    color: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+    dilateShift: 1
+    blurShift: 1
+    fillPass:
+      shader: {fileID: 0}
+      serializedProperties: []
+  frontParameters:
+    enabled: 1
+    color: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+    dilateShift: 1
+    blurShift: 1
+    fillPass:
+      shader: {fileID: 0}
+      serializedProperties: []
 --- !u!1 &641352625
 GameObject:
   m_ObjectHideFlags: 0
@@ -2174,7 +2271,7 @@ AudioSource:
   m_GameObject: {fileID: 1165100743}
   m_Enabled: 0
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 2596591923537881330, guid: bec30fffcea7d664a9db982b6ecc9420, type: 2}
+  OutputAudioMixerGroup: {fileID: -4539984158765685790, guid: bec30fffcea7d664a9db982b6ecc9420, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.3
@@ -4392,8 +4489,10 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 1891982914}
+  selectedCommands:
+  - {fileID: 1891982927}
   variables:
   - {fileID: 1891982932}
   - {fileID: 1891982969}
@@ -4992,7 +5091,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 6
   indentLevel: 0
-  storyText: "J'ai \xE9t\xE9 en pr\xE9sence de ce tableau lors du denier venissage
+  storyText: "J'ai \xE9t\xE9 en pr\xE9sence de ce tableau lors du denier vernissage
     du peintre, avant sa mort."
   description: 
   character: {fileID: 343843893}
@@ -5047,7 +5146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 8
   indentLevel: 0
-  storyText: "Tr\xE8s bien.\nNous tenons \xE0 vous rappellez que notre technologie
+  storyText: "Tr\xE8s bien.\nNous tenons \xE0 vous rappeler que notre technologie
     n'en est qu'\xE0 ces d\xE9buts, et il se pourrait que certaines anomalies se
     produisent. Toutefois, votre \xE9tat de sant\xE9 ne sera pas impact\xE9."
   description: 
@@ -5131,7 +5230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 12
   indentLevel: 0
-  storyText: "Oui oui c'est \xE7a, bien s\xFBr..."
+  storyText: M'en fous ti ti li ti ti ^^
   description: 
   character: {fileID: 343843893}
   portrait: {fileID: 0}
@@ -5159,7 +5258,7 @@ MonoBehaviour:
   itemId: 11
   indentLevel: 0
   storyText: "Madame, nous sommes simplement dans l'obligation l\xE9gale de vous
-    pr\xE9venir au cas o\xF9 il y aurait quelconque anomalie durant le processus."
+    pr\xE9venir des risques \xE9ventuellement encourus durant le processus."
   description: 
   character: {fileID: 1955317708}
   portrait: {fileID: 0}
@@ -5214,7 +5313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 13
   indentLevel: 0
-  storyText: Quand est-ce que vous pouvez vous occupez de moi ?
+  storyText: "Quand est-ce que je peux esp\xE9rer \xEAtre prise en charge?"
   description: 
   character: {fileID: 343843893}
   portrait: {fileID: 0}
@@ -13897,7 +13996,7 @@ MonoBehaviour:
   targetTextObject: {fileID: 631674782}
   text:
     stringRef: {fileID: 0}
-    stringVal: "J'ai \xE9t\xE9 en pr\xE9sence de ce tableau lors du denier venissage
+    stringVal: "J'ai \xE9t\xE9 en pr\xE9sence de ce tableau lors du denier vernissage
       du peintre, avant sa mort."
   description: 
   _textObjectObsolete: {fileID: 0}
@@ -13979,7 +14078,7 @@ MonoBehaviour:
   targetTextObject: {fileID: 631674782}
   text:
     stringRef: {fileID: 0}
-    stringVal: "Oui oui c'est \xE7a, bien s\xFBr..."
+    stringVal: M'en fous ti ti li ti ti ^^
   description: 
   _textObjectObsolete: {fileID: 0}
 --- !u!114 &1891983030
@@ -13999,7 +14098,7 @@ MonoBehaviour:
   targetTextObject: {fileID: 631674782}
   text:
     stringRef: {fileID: 0}
-    stringVal: Quand est-ce que vous pouvez vous occupez de moi ?
+    stringVal: "Quand est-ce que je peux esp\xE9rer \xEAtre prise en charge?"
   description: 
   _textObjectObsolete: {fileID: 0}
 --- !u!114 &1891983031
@@ -14041,7 +14140,7 @@ MonoBehaviour:
   text:
     stringRef: {fileID: 0}
     stringVal: "Madame, nous sommes simplement dans l'obligation l\xE9gale de vous
-      pr\xE9venir au cas o\xF9 il y aurait quelconque anomalie durant le processus."
+      pr\xE9venir des risques \xE9ventuellement encourus durant le processus."
   description: 
   _textObjectObsolete: {fileID: 0}
 --- !u!114 &1891983033
@@ -14061,7 +14160,7 @@ MonoBehaviour:
   targetTextObject: {fileID: 563741997}
   text:
     stringRef: {fileID: 0}
-    stringVal: "Tr\xE8s bien.\nNous tenons \xE0 vous rappellez que notre technologie
+    stringVal: "Tr\xE8s bien.\nNous tenons \xE0 vous rappeler que notre technologie
       n'en est qu'\xE0 ces d\xE9buts, et il se pourrait que certaines anomalies se
       produisent. Toutefois, votre \xE9tat de sant\xE9 ne sera pas impact\xE9."
   description: 

@@ -41,21 +41,21 @@ public class SalonManager : MonoBehaviour
 
     public void PilesState()
     {
-        /*Debug.Log(PlayerPrefs.GetInt("Piles"));
+        Debug.Log(PlayerPrefs.GetInt("Piles"));
         
-        if (PlayerPrefs.GetInt("Piles") == 0) //            le joueur a cassé le vase mais n'a pas ramassé la clef
+        if (PlayerPrefs.GetInt("Piles") == 0) //            le joueur n'a pas encore utilisé le tournevis
         {
             PilesRobot.SetActive(false);
         }
 
-        if (PlayerPrefs.GetInt("Piles") == 1) //            le joueur a cassé le vase mais n'a pas ramassé la clef
+        if (PlayerPrefs.GetInt("Piles") == 1) //            le joueur a utilisé le tournevis mais pas ramassé les piles
         {
             PilesRobot.SetActive(true);
         }
-        if (PlayerPrefs.GetInt("Piles") == 2) //            le joueur a cassé le vase mais n'a pas ramassé la clef
+        if (PlayerPrefs.GetInt("Piles") == 2) //            le joueur a bien fait son job
         {
              PilesRobot.SetActive(false);
-        }*/
+        }
     }
 
     public void UmbrellaState()

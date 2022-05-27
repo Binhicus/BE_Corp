@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Epouvan : MonoBehaviour, IClicked, IAction
+public class Epouvan : ClickableObject, IClicked, IAction
 {
     public bool Dessus;
     private bool Une;

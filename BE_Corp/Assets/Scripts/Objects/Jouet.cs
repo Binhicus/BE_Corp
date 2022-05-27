@@ -11,6 +11,7 @@ public class Jouet : ClickableObject, IHasItemInteraction
     public void DoItemInteraction()
     {
         piles.SetActive(true);
+        PlayerPrefs.SetInt("Piles", 1);
     }
 
     // Start is called before the first frame update

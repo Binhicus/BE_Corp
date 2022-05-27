@@ -22,6 +22,7 @@ public class Piles : ClickableObject, IClicked, IItemInventaire, IAction
     public void OnTake()
     {
         Inventaire.Instance.AddItem(this);
+        PlayerPrefs.SetInt("Piles", 2);
     }
     public void OnUse() { Debug.Log("Use"); }
     public void OnInspect() { Debug.Log("Inspect"); }
