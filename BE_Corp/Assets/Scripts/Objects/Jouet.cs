@@ -22,10 +22,6 @@ public class Jouet : ClickableObject, IHasItemInteraction
 
     void OnEnable()
     {
-        if (piles.activeInHierarchy)
-        {
-            piles.SetActive(false);
-        }
 
     }
 

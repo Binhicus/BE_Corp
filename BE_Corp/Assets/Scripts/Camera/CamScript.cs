@@ -10,6 +10,5 @@ public class CamScript : MonoBehaviour
     {
         if (camInstance == null) camInstance = this;
         else Destroy(gameObject);
-
     }
 }
