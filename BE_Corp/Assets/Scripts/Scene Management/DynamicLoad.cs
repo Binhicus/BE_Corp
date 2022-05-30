@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public enum CheckMethod
@@ -28,6 +29,7 @@ public class DynamicLoad : ClickableSteps, IClicked
     public GameObject CamACharger, CamActuelle;
     public GameObject[] chargeur;
     public GameObject[] StepActivate ;
+    public UnityEvent skyboxSwitch;
 
     //Scene state
     public bool isLoaded = true; //eviter de charger 2x
@@ -141,6 +143,7 @@ public class DynamicLoad : ClickableSteps, IClicked
         LockRoom();
         LoadScene();
         UnloadScene();
+        skyboxSwitch.Invoke();
     }
 
     public void LockRoom()
