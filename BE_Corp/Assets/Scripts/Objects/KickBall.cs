@@ -10,11 +10,8 @@ public class KickBall : ClickableObject
     public Collider ball;
     public VaseSwitch vaseSwitch;
     public SplCameraShake shaker;
-    bool hitting = false;
-    public Texture2D cursor;
-    public Texture2D regularCursor;
+    public AudioSource ballTap;
 
-    
     void OnEnable()
     {
         ball = gameObject.GetComponent<SphereCollider>();
@@ -35,6 +32,7 @@ public class KickBall : ClickableObject
 
     public void Kicked()
     {
+        ballTap.Play();
         rb.AddForce(0, hauteur, allant, ForceMode.Impulse);
     }
 
