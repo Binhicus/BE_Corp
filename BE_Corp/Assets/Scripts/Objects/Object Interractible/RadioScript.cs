@@ -33,8 +33,8 @@ public class RadioScript : ClickableObject,IClicked, IAction
     void LookZone()
     {
 
-        if(PlayerPrefs.GetInt("Antenne")==1&&PlayerPrefs.GetInt("PileDansRadio")==1&&PlayerPrefs.GetInt("Parapluie")==0)
-        {
+       // if(PlayerPrefs.GetInt("Antenne")==1&&PlayerPrefs.GetInt("PileDansRadio")==1&&PlayerPrefs.GetInt("Parapluie")==0)
+       // {
             Debug.Log("Go");
         CameraActivate.SetActive(true);
 
@@ -47,13 +47,13 @@ public class RadioScript : ClickableObject,IClicked, IAction
         }
 
         StartCoroutine(coroutineA());
-     }
+     //}
      
-     else
+     /*else
 
      {
         Debug.Log("Desole gros mais tu peux pas encore");
-     }
+     }*/
         
     }
 

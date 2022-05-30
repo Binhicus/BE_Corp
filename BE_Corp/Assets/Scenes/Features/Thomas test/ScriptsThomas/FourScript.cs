@@ -21,8 +21,8 @@ public class FourScript : MonoBehaviour,IClicked, IAction
 
     void LookZone()
     {
-        if(PlayerPrefs.GetInt("Four")==1)
-     {
+       // if(PlayerPrefs.GetInt("Four")==1)
+    // {
             Debug.Log("Go");
         CameraActivate.SetActive(true);
 
@@ -33,13 +33,13 @@ public class FourScript : MonoBehaviour,IClicked, IAction
         {
             GameCol.GetComponent<BoxCollider>().enabled = false ;
         }
-     }
+   //  }
      
-     else
+    /* else
 
      {
         Debug.Log("Desole gros mais tu peux pas encore");
-     }
+     }*/
         
     }
 
