@@ -223,7 +223,8 @@ public class AlimentationScript : MonoBehaviour
         
         ContainerVeilleInformation.DOAnchorPosY(1080f, 0.25f);
         yield return new WaitForSeconds(0.25f);
-        DOTween.To(x => BlurValue = x, 0f, 0.006f, 0.5f);
+
+        DOTween.To(x => BlurValue = x, 0f, 0.0015f, 0.5f);
 
 
         LogComponnent.GetComponent<CanvasGroup>().alpha = 0;
@@ -231,7 +232,11 @@ public class AlimentationScript : MonoBehaviour
 
 
         LogComponnent.GetComponent<CanvasGroup>().DOFade(1, 0.5f);
-        InputLogIn.SetActive(true);        
+        InputLogIn.SetActive(true);     
+
+        yield return new WaitForSeconds(0.25f);
+
+        InputLogIn.GetComponent<InputField>().ActivateInputField() ;   
     }
 
     public void OpenShutdownPanel()
@@ -335,10 +340,16 @@ public class AlimentationScript : MonoBehaviour
     IEnumerator ComputerShutDown()
     {
         ResetComputerAlimentation();
+        ComputerAsBeLunch = false ;        
         yield return new WaitForSeconds(0.5f);
         ThisCanvasGroup.DOFade(1f, 0.25f);
 
-        Debug.Log("Zoom Out");
+        if(GameObject.Find("HUD") != null)
+        {        
+            GameObject.Find("HUD").GetComponent<HUD>().DezoomCamera();
+        }
+
+
     }
 
 

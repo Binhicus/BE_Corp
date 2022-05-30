@@ -100,7 +100,7 @@ public class MessageManager : MonoBehaviour
                 SetEmployeeButton(true);
             }
         } else {
-            /*if(DiscussionDisplay.childCount > 2)*/ SD.GetComponent<Writer>().writingSpeed = 1000f ;
+            /*if(DiscussionDisplay.childCount > 2)*/ SD.GetComponent<Writer>().writingSpeed = 10000000f ;
             DiscussionLoading.SetActive(true) ;
 
             if(FlowchartTextMenu.GetBooleanVariable("ClientWrite"))
@@ -191,7 +191,7 @@ public class MessageManager : MonoBehaviour
 
         //SetHeightWriterBox(725f, DiscussionWriterText);    
 
-        StartCoroutine(WaitBeforeAutorizedNextDialogue(0.5f));  
+        StartCoroutine(WaitBeforeAutorizedNextDialogue(0.0000001f));  
  
     }
 
@@ -306,7 +306,7 @@ public class MessageManager : MonoBehaviour
                 
               //  PlayerPrefs.SetInt(FlowchartTextMenu.GetStringVariable("DiscussionCurrent"), FlowchartTextMenu.GetIntegerVariable("CurrentStateDiscussion")) ;
 
-                StartCoroutine(WaitBeforeAutorizedNextDialogue(0.1f));
+                StartCoroutine(WaitBeforeAutorizedNextDialogue(0.0000001f));
                 HeightDialogueDisplay();                   
             }
         }  
@@ -322,7 +322,7 @@ public class MessageManager : MonoBehaviour
                 if(FlowchartTextMenu.GetIntegerVariable("CurrentStateDiscussion") >= PlayerPrefs.GetInt(FlowchartTextMenu.GetStringVariable("DiscussionCurrent")) && DiscussionDisplay.childCount != 0) PlayerPrefs.SetInt(FlowchartTextMenu.GetStringVariable("DiscussionCurrent"), FlowchartTextMenu.GetIntegerVariable("CurrentStateDiscussion")) ;
             }
 
-            StartCoroutine(WaitBeforeAutorizedNextDialogue(0.1f));
+            StartCoroutine(WaitBeforeAutorizedNextDialogue(0.0000001f));
             HeightDialogueDisplay();                   
         } 
 

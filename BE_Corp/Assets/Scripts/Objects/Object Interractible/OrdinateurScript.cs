@@ -27,7 +27,6 @@ public class OrdinateurScript : ClickableObject, IClicked, IAction
         }
 
 
-
         GameObject[] IndiceZoneCollider ;
         IndiceZoneCollider = GameObject.FindGameObjectsWithTag("Indice Zone");
 
