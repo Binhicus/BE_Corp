@@ -17,7 +17,7 @@ public class Jouet : ClickableObject, IHasItemInteraction
     // Start is called before the first frame update
     void Awake()
     {
-        piles = GameObject.Find("Piles");
+        if(piles == null)    piles = GameObject.Find("Piles");
     }
 
     void OnEnable()
