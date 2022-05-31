@@ -6,6 +6,7 @@ public class WallTrigger : MonoBehaviour
 {
     //bool hitting = false;
     public KickBall ballInt;
+    public AudioSource ballImpact;
     private void Awake()
     {
         ballInt = GameObject.Find("Soccer Ball").GetComponent<KickBall>();
@@ -15,6 +16,7 @@ public class WallTrigger : MonoBehaviour
         if (other.tag == "Ballon")
         {
             //ballInt.hitting = true;
+            ballImpact.Play();
             ballInt.Consequence();
         }
     }

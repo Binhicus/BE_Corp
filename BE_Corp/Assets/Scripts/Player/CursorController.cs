@@ -68,7 +68,7 @@ public class CursorController : Singleton<CursorController>
                 if (click != null) click.OnClickAction();
                 //if (click == null) return;
                 //* if (item != null) Inventaire.Instance.AddItem(item);
-                Debug.Log("3D Hit: " + hit.collider.tag + " " + hit.collider.gameObject);
+                //Debug.Log("3D Hit: " + hit.collider.tag + " " + hit.collider.gameObject);
                 //Debug.DrawRay(transform.position, Vector3.forward, Color.green);
             }
         }

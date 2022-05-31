@@ -14,4 +14,5 @@ public class CameraContainerScript : MonoBehaviour
 
     [Header ("Salon Camera meuble")]
     public GameObject CameraMeuble ;
+
 }

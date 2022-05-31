@@ -3,14 +3,20 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
+public enum Scene { Menu, Game }
 public class HUD : MonoBehaviour
 {
     public GameObject DezoomButton ;
+    public Scene scene;
 
     void Start()
     {
-        Inventaire.Instance.ItemAdded += InventoryScript_ItemAdded;
-        Inventaire.Instance.ItemRemoved += Inventory_ItemRemoved;
+        if(scene == Scene.Game)
+        {
+            Inventaire.Instance.ItemAdded += InventoryScript_ItemAdded;
+            Inventaire.Instance.ItemRemoved += Inventory_ItemRemoved;
+        }
+
     }
 
     void InventoryScript_ItemAdded(object sender, InventoryEventArgs e)
