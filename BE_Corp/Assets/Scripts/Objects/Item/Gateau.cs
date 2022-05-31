@@ -5,7 +5,7 @@ using UnityEngine;
 public class Gateau : ClickableObject, IClicked, IItemInventaire, IAction
 {
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>();
-    public string Name => "Gateau";
+    public string Name => "Pie";
     public Sprite _Image;
 
     public Sprite Image => _Image;
