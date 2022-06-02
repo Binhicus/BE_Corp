@@ -6192,7 +6192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1927544614}
+  selectedFlowchart: {fileID: 0}
 --- !u!4 &1407439855
 Transform:
   m_ObjectHideFlags: 1
@@ -6886,7 +6886,7 @@ MonoBehaviour:
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
   m_AmplitudeGain: 0
-  m_FrequencyGain: 0
+  m_FrequencyGain: 2
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!114 &1579892255
 MonoBehaviour:
@@ -7796,6 +7796,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 607090782871252448, guid: 71b1a62d4b9f2dd47bfb43d4a6265b5b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 607090782871252451, guid: 71b1a62d4b9f2dd47bfb43d4a6265b5b, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -8055,17 +8059,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1927544614 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1125486771945344656, guid: a299a6111c5ba1149a23c70d74c34d3f, type: 3}
-  m_PrefabInstance: {fileID: 1125486772892927072}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1938412484
 GameObject:
   m_ObjectHideFlags: 0
@@ -8124,7 +8117,7 @@ Camera:
   far clip plane: 1000
   field of view: 65
   orthographic: 1
-  orthographic size: 8.13
+  orthographic size: 4.5
   m_Depth: 2
   m_CullingMask:
     serializedVersion: 2
@@ -29239,8 +29232,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 76152492}
     - target: {fileID: 1125486771945344656, guid: a299a6111c5ba1149a23c70d74c34d3f, type: 3}
+      propertyPath: zoom
+      value: 0.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 1125486771945344656, guid: a299a6111c5ba1149a23c70d74c34d3f, type: 3}
+      propertyPath: scrollPos.x
+      value: 205.06912
+      objectReference: {fileID: 0}
+    - target: {fileID: 1125486771945344656, guid: a299a6111c5ba1149a23c70d74c34d3f, type: 3}
+      propertyPath: scrollPos.y
+      value: 438.3465
+      objectReference: {fileID: 0}
+    - target: {fileID: 1125486771945344656, guid: a299a6111c5ba1149a23c70d74c34d3f, type: 3}
+      propertyPath: selectedBlocks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1125486771945344656, guid: a299a6111c5ba1149a23c70d74c34d3f, type: 3}
       propertyPath: selectedCommands.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1125486771945344656, guid: a299a6111c5ba1149a23c70d74c34d3f, type: 3}
+      propertyPath: selectedBlocks.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1125486771945344657, guid: a299a6111c5ba1149a23c70d74c34d3f, type: 3}
       propertyPath: m_RootOrder
@@ -29426,6 +29439,10 @@ PrefabInstance:
       propertyPath: targetTextObject
       value: 
       objectReference: {fileID: 76152492}
+    - target: {fileID: 1125486771945344890, guid: a299a6111c5ba1149a23c70d74c34d3f, type: 3}
+      propertyPath: value
+      value: d
+      objectReference: {fileID: 0}
     - target: {fileID: 1125486771945344891, guid: a299a6111c5ba1149a23c70d74c34d3f, type: 3}
       propertyPath: targetObjects.Array.data[0]
       value: 
