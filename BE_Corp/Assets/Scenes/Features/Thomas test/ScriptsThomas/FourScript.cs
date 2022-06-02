@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
@@ -9,6 +9,10 @@ public class FourScript : MonoBehaviour,IClicked, IAction
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>() ;
 
     public GameObject CameraActivate ;
+
+    public BlockReference questionsmoke;
+
+    
     // Start is called before the first frame update
     void Awake()
     {
@@ -17,12 +21,13 @@ public class FourScript : MonoBehaviour,IClicked, IAction
 
     private void Start() 
     {
+        
     }
 
     void LookZone()
     {
-       // if(PlayerPrefs.GetInt("Four")==1)
-    // {
+        if(PlayerPrefs.GetInt("Four")==1&&PlayerPrefs.GetInt("Smoke")!=2)
+     {
             Debug.Log("Go");
         CameraActivate.SetActive(true);
 
@@ -33,13 +38,13 @@ public class FourScript : MonoBehaviour,IClicked, IAction
         {
             GameCol.GetComponent<BoxCollider>().enabled = false ;
         }
-   //  }
+     }
      
-    /* else
+     else
 
      {
         Debug.Log("Desole gros mais tu peux pas encore");
-     }*/
+     }
         
     }
 
@@ -61,6 +66,11 @@ public class FourScript : MonoBehaviour,IClicked, IAction
     {
         CursorController.Instance.ActionWheelScript.DialogueDisplayer.GetComponent<DialogueControllerScript>().TargetAction = this ;
         CursorController.Instance.ActionWheelScript.DialogueDisplayer.GetComponent<DialogueControllerScript>().LunchActionAfterClose = true ;
+
+        if(PlayerPrefs.GetInt("Four")==3)
+        {
+            questionsmoke.Execute();
+        }
     }
 
 

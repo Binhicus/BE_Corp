@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,120 +6,174 @@ using TMPro;
 
 public class BoutonFour : MonoBehaviour
 {
-    public bool dedans;
-    public Transform Antenne;
-    public float TowerAngle=-1f;
-    public float TowerSpeed;
-    public bool Maintiens;
+    public static float ValTemperature;
+    public bool Plus;
+    public static int CranTemp;
 
-     private Vector3 startPosition;
-     private bool gagne;
+    public int Temp0;
+    public int Temp1;
+    public int Temp2;
+    public int Temp3;
+    public int Temp4;
+    public int Temp5;
+    public int Temp6;
 
-     public bool pourAllumerFour;
-     public GameObject SymboleAllumerFour;
+    public GameObject Ttemp;
+    public GameObject barre;
 
-     public GameObject ValeurFour;
-     public int Temperature;
+    public Vector3 Pos0;
+    public Vector3 Pos1;
+    public Vector3 Pos2;
+    public Vector3 Pos3;
+    public Vector3 Pos4;
+    public Vector3 Pos5;
+    public Vector3 Pos6;
 
-     public bool VasyGros;
-
-     public BoutonFour BoutonFourG;
-
-    public Vector3 rotationo;
+    public ParticleSystem Smoke;
+    
     // Start is called before the first frame update
     void Start()
     {
-       Temperature=0;
+       
+    }
+
+    void Awake()
+    {
+        if(PlayerPrefs.GetInt("Four")==2)
+        {
+            PlayerPrefs.SetInt("Four",3);
+        }
+
+        if(PlayerPrefs.GetInt("Four")==3)
+        {
+            Smoke.Play();
+        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 mousePos = Input.mousePosition;
-        ValeurFour.GetComponent<TextMeshPro>().text=Temperature.ToString();
+         Ttemp.GetComponent<TextMeshPro>().text=ValTemperature.ToString()+ " °";
 
-        if ((Input.GetMouseButtonDown(0))&&dedans==true&&gagne==false)
-        {
-            Maintiens=true;
-            Debug.Log("click");
-        }
-        if ((Input.GetMouseButtonUp(0)))
-        {
-            Maintiens=false;
-        }
+         barre.GetComponent<Animator>().SetInteger("Cran",CranTemp);
+    }
 
-        if(Maintiens==true&&gagne==false)
+     void OnMouseDown()
+    {
+        if(Plus)
         {
-            Rotate();
+            Debug.Log("1");
+            Ajoute();
         }
 
-        if(pourAllumerFour==true&&TowerAngle<-0.1)
-        {
-           // SymboleAllumerFour.SetActive(true);
-            ValeurFour.GetComponent<TextMeshPro>().enabled=true;
-            VasyGros=true;
-        }
-        if(pourAllumerFour==true&&TowerAngle>-0.1)
-        {
-           // SymboleAllumerFour.SetActive(false);
-            ValeurFour.GetComponent<TextMeshPro>().enabled=false;
-            VasyGros=false;
-        }
 
-        if(pourAllumerFour==false&&TowerAngle<-0.1f&&TowerAngle>-0.2f&&BoutonFourG.VasyGros)
+        if(!Plus)
         {
-            Temperature=50;
-            ValeurFour.GetComponent<TextMeshPro>().color=new Color(162,255,181,255);
-        }
-
-        if(pourAllumerFour==false&&TowerAngle<-0.21f&&TowerAngle>-0.31f&&BoutonFourG.VasyGros)
-        {
-            Temperature=100;
-            ValeurFour.GetComponent<TextMeshPro>().color=new Color(162,255,181,255);
-        }
-        if(pourAllumerFour==false&&TowerAngle<-0.41f&&TowerAngle>-0.51f&&BoutonFourG.VasyGros)
-        {
-            Temperature=150;
-            ValeurFour.GetComponent<TextMeshPro>().color=new Color(162,255,181,255);
-        }
-        if(pourAllumerFour==false&&TowerAngle<-0.61f&&TowerAngle>-0.71f&&BoutonFourG.VasyGros)
-        {
-            Temperature=200;
-            ValeurFour.GetComponent<TextMeshPro>().color=new Color(162,255,181,255);
-        }
-        if(pourAllumerFour==false&&TowerAngle<-0.72f&&TowerAngle>-0.82f&&BoutonFourG.VasyGros)
-        {
-            Temperature=300;
-            ValeurFour.GetComponent<TextMeshPro>().color=Color.red;
-        }
-        if(pourAllumerFour==false&&TowerAngle<-1&&BoutonFourG.VasyGros)
-        {
-            TowerAngle=0;
-            Temperature=0;
-            ValeurFour.GetComponent<TextMeshPro>().color=new Color(162,255,181,255);
+            Debug.Log("2");
+            Enleve();
         }
     }
 
 
+    public void Ajoute()
+    {
 
-private void OnMouseEnter() 
-{
-    dedans=true;
-}
+        CranTemp+=1;
 
-private void OnMouseExit() 
-{
-    dedans=false;
-}
 
-public void Rotate()
-{
-    //TowerAngle += Input.GetAxis("Mouse X") * TowerSpeed * Time.deltaTime;
+        if(CranTemp==7)
+        {
+            CranTemp=0;
+        }
+        
 
-   // Antenne.transform.rotation = Quaternion.Euler(0,0,(TowerAngle*-10));    
-   transform.Rotate(0,0,1);
-}
+        if(CranTemp==0)
+        {
+            ValTemperature=Temp0;
+            //barre.transform.position = Pos0;
+            PlayerPrefs.SetInt("Four",4);
+        }
+        if(CranTemp==1)
+        {
+            ValTemperature=Temp1;
+            //barre.transform.position = Pos1;
+            PlayerPrefs.SetInt("Four",4);
+        }
+        if(CranTemp==2)
+        {
+            ValTemperature=Temp2;
+           // barre.transform.position=new Vector3();
+           PlayerPrefs.SetInt("Four",4);
+        }
+        if(CranTemp==3)
+        {
+            ValTemperature=Temp3;
+            //barre.transform.position=new Vector3();
+            PlayerPrefs.SetInt("Four",4);
+        }
+        if(CranTemp==4)
+        {
+            ValTemperature=Temp4;
+            //barre.transform.position=new Vector3();
+            PlayerPrefs.SetInt("Four",4);
+        }
+        if(CranTemp==5)
+        {
+            ValTemperature=Temp5;
+            //barre.transform.position=new Vector3();
+            PlayerPrefs.SetInt("Four",4);
+        }
 
+
+        if(CranTemp==6)
+        {
+            ValTemperature=Temp6;
+            //barre.transform.position=new Vector3();
+            PlayerPrefs.SetInt("Four",2);
+        }
+    }
+
+    public void Enleve()
+    {
+        CranTemp-=1;
+
+        if(CranTemp==-1)
+        {
+            CranTemp=6;
+        }
+        
+
+        if(CranTemp==0)
+        {
+            ValTemperature=Temp0;
+        }
+        if(CranTemp==1)
+        {
+            ValTemperature=Temp1;
+        }
+        if(CranTemp==2)
+        {
+            ValTemperature=Temp2;
+        }
+        if(CranTemp==3)
+        {
+            ValTemperature=Temp3;
+        }
+        if(CranTemp==4)
+        {
+            ValTemperature=Temp4;
+        }
+        if(CranTemp==5)
+        {
+            ValTemperature=Temp5;
+        }
+        if(CranTemp==6)
+        {
+            ValTemperature=Temp6;
+            PlayerPrefs.SetInt("Four",2);
+        }
+    }
 
 }
 
