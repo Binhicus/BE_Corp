@@ -7,7 +7,7 @@ public class ScarecrowScript : ClickableObject, IClicked, IAction
 {
     public GameObject Epouvantail;
     public GameObject PorteManteau;
-    public BlockReference question, inspect,maj;
+    public BlockReference question, inspect, dissolve, maj;
     public AudioSource Son;
 
     private ScreenShake camShake;
@@ -44,9 +44,12 @@ public class ScarecrowScript : ClickableObject, IClicked, IAction
 
     public void OnClickAction()
     {
-        CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible ;
-        CursorController.Instance.ActionWheelScript.TargetAction = this;
-        CursorController.Instance.ActionWheelScript.gameObject.SetActive(true);
+        if(GameObject.Find("BarbaraDialog") == null && GameObject.Find("AgentDialog") == false)
+        {
+            CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible ;
+            CursorController.Instance.ActionWheelScript.TargetAction = this;
+            CursorController.Instance.ActionWheelScript.gameObject.SetActive(true);            
+        }
     }
 
     public void Disparait()
@@ -61,6 +64,8 @@ public class ScarecrowScript : ClickableObject, IClicked, IAction
 
         PlayerPrefs.SetInt("Scarecrow", 1);
         Door.OpenDoorAnimation();
+
+        dissolve.Execute();
     }
 
     void DisplayInspection()

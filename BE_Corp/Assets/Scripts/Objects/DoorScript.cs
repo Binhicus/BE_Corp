@@ -64,7 +64,7 @@ public class DoorScript : MonoBehaviour
 
         if(!DoorIsOpen && AsCameraShake && cameraShake.enabled == true)
         {
-            cameraShake.Shaker();
+            if(cameraShake != null) cameraShake.Shaker();
             GlitchyBreak.Instance.GlitchEffectOn();
         }
     }
