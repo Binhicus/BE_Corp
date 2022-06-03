@@ -2,21 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum CursorType { Default, Object, SceneChange }
+public enum CursorType { Default, Object, SceneChange, Observe }
 
 public class CursorController : Singleton<CursorController>
 {
-    public Texture2D cursor;
-    public Texture2D cursorClicked;
-    public CursorControls controls;
+
+    //public Texture2D cursorClicked;
+
     private Camera mainCamera;
 
+    [Header("Base")]    
+    public Texture2D cursor;
     public Texture2D defaultCursor;
+
+    [Header("Object")]
     public Texture2D objectCursor;
+
+    [Header("SceneChange")]
     public Texture2D sceneChangeCursor;
 
+    [Header("Loupe")]
+    public Texture2D observeCursor;
 
+    [Header("Scripts refs")]
     public ActionWheel ActionWheelScript ;
+    public CursorControls controls;
 
     // Start is called before the first frame update
     protected override void Awake()
@@ -46,7 +56,7 @@ public class CursorController : Singleton<CursorController>
 
     private void StartedClick()
     {
-        ChangeCursor(cursorClicked);
+        //ChangeCursor(cursorClicked);
     }
 
     private void EndedClick()
@@ -115,6 +125,7 @@ public class CursorController : Singleton<CursorController>
         if (cursorType == CursorType.Default) return defaultCursor;
         if (cursorType == CursorType.Object) return objectCursor;
         if (cursorType == CursorType.SceneChange) return sceneChangeCursor;
+        if (cursorType == CursorType.Observe) return observeCursor;
         return null;
     }
 }
