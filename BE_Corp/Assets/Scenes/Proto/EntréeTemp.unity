@@ -8003,7 +8003,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1032.4487
     y: -314.5797
-    width: 110
+    width: 107.81247
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -8098,9 +8098,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 276.44983
-    y: 120.493805
-    width: 160
+    x: 285.82483
+    y: 115.806305
+    width: 153.12494
     height: 40
   tint: {r: 0.9607843, g: 0.9022256, b: 0.47450978, a: 1}
   useCustomTint: 1
@@ -11660,8 +11660,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 5
   indentLevel: 0
-  storyText: Calmez vous ! Comme dit dans notre conversation, il se pourrait qu'il
-    y ait des anomalies. Reconnaissez-vous l'endroit ?
+  storyText: 'Madame, comme dit dans notre conversation, il se pourrait qu''il y
+    ait des anomalies.
+
+    Toutefois, nous sommes bien ddans vos souvenirs cet
+    endroit vous dit-il quelque chose ?'
   description: 
   character: {fileID: 8580882007288285678}
   portrait: {fileID: 0}
@@ -16732,7 +16735,7 @@ MonoBehaviour:
   drawingMode: 1
   outlineLayer: 0
   outlineTargets:
-  - IsVisible: 1
+  - IsVisible: 0
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -17687,7 +17690,7 @@ MonoBehaviour:
   drawingMode: 1
   outlineLayer: 0
   outlineTargets:
-  - IsVisible: 1
+  - IsVisible: 0
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -23036,6 +23039,50 @@ Transform:
   m_Father: {fileID: 215823537}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!1 &2100516107
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2100516109}
+  - component: {fileID: 2100516108}
+  m_Layer: 0
+  m_Name: _FungusState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2100516108
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100516107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedFlowchart: {fileID: 8580882006690505093}
+--- !u!4 &2100516109
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100516107}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2129461347
 GameObject:
   m_ObjectHideFlags: 0
@@ -23924,14 +23971,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 119.86438
-    y: 121.71332
-    width: 116
+    x: 65.17688
+    y: 118.58832
+    width: 162.49994
     height: 40
   tint: {r: 0.47568527, g: 0.9622642, b: 0.4940556, a: 1}
   useCustomTint: 1
   itemId: 27
-  blockName: "\xC9pouvantail"
+  blockName: "\xC9pouvantail Question"
   description: "Dialogue en questionnant B sur l'\xE9pouvantail"
   eventHandler: {fileID: 0}
   commandList:
@@ -24053,7 +24100,7 @@ MonoBehaviour:
   drawingMode: 1
   outlineLayer: 0
   outlineTargets:
-  - IsVisible: 1
+  - IsVisible: 0
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -24431,7 +24478,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 205.14285
     y: 30.58994
-    width: 126
+    width: 124.99996
     height: 40
   tint: {r: 1, g: 0.5415094, b: 0.9600882, a: 1}
   useCustomTint: 1
@@ -24497,7 +24544,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1062.1416
     y: -175.59024
-    width: 82
+    width: 79.687485
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
@@ -24706,7 +24753,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 211.45529
     y: -163.96977
-    width: 131
+    width: 128.12497
     height: 40
   tint: {r: 1, g: 0.5411765, b: 0.9607843, a: 1}
   useCustomTint: 1
@@ -24751,7 +24798,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1060.224
     y: -78.57941
-    width: 146
+    width: 140.62495
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
@@ -24976,7 +25023,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1380.823
     y: -60.981995
-    width: 138
+    width: 135.93745
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
@@ -25100,7 +25147,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1060.2238
     y: 11.420555
-    width: 116
+    width: 112.49997
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
@@ -26566,7 +26613,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 211.80707
     y: 234.1055
-    width: 86
+    width: 84.374985
     height: 40
   tint: {r: 0.47568527, g: 0.9622642, b: 0.4940556, a: 1}
   useCustomTint: 1
@@ -26623,7 +26670,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 201.44083
     y: -71.008575
-    width: 137
+    width: 134.37495
     height: 40
   tint: {r: 1, g: 0.5415094, b: 0.9600882, a: 1}
   useCustomTint: 1
@@ -31909,7 +31956,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 631.1868
     y: -171.65472
-    width: 136
+    width: 131.24995
     height: 40
   tint: {r: 1, g: 0.5411765, b: 0.9607843, a: 1}
   useCustomTint: 1
@@ -31985,7 +32032,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 632.9555
     y: -86.28887
-    width: 129
+    width: 124.99996
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
@@ -32058,7 +32105,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1378.8562
     y: -159.34259
-    width: 109
+    width: 107.81247
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
@@ -32489,7 +32536,6 @@ GameObject:
   - component: {fileID: 8580882006690505094}
   - component: {fileID: 8580882006690505093}
   - component: {fileID: 8580882006690505092}
-  - component: {fileID: 8580882006690505096}
   - component: {fileID: 8580882006690505095}
   - component: {fileID: 8580882006690505091}
   - component: {fileID: 1571946664}
@@ -32542,6 +32588,12 @@ GameObject:
   - component: {fileID: 581692648}
   - component: {fileID: 581692647}
   - component: {fileID: 581692646}
+  - component: {fileID: 8580882006690505097}
+  - component: {fileID: 8580882006690505098}
+  - component: {fileID: 8580882006690505096}
+  - component: {fileID: 8580882006690505099}
+  - component: {fileID: 8580882006690505101}
+  - component: {fileID: 8580882006690505100}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -32563,8 +32615,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 3
   indentLevel: 0
-  storyText: "Vos souvenirs semblent \xEAtre tr\xE8s flous, je vais essayer d'explorer
-    pour en savoir plus."
+  storyText: "La machine m'indique que nous sommes bien dans votre souvenir le plus
+    fort avec ce tableau. Vos souvenirs semblent \xEAtre tr\xE8s flous, je vais essayer
+    d'explorer pour en savoir plus."
   description: 
   character: {fileID: 8580882007288285678}
   portrait: {fileID: 0}
@@ -32591,9 +32644,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 694.1208
-    y: -273.4186
-    width: 75
+    x: 430.7458
+    y: -286.2311
+    width: 74.999985
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -32603,10 +32656,15 @@ MonoBehaviour:
   eventHandler: {fileID: 0}
   commandList:
   - {fileID: 1571946666}
-  - {fileID: 8580882006690505096}
+  - {fileID: 8580882006690505097}
   - {fileID: 1571946664}
   - {fileID: 8580882006690505095}
   - {fileID: 8580882006690505091}
+  - {fileID: 8580882006690505098}
+  - {fileID: 8580882006690505096}
+  - {fileID: 8580882006690505099}
+  - {fileID: 8580882006690505101}
+  - {fileID: 8580882006690505100}
   suppressAllAutoSelections: 0
 --- !u!114 &8580882006690505093
 MonoBehaviour:
@@ -32621,20 +32679,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -523.4487, y: 551.5797}
+  scrollPos: {x: 391.7528, y: 427.4234}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
-  zoom: 1
+  zoom: 0.64000034
   scrollViewRect:
     serializedVersion: 2
     x: -343
     y: -340
     width: 1114
     height: 859
-  selectedBlocks: []
-  selectedCommands:
-  - {fileID: 8580882006690505096}
+  selectedBlocks:
+  - {fileID: 581692653}
+  selectedCommands: []
   variables:
   - {fileID: 581692646}
   description: 
@@ -32675,7 +32733,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 2
   indentLevel: 0
-  storyText: "Je...-J'en sais rien... \xC7a ne me dit rien pour l'instant."
+  storyText: Je ne sais pas... je n'en sais rien... Cela ne me dit rien pour l'instant.
   description: 
   character: {fileID: 8580882007116846411}
   portrait: {fileID: 0}
@@ -32690,7 +32748,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &8580882006690505096
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -32700,11 +32758,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 1
+  itemId: 72
   indentLevel: 0
-  storyText: "O\xF9 est-ce qu'on est ? C'est quoi ce bordel ? J'ai pay\xE9 une fortune
-    pour r\xE9cup\xE9rer ce tableau ! J'esp\xE8re que vous aller me rembourser, bande
-    de charlatans!"
+  storyText: "Vos souvenirs semblent \xEAtre tr\xE8s flous, je vais essayer d'explorer
+    pour en savoir plus."
+  description: 
+  character: {fileID: 8580882007288285678}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &8580882006690505097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8580882006690505090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 70
+  indentLevel: 0
+  storyText: "Attendez ! Ce n'est pas un vernissage \xE7a ! \nO\xF9 est-ce qu'on
+    est ? C'est quoi ce bordel ? J'ai pay\xE9 une fortune pour r\xE9cup\xE9rer ce
+    tableau ! J'esp\xE8re que vous aller me rembourser, bande de charlatans !"
   description: 
   character: {fileID: 8580882007116846411}
   portrait: {fileID: 0}
@@ -32717,6 +32803,119 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 4339818236055997847}
+--- !u!114 &8580882006690505098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8580882006690505090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 71
+  indentLevel: 0
+  storyText: Comment est-ce possible ? Je n'ai vu le tableau qu'une seule fois, lors
+    du dernier vernissage du peintre.
+  description: 
+  character: {fileID: 8580882007116846411}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &8580882006690505099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8580882006690505090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 73
+  indentLevel: 0
+  storyText: "Je risque d'avoir besoin de votre aide pour m'aider \xE0 \xE9claircir
+    vos souvenirs, sans cela, la machine pourrait ne pas avoir r\xE9ussi \xE0 repr\xE9senter
+    certains objets o\xF9 ils pourraient m\xEAme \xEAtre non conformes \xE0 la r\xE9alit\xE9."
+  description: 
+  character: {fileID: 8580882007288285678}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &8580882006690505100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8580882006690505090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 75
+  indentLevel: 0
+  storyText: Je vous assure que le tableau est ici, nous allons juste devoir fouillez
+    un peu dans vos souvenirs pour le trouver.
+  description: 
+  character: {fileID: 8580882007288285678}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &8580882006690505101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8580882006690505090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 74
+  indentLevel: 0
+  storyText: "J'esp\xE8re pour vous que le tableau est ici, sinon cela va tr\xE8s
+    mal aller !"
+  description: 
+  character: {fileID: 8580882007116846411}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
 --- !u!1 &8580882007116846410
 GameObject:
   m_ObjectHideFlags: 0
