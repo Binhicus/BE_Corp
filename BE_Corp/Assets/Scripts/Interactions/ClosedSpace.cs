@@ -7,11 +7,13 @@ public class ClosedSpace : MonoBehaviour,IHasItemInteraction
     public string nomItem;
     public string inventoryItemID => nomItem;
     public AudioSource unlocked;
-    public GameObject fog;
+    public GameObject fog, bloqueur;
     public GameObject OuverturePorteChambre;
     public void DoItemInteraction()
     {
-        fog.SetActive(false);
+        fog.GetComponentInChildren<ParticleSystem>().Stop();
+        fog.GetComponent<BoxCollider>().enabled = false;
+        bloqueur.SetActive(false);
         PlayerPrefs.SetInt("Brume", 1);
         OuverturePorteChambre.GetComponent<BoxCollider>().enabled=true;
         Jauge.Instance.stadeProg += 1;

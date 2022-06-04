@@ -21,7 +21,7 @@ public class Chaise : ClickableObject, IClicked, IAction
         if (PlayerPrefs.GetInt("Chaise") == 0)
         {
             ballon.GetComponent<BallInteraction>().enabled = false;
-            ballon.GetComponent<Outlinable>().enabled = false;
+            //ballon.GetComponent<Outlinable>().enabled = false;
         }
         else
         {
@@ -40,7 +40,7 @@ public class Chaise : ClickableObject, IClicked, IAction
         this.GetComponent<Animator>().SetTrigger("Chair Animation");
         PlayerPrefs.SetInt("Chaise", 1);
         ballon.GetComponent<BallInteraction>().enabled = true;
-        ballon.GetComponent<Outlinable>().enabled = true;
+        //ballon.GetComponent<Outlinable>().enabled = true;
         this.gameObject.GetComponent<Outlinable>().enabled = false;
         this.enabled = false;
 
