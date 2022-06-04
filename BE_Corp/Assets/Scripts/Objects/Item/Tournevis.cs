@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class Tournevis : ClickableObject, IClicked, IItemInventaire,IAction
 {
+    Animator anim;
+
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>();
     public string Name => "Tournevis";
     public Sprite _Image;
 
     public Sprite Image => _Image;
 
-    Animator anim;
-
-    void Awake()
+    void Start()
     {
         anim = GetComponent<Animator>();
-        GetComponent<Animator>().keepAnimatorControllerStateOnDisable = true;
+        anim.keepAnimatorControllerStateOnDisable = true;
     }
 
     public void OnClickAction()
@@ -38,8 +38,7 @@ public class Tournevis : ClickableObject, IClicked, IItemInventaire,IAction
 
     public void OnPickUp()
     {
-        StartCoroutine(DelayAnimPickNDrop());
-        gameObject.SetActive(false);
+        StartCoroutine(AnimInventaire());
     }
 
     public void OnDrop()
@@ -50,19 +49,19 @@ public class Tournevis : ClickableObject, IClicked, IItemInventaire,IAction
         if (Physics.Raycast(ray, out hit, 1000))
         {
             gameObject.SetActive(true);
-            StartCoroutine(DelayAnimPickNDrop());
             gameObject.transform.position = hit.point;
         }
     }
     public void OnLook() {}
     public void OnLunchActionAfterCloseDialogue() {}
 
-    IEnumerator DelayAnimPickNDrop()
+    IEnumerator AnimInventaire()
     {
         if (anim.GetBool("PickUp") == false)
         {
             anim.SetBool("PickUp", true);
             yield return new WaitForSeconds(3f);
+            gameObject.SetActive(false);
         }
         else
         {

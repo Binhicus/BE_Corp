@@ -51,6 +51,7 @@ public class Inventaire : Singleton<Inventaire>
             item.OnDrop();
 
             Collider collider = (item as MonoBehaviour).GetComponent<Collider>();
+
             if(collider != null)
             {
                 collider.enabled = true;

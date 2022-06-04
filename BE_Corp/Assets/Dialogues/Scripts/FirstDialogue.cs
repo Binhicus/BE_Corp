@@ -6,11 +6,13 @@ using Fungus;
 public class FirstDialogue : MonoBehaviour
 {
     public BlockReference blockRef;
+    public string playerPref;
+    public float time;
     void Start()
     {
-        if (PlayerPrefs.GetInt("Début") == 0)
+        if (PlayerPrefs.GetInt(playerPref) == 0)
         {
-            Invoke("DialogDebut", 3);
+            Invoke("DialogDebut", time);
         }
 
     }
@@ -24,6 +26,6 @@ public class FirstDialogue : MonoBehaviour
     public void DialogDebut()
     {
         blockRef.Execute();
-        PlayerPrefs.SetInt("Début", 1);
+        PlayerPrefs.SetInt(playerPref, 1);
     }
 }

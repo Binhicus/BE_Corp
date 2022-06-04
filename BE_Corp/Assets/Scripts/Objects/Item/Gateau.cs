@@ -5,7 +5,7 @@ using UnityEngine;
 public class Gateau : ClickableObject, IClicked, IItemInventaire, IAction
 {
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>();
-    public string Name => "Pie";
+    public string Name => "Gateau";
     public Sprite _Image;
 
     public Sprite Image => _Image;
@@ -30,6 +30,7 @@ public class Gateau : ClickableObject, IClicked, IItemInventaire, IAction
     public void OnPickUp()
     {
         gameObject.SetActive(false);
+        PlayerPrefs.SetInt("Gateau",1);
     }
 
     public void OnDrop()
@@ -41,6 +42,14 @@ public class Gateau : ClickableObject, IClicked, IItemInventaire, IAction
         {
             gameObject.SetActive(true);
             gameObject.transform.position = hit.point;
+        }
+    }
+
+    void Awake()
+    {
+        if(PlayerPrefs.GetInt("Gateau")==1)
+        {
+            gameObject.SetActive(false);
         }
     }
     public void OnLook() {}

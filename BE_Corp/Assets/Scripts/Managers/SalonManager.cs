@@ -8,7 +8,7 @@ public class SalonManager : MonoBehaviour
     public GameObject key;
     public GameObject objetsMeteo;
     public GameObject PilesRobot;
-    public GameObject ballon;
+    public GameObject ballon, antenne;
     public GameObject salonAvant, salonApres;
 
     private void OnEnable()
@@ -18,6 +18,7 @@ public class SalonManager : MonoBehaviour
         objetsMeteo = GameObject.Find("Umbrella");
         PilesRobot = GameObject.FindWithTag("Test");
         ballon = GameObject.Find("Soccer Ball").transform.GetChild(0).gameObject;
+        antenne = GameObject.Find("Antenne");
         SalonLoader();
     }
     public void VaseState()
@@ -58,6 +59,18 @@ public class SalonManager : MonoBehaviour
         }
     }
 
+    public void AntenneState()
+    {
+        if (PlayerPrefs.GetInt("Antenne") == 1)
+        {
+            if (antenne != null)
+            {
+                antenne.SetActive(false);
+            }
+
+        }
+    }
+
     public void UmbrellaState()
     {
         if (objetsMeteo != null)
@@ -92,6 +105,7 @@ public class SalonManager : MonoBehaviour
         SalonState();
         VaseState();
         UmbrellaState();
+        AntenneState();
         PilesState();
     }
 }

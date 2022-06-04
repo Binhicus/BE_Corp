@@ -14,7 +14,7 @@ public class EntreeManager : MonoBehaviour
         porteManteau = GameObject.Find("Coat Rack");
         fog = GameObject.Find("Gray Volume Fog");
         Tournevis = GameObject.Find("Tournevis");
-        antenne = GameObject.Find("Antenne");
+        //antenne = GameObject.Find("Antenne");
         EntreeLoader();
     }
     public void EpouvantailState()
@@ -23,7 +23,7 @@ public class EntreeManager : MonoBehaviour
         {
             epouvantail.SetActive(false);
             porteManteau.SetActive(true);
-            porteManteau.GetComponent<Animator>().enabled = false;
+            //porteManteau.GetComponent<Animator>().SetTrigger("CoatRack Enable");
         }
     }
 
@@ -38,7 +38,7 @@ public class EntreeManager : MonoBehaviour
         }
     }
 
-    public void AntenneState()
+    /*public void AntenneState()
     {
         if (PlayerPrefs.GetInt("Antenne") == 1)
         {
@@ -48,7 +48,7 @@ public class EntreeManager : MonoBehaviour
             }
 
         }
-    }
+    }*/
 
     public void FogState()
     {
@@ -71,7 +71,7 @@ public class EntreeManager : MonoBehaviour
     public void EntreeLoader()
     {
         TournevisState();
-        AntenneState();
+       // AntenneState();
         FogState();
         EpouvantailState();
     }

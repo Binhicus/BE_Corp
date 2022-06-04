@@ -11,7 +11,7 @@ public class RadioScript : ClickableObject,IClicked, IAction
 
     private ScreenShake camShake;
 
-    public GameObject CameraActivate ;
+    public GameObject CameraActivate, AreaCam ;
     public GameObject TexteMeteo;
 
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>() ;
@@ -20,8 +20,7 @@ public class RadioScript : ClickableObject,IClicked, IAction
 
 
     void Awake()
-    {
-        
+    {       
         CameraActivate = GameObject.Find("---- CAMERAS ----").GetComponent<CameraContainerScript>().CameraRadio;
     }
 
@@ -33,8 +32,9 @@ public class RadioScript : ClickableObject,IClicked, IAction
     void LookZone()
     {
 
-       // if(PlayerPrefs.GetInt("Antenne")==1&&PlayerPrefs.GetInt("PileDansRadio")==1&&PlayerPrefs.GetInt("Parapluie")==0)
-       // {
+        // if(PlayerPrefs.GetInt("Antenne")==1&&PlayerPrefs.GetInt("PileDansRadio")==1&&PlayerPrefs.GetInt("Parapluie")==0)
+        // {
+        AreaCam.SetActive(false);
             Debug.Log("Go");
         CameraActivate.SetActive(true);
 
@@ -116,7 +116,11 @@ public class RadioScript : ClickableObject,IClicked, IAction
     public void OnOpen() {Debug.Log("Open") ;}
     public void OnClose() {Debug.Log("Close") ;}
     public void OnTake() {Debug.Log("Take") ;}
-    public void OnUse() {LookZone();}
+    public void OnUse() 
+    {
+        LookZone();
+        this.gameObject.GetComponent<BoxCollider>().enabled = false;
+    }
     public void OnInspect() {DialogRadio(); }
     public void OnQuestion() {DisplayDialogue(); }
     public void OnLook() {}

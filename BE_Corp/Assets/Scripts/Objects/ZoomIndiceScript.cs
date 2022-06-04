@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZoomIndiceScript : ClickableObject, IClicked, IAction
+public class ZoomIndiceScript : ZoomableObject, IClicked, IAction
 {
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>() ;
 
@@ -35,9 +35,10 @@ public class ZoomIndiceScript : ClickableObject, IClicked, IAction
 
     public void OnClickAction()
     {
-        CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible;
+        LookZone();
+        /*CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible;
         CursorController.Instance.ActionWheelScript.TargetAction = this;
-        CursorController.Instance.ActionWheelScript.gameObject.SetActive(true);
+        CursorController.Instance.ActionWheelScript.gameObject.SetActive(true);*/
     }
 
     public void OnOpen() {Debug.Log("Open") ;}
