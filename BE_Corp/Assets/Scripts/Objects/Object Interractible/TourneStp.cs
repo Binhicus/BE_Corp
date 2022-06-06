@@ -44,7 +44,7 @@ public class TourneStp : MonoBehaviour
     {
 
 
-        Debug.Log(PlayerPrefs.GetInt("Smoke"));
+        //Debug.Log(PlayerPrefs.GetInt("Smoke"));
         //Debug.Log(this.transform.eulerAngles.z);
 
 

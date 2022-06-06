@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BallInteraction : ClickableObject, IClicked, IAction
+public class BallInteraction : MonoBehaviour, IClicked, IAction
 {
     private KickBall kickBall;
     public string nomDuBallon;
