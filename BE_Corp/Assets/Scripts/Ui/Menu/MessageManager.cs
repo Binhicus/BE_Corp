@@ -45,7 +45,7 @@ public class MessageManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerPrefs.SetInt("Discussion E1", 28);        
+        PlayerPrefs.SetInt("Discussion E1", 31);        
         //PlayerPrefs.SetInt("Dialogue L1", 0);        
     }
 
