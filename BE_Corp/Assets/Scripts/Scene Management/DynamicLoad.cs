@@ -140,8 +140,8 @@ public class DynamicLoad : ClickableSteps, IClicked
     {        
         CamActuelle.SetActive(false);
         CamACharger.SetActive(true);
-        LockRoom();
         LoadScene();
+        LockRoom();
         UnloadScene();
         skyboxSwitch.Invoke();
     }

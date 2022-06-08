@@ -26,11 +26,11 @@ public class LunchMissionButton : MonoBehaviour
     {
         if(!Possible)
         {
-            GetComponent<Button>().interactable = false ;
+            GetComponent<UnityEngine.UI.Button>().interactable = false ;
             if(PlayerPrefs.GetInt("Langue") == 0) TextButton.text = "Mission terminée" ;
             if(PlayerPrefs.GetInt("Langue") == 1) TextButton.text = "Mission finish" ;
         } else {
-            GetComponent<Button>().interactable = true ;
+            GetComponent<UnityEngine.UI.Button>().interactable = true ;
             if(PlayerPrefs.GetInt("Langue") == 0) TextButton.text = "Commencer la mission" ;
             if(PlayerPrefs.GetInt("Langue") == 1) TextButton.text = "Start Mission" ;
         }

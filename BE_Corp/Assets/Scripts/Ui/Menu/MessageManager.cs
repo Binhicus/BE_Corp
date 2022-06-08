@@ -32,7 +32,7 @@ public class MessageManager : MonoBehaviour
     private GameObject ClientWritePrefabInst ;
     public GameObject LunchMissionButtonPrefab ;
 
-    public Button SendEmployeeMessageButton ;
+    public UnityEngine.UI.Button SendEmployeeMessageButton ;
 
     public SayDialog SD ;
     public BlockReference BR1, BRE1, BRE2, BRE3 ;
