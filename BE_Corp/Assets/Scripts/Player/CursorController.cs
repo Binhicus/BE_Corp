@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public enum CursorType { Default, Object, SceneChange, Observe }
 
@@ -38,12 +39,12 @@ public class CursorController : Singleton<CursorController>
         mainCamera = Camera.main;
     }
 
-    private void OnEnable()
+    public void OnEnable()
     {
         controls.Enable();
     }
 
-    private void OnDisable()
+    public void OnDisable()
     {
         controls.Disable();
     }
@@ -122,10 +123,22 @@ public class CursorController : Singleton<CursorController>
 
     Texture2D GetCursorTexture(CursorType cursorType)
     {
-        if (cursorType == CursorType.Default) return defaultCursor;
-        if (cursorType == CursorType.Object) return objectCursor;
-        if (cursorType == CursorType.SceneChange) return sceneChangeCursor;
-        if (cursorType == CursorType.Observe) return observeCursor;
+        if (!isMouseOverUI())
+        { 
+            if (cursorType == CursorType.Default) return defaultCursor;
+            if (cursorType == CursorType.Object) return objectCursor;
+            if (cursorType == CursorType.SceneChange) return sceneChangeCursor;
+            if (cursorType == CursorType.Observe) return observeCursor;
+        }
+        else if (isMouseOverUI())
+        {
+            return defaultCursor;
+        }
         return null;
+    }
+
+    private bool isMouseOverUI()
+    {
+        return EventSystem.current.IsPointerOverGameObject();
     }
 }
