@@ -62,7 +62,7 @@ public class ScriptAntenne : MonoBehaviour
             //Debug.Log("1");
             TexteMeteo.GetComponent<Animator>().SetBool("Trouve", true);
                 TexteMeteo.GetComponent<Animator>().SetBool("PasLoin", false);
-                RadioBug.volume=0; 
+                RadioBug.volume=0.25f; 
             TermineMiniJeu();
             
         }
@@ -79,14 +79,14 @@ public class ScriptAntenne : MonoBehaviour
             //Debug.Log("3");
             TexteMeteo.GetComponent<Animator>().SetBool("PasLoin", false);
             TexteMeteo.GetComponent<Animator>().SetBool("Trouve", false);
-            RadioBug.volume=0f;
+            RadioBug.volume=0.25f;
         }
          if(TowerAngle<40f)
         {
            // Debug.Log("4");
             TexteMeteo.GetComponent<Animator>().SetBool("PasLoin", false);
             TexteMeteo.GetComponent<Animator>().SetBool("Trouve", false);
-            RadioBug.volume=0f;
+            RadioBug.volume=0.25f;
         }
 
         if(TowerAngle>46&&TowerAngle<49f)

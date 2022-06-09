@@ -107,7 +107,9 @@ public class RadioScript : ClickableObject,IClicked, IAction
     {
         
         yield return new WaitForSeconds(0.6f);
+        TexteMeteo.SetActive(true);
         TexteMeteo.GetComponent<Animator>().SetBool("Zero", false);
+    
        
     }
 
