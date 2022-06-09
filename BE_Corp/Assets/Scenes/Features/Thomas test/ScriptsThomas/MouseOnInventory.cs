@@ -5,11 +5,12 @@ using UnityEngine;
 public class MouseOnInventory : MonoBehaviour
 {
     public GameObject Inventory;
-    public bool Vasy;
+    public bool isOn;
+    public Animator animHUD;
     // Start is called before the first frame update
     void Start()
     {
-        Vasy=true;
+
     }
 
     // Update is called once per frame
@@ -20,17 +21,25 @@ public class MouseOnInventory : MonoBehaviour
 
     public void Dessus()
     {
-        if(!GameObject.Find("---- CAMERAS ----").GetComponent<CameraContainerScript>().CameraOrdi.activeSelf) 
+        if (!isOn)
         {
-            Inventory.GetComponent<RectTransform>().anchoredPosition = new Vector3(-79, 0,0);            
+            
+            if(!GameObject.Find("---- CAMERAS ----").GetComponent<CameraContainerScript>().CameraOrdi.activeSelf) 
+            {
+                isOn = true;
+                //Inventory.GetComponent<RectTransform>().anchoredPosition = new Vector3(-79, 0,0);            
+                animHUD.CrossFade("Window In", 0.1f);               
+            }
         }
-
     }
     public void PasDessus()
     {
-        if(Vasy==true)
-        {
-            Inventory.GetComponent<RectTransform>().anchoredPosition = new Vector3(100, 0,0);
+        if(isOn==true)
+        {   
+            isOn = false;
+            //Inventory.GetComponent<RectTransform>().anchoredPosition = new Vector3(100, 0,0);
+            Debug.Log("allez là");
+            animHUD.CrossFade("Window Out", 0.1f);           
         }
     }
 
@@ -41,11 +50,11 @@ public class MouseOnInventory : MonoBehaviour
 
     IEnumerator coroutineA()
     {
-       Inventory.GetComponent<RectTransform>().anchoredPosition = new Vector3(-79, 0,0);  
-        yield return new WaitForSeconds(1.5f);
-        Inventory.GetComponent<RectTransform>().anchoredPosition = new Vector3(100, 0,0);
-       
-    }
+        //Inventory.GetComponent<RectTransform>().anchoredPosition = new Vector3(10, 0,0);  
+        animHUD.CrossFade("Window In", 0.1f);
+        yield return new WaitForSeconds(2.5f);
+        animHUD.CrossFade("Window Out", 0.1f);
+        //Inventory.GetComponent<RectTransform>().anchoredPosition = new Vector3(150, 0,0);
 
-
     }
+}

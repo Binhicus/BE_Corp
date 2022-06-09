@@ -71,10 +71,10 @@ public class UIInventoryItem : MonoBehaviour, IDragHandler, IEndDragHandler
        transform.localPosition = Vector3.zero;*/
             IEnumerator coroutineA()
     {
-        mouseOnInventory.Vasy=false;
+        mouseOnInventory.isOn=false;
         Inventaire.GetComponent<RectTransform>().anchoredPosition = new Vector3(-79, 0,0);
         yield return new WaitForSeconds(1.0f);
-        mouseOnInventory.Vasy=true;
+        mouseOnInventory.isOn=true;
         Inventaire.GetComponent<RectTransform>().anchoredPosition = new Vector3(100, 0,0);
         
     }
