@@ -17,6 +17,7 @@ public class FourScript : MonoBehaviour,IClicked, IAction
     void Awake()
     {
         CameraActivate = GameObject.Find("---- CAMERAS ----").GetComponent<CameraContainerScript>().CameraFour;
+        PlayerPrefs.SetInt("Four",1);
     }
 
     private void Start() 
@@ -67,10 +68,22 @@ public class FourScript : MonoBehaviour,IClicked, IAction
         CursorController.Instance.ActionWheelScript.DialogueDisplayer.GetComponent<DialogueControllerScript>().TargetAction = this ;
         CursorController.Instance.ActionWheelScript.DialogueDisplayer.GetComponent<DialogueControllerScript>().LunchActionAfterClose = true ;
 
-        if(PlayerPrefs.GetInt("Four")==3)
+        if(PlayerPrefs.GetInt("Smoke")==2)
         {
             questionsmoke.Execute();
+            Debug.Log("ba lance");
+            StartCoroutine(coroutineA());
         }
+    }
+
+    IEnumerator coroutineA()
+    {
+        
+        yield return new WaitForSeconds(4.5f);
+        MisAJourEffect.Instance.MiseAJour();
+        PlayerPrefs.SetInt("Smoke",4);
+        PlayerPrefs.SetInt("FourOk",2);
+       
     }
 
 
