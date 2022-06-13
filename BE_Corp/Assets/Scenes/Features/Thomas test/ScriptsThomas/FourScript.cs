@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
 
-public class FourScript : MonoBehaviour,IClicked, IAction
+public class FourScript : ClickableObject,IClicked, IAction
 {
 
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>() ;
@@ -17,7 +17,6 @@ public class FourScript : MonoBehaviour,IClicked, IAction
     void Awake()
     {
         CameraActivate = GameObject.Find("---- CAMERAS ----").GetComponent<CameraContainerScript>().CameraFour;
-        PlayerPrefs.SetInt("Four",1);
     }
 
     private void Start() 
