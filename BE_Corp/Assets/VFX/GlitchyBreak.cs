@@ -4,96 +4,57 @@ using UnityEngine;
 using System.Linq;
 using UnityEngine.Rendering.Universal;
 using DG.Tweening;
+using UnityEngine.Experiemntal.Rendering.Universal;
 
 public class GlitchyBreak : Singleton<GlitchyBreak>
 {
+    public bool isOn;
     [SerializeField] ForwardRendererData rendererData;
     [SerializeField] Material glitchEffect;
-    [SerializeField] float transition = 0;
-    [SerializeField] bool inAnimation, isDone;
+    [SerializeField] float transitionSpeed = 0.2f;
     [SerializeField] float minValue, maxValue;
+    float transition = 0;
+    Blit blitFeature;
 
     protected override void Awake()
     {
         base.Awake();
     }
+
+    private void Start()
+    {
+        RefreshRendererData();
+    }
+
     public void GlitchEffectOn()
     {
-        inAnimation = true;
-        DOTween.Kill(transition);
-        //transition = glitchEffect.GetFloat("Vector1_96BFCD79");
-        var blitFeature = rendererData.rendererFeatures.OfType<UnityEngine.Experiemntal.Rendering.Universal.Blit>().FirstOrDefault();
-        blitFeature.settings.blitMaterial = glitchEffect;
-        //transition = Mathf.Lerp(transition, maxValue, 1.2f);
-        DOTween.To(x => transition = x, transition, maxValue, 1.2f);
-        //glitchEffect.SetFloat("Vector1_96BFCD79", 0.25f);
-        StopAllCoroutines();
-        StartCoroutine(WaitAndSetBool(1.2f, true));
-        //transition = 0.25f;
-        rendererData.SetDirty();
+        isOn = true;
     }
     public void GlitchEffectOff()
     {
-        inAnimation = true;
-        DOTween.Kill(transition);
-        //transition = glitchEffect.GetFloat("Vector1_96BFCD79");
-        var blitFeature = rendererData.rendererFeatures.OfType<UnityEngine.Experiemntal.Rendering.Universal.Blit>().FirstOrDefault();
+        isOn = false;
+    }
+
+    public void RefreshRendererData()
+    {
+        var blitFeature = rendererData.rendererFeatures.OfType<Blit>().FirstOrDefault();
         blitFeature.settings.blitMaterial = glitchEffect;
-        transition = Mathf.Lerp(transition, minValue, 0.3f);
-        DOTween.To(y => transition = y, transition, minValue, 0.3f);        
-        glitchEffect.SetFloat("Vector1_96BFCD79", 0);
-        StopAllCoroutines();
-        StartCoroutine(WaitAndSetBool(0.15f, false));
-       
-        //transition = 0f;
-        rendererData.SetDirty(); 
+        rendererData.SetDirty();
     }
 
     private void Update()
     {
-        if (inAnimation)
+        if(isOn && transition < 1)
         {
-            glitchEffect.SetFloat("Vector1_96BFCD79", transition);  
-        }      
-        else if(isDone)
-        {
-            glitchEffect.SetFloat("Vector1_96BFCD79", maxValue);            
+            transition += Time.deltaTime * 1 / transitionSpeed;
+            if (transition > 1) transition = 1;
         }
-        else
+        else if(!isOn && transition > 0)
         {
-            glitchEffect.SetFloat("Vector1_96BFCD79", minValue);
-            transition = 0f;
+            transition -= Time.deltaTime * 1 / transitionSpeed;
+            if (transition < 0) transition = 0;
         }
-    }
 
-    IEnumerator WaitAndSetBool(float duration, bool isOver)
-    {
-        yield return new WaitForSeconds(duration);
-        isDone = isOver;
-        inAnimation = false;
+        glitchEffect.SetFloat("Vector1_96BFCD79", Mathf.Lerp(minValue, maxValue, transition));
     }
-    /*
-    IEnumerator ActivateTransition()
-    {
-        float elapsed = 0.0f;
-        while (elapsed < hoveringTime)
-        {
-            transition = Mathf.Lerp(transition, maxValue, elapsed / hoveringTime);
-            elapsed += Time.deltaTime;
-            yield return null;
-        }
-        transition = maxValue;
-    }
-    
-    IEnumerator DeactivateTransition()
-    {
-        float elapsed = 0.0f;
-        while (elapsed < hoveringTime)
-        {
-            transition = Mathf.Lerp(transition, minValue, elapsed / leaveTime);
-            elapsed += Time.deltaTime;
-            yield return null;
-        }
-        transition = minValue;
-    }*/
 }

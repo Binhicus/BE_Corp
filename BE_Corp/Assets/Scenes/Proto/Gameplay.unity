@@ -3058,11 +3058,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f238b192a1724a4bb40c2c806188c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOn: 0
   rendererData: {fileID: 11400000, guid: 4a8e21d5c33334b11b34a596161b9360, type: 2}
   glitchEffect: {fileID: 2100000, guid: 9925143a767e5704f995df89622ade7c, type: 2}
-  transition: 0
-  inAnimation: 0
-  isDone: 0
+  transitionSpeed: 0.2
   minValue: 0
   maxValue: 0.25
 --- !u!1 &589896973
@@ -34187,7 +34186,6 @@ GameObject:
   - component: {fileID: 1833459921181474329}
   - component: {fileID: 1852195607637371939}
   - component: {fileID: 1856047432384508741}
-  - component: {fileID: 1833374425190742171}
   m_Layer: 5
   m_Name: Yes
   m_TagString: Untagged
@@ -35212,7 +35210,6 @@ GameObject:
   - component: {fileID: 1833330136731732733}
   - component: {fileID: 1851667355105877911}
   - component: {fileID: 1857121269709099517}
-  - component: {fileID: 1833366948435016213}
   m_Layer: 5
   m_Name: Cancel
   m_TagString: Untagged
@@ -36651,19 +36648,6 @@ MonoBehaviour:
   keepAlphaValue: 0
   useCustomColor: 0
   colorType: 0
---- !u!114 &1833366948435016213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1793538301858941961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebb34337dbca08a4cb127fe2e4365173, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  virtualCursor: {fileID: 0}
 --- !u!114 &1833374130088346073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36682,19 +36666,6 @@ MonoBehaviour:
   useCustomColor: 0
   colorType: 2
   fontType: 3
---- !u!114 &1833374425190742171
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1792521364663869777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebb34337dbca08a4cb127fe2e4365173, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  virtualCursor: {fileID: 0}
 --- !u!114 &1833378236586835155
 MonoBehaviour:
   m_ObjectHideFlags: 0
