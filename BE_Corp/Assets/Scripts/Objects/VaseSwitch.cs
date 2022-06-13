@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using Fungus;
 public class VaseSwitch : ClickableObject
 {
     [Header("   Objets")]
@@ -20,6 +20,8 @@ public class VaseSwitch : ClickableObject
     [Header("   Sons")]
     public AudioSource casse;
     public AudioSource roll;
+
+    public BlockReference Vasecassé;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,6 +66,7 @@ public class VaseSwitch : ClickableObject
 
     public void Destroyed()
     {
+            Vasecassé.Execute();
         casse.Play();
         Jauge.Instance.stadeProg += 1;
         vase.SetActive(false);

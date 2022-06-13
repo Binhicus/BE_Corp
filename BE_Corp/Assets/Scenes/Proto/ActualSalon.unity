@@ -358,8 +358,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nomDuBallon: Soccer Ball
+  inspect:
+    block: {fileID: 1362304291}
   ListInteractPossible:
   - {fileID: 11400000, guid: 34cee9d07ecbd2443b457b9dd5f50d37, type: 2}
+  - {fileID: 11400000, guid: fd9a468eca2158d43834b7cad0de46ed, type: 2}
 --- !u!1 &12741213
 GameObject:
   m_ObjectHideFlags: 0
@@ -24682,6 +24685,8 @@ MonoBehaviour:
   ListInteractPossible:
   - {fileID: 11400000, guid: abdd5633d3b222a47b1e711cbb26bf1e, type: 2}
   _Image: {fileID: 21300000, guid: 3eaac653b01b65c41a94dc6298df460b, type: 3}
+  inspect:
+    block: {fileID: 0}
 --- !u!1 &664360850
 GameObject:
   m_ObjectHideFlags: 0
@@ -29212,8 +29217,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nomDuParapluie: Umbrella
   _Image: {fileID: 21300000, guid: 725b382e22df29842942b1452059e62b, type: 3}
+  inspect:
+    block: {fileID: 0}
   ListInteractPossible:
   - {fileID: 11400000, guid: abdd5633d3b222a47b1e711cbb26bf1e, type: 2}
+  - {fileID: 11400000, guid: fd9a468eca2158d43834b7cad0de46ed, type: 2}
 --- !u!136 &788556131
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -41691,6 +41699,10 @@ GameObject:
   - component: {fileID: 1233655970}
   - component: {fileID: 1233655972}
   - component: {fileID: 1233655971}
+  - component: {fileID: 1233655973}
+  - component: {fileID: 1233655974}
+  - component: {fileID: 1233655976}
+  - component: {fileID: 1233655975}
   m_Layer: 0
   m_Name: Petit statuette escargot
   m_TagString: Untagged
@@ -41761,6 +41773,117 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1233655969}
   m_Mesh: {fileID: -907134479594502167, guid: 128b9cc29bcea0345b5a193d0c417607, type: 3}
+--- !u!65 &1233655973
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233655969}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.16705613, y: 0.16705729, z: 0.1400156}
+  m_Center: {x: 6.103495, y: 1.0412749, z: 0.30245078}
+--- !u!114 &1233655974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233655969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a71e158a783a2564f8242bfa668a783f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LeNom: {fileID: 1105597576}
+--- !u!114 &1233655975
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233655969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 034bc47afcbf5e141a58d5c20b7808e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1233655976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233655969}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fe91dc294731a9428c0941ea7579110, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  complexMaskingMode: 0
+  drawingMode: 1
+  outlineLayer: 0
+  outlineTargets:
+  - IsVisible: 1
+    CutoutMask: 8
+    edgeDilateAmount: 5
+    frontEdgeDilateAmount: 5
+    backEdgeDilateAmount: 5
+    renderer: {fileID: 1233655971}
+    SubmeshIndex: 0
+    BoundsMode: 0
+    Bounds:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0.5, y: 0.5, z: 0.5}
+    CutoutThreshold: 0.5
+    CullMode: 2
+    cutoutTextureName: 
+    DilateRenderingMode: 0
+    cutoutTextureIndex: 0
+  - IsVisible: 1
+    CutoutMask: 8
+    edgeDilateAmount: 5
+    frontEdgeDilateAmount: 5
+    backEdgeDilateAmount: 5
+    renderer: {fileID: 1233655971}
+    SubmeshIndex: 0
+    BoundsMode: 0
+    Bounds:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0.5, y: 0.5, z: 0.5}
+    CutoutThreshold: 0.5
+    CullMode: 2
+    cutoutTextureName: 
+    DilateRenderingMode: 0
+    cutoutTextureIndex: 0
+  renderStyle: 1
+  outlineParameters:
+    enabled: 1
+    color: {r: 1.319508, g: 0.83310115, b: 0.39326513, a: 1}
+    dilateShift: 1
+    blurShift: 1
+    fillPass:
+      shader: {fileID: 0}
+      serializedProperties: []
+  backParameters:
+    enabled: 1
+    color: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+    dilateShift: 1
+    blurShift: 1
+    fillPass:
+      shader: {fileID: 0}
+      serializedProperties: []
+  frontParameters:
+    enabled: 1
+    color: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+    dilateShift: 1
+    blurShift: 1
+    fillPass:
+      shader: {fileID: 0}
+      serializedProperties: []
 --- !u!1 &1233786631
 GameObject:
   m_ObjectHideFlags: 0
@@ -42206,7 +42329,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ListInteractPossible:
   - {fileID: 11400000, guid: abdd5633d3b222a47b1e711cbb26bf1e, type: 2}
+  - {fileID: 11400000, guid: fd9a468eca2158d43834b7cad0de46ed, type: 2}
   _Image: {fileID: 21300000, guid: 3eaac653b01b65c41a94dc6298df460b, type: 3}
+  inspect:
+    block: {fileID: 1362304275}
 --- !u!114 &1236805346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45250,6 +45376,16 @@ GameObject:
   - component: {fileID: 1362304296}
   - component: {fileID: 1362304295}
   - component: {fileID: 1362304294}
+  - component: {fileID: 1362304304}
+  - component: {fileID: 1362304303}
+  - component: {fileID: 1362304309}
+  - component: {fileID: 1362304308}
+  - component: {fileID: 1362304307}
+  - component: {fileID: 1362304306}
+  - component: {fileID: 1362304305}
+  - component: {fileID: 1362304310}
+  - component: {fileID: 1362304311}
+  - component: {fileID: 1362304312}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -45286,8 +45422,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 274.0595
-    y: -189.60869
-    width: 140.625
+    y: -190.60869
+    width: 143
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
@@ -45319,11 +45455,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 476.729, y: 475.83514}
+  scrollPos: {x: 375.51102, y: 423.88882}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
-  zoom: 0.64000005
+  zoom: 1
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -45401,7 +45537,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 444.91092
     y: -138.21553
-    width: 140.625
+    width: 144
     height: 40
   tint: {r: 0.9607843, g: 0.9019608, b: 0.4745098, a: 1}
   useCustomTint: 1
@@ -45471,7 +45607,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 444.12766
     y: -208.66922
-    width: 140.625
+    width: 143
     height: 40
   tint: {r: 0.9607843, g: 0.9019608, b: 0.4745098, a: 1}
   useCustomTint: 1
@@ -45541,7 +45677,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 80.68598
     y: -12.170464
-    width: 117.18749
+    width: 121
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -45552,6 +45688,8 @@ MonoBehaviour:
   commandList:
   - {fileID: 1362304232}
   - {fileID: 1362304231}
+  - {fileID: 1362304311}
+  - {fileID: 1362304310}
   - {fileID: 1362304230}
   - {fileID: 1362304229}
   suppressAllAutoSelections: 0
@@ -45625,9 +45763,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 77
   indentLevel: 0
-  storyText: "Je ne me rappelle que trop grossi\xE8rement des lieux. Je sais que
-    c'est un endroit que je cotoyais jeune, mais de l\xE0 \xE0 restituer formes et
-    couleurs...."
+  storyText: "Cette pi\xE8ce \xE0 l'air remplit d'anomalie."
   description: 
   character: {fileID: 963957872}
   portrait: {fileID: 0}
@@ -45669,8 +45805,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 100
   indentLevel: 0
-  storyText: "Ah non non je maintiens, c'\xE9tait une routine p\xE9nible avant chaque
-    session artistique."
+  storyText: "Ah non non je maintiens, c'\xE9tait une routine p\xE9nible pour pouvoir
+    m'assoir sur une chaise !"
   description: 
   character: {fileID: 963957872}
   portrait: {fileID: 0}
@@ -45690,15 +45826,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1362304216}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 90
   indentLevel: 0
-  storyText: "J'ai peut-\xEAtre des souvenirs erron\xE9s \xE0 ce sujet, soit. \xC0
-    ma d\xE9charge, plus jeune, j'etais particuli\xE8rement petite..."
+  storyText: "\xC0 ma d\xE9charge, plus jeune, j'etais particuli\xE8rement petite..."
   description: 
   character: {fileID: 963957872}
   portrait: {fileID: 0}
@@ -45725,7 +45860,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 89
   indentLevel: 0
-  storyText: ...
+  storyText: "Vous avez peut-\xEAtre raison"
   description: 
   character: {fileID: 963957872}
   portrait: {fileID: 0}
@@ -45737,7 +45872,7 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
-  setSayDialog: {fileID: 223347813}
+  setSayDialog: {fileID: 332132280}
 --- !u!114 &1362304236
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -45752,7 +45887,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 88
   indentLevel: 0
-  storyText: "J'insiste, mais la taille de cette chaise est surr\xE9aliste."
+  storyText: "Vraisemblablement, nous devons certainement \xEAtre dans un souvenir
+    d'enfance, ce qui augmente le nombre d'incoh\xE9rence."
   description: 
   character: {fileID: 1770311226}
   portrait: {fileID: 0}
@@ -45764,7 +45900,7 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
-  setSayDialog: {fileID: 332132280}
+  setSayDialog: {fileID: 223347813}
 --- !u!114 &1362304237
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -45796,19 +45932,22 @@ MonoBehaviour:
     serializedVersion: 2
     x: -327.82968
     y: -0.7677002
-    width: 179.68748
+    width: 152
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
   itemId: 92
-  blockName: Chaise Question 2 Good
+  blockName: Chaise Question 2
   description: 'Remise en question '
   eventHandler: {fileID: 0}
   commandList:
   - {fileID: 1362304237}
-  - {fileID: 1362304236}
+  - {fileID: 1362304305}
   - {fileID: 1362304235}
   - {fileID: 1362304250}
+  - {fileID: 1362304307}
+  - {fileID: 1362304306}
+  - {fileID: 1362304236}
   - {fileID: 1362304234}
   suppressAllAutoSelections: 0
 --- !u!114 &1362304239
@@ -45852,7 +45991,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 84
   indentLevel: 0
-  storyText: Cette table est trop petite, ou sa chaise trop grande.
+  storyText: "Vous voyez bien que la relation d'\xE9chale entre la table et la chaise
+    n'est pas appropri\xE9 ?"
   description: 
   character: {fileID: 1770311226}
   portrait: {fileID: 0}
@@ -45864,7 +46004,7 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
-  setSayDialog: {fileID: 332132280}
+  setSayDialog: {fileID: 223347813}
 --- !u!114 &1362304241
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -45879,8 +46019,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 83
   indentLevel: 0
-  storyText: "Est-ce votre souvenir d'enfance ou le mien? Je sais encore dans quel
-    environnement je m'\xE9panouissais !"
+  storyText: Qu'est-ce que vous entendez par la ?
   description: 
   character: {fileID: 963957872}
   portrait: {fileID: 0}
@@ -45907,8 +46046,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 82
   indentLevel: 0
-  storyText: "Vous voyez, en terme de dimension on a d\xE9j\xE0 quelque chose de
-    plus coh\xE9rent ici Madame Pinault."
+  storyText: "Madame Pinault, cette zone de votre souvenir est incoh\xE9rente."
   description: 
   character: {fileID: 1770311226}
   portrait: {fileID: 0}
@@ -45920,7 +46058,7 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
-  setSayDialog: {fileID: 332132280}
+  setSayDialog: {fileID: 223347813}
 --- !u!114 &1362304243
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -45952,7 +46090,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -822.75916
     y: -62.818787
-    width: 131.25
+    width: 135
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
@@ -45965,6 +46103,8 @@ MonoBehaviour:
   - {fileID: 1362304242}
   - {fileID: 1362304241}
   - {fileID: 1362304240}
+  - {fileID: 1362304308}
+  - {fileID: 1362304309}
   - {fileID: 1362304239}
   suppressAllAutoSelections: 0
 --- !u!114 &1362304245
@@ -45981,8 +46121,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 99
   indentLevel: 0
-  storyText: "Pr\xE9sent\xE9 ainsi je peux comprendre le ressenti, mais j'ai bien
-    peur qu'on flirte avec un extr\xEAme pour le coup..."
+  storyText: "Pr\xE9sent\xE9 ainsi je peux comprendre cette repr\xE9sentation de
+    la chaise, mais j'ai bien peur qu'on flirte avec un extr\xEAme pour le coup..."
   description: 
   character: {fileID: 1770311226}
   portrait: {fileID: 0}
@@ -45994,7 +46134,7 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
-  setSayDialog: {fileID: 332132280}
+  setSayDialog: {fileID: 223347813}
 --- !u!114 &1362304246
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -46009,8 +46149,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 97
   indentLevel: 0
-  storyText: "Bien s\xFBr, je me rappelle des efforts \xE0 fournir pour m'asseoir
-    sur cette chaise pour atteindre une table finalement pas si grande."
+  storyText: Durant mon enfance, je me rappelle que je devais fournir dinombrable
+    efforts pour m'asseoir sur des chaises.
   description: 
   character: {fileID: 963957872}
   portrait: {fileID: 0}
@@ -46037,7 +46177,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 96
   indentLevel: 0
-  storyText: "Madame Pinault, \xEAtes-vous s\xFBre des propotions de cette chaise?"
+  storyText: "Madame Pinault, ont dirait que dans votre souvenir, vous voyez cette
+    chaise plus grande qu'elle ne devait \xEAtre"
   description: 
   character: {fileID: 1770311226}
   portrait: {fileID: 0}
@@ -46049,7 +46190,7 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
-  setSayDialog: {fileID: 332132280}
+  setSayDialog: {fileID: 223347813}
 --- !u!114 &1362304248
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -46079,9 +46220,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -325.90234
+    x: -324.63654
     y: -64.62668
-    width: 148.4375
+    width: 151
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
@@ -46417,8 +46558,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 117
   indentLevel: 0
-  storyText: "Cette chaise para\xEEt vraiment grande par rapport \xE0 la table \xE0
-    c\xF4t\xE9"
+  storyText: "Cette chaise para\xEEt vraiment grande par rapport \xE0 la table qui
+    est \xE0 c\xF4t\xE9"
   description: 
   character: {fileID: 1770311226}
   portrait: {fileID: 0}
@@ -46461,8 +46602,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: -480.8209
-    y: -70.26065
-    width: 129.6875
+    y: -71.48016
+    width: 133
     height: 40
   tint: {r: 0.9607843, g: 0.9019608, b: 0.4745098, a: 1}
   useCustomTint: 1
@@ -46505,11 +46646,11 @@ MonoBehaviour:
     serializedVersion: 2
     x: 300.49356
     y: 377.33063
-    width: 142.1875
+    width: 147
     height: 40
   tint: {r: 0.9607843, g: 0.9019608, b: 0.4745098, a: 1}
   useCustomTint: 1
-  itemId: 149
+  itemId: 182
   blockName: Parapluie Inspect
   description: 
   eventHandler: {fileID: 0}
@@ -46558,7 +46699,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 111
   indentLevel: 0
-  storyText: "Cette table parait toute petite par rapport \xE0 la chaise \xE0 c\xF4t\xE9"
+  storyText: "Cette table parait toute petite par rapport \xE0 la chaise qui est
+    \xE0 c\xF4t\xE9"
   description: 
   character: {fileID: 1770311226}
   portrait: {fileID: 0}
@@ -46570,7 +46712,7 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
-  setSayDialog: {fileID: 332132280}
+  setSayDialog: {fileID: 223347813}
 --- !u!114 &1362304268
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -46600,9 +46742,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -679.52515
-    y: -63.69226
-    width: 121.87499
+    x: -678.30566
+    y: -62.472748
+    width: 126
     height: 40
   tint: {r: 0.9607843, g: 0.9019608, b: 0.4745098, a: 1}
   useCustomTint: 1
@@ -46640,7 +46782,7 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
-  setSayDialog: {fileID: 332132280}
+  setSayDialog: {fileID: 223347813}
 --- !u!114 &1362304271
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -46671,8 +46813,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 292.15317
-    y: 333.3686
-    width: 151.5625
+    y: 334.3686
+    width: 156
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
@@ -46743,9 +46885,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 415.61996
-    y: 240.42844
-    width: 135.9375
+    x: 476.5956
+    y: 236.7699
+    width: 141
     height: 40
   tint: {r: 0.9607843, g: 0.9019608, b: 0.4745098, a: 1}
   useCustomTint: 1
@@ -46813,9 +46955,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -147.65543
-    y: -286.80505
-    width: 114.06249
+    x: -84.256195
+    y: -288.87372
+    width: 116
     height: 40
   tint: {r: 0.67058825, g: 0.65882355, b: 0.5921569, a: 1}
   useCustomTint: 1
@@ -46825,7 +46967,10 @@ MonoBehaviour:
   eventHandler: {fileID: 0}
   commandList:
   - {fileID: 1362304277}
+  - {fileID: 1362304312}
   - {fileID: 1362304276}
+  - {fileID: 1362304304}
+  - {fileID: 1362304303}
   suppressAllAutoSelections: 0
 --- !u!114 &1362304279
 MonoBehaviour:
@@ -46853,7 +46998,7 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
-  setSayDialog: {fileID: 332132280}
+  setSayDialog: {fileID: 223347813}
 --- !u!114 &1362304280
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -46880,7 +47025,7 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
-  setSayDialog: {fileID: 332132280}
+  setSayDialog: {fileID: 223347813}
 --- !u!114 &1362304281
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -46907,7 +47052,7 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
-  setSayDialog: {fileID: 332132280}
+  setSayDialog: {fileID: 223347813}
 --- !u!114 &1362304282
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -47016,7 +47161,7 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
-  setSayDialog: {fileID: 332132280}
+  setSayDialog: {fileID: 223347813}
 --- !u!114 &1362304286
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -47046,13 +47191,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 202.0059
+    x: 254.44495
     y: 114.631195
-    width: 148.4375
+    width: 152
     height: 40
   tint: {r: 0.10980392, g: 0.5176471, b: 0.1254902, a: 1}
   useCustomTint: 1
-  itemId: 145
+  itemId: 184
   blockName: Escargot Question
   description: 
   eventHandler: {fileID: 0}
@@ -47149,9 +47294,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -98.91339
-    y: -337.67798
-    width: 124.99999
+    x: -126.96219
+    y: -341.33652
+    width: 129
     height: 40
   tint: {r: 0.9607843, g: 0.9019608, b: 0.4745098, a: 1}
   useCustomTint: 1
@@ -47194,11 +47339,11 @@ MonoBehaviour:
     serializedVersion: 2
     x: 253.47339
     y: 158.45284
-    width: 150
+    width: 154
     height: 40
   tint: {r: 0.5176471, g: 0.34901962, b: 0.07058824, a: 1}
   useCustomTint: 1
-  itemId: 149
+  itemId: 183
   blockName: Escargot Inspecter
   description: 
   eventHandler: {fileID: 0}
@@ -47232,7 +47377,7 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
-  setSayDialog: {fileID: 332132280}
+  setSayDialog: {fileID: 223347813}
 --- !u!114 &1362304295
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -47263,12 +47408,12 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: -602.8335
-    y: 152.69145
-    width: 129.6875
+    y: 150.25243
+    width: 132
     height: 40
   tint: {r: 0.9607843, g: 0.9019608, b: 0.4745098, a: 1}
   useCustomTint: 1
-  itemId: 143
+  itemId: 186
   blockName: Dessin Inspect
   description: A FAIRE
   eventHandler: {fileID: 0}
@@ -47329,7 +47474,7 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
-  setSayDialog: {fileID: 332132280}
+  setSayDialog: {fileID: 223347813}
 --- !u!114 &1362304299
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -47385,7 +47530,7 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
-  setSayDialog: {fileID: 332132280}
+  setSayDialog: {fileID: 223347813}
 --- !u!114 &1362304301
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -47415,15 +47560,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -746.0674
-    y: 153.56494
-    width: 139.0625
+    x: -749.7258
+    y: 151.12592
+    width: 141
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
-  itemId: 91
+  itemId: 185
   blockName: Dessin Question
-  description: A FAIRE
+  description: A FAIRE - Gateau
   eventHandler: {fileID: 0}
   commandList:
   - {fileID: 1362304301}
@@ -47432,6 +47577,263 @@ MonoBehaviour:
   - {fileID: 1362304298}
   - {fileID: 1362304297}
   suppressAllAutoSelections: 0
+--- !u!114 &1362304303
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362304216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 188
+  indentLevel: 0
+  storyText: Attendez ! On dirait qu'il y avait un objet dans ce vase.
+  description: 
+  character: {fileID: 1770311226}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 223347813}
+--- !u!114 &1362304304
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362304216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 187
+  indentLevel: 0
+  storyText: "Serait-il possible de respecter les oeuvres d'art s'il vous pla\xEEt
+    ?"
+  description: 
+  character: {fileID: 963957872}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 223347813}
+--- !u!114 &1362304305
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362304216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 193
+  indentLevel: 0
+  storyText: "Au vu de la taille de la taille et du reste des \xE9l\xE9ments de la
+    pi\xE8ce, cette chaise devait s'en doute \xEAtre plus petite"
+  description: 
+  character: {fileID: 1770311226}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 223347813}
+--- !u!114 &1362304306
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362304216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 192
+  indentLevel: 0
+  storyText: Est-ce normale que mes souvenirs soit aussi flou ?
+  description: 
+  character: {fileID: 963957872}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 332132280}
+--- !u!114 &1362304307
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362304216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 191
+  indentLevel: 0
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 1
+  durationOLD: 0
+--- !u!114 &1362304308
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362304216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 190
+  indentLevel: 0
+  storyText: Soit cette table est trop petite, soit la chaise trop grande.
+  description: 
+  character: {fileID: 1770311226}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 223347813}
+--- !u!114 &1362304309
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362304216}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 189
+  indentLevel: 0
+  storyText: "Est-ce votre souvenir d'enfance ou le mien? Je sais encore dans quel
+    environnement je m'\xE9panouissais !"
+  description: 
+  character: {fileID: 963957872}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 223347813}
+--- !u!114 &1362304310
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362304216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 194
+  indentLevel: 0
+  storyText: "Je ne me rappelle que trop grossi\xE8rement des lieux. Je sais que
+    c'est un endroit que je cotoyais jeune, mais de l\xE0 \xE0 restituer formes et
+    couleurs...."
+  description: 
+  character: {fileID: 963957872}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 332132280}
+--- !u!114 &1362304311
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362304216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 195
+  indentLevel: 0
+  storyText: "Cette pi\xE8ce \xE0 l'air remplit d'anomalie."
+  description: 
+  character: {fileID: 1770311226}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 223347813}
+--- !u!114 &1362304312
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362304216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 196
+  indentLevel: 0
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 1
+  durationOLD: 0
 --- !u!1 &1362825266
 GameObject:
   m_ObjectHideFlags: 0
@@ -53809,6 +54211,8 @@ MonoBehaviour:
   attente: 2
   casse: {fileID: 0}
   roll: {fileID: 0}
+  "Vasecass\xE9":
+    block: {fileID: 1362304278}
 --- !u!1 &1418187228
 GameObject:
   m_ObjectHideFlags: 0
@@ -54253,9 +54657,11 @@ MonoBehaviour:
     block: {fileID: 1362304222}
   remarque:
     block: {fileID: 1362304218}
-  ListInteractPossible:
-  - {fileID: 11400000, guid: fd9a468eca2158d43834b7cad0de46ed, type: 2}
+  ListInteractPossible1:
   - {fileID: 11400000, guid: 0293a694598fa3745a3f1ba6f5f72c28, type: 2}
+  - {fileID: 11400000, guid: fd9a468eca2158d43834b7cad0de46ed, type: 2}
+  ListInteractPossible2:
+  - {fileID: 11400000, guid: fd9a468eca2158d43834b7cad0de46ed, type: 2}
 --- !u!114 &1440595034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54369,6 +54775,7 @@ GameObject:
   - component: {fileID: 1443482948}
   - component: {fileID: 1443482950}
   - component: {fileID: 1443482949}
+  - component: {fileID: 1443482951}
   m_Layer: 0
   m_Name: Petit statuette escargot
   m_TagString: Untagged
@@ -54439,6 +54846,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1443482947}
   m_Mesh: {fileID: -907134479594502167, guid: 4c080aca5c10f1946941aa5654dbe25b, type: 3}
+--- !u!114 &1443482951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1443482947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 034bc47afcbf5e141a58d5c20b7808e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1444457100
 GameObject:
   m_ObjectHideFlags: 0
@@ -71656,6 +72075,8 @@ MonoBehaviour:
   ListInteractPossible:
   - {fileID: 11400000, guid: fd9a468eca2158d43834b7cad0de46ed, type: 2}
   - {fileID: 11400000, guid: 0293a694598fa3745a3f1ba6f5f72c28, type: 2}
+  inspect:
+    block: {fileID: 1362304263}
   deny:
     block: {fileID: 1362304249}
   admit:
@@ -87427,6 +87848,8 @@ MonoBehaviour:
   ListInteractPossible:
   - {fileID: 11400000, guid: abdd5633d3b222a47b1e711cbb26bf1e, type: 2}
   _Image: {fileID: 21300000, guid: 3eaac653b01b65c41a94dc6298df460b, type: 3}
+  inspect:
+    block: {fileID: 0}
 --- !u!1 &5273652680240555089
 GameObject:
   m_ObjectHideFlags: 0

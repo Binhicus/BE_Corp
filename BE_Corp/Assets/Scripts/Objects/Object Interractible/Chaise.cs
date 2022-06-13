@@ -9,7 +9,7 @@ public class Chaise : ClickableObject, IClicked, IAction
 {
     public GameObject ballon, table;
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>();
-    public BlockReference deny, admit;
+    public BlockReference inspect, deny, admit;
 
 
     // Start is called before the first frame update
@@ -54,15 +54,22 @@ public class Chaise : ClickableObject, IClicked, IAction
     }
     public void OnClickAction()
     {
-        CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible;
-        CursorController.Instance.ActionWheelScript.TargetAction = this;
-        CursorController.Instance.ActionWheelScript.gameObject.SetActive(true);
+        if(GameObject.Find("BarbaraDialog") == null && GameObject.Find("AgentDialog") == false)
+        {
+            if(PlayerPrefs.GetInt("Chaise") == 0)
+            {
+                CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible;
+                CursorController.Instance.ActionWheelScript.TargetAction = this;
+                CursorController.Instance.ActionWheelScript.gameObject.SetActive(true);
+            }
+        }
     }
     public void OnClose(){    }
 
     public void OnInspect()
     { 
-        Debug.Log("Dialogue pour dire euuuuh c'est quoi ce binsss??");
+        //Debug.Log("Dialogue pour dire euuuuh c'est quoi ce binsss??");
+        inspect.Execute();
         PlayerPrefs.SetInt("Inspect Chair", 1);
         table.GetComponent<BoxCollider>().enabled = true;
     }

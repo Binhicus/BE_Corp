@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Fungus;
 
 public class WallTrigger : MonoBehaviour
 {
     //bool hitting = false;
     public KickBall ballInt;
     public AudioSource ballImpact;
+
     private void Awake()
     {
         ballInt = GameObject.Find("Soccer Ball").GetComponent<KickBall>();

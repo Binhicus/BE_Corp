@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Fungus;
 
 public class BallInteraction : MonoBehaviour, IClicked, IAction
 {
     private KickBall kickBall;
     public string nomDuBallon;
+
+    public BlockReference inspect;
 
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>();
 
@@ -16,9 +19,12 @@ public class BallInteraction : MonoBehaviour, IClicked, IAction
     }
     public void OnClickAction()
     {
-        CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible;
-        CursorController.Instance.ActionWheelScript.TargetAction = this;
-        CursorController.Instance.ActionWheelScript.gameObject.SetActive(true);
+        if(GameObject.Find("BarbaraDialog") == null && GameObject.Find("AgentDialog") == false)
+        {
+            CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible;
+            CursorController.Instance.ActionWheelScript.TargetAction = this;
+            CursorController.Instance.ActionWheelScript.gameObject.SetActive(true);
+        }
     }
 
     public void OnOpen() { Debug.Log("Open"); }
@@ -33,7 +39,8 @@ public class BallInteraction : MonoBehaviour, IClicked, IAction
     {
         kickBall.Kicked();
     }
-    public void OnInspect() { Debug.Log("Inspect"); }
+
+    public void OnInspect() { inspect.Execute(); }
     public void OnQuestion() { Debug.Log("Question"); }
 
     public void OnLunchActionAfterCloseDialogue()
