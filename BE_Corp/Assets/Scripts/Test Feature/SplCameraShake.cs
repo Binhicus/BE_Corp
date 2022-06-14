@@ -27,6 +27,8 @@ public class SplCameraShake : MonoBehaviour
         {
             vCamNoise = vCam.GetCinemachineComponent<Cinemachine.CinemachineBasicMultiChannelPerlin>();
         }
+
+        if(triggered) Invoke("Shaker", 1f);
     }
 
     // Update is called once per frame

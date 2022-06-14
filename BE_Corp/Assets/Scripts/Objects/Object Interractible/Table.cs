@@ -58,7 +58,6 @@ public class Table : ClickableObject, IClicked, IAction
 
     public void OnQuestion()
     {
-        Debug.Log("ah oui c'est vrai mdr j'ai abusé");
         admettre.Execute();
         PlayerPrefs.SetInt("Avoue Table", 1);
     }

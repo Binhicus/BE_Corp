@@ -42,7 +42,7 @@ public class SalonManager : MonoBehaviour
 
     public void PilesState()
     {
-        Debug.Log(PlayerPrefs.GetInt("Piles"));
+        //Debug.Log(PlayerPrefs.GetInt("Piles"));
         
         if (PlayerPrefs.GetInt("Piles") == 0) //            le joueur n'a pas encore utilisé le tournevis
         {
