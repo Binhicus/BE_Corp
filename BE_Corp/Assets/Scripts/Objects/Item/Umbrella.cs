@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Fungus;
 
 public class Umbrella : ClickableObject, IClicked, IItemInventaire, IAction
 {
@@ -11,13 +12,18 @@ public class Umbrella : ClickableObject, IClicked, IItemInventaire, IAction
     public Sprite _Image;
     public Sprite Image => _Image;
 
+    public BlockReference inspect;
+
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>();
 
     public void OnClickAction()
     {
-        CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible;
-        CursorController.Instance.ActionWheelScript.TargetAction = this;
-        CursorController.Instance.ActionWheelScript.gameObject.SetActive(true);
+        if(GameObject.Find("BarbaraDialog") == null && GameObject.Find("AgentDialog") == false)
+        {
+            CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible ;
+            CursorController.Instance.ActionWheelScript.TargetAction = this;
+            CursorController.Instance.ActionWheelScript.gameObject.SetActive(true);            
+        }
     }
 
     public void OnDrop()
@@ -48,7 +54,7 @@ public class Umbrella : ClickableObject, IClicked, IItemInventaire, IAction
     }
 
     public void OnUse() { Debug.Log("Use"); }
-    public void OnInspect() { Debug.Log("Inspect"); }
+    public void OnInspect() { inspect.Execute(); }
     public void OnQuestion() { Debug.Log("Question"); }
 
     public void OnLunchActionAfterCloseDialogue()

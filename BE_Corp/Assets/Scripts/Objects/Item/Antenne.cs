@@ -1,20 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Fungus;
 
 public class Antenne : ClickableObject, IClicked, IItemInventaire, IAction
 {
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>();
     public string Name => "Antenne";
     public Sprite _Image;
-
+    public BlockReference inspect;
     public Sprite Image => _Image;
 
     public void OnClickAction()
     {
-        CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible;
-        CursorController.Instance.ActionWheelScript.TargetAction = this;
-        CursorController.Instance.ActionWheelScript.gameObject.SetActive(true);
+        if(GameObject.Find("BarbaraDialog") == null && GameObject.Find("AgentDialog") == false)
+        {
+            CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible ;
+            CursorController.Instance.ActionWheelScript.TargetAction = this;
+            CursorController.Instance.ActionWheelScript.gameObject.SetActive(true);            
+        }
     }
 
     public void OnOpen() { Debug.Log("Open"); }
@@ -25,7 +29,7 @@ public class Antenne : ClickableObject, IClicked, IItemInventaire, IAction
         PlayerPrefs.SetInt("Antenne", 1);
     }
     public void OnUse() { Debug.Log("Use"); }
-    public void OnInspect() { Debug.Log("Inspect"); }
+    public void OnInspect() { inspect.Execute(); }
     public void OnQuestion() { Debug.Log("Question"); }
 
     public void OnPickUp()

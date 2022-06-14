@@ -9,7 +9,8 @@ public class Jouet : ClickableObject, IHasItemInteraction, IClicked, IAction
     public string inventoryItemID => nomItem;
     public GameObject piles;
     public BlockReference tip, finito, remarque;
-    public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>();
+    public List<ActionWheelChoiceData> ListInteractPossible1 = new List<ActionWheelChoiceData>();
+    public List<ActionWheelChoiceData> ListInteractPossible2 = new List<ActionWheelChoiceData>() ;
 
     public void DoItemInteraction()
     {
@@ -41,9 +42,18 @@ public class Jouet : ClickableObject, IHasItemInteraction, IClicked, IAction
 
     public void OnClickAction()
     {
-        CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible;
-        CursorController.Instance.ActionWheelScript.TargetAction = this;
-        CursorController.Instance.ActionWheelScript.gameObject.SetActive(true);
+        if(GameObject.Find("BarbaraDialog") == null && GameObject.Find("AgentDialog") == false)
+        {
+            if(PlayerPrefs.GetInt("Piles") == 0)
+            {
+                CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible1 ;
+            } else {
+                CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible2 ;
+            }
+            
+            CursorController.Instance.ActionWheelScript.TargetAction = this;
+            CursorController.Instance.ActionWheelScript.gameObject.SetActive(true);            
+        }
     }
 
     public void OnOpen()
