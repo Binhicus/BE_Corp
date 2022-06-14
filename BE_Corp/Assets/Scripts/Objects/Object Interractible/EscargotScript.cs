@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
 
-public class Umbrella : ClickableObject, IClicked, IItemInventaire, IAction
+public class EscargotScript : ClickableObject, IClicked, IItemInventaire, IAction
 {
-    public string nomDuParapluie;
-    //private GameObject parapluie;
-    public string Name => "Umbrella";
+    public string nomDelEscargot;
+    //private GameObject Escargot;
+    public string Name => "Petit Escargot";
 
     public Sprite _Image;
     public Sprite Image => _Image;
@@ -15,6 +15,18 @@ public class Umbrella : ClickableObject, IClicked, IItemInventaire, IAction
     public BlockReference inspect, question;
 
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>();
+
+    // Start is called before the first frame update
+    void Awake()
+    {
+        if(PlayerPrefs.GetInt("Escargot") == 1) gameObject.SetActive(false);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 
     public void OnClickAction()
     {
@@ -26,23 +38,6 @@ public class Umbrella : ClickableObject, IClicked, IItemInventaire, IAction
         }
     }
 
-    public void OnDrop()
-    {
-        Debug.Log(this);
-        RaycastHit hit = new RaycastHit();
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit, 1000))
-        {
-            gameObject.SetActive(true);
-            gameObject.transform.position = hit.point;
-        }
-    }
-
-    public void OnPickUp()
-    {
-        gameObject.SetActive(false);
-    }
-
 
     public void OnOpen() { Debug.Log("Open"); }
     public void OnClose() { Debug.Log("Close"); }
@@ -50,20 +45,21 @@ public class Umbrella : ClickableObject, IClicked, IItemInventaire, IAction
     public void OnTake()
     {
         Inventaire.Instance.AddItem(this);
-        PlayerPrefs.SetInt("Parapluie", 0);
+        PlayerPrefs.SetInt("Escargot", 1);
     }
 
     public void OnUse() { Debug.Log("Use"); }
     public void OnInspect() { inspect.Execute(); }
     public void OnQuestion() { question.Execute(); }
 
-    public void OnLunchActionAfterCloseDialogue()
-    {
+    public void OnLunchActionAfterCloseDialogue() {}
 
-    }
+    public void OnLook() {    Debug.Log("Observe"); }
 
-    public void OnLook()
+    public void OnDrop() {}
+
+    public void OnPickUp()
     {
-        Debug.Log("Observe");
+        gameObject.SetActive(false);
     }
 }

@@ -42,7 +42,8 @@ public class Chaise : ClickableObject, IClicked, IAction
             this.GetComponent<Animator>().SetTrigger("Chair Animation");
             PlayerPrefs.SetInt("Chaise", 1);
             ballon.GetComponent<BallInteraction>().enabled = true;
-            table.GetComponent<BoxCollider>().enabled = false;
+            //table.GetComponent<BoxCollider>().enabled = false;
+            table.GetComponent<Table>().CanZoom(true);
             //ballon.GetComponent<Outlinable>().enabled = true;
             this.gameObject.GetComponent<Outlinable>().enabled = false;
             this.enabled = false;
@@ -71,7 +72,7 @@ public class Chaise : ClickableObject, IClicked, IAction
         //Debug.Log("Dialogue pour dire euuuuh c'est quoi ce binsss??");
         inspect.Execute();
         PlayerPrefs.SetInt("Inspect Chair", 1);
-        table.GetComponent<BoxCollider>().enabled = true;
+
     }
 
     public void OnLook(){    }
@@ -82,6 +83,7 @@ public class Chaise : ClickableObject, IClicked, IAction
 
     public void OnQuestion()
     {
+        table.GetComponent<BoxCollider>().enabled = true;        
         if (PlayerPrefs.GetInt("Avoue Table") == 1)
         {
             admit.Execute();
