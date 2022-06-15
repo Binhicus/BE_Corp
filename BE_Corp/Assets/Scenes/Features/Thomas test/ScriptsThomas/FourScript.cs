@@ -8,6 +8,8 @@ public class FourScript : ClickableObject,IClicked, IAction
 
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>() ;
 
+    public List<ActionWheelChoiceData> ListInteractPossible2 = new List<ActionWheelChoiceData>() ;
+
     public GameObject CameraActivate ;
 
     public BlockReference questionsmoke;
@@ -17,6 +19,19 @@ public class FourScript : ClickableObject,IClicked, IAction
     void Awake()
     {
         CameraActivate = GameObject.Find("---- CAMERAS ----").GetComponent<CameraContainerScript>().CameraFour;
+        Debug.Log(PlayerPrefs.GetInt("Smoke"));
+    }
+
+    private void Update() {
+         if(PlayerPrefs.GetInt("Smoke")==4)
+        {
+            this.GetComponent<BoxCollider>().enabled=false;
+        }
+
+        if(PlayerPrefs.GetInt("Smoke")==2)
+        {
+             this.GetComponent<BoxCollider>().enabled=false;
+        }
     }
 
     private void Start() 
@@ -52,9 +67,17 @@ public class FourScript : ClickableObject,IClicked, IAction
 
     public void OnClickAction()
     {
-        CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible ;
+        if(PlayerPrefs.GetInt("Four")==0)
+        {
+            CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible ;
+        }
+        if(PlayerPrefs.GetInt("Four")==1)
+        {
+            CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible2 ;
+        }
         CursorController.Instance.ActionWheelScript.TargetAction = this;
         CursorController.Instance.ActionWheelScript.gameObject.SetActive(true);
+        
     }
 
     void DisplayInspection()

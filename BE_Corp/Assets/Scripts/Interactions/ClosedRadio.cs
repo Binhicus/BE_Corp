@@ -24,7 +24,7 @@ public class ClosedRadio : MonoBehaviour,IHasItemInteraction
     public void DoItemInteraction()
     {
         Antenne.SetActive(true);
-        PlayerPrefs.SetInt("Antenne Branchée", 1);
+        PlayerPrefs.SetInt("Antenne Branchee", 1);
         
     }
 
@@ -33,7 +33,7 @@ public class ClosedRadio : MonoBehaviour,IHasItemInteraction
     {
         Antenne = GameObject.Find("Antenne Radio");
 
-        if(PlayerPrefs.GetInt("Antenne Branchée")==0)
+        if(PlayerPrefs.GetInt("Antenne Branchee")==0)
         {
             Antenne.SetActive(false);
         }

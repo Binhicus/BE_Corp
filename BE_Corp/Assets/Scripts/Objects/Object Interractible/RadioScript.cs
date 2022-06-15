@@ -16,6 +16,10 @@ public class RadioScript : ClickableObject,IClicked, IAction
 
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>() ;
 
+    public List<ActionWheelChoiceData> ListInteractPossible2 = new List<ActionWheelChoiceData>() ;
+
+    public List<ActionWheelChoiceData> ListInteractPossible3 = new List<ActionWheelChoiceData>() ;
+
 
 
 
@@ -66,11 +70,40 @@ public class RadioScript : ClickableObject,IClicked, IAction
         
     }
 
+    void Update()
+    {
+        
+    }
+
 
 
     public void OnClickAction()
     {
-        CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible ;
+        /* if(PlayerPrefs.GetFloat("Parapluie")==0)
+        {
+            CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible ;
+        }*/
+
+        if(PlayerPrefs.GetInt("PileDansRadio")!=1&&PlayerPrefs.GetInt("Antenne Branchee")!=1)
+        {
+            CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible ;
+        }
+
+        if(PlayerPrefs.GetInt("PileDansRadio")==1&&PlayerPrefs.GetInt("Antenne Branchee")==1)
+        {
+            CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible2 ;
+        }
+
+        if(PlayerPrefs.GetInt("Parapluie")==1)
+        {
+            CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible3 ;
+        }
+        
+        
+        
+         //CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible2 ;
+        
+       
         CursorController.Instance.ActionWheelScript.TargetAction = this;
         CursorController.Instance.ActionWheelScript.gameObject.SetActive(true);
     }
