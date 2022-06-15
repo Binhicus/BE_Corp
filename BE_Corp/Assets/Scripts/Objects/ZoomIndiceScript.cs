@@ -4,20 +4,9 @@ using UnityEngine;
 
 public class ZoomIndiceScript : ZoomableObject, IClicked, IAction
 {
-    public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>() ;
+    //public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>() ;
 
     public GameObject CameraActivate ;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void LookZone()
     {
@@ -51,4 +40,10 @@ public class ZoomIndiceScript : ZoomableObject, IClicked, IAction
 
 
     public void OnLunchActionAfterCloseDialogue() { }
+
+    public void Deb()
+    {
+    Debug.Log("Yes");        
+    }
+
 }

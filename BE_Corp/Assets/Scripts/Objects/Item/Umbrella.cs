@@ -6,13 +6,13 @@ using Fungus;
 public class Umbrella : ClickableObject, IClicked, IItemInventaire, IAction
 {
     public string nomDuParapluie;
-    private GameObject parapluie;
+    //private GameObject parapluie;
     public string Name => "Umbrella";
 
     public Sprite _Image;
     public Sprite Image => _Image;
 
-    public BlockReference inspect;
+    public BlockReference inspect, question;
 
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>();
 
@@ -55,7 +55,7 @@ public class Umbrella : ClickableObject, IClicked, IItemInventaire, IAction
 
     public void OnUse() { Debug.Log("Use"); }
     public void OnInspect() { inspect.Execute(); }
-    public void OnQuestion() { Debug.Log("Question"); }
+    public void OnQuestion() { question.Execute(); }
 
     public void OnLunchActionAfterCloseDialogue()
     {
