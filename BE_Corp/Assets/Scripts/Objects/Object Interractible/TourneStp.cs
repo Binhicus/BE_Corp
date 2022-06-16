@@ -17,6 +17,7 @@ public class TourneStp : MonoBehaviour
     public static int TempActuelle;
     public static float posz;
     public bool Please;
+    public FourScript fourScript;
     //public GameObject TempFour;
 
     public bool BoutonD;
@@ -51,11 +52,13 @@ public class TourneStp : MonoBehaviour
         if(PlayerPrefs.GetInt("Temper")==480)
         {
             PlayerPrefs.SetInt("Smoke",2);
+            fourScript.ApresCramax();
             Smoke.Play();
         }
 
         if(PlayerPrefs.GetInt("Smoke")==2)
         {
+            PlayerPrefs.SetInt("Four",20);
             Smoke.Play();
         }
 
@@ -85,7 +88,6 @@ public class TourneStp : MonoBehaviour
         }
         if(this.transform.eulerAngles.z>69.7f&&this.transform.eulerAngles.z<144&&BoutonD&&Please)
         {
-            
             Temperature0();
         }
         if(this.transform.eulerAngles.z>144f&&this.transform.eulerAngles.z<245&&BoutonD&&Please)
