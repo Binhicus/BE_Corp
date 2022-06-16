@@ -10,6 +10,8 @@ public class FourScript : ClickableObject,IClicked, IAction
 
     public List<ActionWheelChoiceData> ListInteractPossible2 = new List<ActionWheelChoiceData>() ;
 
+    public List<ActionWheelChoiceData> ListInteractPossible3 = new List<ActionWheelChoiceData>() ;
+
     public GameObject CameraActivate ;
 
     public BlockReference questionsmoke;
@@ -23,15 +25,7 @@ public class FourScript : ClickableObject,IClicked, IAction
     }
 
     private void Update() {
-         if(PlayerPrefs.GetInt("Smoke")==4)
-        {
-            this.GetComponent<BoxCollider>().enabled=false;
-        }
-
-        if(PlayerPrefs.GetInt("Smoke")==2)
-        {
-             this.GetComponent<BoxCollider>().enabled=false;
-        }
+         
     }
 
     private void Start() 
@@ -75,6 +69,10 @@ public class FourScript : ClickableObject,IClicked, IAction
         {
             CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible2 ;
         }
+        if(PlayerPrefs.GetInt("FourOk")==2)
+        {
+            CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible3 ;
+        }
         CursorController.Instance.ActionWheelScript.TargetAction = this;
         CursorController.Instance.ActionWheelScript.gameObject.SetActive(true);
         
@@ -100,12 +98,10 @@ public class FourScript : ClickableObject,IClicked, IAction
 
     IEnumerator coroutineA()
     {
-        
         yield return new WaitForSeconds(4.5f);
         MisAJourEffect.Instance.MiseAJour();
         PlayerPrefs.SetInt("Smoke",4);
         PlayerPrefs.SetInt("FourOk",2);
-       
     }
 
 
