@@ -34,6 +34,8 @@ public class MessageManager : MonoBehaviour
 
     public UnityEngine.UI.Button SendEmployeeMessageButton ;
 
+    public ZoomIndiceScript ZIScript ;
+
     public SayDialog SD ;
     public BlockReference BR1, BRE1, BRE2, BRE3 ;
     private BlockReference CurrentBlockReference ;
@@ -45,13 +47,14 @@ public class MessageManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerPrefs.SetInt("Discussion E1", 31);        
+        PlayerPrefs.SetInt("Discussion E1", 34);        
         //PlayerPrefs.SetInt("Dialogue L1", 0);        
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(DiscussionDisplay.childCount != 0 && DiscussionDisplay.GetChild(0).name != "Bots Narrator Prefab(Clone)") Destroy(DiscussionDisplay.GetChild(0).gameObject);
         CurrentName = FlowchartTextMenu.GetStringVariable("Name");   
 //        Debug.Log(FlowchartTextMenu.GetIntegerVariable("CurrentStateDiscussion")+  " + " + PlayerPrefs.GetInt(FlowchartTextMenu.GetStringVariable("DiscussionCurrent")));
 
@@ -147,14 +150,14 @@ public class MessageManager : MonoBehaviour
 
             Vector2 NewSize ;
 
-            if(EmployeeTextIns.GetComponentInChildren<TextMeshProUGUI>().preferredWidth < 560f)
+            if(EmployeeTextIns.GetComponentInChildren<TextMeshProUGUI>().preferredWidth < 600f)
             {
                 NewSize.x = EmployeeTextIns.GetComponentInChildren<TextMeshProUGUI>().preferredWidth ;
             } else {
-                NewSize.x =  560f ;
+                NewSize.x =  600f ;
             }
 
-            NewSize.y = EmployeeTextIns.GetComponentInChildren<TextMeshProUGUI>().preferredHeight + 20f ; 
+            NewSize.y = EmployeeTextIns.GetComponentInChildren<TextMeshProUGUI>().preferredHeight /*- 10f */; 
 
             EmployeeTextIns.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(NewSize.x + 15f, NewSize.y) ;
             EmployeeTextIns.GetComponent<RectTransform>().sizeDelta = new Vector2(EmployeeTextIns.GetComponent<RectTransform>().sizeDelta.x, NewSize.y)  ;
@@ -181,10 +184,10 @@ public class MessageManager : MonoBehaviour
         {
             NewSize.x = EmployeeTextIns.GetComponentInChildren<TextMeshProUGUI>().preferredWidth ;
         } else {
-            NewSize.x =  600f ;
+            NewSize.x =  595f ;
         }
 
-        NewSize.y = EmployeeTextIns.GetComponentInChildren<TextMeshProUGUI>().preferredHeight + 20f ; 
+        NewSize.y = EmployeeTextIns.GetComponentInChildren<TextMeshProUGUI>().preferredHeight /*- 10f*/ ; 
 
         EmployeeTextIns.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(NewSize.x + 20f, NewSize.y) ;
         EmployeeTextIns.GetComponent<RectTransform>().sizeDelta = new Vector2(EmployeeTextIns.GetComponent<RectTransform>().sizeDelta.x, NewSize.y)  ;
@@ -223,10 +226,10 @@ public class MessageManager : MonoBehaviour
         {
             NewSize.x = ClientTextIns.GetComponentInChildren<TextMeshProUGUI>().preferredWidth ;
         } else {
-            NewSize.x =  600f ;
+            NewSize.x =  595f ;
         }
 
-        NewSize.y = ClientTextIns.GetComponentInChildren<TextMeshProUGUI>().preferredHeight + 20f ; 
+        NewSize.y = ClientTextIns.GetComponentInChildren<TextMeshProUGUI>().preferredHeight /*+ 10f*/ ; 
 
         ClientTextIns.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(NewSize.x + 20f, NewSize.y) ;
         ClientTextIns.GetComponent<RectTransform>().sizeDelta = new Vector2(ClientTextIns.GetComponent<RectTransform>().sizeDelta.x, NewSize.y)  ;          
@@ -425,6 +428,9 @@ public class MessageManager : MonoBehaviour
 
     public void DezoomCamera()
     {
+        ZIScript.CloseComputer();
+
+
         if(GameObject.FindGameObjectWithTag("Camera Zoom") != null)
         {
             GameObject.FindGameObjectWithTag("Camera Zoom").SetActive(false);
