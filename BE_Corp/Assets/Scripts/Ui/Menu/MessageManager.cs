@@ -34,8 +34,6 @@ public class MessageManager : MonoBehaviour
 
     public UnityEngine.UI.Button SendEmployeeMessageButton ;
 
-    public ZoomIndiceScript ZIScript ;
-
     public SayDialog SD ;
     public BlockReference BR1, BRE1, BRE2, BRE3 ;
     private BlockReference CurrentBlockReference ;
@@ -423,25 +421,4 @@ public class MessageManager : MonoBehaviour
         }
     }
 
-
-
-
-    public void DezoomCamera()
-    {
-        ZIScript.CloseComputer();
-
-
-        if(GameObject.FindGameObjectWithTag("Camera Zoom") != null)
-        {
-            GameObject.FindGameObjectWithTag("Camera Zoom").SetActive(false);
-        }
-
-        GameObject[] IndiceZoneCollider ;
-        IndiceZoneCollider = GameObject.FindGameObjectsWithTag("Indice Zone");
-
-        foreach (GameObject GameCol in IndiceZoneCollider)
-        {
-            GameCol.GetComponent<BoxCollider>().enabled = true ;
-        }
-    }
 }
