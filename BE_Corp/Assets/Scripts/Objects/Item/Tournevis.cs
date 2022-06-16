@@ -42,6 +42,11 @@ public class Tournevis : ClickableObject, IClicked, IItemInventaire,IAction
     public void OnPickUp()
     {
         StartCoroutine(AnimInventaire());
+
+        if (GameObject.Find("Cam_Commode Entrée").active = true)
+        {
+            transform.position = GameObject.Find("Target pick").transform.position;
+        }
     }
 
     public void OnDrop()
@@ -60,16 +65,18 @@ public class Tournevis : ClickableObject, IClicked, IItemInventaire,IAction
 
     IEnumerator AnimInventaire()
     {
-        if (anim.GetBool("PickUp") == false)
+        if (anim.GetBool("Phase 1") == false)
         {
-            anim.SetBool("PickUp", true);
+            anim.SetBool("Phase 1", true);
             yield return new WaitForSeconds(3f);
+            anim.SetBool("Phase 2", true);
+            yield return new WaitForSeconds(2f);
             gameObject.SetActive(false);
         }
         else
         {
-            anim.SetBool("PickUp", false);
-            yield return new WaitForSeconds(3f);
+            anim.SetBool("Phase 1", false);
+            yield return new WaitForSeconds(2f);
         }
     }
 }

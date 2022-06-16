@@ -26,21 +26,23 @@ public class LunchMissionButton : MonoBehaviour
     {
         if(!Possible)
         {
-            GetComponent<UnityEngine.UI.Button>().interactable = false ;
+            GetComponent<Button>().interactable = false ;
             if(PlayerPrefs.GetInt("Langue") == 0) TextButton.text = "Mission terminée" ;
             if(PlayerPrefs.GetInt("Langue") == 1) TextButton.text = "Mission finish" ;
         } else {
-            GetComponent<UnityEngine.UI.Button>().interactable = true ;
+            GetComponent<Button>().interactable = true ;
             if(PlayerPrefs.GetInt("Langue") == 0) TextButton.text = "Commencer la mission" ;
             if(PlayerPrefs.GetInt("Langue") == 1) TextButton.text = "Start Mission" ;
         }
+        
+        GetComponent<RectTransform>().sizeDelta = new Vector2(TextButton.preferredWidth + 30f, TextButton.preferredHeight + 20f);        
     }
 
     IEnumerator WaitAndLunchTheMission()
     {
-        GameObject.Find("FADE").GetComponent<Image>().enabled = true ;
+        GameObject.Find("FADE Lunch").GetComponent<Image>().enabled = true ;
         yield return new WaitForSeconds(0.2f);
-        GameObject.Find("FADE").GetComponent<Image>().DOFade(1f, 0.95f) ;
+        GameObject.Find("FADE Lunch").GetComponent<Image>().DOFade(1f, 0.95f) ;
         yield return new WaitForSeconds(1f);
         PlayerPrefs.DeleteAll();
         SceneManager.LoadScene("Gameplay");        
