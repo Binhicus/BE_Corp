@@ -9,6 +9,8 @@ public class MenuManager : MonoBehaviour
     public GameObject EscargotReward ;
     public Image FadeImage ;
 
+    public ZoomIndiceScript ZIScriptComputer ;
+
     private void Awake() 
     {
         if(PlayerPrefs.GetInt("Escargot") == 0) EscargotReward.SetActive(false);
@@ -43,5 +45,25 @@ public class MenuManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         Application.Quit();
+    }
+
+
+    public void DezoomCamera()
+    {
+        ZIScriptComputer.CloseComputer();
+
+
+        if(GameObject.FindGameObjectWithTag("Camera Zoom") != null)
+        {
+            GameObject.FindGameObjectWithTag("Camera Zoom").SetActive(false);
+        }
+
+        GameObject[] IndiceZoneCollider ;
+        IndiceZoneCollider = GameObject.FindGameObjectsWithTag("Indice Zone");
+
+        foreach (GameObject GameCol in IndiceZoneCollider)
+        {
+            GameCol.GetComponent<BoxCollider>().enabled = true ;
+        }
     }
 }

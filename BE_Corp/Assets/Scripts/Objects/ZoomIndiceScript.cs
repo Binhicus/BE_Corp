@@ -8,6 +8,8 @@ public enum ZoomZone
 {
 Zone,
 Computer,
+Credits,
+Setting,
 Quit
 }
 
@@ -23,8 +25,17 @@ public class ZoomIndiceScript : ZoomableObject, IClicked, IAction
     public Image BackgroundComputer ;
     public RectTransform ComputerWindow ;
 
+    [Header ("Zoom for Credits")]
+    public Image CloseCreditsImageButton ;
+
+    [Header ("Zoom for Setting")]
+    public Image CloseSettingImageButton ;
+
+
     [Header ("Zoom for Quit the game")]
     public MenuManager MenuManagerScript ;
+
+
     void Awake() 
     {
         if(WhatIsObjectZoom == ZoomZone.Computer)
@@ -51,6 +62,18 @@ public class ZoomIndiceScript : ZoomableObject, IClicked, IAction
         {
             StopAllCoroutines();
             StartCoroutine(LunchLevelComputer());
+        }
+
+        if(WhatIsObjectZoom == ZoomZone.Credits)
+        {
+            StopAllCoroutines();
+            CloseCreditsImageButton.raycastTarget = true ;
+        }
+
+        if(WhatIsObjectZoom == ZoomZone.Setting)
+        {
+            StopAllCoroutines();
+            CloseSettingImageButton.raycastTarget = true ;
         }
 
         if(WhatIsObjectZoom == ZoomZone.Quit)
