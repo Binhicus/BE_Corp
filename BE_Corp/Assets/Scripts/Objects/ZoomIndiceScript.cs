@@ -40,4 +40,10 @@ public class ZoomIndiceScript : ZoomableObject, IClicked, IAction
 
 
     public void OnLunchActionAfterCloseDialogue() { }
+
+    public void Deb()
+    {
+    Debug.Log("Yes");        
+    }
+
 }

@@ -6,6 +6,7 @@ public class Rain : MonoBehaviour
 {
     public List<GameObject> Lapluie = new List <GameObject>();
     public AudioSource rainSon;
+    private bool Une;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +32,7 @@ public class Rain : MonoBehaviour
             for(int i = 0; i < Lapluie.Count; i++)
           {
             Lapluie[i].SetActive(true);
+            Une=false;
           }
         }
     }
