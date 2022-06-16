@@ -27,14 +27,15 @@ public class RadioScript : ClickableObject,IClicked, IAction
     {       
         CameraActivate = GameObject.Find("---- CAMERAS ----").GetComponent<CameraContainerScript>().CameraRadio;
 
-         if(PlayerPrefs.GetInt("Antenne")==0)
+         if(PlayerPrefs.GetInt("Antenne")==0&&PlayerPrefs.GetInt("PileDansRadio")==0);
          {
             TexteMeteo.SetActive(false);
          }
-         else
+         if(PlayerPrefs.GetInt("Antenne")==1&&PlayerPrefs.GetInt("PileDansRadio")==1);
          {
             TexteMeteo.SetActive(true);
          }
+         
     }
 
     private void Start() 
