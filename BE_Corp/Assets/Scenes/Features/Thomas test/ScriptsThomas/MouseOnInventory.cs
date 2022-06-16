@@ -38,7 +38,6 @@ public class MouseOnInventory : MonoBehaviour
         {   
             isOn = false;
             //Inventory.GetComponent<RectTransform>().anchoredPosition = new Vector3(100, 0,0);
-            Debug.Log("allez là");
             animHUD.CrossFade("Window Out", 0.1f);           
         }
     }

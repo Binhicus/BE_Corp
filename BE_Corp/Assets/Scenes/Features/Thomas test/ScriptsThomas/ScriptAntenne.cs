@@ -21,6 +21,7 @@ public class ScriptAntenne : MonoBehaviour
      public float RotZ;
      public AudioSource pluie;
      public float speed;
+     private bool Une;
     // Start is called before the first frame update
     void Awake()
     {
@@ -57,13 +58,18 @@ public class ScriptAntenne : MonoBehaviour
             Rotate();
         }
 
-        if(TowerAngle>43&&TowerAngle<46&&Maintiens==false)
+        if(TowerAngle>43&&TowerAngle<46)
         {
             //Debug.Log("1");
             TexteMeteo.GetComponent<Animator>().SetBool("Trouve", true);
                 TexteMeteo.GetComponent<Animator>().SetBool("PasLoin", false);
                 RadioBug.volume=0.25f; 
-            TermineMiniJeu();
+
+                if(Maintiens==false)
+                {
+                    TermineMiniJeu();
+                }
+            
             
         }
 
@@ -103,7 +109,12 @@ public class ScriptAntenne : MonoBehaviour
 
     public void TermineMiniJeu()
     {
-        StartCoroutine(coroutineA());
+        if(Une==false)
+        {
+            Une=true;
+            StartCoroutine(coroutineA());
+        }
+        
     }
 
     IEnumerator coroutineA()
