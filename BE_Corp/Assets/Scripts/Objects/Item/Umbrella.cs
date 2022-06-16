@@ -12,6 +12,9 @@ public class Umbrella : ClickableObject, IClicked, IItemInventaire, IAction
     public Sprite _Image;
     public Sprite Image => _Image;
 
+    public GameObject _visual;
+    public GameObject visual => _visual;
+
     public BlockReference inspect, question;
 
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>();

@@ -12,6 +12,10 @@ public class EscargotScript : ClickableObject, IClicked, IItemInventaire, IActio
     public Sprite _Image;
     public Sprite Image => _Image;
 
+    public GameObject _visual;
+
+    public GameObject visual => _visual;
+
     public BlockReference inspect, question;
 
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>();

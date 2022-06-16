@@ -10,6 +10,9 @@ public class Piles : ClickableObject, IClicked, IItemInventaire, IAction
 
     public Sprite Image => _Image;
 
+    public GameObject _visual;
+    public GameObject visual => _visual;
+
     public void OnClickAction()
     {
         CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible;

@@ -11,6 +11,9 @@ public class Key : ClickableObject, IClicked, IItemInventaire, IAction
     public Sprite _Image;
     public Sprite Image => _Image;
 
+    public GameObject _visual;
+    public GameObject visual => _visual;
+
     public Texture2D cursor;
     public Texture2D regularCursor;
 

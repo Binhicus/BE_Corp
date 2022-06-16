@@ -11,6 +11,7 @@ public class UIInventoryItem : MonoBehaviour, IDragHandler, IEndDragHandler
     public string objectID;
     private Transform uiPos;
     public GameObject Inventaire;
+    //public GameObject animToSpawn;
     public MouseOnInventory mouseOnInventory;
 
     private void Awake()
@@ -44,6 +45,7 @@ public class UIInventoryItem : MonoBehaviour, IDragHandler, IEndDragHandler
                         interaction.DoItemInteraction();
                         GetComponent<Image>().enabled = false;
                         GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
+                        gameObject.transform.GetChild(0).gameObject.SetActive(false);
                     }
                         
 
@@ -69,7 +71,7 @@ public class UIInventoryItem : MonoBehaviour, IDragHandler, IEndDragHandler
         else
        
        transform.localPosition = Vector3.zero;*/
-            IEnumerator coroutineA()
+    IEnumerator coroutineA()
     {
         mouseOnInventory.isOn=false;
         Inventaire.GetComponent<RectTransform>().anchoredPosition = new Vector3(-79, 0,0);

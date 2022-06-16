@@ -9,6 +9,9 @@ public class Antenne : ClickableObject, IClicked, IItemInventaire, IAction
     public string Name => "Antenne";
     public Sprite _Image;
     public BlockReference inspect;
+
+    public GameObject _visual;
+    public GameObject visual => _visual;
     public Sprite Image => _Image;
 
     public void OnClickAction()

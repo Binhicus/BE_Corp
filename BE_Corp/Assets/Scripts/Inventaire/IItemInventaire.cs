@@ -6,6 +6,8 @@ using UnityEngine;
 public interface IItemInventaire
 {
     string Name { get; }
+
+    GameObject visual { get; }
     Sprite Image { get; }
 
 

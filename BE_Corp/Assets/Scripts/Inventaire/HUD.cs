@@ -28,6 +28,7 @@ public class HUD : MonoBehaviour
             Transform imageTransform = slot.GetChild(0).GetChild(0);
             Image image = imageTransform.GetComponent<Image>();
             slot.GetChild(0).GetComponent<Image>().enabled=true;
+            //Instantiate(e.Item.visual, slot.GetChild(0).transform.GetChild(0).transform);
             UIInventoryItem itemDragHandler = imageTransform.GetComponent<UIInventoryItem>();
              
 
@@ -37,7 +38,9 @@ public class HUD : MonoBehaviour
             {
                 image.enabled = true;
                 image.sprite = e.Item.Image;
-                imageTransform.GetComponent<UIInventoryItem>().objectID = e.Item.Name; 
+                imageTransform.GetComponent<UIInventoryItem>().objectID = e.Item.Name;
+                Instantiate(e.Item.visual, image.gameObject.transform);
+
 
                 break;
             }

@@ -12,6 +12,9 @@ public class Tournevis : ClickableObject, IClicked, IItemInventaire,IAction
 
     public Sprite Image => _Image;
 
+    public GameObject _visual;
+    public GameObject visual => _visual;
+
     void Start()
     {
         anim = GetComponent<Animator>();
