@@ -22,6 +22,11 @@ public class FourScript : ClickableObject,IClicked, IAction
     {
         CameraActivate = GameObject.Find("---- CAMERAS ----").GetComponent<CameraContainerScript>().CameraFour;
         Debug.Log(PlayerPrefs.GetInt("Smoke"));
+
+        if(PlayerPrefs.GetInt("Smoke")==4)
+        {
+             this.GetComponent<BoxCollider>().enabled=false;
+        }
     }
 
     private void Update() {
@@ -78,6 +83,11 @@ public class FourScript : ClickableObject,IClicked, IAction
         
     }
 
+    public void ApresCramax()
+    {
+        CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible3;
+    }
+
     void DisplayInspection()
     {
         CursorController.Instance.ActionWheelScript.DialogueDisplayer.SetActive(true);
@@ -98,10 +108,11 @@ public class FourScript : ClickableObject,IClicked, IAction
 
     IEnumerator coroutineA()
     {
-        yield return new WaitForSeconds(4.5f);
+        yield return new WaitForSeconds(5.5f);
         MisAJourEffect.Instance.MiseAJour();
         PlayerPrefs.SetInt("Smoke",4);
         PlayerPrefs.SetInt("FourOk",2);
+        this.GetComponent<BoxCollider>().enabled=false;
     }
 
 
