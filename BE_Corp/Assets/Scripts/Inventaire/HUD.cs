@@ -8,6 +8,7 @@ public class HUD : MonoBehaviour
 {
     public GameObject DezoomButton ;
     public Scene scene;
+    public AudioSource pickUpSound;
 
     void Start()
     {
@@ -21,6 +22,7 @@ public class HUD : MonoBehaviour
 
     void InventoryScript_ItemAdded(object sender, InventoryEventArgs e)
     {
+        pickUpSound.Play();
         Transform inventoryPanel = GameObject.Find("Inventaire").transform;
         foreach(Transform slot in inventoryPanel)
         {

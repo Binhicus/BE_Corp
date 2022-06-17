@@ -20,6 +20,7 @@ public class DoorScript : MonoBehaviour
     private bool MouseOver = false ;
     private bool DoorIsOpen = false ;
     private bool AsCameraShake = false ;
+    public AudioSource openingSound;
 
     void Awake()
     {
@@ -100,6 +101,7 @@ public class DoorScript : MonoBehaviour
         cameraShake.enabled = false ;
         cameraShake.triggered = false ;
         DoorIsOpen = true ;
+        openingSound.Play();
         StartCoroutine(DoorAnimation());
     }
     
