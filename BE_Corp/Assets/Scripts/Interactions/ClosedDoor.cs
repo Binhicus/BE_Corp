@@ -34,11 +34,12 @@ public class ClosedDoor : MonoBehaviour, IHasItemInteraction
     }*/
     public void DoItemInteraction()
     {
-        Debug.Log("C'est ouvert merci beaucoup pour la participation");
+        //Debug.Log("C'est ouvert merci beaucoup pour la participation");
+        unlocked.Play();
         PorteOuverte();
         PasActifs();
         this.GetComponent<BoxCollider>().enabled = false;
-       // unlocked.Play();
+       
     }
 
     void PasActifs()
