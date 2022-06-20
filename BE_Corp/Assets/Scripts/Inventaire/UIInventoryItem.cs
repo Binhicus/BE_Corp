@@ -24,11 +24,13 @@ public class UIInventoryItem : MonoBehaviour, IDragHandler, IEndDragHandler
     public void OnDrag(PointerEventData eventData)
     {
         transform.position = Input.mousePosition;
+        CursorController.Instance.BoolFalseSetter();
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-     Ray ray = Camera.main.ScreenPointToRay(CursorController.Instance.controls.Mouse.Position.ReadValue<Vector2>());
+        CursorController.Instance.BoolTrueSetter();
+        Ray ray = Camera.main.ScreenPointToRay(CursorController.Instance.controls.Mouse.Position.ReadValue<Vector2>());
         RaycastHit[] hits = Physics.RaycastAll(ray, 200);
         bool hitSomething = false;
         for (int i = 0; i < hits.Length; i++)
@@ -47,19 +49,17 @@ public class UIInventoryItem : MonoBehaviour, IDragHandler, IEndDragHandler
                         GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
                         gameObject.transform.GetChild(0).gameObject.SetActive(false);
                     }
-                        
-
                 }
-
             }           
         } 
         
         if (!hitSomething) 
-            {
-                transform.localPosition = Vector3.zero;
-                Debug.Log("hihihi je vais serrer???");
-                StartCoroutine(coroutineA());
-            }
+        {
+            transform.localPosition = Vector3.zero;
+            Debug.Log("hihihi je vais serrer???");
+            StartCoroutine(coroutineA());
+        }
+
         /*
         // Remplacer "true" par la condition (raycast scène)
         if (true)
@@ -71,15 +71,17 @@ public class UIInventoryItem : MonoBehaviour, IDragHandler, IEndDragHandler
         else
        
        transform.localPosition = Vector3.zero;*/
+
     IEnumerator coroutineA()
-    {
+
+        {
         mouseOnInventory.isOn=false;
         Inventaire.GetComponent<RectTransform>().anchoredPosition = new Vector3(-79, 0,0);
         yield return new WaitForSeconds(1.0f);
         mouseOnInventory.isOn=true;
         Inventaire.GetComponent<RectTransform>().anchoredPosition = new Vector3(100, 0,0);
         
-    }
+        }
         
     }
 }
