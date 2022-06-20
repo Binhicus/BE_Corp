@@ -10,6 +10,7 @@ public class CursorController : Singleton<CursorController>
 
     //public Texture2D cursorClicked;
 
+    public bool canInteract;
     public Camera mainCamera;
 
     [Header("Base")]    
@@ -51,6 +52,7 @@ public class CursorController : Singleton<CursorController>
     // Update is called once per frame
     private void Start()
     {
+        canInteract = true;
         controls.Mouse.Click.started += _ => StartedClick();
         controls.Mouse.Click.performed += _ => EndedClick(); 
     }
@@ -67,47 +69,49 @@ public class CursorController : Singleton<CursorController>
     }
     private void DetectObject()
     {
-        #region RayCastBasique
-        Ray ray = mainCamera.ScreenPointToRay(controls.Mouse.Position.ReadValue<Vector2>());
-        RaycastHit hit;
-        if(Physics.Raycast(ray, out hit))
+        if (canInteract)
         {
-            if (hit.collider != null)
+            #region RayCastBasique
+            Ray ray = mainCamera.ScreenPointToRay(controls.Mouse.Position.ReadValue<Vector2>());
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
             {
-                IClicked click =  hit.collider.gameObject.GetComponent<IClicked>();
-                //* IItemInventaire item = hit.collider.gameObject.GetComponent<IItemInventaire>();
-                if (click != null) click.OnClickAction();
-                //if (click == null) return;
-                //* if (item != null) Inventaire.Instance.AddItem(item);
-                //Debug.Log("3D Hit: " + hit.collider.tag + " " + hit.collider.gameObject);
-                //Debug.DrawRay(transform.position, Vector3.forward, Color.green);
+                if (hit.collider != null)
+                {
+                    IClicked click = hit.collider.gameObject.GetComponent<IClicked>();
+                    //* IItemInventaire item = hit.collider.gameObject.GetComponent<IItemInventaire>();
+                    if (click != null) click.OnClickAction();
+                    //if (click == null) return;
+                    //* if (item != null) Inventaire.Instance.AddItem(item);
+                    //Debug.Log("3D Hit: " + hit.collider.tag + " " + hit.collider.gameObject);
+                    //Debug.DrawRay(transform.position, Vector3.forward, Color.green);
+                }
             }
+            #endregion
+
+            #region RecupTout
+            /*RaycastHit[] hits = Physics.RaycastAll(ray, 200);
+            for (int i = 0; i < hits.Length; i++)
+            {
+                if(hits[i].collider != null)
+                {
+                    Debug.Log("3D Hit All:" + hits[i].collider.tag); 
+                }
+            }*/
+            #endregion
+
+            #region ChoixSize
+            /*RaycastHit[] hitsNonAlloc = new RaycastHit[1];
+            int numberOfHits = Physics.RaycastNonAlloc(ray, hitsNonAlloc);
+            for (int i = 0; i < numberOfHits; i++)
+            {
+                if (hits[i].collider != null)
+                {
+                    Debug.Log("3D Hit Non Alloc: " + hitsNonAlloc[i].collider.tag);
+                }
+            }*/
+            #endregion
         }
-        #endregion
-
-        #region RecupTout
-        /*RaycastHit[] hits = Physics.RaycastAll(ray, 200);
-        for (int i = 0; i < hits.Length; i++)
-        {
-            if(hits[i].collider != null)
-            {
-                Debug.Log("3D Hit All:" + hits[i].collider.tag); 
-            }
-        }*/
-        #endregion
-
-        #region ChoixSize
-        /*RaycastHit[] hitsNonAlloc = new RaycastHit[1];
-        int numberOfHits = Physics.RaycastNonAlloc(ray, hitsNonAlloc);
-        for (int i = 0; i < numberOfHits; i++)
-        {
-            if (hits[i].collider != null)
-            {
-                Debug.Log("3D Hit Non Alloc: " + hitsNonAlloc[i].collider.tag);
-            }
-        }*/
-        #endregion
-
     }
     private void ChangeCursor(Texture2D cursorType)
     {
@@ -140,5 +144,19 @@ public class CursorController : Singleton<CursorController>
     private bool isMouseOverUI()
     {
         return EventSystem.current.IsPointerOverGameObject();
+    }
+
+    public void BoolTrueSetter()
+    {
+        Invoke("BoolEqualsTrue", 0.3f);
+    }
+
+    private void BoolEqualsTrue()
+    {
+        canInteract = true;
+    }
+    public void BoolFalseSetter()
+    {
+        canInteract = false;
     }
 }
