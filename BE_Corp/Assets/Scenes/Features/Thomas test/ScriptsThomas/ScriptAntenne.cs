@@ -131,6 +131,7 @@ public class ScriptAntenne : MonoBehaviour
         Jauge.Instance.stadeProg += 1;
         yield return new WaitForSeconds(2.0f);
         pluie.Play();
+        pluie.volume=1;
         maj.Execute();
        
     }

@@ -13,6 +13,6 @@ public class CameraContainerScript : MonoBehaviour
     public GameObject CameraOrdi ;
 
     [Header ("Salon Camera meuble")]
-    public GameObject CameraMeuble ;
+    public GameObject CameraMeuble ;public GameObject CameraBD ;
 
 }

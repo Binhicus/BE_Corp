@@ -12,6 +12,7 @@ public class LampeChambre : ClickableObject,IClicked, IAction
      public GameObject Monstre3;
      public GameObject Monstre4;
      public GameObject LesLampes;
+     private bool On;
     // Start is called before the first frame update
     void Awake()
     {       
@@ -19,10 +20,16 @@ public class LampeChambre : ClickableObject,IClicked, IAction
          if(PlayerPrefs.GetInt("Lampe")==0)
          {
             LesLampes.SetActive(false);
+             Monstre1.SetActive(true);
+            Monstre2.SetActive(true);
+            Monstre3.SetActive(true);
+            Monstre4.SetActive(true);
+            On=false;
          }
 
          if(PlayerPrefs.GetInt("Lampe")==1)
          {
+            On=true;
             LesLampes.SetActive(true);
             Monstre1.SetActive(false);
             Monstre2.SetActive(false);
@@ -44,6 +51,7 @@ public class LampeChambre : ClickableObject,IClicked, IAction
     }
     public void Allume()
     {
+        Debug.Log("Allume");
         //Son.Play();
         Monstre1.GetComponent<Animator>().SetTrigger("Disp");
         Monstre2.GetComponent<Animator>().SetTrigger("Disp");
@@ -52,6 +60,25 @@ public class LampeChambre : ClickableObject,IClicked, IAction
         
         LesLampes.SetActive(true);
         PlayerPrefs.SetInt("Lampe",1);
+
+        StartCoroutine(coroutineA());
+    }
+    public void Eteins()
+    {
+        Debug.Log("Eteins");
+        Monstre1.SetActive(true);
+        Monstre2.SetActive(true);
+        Monstre3.SetActive(true);
+        Monstre4.SetActive(true);
+        Monstre1.GetComponent<Animator>().SetTrigger("App");
+        Monstre2.GetComponent<Animator>().SetTrigger("App");
+        Monstre3.GetComponent<Animator>().SetTrigger("App");
+        Monstre4.GetComponent<Animator>().SetTrigger("App");
+        
+        LesLampes.SetActive(false);
+        PlayerPrefs.SetInt("Lampe",0);
+
+        StartCoroutine(coroutineB());
     }
 
     void DisplayDialogue()
@@ -64,9 +91,15 @@ public class LampeChambre : ClickableObject,IClicked, IAction
     public void OnClose() {Debug.Log("Close") ;}
     public void OnTake() {Debug.Log("Take") ;}
     public void OnUse() 
-    {
-        Debug.Log("ok");
-    Allume();
+    { 
+        if(On==true)
+        {
+            Eteins();
+        }
+        if(On==false)
+        {
+            Allume();
+        }
     }
     public void OnInspect() { }
     public void OnQuestion() { }
@@ -74,6 +107,19 @@ public class LampeChambre : ClickableObject,IClicked, IAction
 
 
     public void OnLunchActionAfterCloseDialogue() { }
+
+
+    IEnumerator coroutineA()
+    {   
+        yield return new WaitForSeconds(1.0f); 
+        On=true;
+    }
+
+    IEnumerator coroutineB()
+    {   
+        yield return new WaitForSeconds(1.0f); 
+        On=false;
+    }
     
 
 }

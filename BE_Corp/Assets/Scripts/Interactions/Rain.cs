@@ -15,12 +15,18 @@ public class Rain : MonoBehaviour
 
     void OnEnable()
     {
+        
+    }
+
+    void Awake()
+    {
         if(PlayerPrefs.GetInt("Parapluie")==1)
         {
             for(int i = 0; i < Lapluie.Count; i++)
           {
             Lapluie[i].SetActive(true);
             rainSon.Play();
+            rainSon.volume=1;
           }
         }
     }
