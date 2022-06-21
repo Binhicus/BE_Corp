@@ -33,6 +33,8 @@ public class MotPapier : MonoBehaviour
     public Color ColorNormal;
     public Color ColorPlace;
 
+    private bool Une;
+
     public float BonneAnswer;
 
     public bool Termine;
@@ -247,6 +249,17 @@ public class MotPapier : MonoBehaviour
         
     }
 
+    public void Terminado()
+    {
+        if(Une==false)
+        {
+            Une=true;
+            PlayerPrefs.SetInt("Cuisine Révélée",1);
+        MisAJourEffect.Instance.MiseAJour();
+        }
+        
+    }
+
     public void Place1()
     {
         this.gameObject.transform.GetChild(0).GetComponent<Image>().color=ColorPlace;
@@ -261,7 +274,7 @@ public class MotPapier : MonoBehaviour
 
             if(BonneReponse==6)
             {
-                FiniTrouve.SetActive(true);
+                Terminado();
             }
         }
     }
@@ -279,7 +292,7 @@ public class MotPapier : MonoBehaviour
 
             if(BonneReponse==6)
             {
-                FiniTrouve.SetActive(true);
+                Terminado();
             }
         }
     }
@@ -296,7 +309,7 @@ public class MotPapier : MonoBehaviour
 
             if(BonneReponse==6)
             {
-                FiniTrouve.SetActive(true);
+                Terminado();
             }
         }
     }
@@ -313,7 +326,7 @@ public class MotPapier : MonoBehaviour
 
             if(BonneReponse==6)
             {
-                FiniTrouve.SetActive(true);
+                Terminado();
             }
         }
     }
@@ -330,7 +343,7 @@ public class MotPapier : MonoBehaviour
 
             if(BonneReponse==6)
             {
-                FiniTrouve.SetActive(true);
+                Terminado();
             }
         }
     }
@@ -347,7 +360,7 @@ public class MotPapier : MonoBehaviour
 
             if(BonneReponse==6)
             {
-                FiniTrouve.SetActive(true);
+                Terminado();
             }
         }
     }
