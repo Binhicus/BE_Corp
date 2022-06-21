@@ -21,6 +21,10 @@ public class ScarecrowScript : ClickableObject, IClicked, IAction
         //camShake = GameObject.Find("Camera").GetComponent<ScreenShake>();
         Door = GameObject.Find("Door Leaving Room").GetComponent<DoorScript>();
         this.enabled = true;
+        if (PlayerPrefs.GetInt("Séquence 1 Done") == 0)
+        {
+            this.gameObject.GetComponent<BoxCollider>().enabled = false;
+        }
     }
 
     private void Start() 
