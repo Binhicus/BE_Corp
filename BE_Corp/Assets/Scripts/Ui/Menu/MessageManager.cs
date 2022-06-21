@@ -264,6 +264,8 @@ public class MessageManager : MonoBehaviour
             if(BRNumber == -2) LunchDiscussion(BRE2, -2);
             if(BRNumber == -3) LunchDiscussion(BRE3, -3);
         }
+
+        SendEmployeeMessageButton.gameObject.SetActive(true);
     }
 
     void LunchDiscussion(BlockReference BRNeed, int BRNumber)
