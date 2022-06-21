@@ -15,6 +15,13 @@ public class Tournevis : ClickableObject, IClicked, IItemInventaire,IAction
     public GameObject _visual;
     public GameObject visual => _visual;
 
+    void Awake()
+    {
+        if (PlayerPrefs.GetInt("Séquence 1 Done") == 0)
+        {
+            this.gameObject.GetComponent<BoxCollider>().enabled = false;
+        }
+    }
     void Start()
     {
         anim = GetComponent<Animator>();
