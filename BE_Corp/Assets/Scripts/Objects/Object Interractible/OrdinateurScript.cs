@@ -8,10 +8,29 @@ public class OrdinateurScript : ClickableObject, IClicked, IAction
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>() ;
 
     public AlimentationScript ScriptAlimentationComputer ;
+    
+    public List<GameObject> Postit = new List<GameObject>();
 
     void Awake()
     {
         CameraActivate = GameObject.Find("---- CAMERAS ----").GetComponent<CameraContainerScript>().CameraOrdi;
+
+        if(PlayerPrefs.GetInt("IndiceEscargot")==1&&PlayerPrefs.GetInt("MdpOk")==0)
+        {
+            Postit[1].SetActive(true);
+        }
+        if(PlayerPrefs.GetInt("NordMeteo")==1&&PlayerPrefs.GetInt("MdpOk")==0)
+        {
+            Postit[2].SetActive(true);
+        }
+        if(PlayerPrefs.GetInt("Matisse")==1&&PlayerPrefs.GetInt("MdpOk")==0)
+        {
+            Postit[3].SetActive(true);
+        }
+        if(PlayerPrefs.GetInt("Tableau1")==1&&PlayerPrefs.GetInt("Tableau2")==1&&PlayerPrefs.GetInt("MdpOk")==0)
+        {
+            Postit[4].SetActive(true);
+        }
     }
 
 

@@ -51,9 +51,9 @@ public class MotPapier : MonoBehaviour
     {
         BonneAnswer=BonneReponse;
 
-        Debug.Log(BonneAnswer);
+        //Debug.Log(BonneAnswer);
 
-        Debug.Log(Place1Prise);
+       // Debug.Log(Place1Prise);
         if (Input.GetMouseButtonDown(0)&&Dessus&&!Termine)
         {
              deplace=true;

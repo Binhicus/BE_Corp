@@ -39,6 +39,8 @@ public class AlimentationScript : MonoBehaviour
     public Color BackgroundShutDown ;
     public Color BackgroundOff ;
     public Color BackgroundColor ;
+
+    public GameObject CanvasGroupPostIt;
     
     private IEnumerator LoadAnimCoroutine ; 
     // Start is called before the first frame update
@@ -54,6 +56,11 @@ public class AlimentationScript : MonoBehaviour
         DateEcranVeille.text = GetDayOfTheDate(ComputerInformation.Date) + ", " + GetPartOfTheDate(ComputerInformation.Date, 0) + " " + GetPartOfTheDate(ComputerInformation.Date, 1);
     
         LoadAnimCoroutine = LoadAnimation();    
+
+        if(PlayerPrefs.GetInt("MdpOk")==1)
+        {
+            CanvasGroupPostIt.SetActive(false);
+        }
     }
 
 
@@ -267,6 +274,8 @@ public class AlimentationScript : MonoBehaviour
 
     IEnumerator UnlockComputer()
     {
+        CanvasGroupPostIt.GetComponent<Animator>().SetBool("Disparait", true);
+        PlayerPrefs.SetInt("MdpOk",1);
         IndiceObj.SetActive(false);
         InputLogIn.SetActive(false);
         InputLogIn.GetComponent<InputField>().text = null ;

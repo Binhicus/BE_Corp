@@ -1480,7 +1480,7 @@ GameObject:
   - component: {fileID: 434490046}
   m_Layer: 0
   m_Name: Oridnateur
-  m_TagString: Untagged
+  m_TagString: Indice Zone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1532,6 +1532,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fd9a468eca2158d43834b7cad0de46ed, type: 2}
   - {fileID: 11400000, guid: 34cee9d07ecbd2443b457b9dd5f50d37, type: 2}
   ScriptAlimentationComputer: {fileID: 598307048}
+  Postit:
+  - {fileID: 1809368898}
+  - {fileID: 1785336053}
+  - {fileID: 233440124}
+  - {fileID: 459476891}
+  - {fileID: 1648120836}
 --- !u!114 &434490046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1924,7 +1930,7 @@ GameObject:
   - component: {fileID: 459476894}
   - component: {fileID: 459476893}
   m_Layer: 9
-  m_Name: Indices Matisse (2)
+  m_Name: "Indices Nord m\xE9t\xE9o"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2912,6 +2918,22 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 8720258177219238178, guid: 878f0674869306147b20c2cf1b46c2ed, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8720258177219238178, guid: 878f0674869306147b20c2cf1b46c2ed, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8720258177219238178, guid: 878f0674869306147b20c2cf1b46c2ed, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8720258177219238178, guid: 878f0674869306147b20c2cf1b46c2ed, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8720258177232651076, guid: 878f0674869306147b20c2cf1b46c2ed, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -3019,6 +3041,22 @@ PrefabInstance:
     - target: {fileID: 8720258177593008780, guid: 878f0674869306147b20c2cf1b46c2ed, type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8720258177593008781, guid: 878f0674869306147b20c2cf1b46c2ed, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8720258177593008781, guid: 878f0674869306147b20c2cf1b46c2ed, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8720258177593008781, guid: 878f0674869306147b20c2cf1b46c2ed, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8720258177593008781, guid: 878f0674869306147b20c2cf1b46c2ed, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8720258177621597645, guid: 878f0674869306147b20c2cf1b46c2ed, type: 3}
       propertyPath: m_Layer
@@ -3144,6 +3182,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 8720258177934900398, guid: 878f0674869306147b20c2cf1b46c2ed, type: 3}
+      propertyPath: CanvasGroupPostIt
+      value: 
+      objectReference: {fileID: 1672060957}
     - target: {fileID: 8720258177934900401, guid: 878f0674869306147b20c2cf1b46c2ed, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -3287,6 +3329,22 @@ PrefabInstance:
     - target: {fileID: 8720258178227471437, guid: 878f0674869306147b20c2cf1b46c2ed, type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8720258178227471438, guid: 878f0674869306147b20c2cf1b46c2ed, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8720258178227471438, guid: 878f0674869306147b20c2cf1b46c2ed, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8720258178227471438, guid: 878f0674869306147b20c2cf1b46c2ed, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8720258178227471438, guid: 878f0674869306147b20c2cf1b46c2ed, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8720258178232664367, guid: 878f0674869306147b20c2cf1b46c2ed, type: 3}
       propertyPath: m_Layer
@@ -7109,7 +7167,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1461477270
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7753,7 +7811,7 @@ GameObject:
   - component: {fileID: 1648120839}
   - component: {fileID: 1648120838}
   m_Layer: 9
-  m_Name: Indices Matisse (1)
+  m_Name: Indices Tournesol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9568,6 +9626,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1672060958}
+  - component: {fileID: 1672060960}
+  - component: {fileID: 1672060959}
   m_Layer: 9
   m_Name: Indices Mode de passe
   m_TagString: Untagged
@@ -9600,6 +9660,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1672060959
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672060957}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c67ad9d62e2c4cd4199a94be48072d1e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!225 &1672060960
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672060957}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1700606978
 GameObject:
   m_ObjectHideFlags: 0
@@ -10249,7 +10340,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1809368899
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10257,8 +10348,8 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1809368898}
-  m_LocalRotation: {x: 0.000000059604645, y: 0.0000000018626451, z: 0.10117935, w: 0.9948683}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalRotation: {x: 0.00000004470348, y: -0, z: 0.10117933, w: 0.9948682}
+  m_LocalPosition: {x: 0, y: 0, z: 0.00017881393}
   m_LocalScale: {x: 3.5279717, y: 4.215858, z: 1}
   m_Children:
   - {fileID: 1458234614}
@@ -10267,7 +10358,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 11.614}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -442, y: 351}
+  m_AnchoredPosition: {x: -445.0013, y: 364.99957}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1809368900
