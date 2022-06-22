@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Tournevis : ClickableObject, IClicked, IItemInventaire,IAction
 {
-    Animator anim;
+    Animation anim;
 
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>();
     public string Name => "Tournevis";
@@ -17,8 +17,7 @@ public class Tournevis : ClickableObject, IClicked, IItemInventaire,IAction
 
     void Start()
     {
-        anim = GetComponent<Animator>();
-        anim.keepAnimatorControllerStateOnDisable = true;
+        anim = GameObject.Find("Tournevis Pivot").GetComponent<Animation>();
     }
 
     public void OnClickAction()
@@ -41,12 +40,7 @@ public class Tournevis : ClickableObject, IClicked, IItemInventaire,IAction
 
     public void OnPickUp()
     {
-        StartCoroutine(AnimInventaire());
-
-        if (GameObject.Find("Cam_Commode Entrée").active = true)
-        {
-            transform.position = GameObject.Find("Target pick").transform.position;
-        }
+        AnimPickUp();
     }
 
     public void OnDrop()
@@ -54,6 +48,7 @@ public class Tournevis : ClickableObject, IClicked, IItemInventaire,IAction
         Debug.Log(this);
         RaycastHit hit = new RaycastHit();
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
         if (Physics.Raycast(ray, out hit, 1000))
         {
             gameObject.SetActive(true);
@@ -63,20 +58,13 @@ public class Tournevis : ClickableObject, IClicked, IItemInventaire,IAction
     public void OnLook() {}
     public void OnLunchActionAfterCloseDialogue() {}
 
-    IEnumerator AnimInventaire()
+    void AnimPickUp()
     {
-        if (anim.GetBool("Phase 1") == false)
-        {
-            anim.SetBool("Phase 1", true);
-            yield return new WaitForSeconds(3f);
-            anim.SetBool("Phase 2", true);
-            yield return new WaitForSeconds(2f);
-            gameObject.SetActive(false);
-        }
-        else
-        {
-            anim.SetBool("Phase 1", false);
-            yield return new WaitForSeconds(2f);
-        }
+        iTween.MoveTo(GameObject.Find("Tournevis Pivot"), iTween.Hash("position", new Vector3(-33.349f, 4.05f, -5.04f), "time", 0.9f, "easetype", iTween.EaseType.easeInOutSine));
+        iTween.RotateTo(GameObject.Find("Tournevis Pivot"), iTween.Hash("rotation", new Vector3(38.1756592f, 30.2754154f, 269.498077f), "time", 1f, "delay", 0.9f));
+        iTween.ScaleTo(GameObject.Find("Tournevis Pivot"), iTween.Hash("scale", new Vector3(0.047775995f, 0.0761041194f, 0.0537382551f), "time", 0.5f, "delay", 0.9f));
+        iTween.MoveTo(GameObject.Find("Tournevis Pivot"), iTween.Hash("position", new Vector3(0f, 4.05f, -5.04f), "time", 1.5f, "easetype", iTween.EaseType.easeInOutSine, "delay", 2f));
+        iTween.ScaleTo(GameObject.Find("Tournevis Pivot"), iTween.Hash("scale", new Vector3(0.0194141064f, 0.0309254341f, 0.0218369141f), "time", 0.3f, "delay", 2f));
+        Destroy(GameObject.Find("Tournevis Pivot"), 3f);
     }
 }
