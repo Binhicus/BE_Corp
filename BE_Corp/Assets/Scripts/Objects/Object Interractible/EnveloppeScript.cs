@@ -41,6 +41,14 @@ public class EnveloppeScript : ClickableObject,IClicked, IAction
         CursorController.Instance.ActionWheelScript.DialogueDisplayer.GetComponent<DialogueControllerScript>().LunchActionAfterClose = true ;
 
         DialogEnvelop.Execute();
+
+        PlayerPrefs.SetInt("IndiceEscargot",1);
+        
+    }
+
+    public void FonctionMaj()
+    {
+        MisAJourEffect.Instance.MiseAJour();
     }
 
     public void OnOpen() {Debug.Log("Open") ;}
