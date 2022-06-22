@@ -71,8 +71,8 @@ public class TourneStp : MonoBehaviour
     {
         Ttemp.GetComponent<TextMeshPro>().text=TempActuelle.ToString()+ " °";
         
-        Debug.Log(PlayerPrefs.GetInt("Smoke"));
-        Debug.Log(TempActuelle);
+       // Debug.Log(PlayerPrefs.GetInt("Smoke"));
+        //Debug.Log(TempActuelle);
 
         //Debug.Log(PlayerPrefs.GetInt("Smoke"));
         //Debug.Log(this.transform.eulerAngles.z);
@@ -110,7 +110,7 @@ public class TourneStp : MonoBehaviour
 
     public void Temperature0()
     {
-        Debug.Log("F1");
+        //Debug.Log("F1");
             //Ttemp.GetComponent<TextMeshPro>().text=Temp0.ToString()+ " °";
             TempActuelle=0;
             PlayerPrefs.SetInt("Temper",0);
@@ -119,7 +119,7 @@ public class TourneStp : MonoBehaviour
     }
     public void Temperature1()
     {
-         Debug.Log("F2");
+         //Debug.Log("F2");
             if(PlayerPrefs.GetInt("Smoke")!=2)
             {
                  //Ttemp.GetComponent<TextMeshPro>().text=Temp1.ToString()+ " °";
@@ -131,7 +131,7 @@ public class TourneStp : MonoBehaviour
     }
     public void Temperature2()
     {
-         Debug.Log("F3");
+        // Debug.Log("F3");
         if(PlayerPrefs.GetInt("Smoke")!=2)
             {
         //Ttemp.GetComponent<TextMeshPro>().text=Temp2.ToString()+ " °";
@@ -143,7 +143,7 @@ public class TourneStp : MonoBehaviour
     }
     public void Temperature3()
     {
-         Debug.Log("F4");
+        // Debug.Log("F4");
         if(PlayerPrefs.GetInt("Smoke")!=2)
             {
         //Ttemp.GetComponent<TextMeshPro>().text=Temp3.ToString()+ " °";

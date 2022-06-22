@@ -33,6 +33,10 @@ public class MessageManager : MonoBehaviour
     public GameObject LunchMissionButtonPrefab ;
 
     public UnityEngine.UI.Button SendEmployeeMessageButton ;
+    public RectTransform IndicationPlayerWrite ;
+    public Color EmployeeDoesntWriteColor ;
+    public Color EmployeeWriteColor ;
+
 
     public SayDialog SD ;
     public BlockReference BR1, BRE1, BRE2, BRE3 ;
@@ -46,7 +50,7 @@ public class MessageManager : MonoBehaviour
     void Start()
     {
         PlayerPrefs.SetInt("Discussion E1", 34);        
-        //PlayerPrefs.SetInt("Dialogue L1", 0);        
+        PlayerPrefs.SetInt("Dialogue L1", 0);        
     }
 
     // Update is called once per frame
@@ -56,10 +60,13 @@ public class MessageManager : MonoBehaviour
         CurrentName = FlowchartTextMenu.GetStringVariable("Name");   
 //        Debug.Log(FlowchartTextMenu.GetIntegerVariable("CurrentStateDiscussion")+  " + " + PlayerPrefs.GetInt(FlowchartTextMenu.GetStringVariable("DiscussionCurrent")));
 
+        if(FlowchartTextMenu.GetBooleanVariable("EmployeeWrite") == false) SendEmployeeMessageButton.transform.GetChild(0).GetComponent<Image>().color = EmployeeDoesntWriteColor ;
+        else SendEmployeeMessageButton.transform.GetChild(0).GetComponent<Image>().color = EmployeeWriteColor ;
+
         if(FlowchartTextMenu.GetIntegerVariable("CurrentStateDiscussion") >= PlayerPrefs.GetInt(FlowchartTextMenu.GetStringVariable("DiscussionCurrent")))
         {
             DiscussionLoading.SetActive(false) ;
-            if(DiscussionDisplay.childCount > 2) SD.GetComponent<Writer>().writingSpeed = 20f ;
+            if(DiscussionDisplay.childCount > 2) SD.GetComponent<Writer>().writingSpeed = 40f ;
 
 
             if(FlowchartTextMenu.GetBooleanVariable("ClientWrite"))
@@ -79,6 +86,10 @@ public class MessageManager : MonoBehaviour
             if(FlowchartTextMenu.GetBooleanVariable("EmployeeWrite"))
             {          
                 DiscussionWriterText.text = EmployeeStoryTextRef.text.Substring(0, FlowchartTextMenu.GetIntegerVariable("EmployeeMessageDisp")) ;
+
+                if(FlowchartTextMenu.GetIntegerVariable("EmployeeMessageDisp") == 0 && IndicationPlayerWrite.anchoredPosition.y == 75f) IndicationPlayerWrite.GetComponent<AnimationIndication>().ShowIndication();
+                if(FlowchartTextMenu.GetIntegerVariable("EmployeeMessageDisp") != 0 && IndicationPlayerWrite.anchoredPosition.y != 75f) IndicationPlayerWrite.GetComponent<AnimationIndication>().HideIndication();
+
                 if(DiscussionWriterText.text.Length != EmployeeStoryTextRef.text.Length)
                 {
                     if(Input.anyKey && (!Input.GetMouseButton(0) && !Input.GetMouseButton(1) && !Input.GetMouseButton(2) && !Input.GetKey(KeyCode.KeypadEnter)) &&!Input.GetKeyDown(KeyCode.Return))
@@ -143,23 +154,23 @@ public class MessageManager : MonoBehaviour
             EmployeeTextIns.GetComponentInChildren<TextMeshProUGUI>().text = EmployeeStoryTextRef.text ;
 
             FlowchartTextMenu.SetBooleanVariable("EmployeeWrite", false);
-            DiscussionWriterText.text = "..." ;
-            EmployeeStoryTextRef.text = "..." ;
+            DiscussionWriterText.text = " " ;
+            EmployeeStoryTextRef.text = " " ;
 
-            Vector2 NewSize ;
+       /*     Vector2 NewSize ;
 
-            if(EmployeeTextIns.GetComponentInChildren<TextMeshProUGUI>().preferredWidth < 600f)
+            if(EmployeeTextIns.GetComponentInChildren<TextMeshProUGUI>().preferredWidth < 795f)
             {
                 NewSize.x = EmployeeTextIns.GetComponentInChildren<TextMeshProUGUI>().preferredWidth ;
             } else {
-                NewSize.x =  600f ;
+                NewSize.x =  800f ;
             }
 
-            NewSize.y = EmployeeTextIns.GetComponentInChildren<TextMeshProUGUI>().preferredHeight /*- 10f */; 
+            NewSize.y = EmployeeTextIns.GetComponentInChildren<TextMeshProUGUI>().preferredHeight /*- 10f *; 
 
             EmployeeTextIns.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(NewSize.x + 15f, NewSize.y) ;
             EmployeeTextIns.GetComponent<RectTransform>().sizeDelta = new Vector2(EmployeeTextIns.GetComponent<RectTransform>().sizeDelta.x, NewSize.y)  ;
-
+*/
             SetHeightWriterBox(900f, DiscussionWriterText);    
 
             StartCoroutine(WaitBeforeAutorizedNextDialogue(0.5f));  
@@ -173,23 +184,23 @@ public class MessageManager : MonoBehaviour
         EmployeeTextIns.GetComponentInChildren<TextMeshProUGUI>().text = EmployeeStoryTextRef.text ;
 
         FlowchartTextMenu.SetBooleanVariable("EmployeeWrite", false);
-        DiscussionWriterText.text = "..." ;
-        EmployeeStoryTextRef.text = "..." ;
-
+        DiscussionWriterText.text = " " ;
+        EmployeeStoryTextRef.text = " " ;
+/*
         Vector2 NewSize ;
 
-        if(EmployeeTextIns.GetComponentInChildren<TextMeshProUGUI>().preferredWidth < 600f)
+        if(EmployeeTextIns.GetComponentInChildren<TextMeshProUGUI>().preferredWidth < 795f)
         {
             NewSize.x = EmployeeTextIns.GetComponentInChildren<TextMeshProUGUI>().preferredWidth ;
         } else {
-            NewSize.x =  595f ;
+            NewSize.x =  800f ;
         }
 
-        NewSize.y = EmployeeTextIns.GetComponentInChildren<TextMeshProUGUI>().preferredHeight /*- 10f*/ ; 
+        NewSize.y = EmployeeTextIns.GetComponentInChildren<TextMeshProUGUI>().preferredHeight /*- 10f/ ; 
 
         EmployeeTextIns.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(NewSize.x + 20f, NewSize.y) ;
         EmployeeTextIns.GetComponent<RectTransform>().sizeDelta = new Vector2(EmployeeTextIns.GetComponent<RectTransform>().sizeDelta.x, NewSize.y)  ;
-
+*/
         //SetHeightWriterBox(725f, DiscussionWriterText);    
 
         StartCoroutine(WaitBeforeAutorizedNextDialogue(0.0000001f));  
@@ -218,20 +229,20 @@ public class MessageManager : MonoBehaviour
 
         ClientTextIns.GetComponentInChildren<TextMeshProUGUI>().text = StoryTextReference.text ;
 
-        Vector2 NewSize ;
+     /*   Vector2 NewSize ;
 
-        if(ClientTextIns.GetComponentInChildren<TextMeshProUGUI>().preferredWidth < 600f)
+        if(ClientTextIns.GetComponentInChildren<TextMeshProUGUI>().preferredWidth < 795f)
         {
             NewSize.x = ClientTextIns.GetComponentInChildren<TextMeshProUGUI>().preferredWidth ;
         } else {
-            NewSize.x =  595f ;
+            NewSize.x =  800f ;
         }
 
-        NewSize.y = ClientTextIns.GetComponentInChildren<TextMeshProUGUI>().preferredHeight /*+ 10f*/ ; 
+        NewSize.y = ClientTextIns.GetComponentInChildren<TextMeshProUGUI>().preferredHeight /*+ 10f* ; 
 
         ClientTextIns.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(NewSize.x + 20f, NewSize.y) ;
         ClientTextIns.GetComponent<RectTransform>().sizeDelta = new Vector2(ClientTextIns.GetComponent<RectTransform>().sizeDelta.x, NewSize.y)  ;          
-        
+     */   
         HeightDialogueDisplay();
     }
 
@@ -253,6 +264,8 @@ public class MessageManager : MonoBehaviour
             if(BRNumber == -2) LunchDiscussion(BRE2, -2);
             if(BRNumber == -3) LunchDiscussion(BRE3, -3);
         }
+
+        SendEmployeeMessageButton.gameObject.SetActive(true);
     }
 
     void LunchDiscussion(BlockReference BRNeed, int BRNumber)
@@ -273,22 +286,26 @@ public class MessageManager : MonoBehaviour
         float TotalHeight = 0 ;
         foreach (RectTransform Child in DiscussionDisplay)
         {
-            TotalHeight += Child.GetComponent<RectTransform>().sizeDelta.y + 10f;
+            TotalHeight += Child.GetComponent<RectTransform>().sizeDelta.y;
         }
         
         TotalHeight += DiscussionDisplay.GetComponent<VerticalLayoutGroup>().spacing * (DiscussionDisplay.transform.childCount - 1) ;
 
+        TotalHeight += SendEmployeeMessageButton.transform.parent.GetComponent<RectTransform>().sizeDelta.y - 50f ;
+
+        TotalHeight += 20f ;
+
         if(TotalHeight < 1575f) 
         {
             DiscussionDisplay.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 0f);
-            DiscussionDisplay.GetComponent<RectTransform>().sizeDelta = new Vector2(1000f,  1575f) ;
+            DiscussionDisplay.GetComponent<RectTransform>().sizeDelta = new Vector2(1060f,  1575f) ;
 
             DiscussionDisplay.transform.parent.GetComponent<ScrollRect>().enabled = false ;
             DiscussionDisplay.transform.parent.GetComponent<ScrollRect>().verticalScrollbar.gameObject.SetActive(false) ;
 
         } else {
             DiscussionDisplay.GetComponent<RectTransform>().anchoredPosition = new Vector2(-20f, 0);
-            DiscussionDisplay.GetComponent<RectTransform>().sizeDelta = new Vector2(960f, TotalHeight) ;
+            DiscussionDisplay.GetComponent<RectTransform>().sizeDelta = new Vector2(1020f, TotalHeight) ;
 
             DiscussionDisplay.transform.parent.GetComponent<ScrollRect>().enabled = true ;
             DiscussionDisplay.transform.parent.GetComponent<ScrollRect>().verticalScrollbar.gameObject.SetActive(true) ;
@@ -347,11 +364,13 @@ public class MessageManager : MonoBehaviour
 
         TMPCurrent.transform.parent.GetComponent<RectTransform>().sizeDelta = new Vector2(TMPCurrent.transform.parent.GetComponent<RectTransform>().sizeDelta.x, NewSize.y)  ;
         TMPCurrent.transform.parent.transform.parent.GetComponent<RectTransform>().sizeDelta = new Vector2(TMPCurrent.transform.parent.transform.parent.GetComponent<RectTransform>().sizeDelta.x, NewSize.y + 20f)  ;  
-        TMPCurrent.transform.parent.transform.parent.transform.parent.GetComponent<RectTransform>().sizeDelta = new Vector2(TMPCurrent.transform.parent.transform.parent.transform.parent.GetComponent<RectTransform>().sizeDelta.x, NewSize.y + 30f)  ;  
+        TMPCurrent.transform.parent.transform.parent.transform.parent.GetComponent<RectTransform>().sizeDelta = new Vector2(TMPCurrent.transform.parent.transform.parent.transform.parent.GetComponent<RectTransform>().sizeDelta.x, NewSize.y + 30f + 20f)  ;  
         
-        DiscussionDisplay.transform.parent.GetComponent<RectTransform>().offsetMin = new Vector2(DiscussionDisplay.transform.parent.GetComponent<RectTransform>().offsetMin.x, (NewSize.y + 31f));
+        DiscussionDisplay.transform.parent.GetComponent<RectTransform>().offsetMin = new Vector2(DiscussionDisplay.transform.parent.GetComponent<RectTransform>().offsetMin.x, (NewSize.y + 31f +20f));
         
-        DiscussionDisplay.GetComponent<VerticalLayoutGroup>().spacing = 5f ;
+        DiscussionDisplay.GetComponent<VerticalLayoutGroup>().spacing = DiscussionDisplay.GetComponent<VerticalLayoutGroup>().spacing ;
+    
+        HeightDialogueDisplay();
     }
 
 
@@ -374,8 +393,8 @@ public class MessageManager : MonoBehaviour
 
             TMPCurrent.transform.parent.GetComponent<RectTransform>().sizeDelta = new Vector2(TMPCurrent.transform.parent.GetComponent<RectTransform>().sizeDelta.x, NewSize.y)  ;
             TMPCurrent.transform.parent.transform.parent.GetComponent<RectTransform>().sizeDelta = new Vector2(TMPCurrent.transform.parent.transform.parent.GetComponent<RectTransform>().sizeDelta.x, NewSize.y + 20f)  ;  
-            DiscussionDisplay.GetComponent<VerticalLayoutGroup>().spacing = 0f ;
-            DiscussionDisplay.GetComponent<VerticalLayoutGroup>().spacing = 0f ;
+            DiscussionDisplay.GetComponent<VerticalLayoutGroup>().spacing = DiscussionDisplay.GetComponent<VerticalLayoutGroup>().spacing ;
+//            DiscussionDisplay.GetComponent<VerticalLayoutGroup>().spacing = 0f ;
 
             yield return new WaitForSeconds(1.25f) ;    
             GoodHeightIns++ ;                                          
@@ -421,4 +440,5 @@ public class MessageManager : MonoBehaviour
         }
     }
 
+    
 }

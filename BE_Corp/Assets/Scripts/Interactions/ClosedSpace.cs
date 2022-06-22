@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
 
-public class ClosedSpace : MonoBehaviour, IHasItemInteraction, IClicked, IAction
+public class ClosedSpace : ClickableObject, IHasItemInteraction, IClicked, IAction
 {
     public string nomItem;
     public string inventoryItemID => nomItem;
@@ -17,20 +17,17 @@ public class ClosedSpace : MonoBehaviour, IHasItemInteraction, IClicked, IAction
     public List<ActionWheelChoiceData> ListInteractPossible2 = new List<ActionWheelChoiceData>() ;
 
 
-
-    private SplCameraShake cameraShake;
     private bool MouseOver = false ;
     private bool AsCameraShake = false ;
 
 
     private void Awake() 
     {
-        if(this.gameObject.GetComponent<SplCameraShake>() != null)
-        {
-            cameraShake = this.gameObject.GetComponent<SplCameraShake>();   
-            AsCameraShake = true ;         
-        }
 
+        if (PlayerPrefs.GetInt("Séquence 1 Done") == 0)
+        {
+            this.gameObject.GetComponent<BoxCollider>().enabled = false;
+        }
         fog = GameObject.Find("Gray Volume Fog");
         OuverturePorteChambre=GameObject.Find("Ouverture");
     }

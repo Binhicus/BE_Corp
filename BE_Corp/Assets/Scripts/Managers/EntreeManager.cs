@@ -63,15 +63,17 @@ public class EntreeManager : MonoBehaviour
         //ajouter seconde condition pour débloquer la porte
     }
 
-    /*public void PorteChambre()
+    public void IntroState()
     {
-
-    }*/
+        Tournevis.GetComponent<CapsuleCollider>().enabled = true;
+        epouvantail.GetComponent<BoxCollider>().enabled = true;
+        fog.GetComponent<BoxCollider>().enabled = true;
+    } 
 
     public void EntreeLoader()
     {
         TournevisState();
-       // AntenneState();
+        //AntenneState();
         FogState();
         EpouvantailState();
     }
