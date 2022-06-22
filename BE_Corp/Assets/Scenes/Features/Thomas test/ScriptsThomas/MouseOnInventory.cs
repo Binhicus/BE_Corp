@@ -28,7 +28,7 @@ public class MouseOnInventory : MonoBehaviour
             {
                 isOn = true;
                 //Inventory.GetComponent<RectTransform>().anchoredPosition = new Vector3(-79, 0,0);            
-                animHUD.CrossFade("Window In", 0.1f);               
+                animHUD.CrossFade("Window In", 0.03f);               
             }
         }
     }
@@ -38,7 +38,7 @@ public class MouseOnInventory : MonoBehaviour
         {   
             isOn = false;
             //Inventory.GetComponent<RectTransform>().anchoredPosition = new Vector3(100, 0,0);
-            animHUD.CrossFade("Window Out", 0.1f);           
+            animHUD.CrossFade("Window Out", 0.03f);           
         }
     }
 
