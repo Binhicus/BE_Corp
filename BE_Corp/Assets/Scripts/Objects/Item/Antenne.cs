@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
+using UnityEngine.UI;
 
 public class Antenne : ClickableObject, IClicked, IItemInventaire, IAction
 {
+    Button dezoom;
+
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>();
     public string Name => "Antenne";
     public Sprite _Image;
@@ -37,7 +40,7 @@ public class Antenne : ClickableObject, IClicked, IItemInventaire, IAction
 
     public void OnPickUp()
     {
-        AnimPickUp();
+        StartCoroutine(AnimPickUp());
     }
 
     public void OnDrop()
@@ -54,13 +57,17 @@ public class Antenne : ClickableObject, IClicked, IItemInventaire, IAction
     public void OnLook() {}
     public void OnLunchActionAfterCloseDialogue() {}
 
-    void AnimPickUp()
+    IEnumerator AnimPickUp()
     {
+        dezoom = GameObject.Find("Dezoom").GetComponent<Button>();
+        dezoom.interactable = false;
         iTween.MoveTo(GameObject.Find("Antenne Pivot"), iTween.Hash("position", new Vector3(-33.3230014f, 3.575f, -4.9f), "time", 0.9f, "easetype", iTween.EaseType.easeInOutSine));
         iTween.RotateTo(GameObject.Find("Antenne Pivot"), iTween.Hash("rotation", new Vector3(0f, 200.382f, 0f), "time", 1f, "delay", 0.9f));
         iTween.ScaleTo(GameObject.Find("Antenne Pivot"), iTween.Hash("scale", new Vector3(0.16f, 0.16f, 0.16f), "time", 0.5f, "delay", 0.9f));
         iTween.MoveTo(GameObject.Find("Antenne Pivot"), iTween.Hash("position", new Vector3(0f, 3.575f, -4.9f), "time", 1.5f, "easetype", iTween.EaseType.easeInOutSine, "delay", 2f));
         iTween.ScaleTo(GameObject.Find("Antenne Pivot"), iTween.Hash("scale", new Vector3(0.0684f, 0.0684f, 0.0684f), "time", 0.3f, "delay", 2f));
         Destroy(GameObject.Find("Antenne Pivot"), 3f);
+        yield return new WaitForSeconds(2.5f);
+        dezoom.interactable = true;
     }
 }
