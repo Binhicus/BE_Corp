@@ -5,6 +5,8 @@ using Fungus;
 
 public class Umbrella : ClickableObject, IClicked, IItemInventaire, IAction
 {
+    List<GameObject> zonesZoom = new List<GameObject>();
+
     public string nomDuParapluie;
     //private GameObject parapluie;
     public string Name => "Umbrella";
@@ -73,6 +75,17 @@ public class Umbrella : ClickableObject, IClicked, IItemInventaire, IAction
     IEnumerator AnimPickUp()
     {
         GameObject.Find("Umbrella Pivot").transform.SetParent(Camera.main.transform);
+
+        foreach (GameObject indiceZone in GameObject.FindGameObjectsWithTag("Indice Zone"))
+        {
+            zonesZoom.Add(indiceZone);
+        }
+
+        for (int i = 0; i < zonesZoom.Count; i++)
+        {
+            zonesZoom[i].GetComponent<Collider>().enabled = false;
+        }
+
         iTween.MoveTo(GameObject.Find("Umbrella Pivot"), iTween.Hash("position", new Vector3(-15.2102027f, 9.1944768f, -8.9273609f), "time", 0.9f, "easetype", iTween.EaseType.easeInOutSine));
         iTween.RotateTo(GameObject.Find("Umbrella Pivot"), iTween.Hash("rotation", new Vector3(-50.158f, -28.97f, -97.596f), "time", 1f, "delay", 0.9f));
         iTween.ScaleTo(GameObject.Find("Umbrella Pivot"), iTween.Hash("scale", new Vector3(0.3f, 0.3f, 0.3f), "time", 0.5f, "delay", 0.9f));
@@ -80,5 +93,10 @@ public class Umbrella : ClickableObject, IClicked, IItemInventaire, IAction
         iTween.ScaleTo(GameObject.Find("Umbrella Pivot"), iTween.Hash("scale", new Vector3(0.1f, 0.1f, 0.1f), "time", 0.25f, "delay", 2f));
         Destroy(GameObject.Find("Umbrella Pivot"), 3f);
         yield return new WaitForSeconds(2.5f);
+
+        for (int i = 0; i < zonesZoom.Count; i++)
+        {
+            zonesZoom[i].GetComponent<Collider>().enabled = true;
+        }
     }
 }

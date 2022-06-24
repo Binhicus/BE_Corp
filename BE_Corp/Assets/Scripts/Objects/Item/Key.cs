@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Key : ClickableObject, IClicked, IItemInventaire, IAction
 {
+    List<GameObject> zonesZoom = new List<GameObject>();
+
     public string nomDeLaClef;
     private GameObject key;
 
@@ -78,6 +80,17 @@ public class Key : ClickableObject, IClicked, IItemInventaire, IAction
     IEnumerator AnimPickUp()
     {
         GameObject.Find("Clef Pivot").transform.SetParent(Camera.main.transform);
+
+        foreach (GameObject indiceZone in GameObject.FindGameObjectsWithTag("Indice Zone"))
+        {
+            zonesZoom.Add(indiceZone);
+        }
+
+        for (int i = 0; i < zonesZoom.Count; i++)
+        {
+            zonesZoom[i].GetComponent<Collider>().enabled = false;
+        }
+
         Destroy(GameObject.Find("PU_shine Key"));
         iTween.MoveTo(GameObject.Find("Clef Pivot"), iTween.Hash("position", new Vector3(-15.2102027f, 9.1944768f, -8.9273609f), "time", 0.9f, "easetype", iTween.EaseType.easeInOutSine));
         iTween.RotateTo(GameObject.Find("Clef Pivot"), iTween.Hash("rotation", new Vector3(135.084f, -34.272f, 0f), "time", 1f, "delay", 0.9f));
@@ -86,5 +99,10 @@ public class Key : ClickableObject, IClicked, IItemInventaire, IAction
         iTween.ScaleTo(GameObject.Find("Clef Pivot"), iTween.Hash("scale", new Vector3(0.2f, 0.2f, 0.2f), "time", 0.15f, "delay", 2f));
         Destroy(GameObject.Find("Clef Pivot"), 3f);
         yield return new WaitForSeconds(2.5f);
+
+        for (int i = 0; i < zonesZoom.Count; i++)
+        {
+            zonesZoom[i].GetComponent<Collider>().enabled = true;
+        }
     }
 }
