@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Piles : ClickableObject, IClicked, IItemInventaire, IAction
 {
+    List<GameObject> zonesZoom = new List<GameObject>();
+
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>();
     public string Name => "Piles";
     public Sprite _Image;
@@ -12,6 +14,11 @@ public class Piles : ClickableObject, IClicked, IItemInventaire, IAction
 
     public GameObject _visual;
     public GameObject visual => _visual;
+
+    void Start()
+    {
+
+    }
 
     public void OnClickAction()
     {
@@ -33,7 +40,7 @@ public class Piles : ClickableObject, IClicked, IItemInventaire, IAction
 
     public void OnPickUp()
     {
-        gameObject.SetActive(false);
+        StartCoroutine(AnimPickUp());
     }
 
     public void OnDrop()
@@ -56,5 +63,34 @@ public class Piles : ClickableObject, IClicked, IItemInventaire, IAction
     public void OnLunchActionAfterCloseDialogue()
     {
         
+    }
+
+    IEnumerator AnimPickUp()
+    {
+        GameObject.Find("Pile Pivot").transform.SetParent(Camera.main.transform);
+
+        foreach(GameObject indiceZone in GameObject.FindGameObjectsWithTag("Indice Zone"))
+        {
+            zonesZoom.Add(indiceZone);
+        }
+
+        for (int i = 0; i < zonesZoom.Count; i++)
+        {
+            zonesZoom[i].GetComponent<Collider>().enabled = false;
+        }
+
+        Destroy(GameObject.Find("PU_Shine Pile"));
+        iTween.MoveTo(GameObject.Find("Pile Pivot"), iTween.Hash("position", new Vector3(-15.2102027f, 9.1944768f, -8.9273609f), "time", 0.9f, "easetype", iTween.EaseType.easeInOutSine));
+        iTween.RotateTo(GameObject.Find("Pile Pivot"), iTween.Hash("rotation", new Vector3(0f, 220f, 0f), "time", 1f, "delay", 0.9f));
+        iTween.ScaleTo(GameObject.Find("Pile Pivot"), iTween.Hash("scale", new Vector3(0.67495f, 0.67495f, 0.67495f), "time", 0.5f, "delay", 0.9f));
+        iTween.MoveTo(GameObject.Find("Pile Pivot"), iTween.Hash("position", new Vector3(20f, 3.575f, -40f), "time", 1.5f, "easetype", iTween.EaseType.easeInOutSine, "delay", 2f));
+        iTween.ScaleTo(GameObject.Find("Pile Pivot"), iTween.Hash("scale", new Vector3(0.2f, 0.2f, 0.2f), "time", 0.15f, "delay", 2f));
+        Destroy(GameObject.Find("Pile Pivot"), 3f);
+        yield return new WaitForSeconds(2.5f);
+
+        for (int i = 0; i < zonesZoom.Count; i++)
+        {
+            zonesZoom[i].GetComponent<Collider>().enabled = true;
+        }
     }
 }

@@ -61,11 +61,11 @@ public class Antenne : ClickableObject, IClicked, IItemInventaire, IAction
     {
         dezoom = GameObject.Find("Dezoom").GetComponent<Button>();
         dezoom.interactable = false;
-        iTween.MoveTo(GameObject.Find("Antenne Pivot"), iTween.Hash("position", new Vector3(-33.3230014f, 3.575f, -4.9f), "time", 0.9f, "easetype", iTween.EaseType.easeInOutSine));
-        iTween.RotateTo(GameObject.Find("Antenne Pivot"), iTween.Hash("rotation", new Vector3(0f, 200.382f, 0f), "time", 1f, "delay", 0.9f));
-        iTween.ScaleTo(GameObject.Find("Antenne Pivot"), iTween.Hash("scale", new Vector3(0.16f, 0.16f, 0.16f), "time", 0.5f, "delay", 0.9f));
-        iTween.MoveTo(GameObject.Find("Antenne Pivot"), iTween.Hash("position", new Vector3(0f, 3.575f, -4.9f), "time", 1.5f, "easetype", iTween.EaseType.easeInOutSine, "delay", 2f));
-        iTween.ScaleTo(GameObject.Find("Antenne Pivot"), iTween.Hash("scale", new Vector3(0.0684f, 0.0684f, 0.0684f), "time", 0.3f, "delay", 2f));
+        iTween.MoveTo(GameObject.Find("Antenne Pivot"), iTween.Hash("position", new Vector3(-13.8982f, 5.565477f, -9.586361f), "time", 0.9f, "easetype", iTween.EaseType.easeInOutSine));
+        iTween.RotateTo(GameObject.Find("Antenne Pivot"), iTween.Hash("rotation", new Vector3(11.378f, 129.924f, -37.006f), "time", 1f, "delay", 0.9f));
+        iTween.ScaleTo(GameObject.Find("Antenne Pivot"), iTween.Hash("scale", new Vector3(0.1660255f, 0.1660255f, 0.1660255f), "time", 0.5f, "delay", 0.9f));
+        iTween.MoveTo(GameObject.Find("Antenne Pivot"), iTween.Hash("position", new Vector3(10f, 3.575f, -45f), "time", 1.5f, "easetype", iTween.EaseType.easeInOutSine, "delay", 2f));
+        iTween.ScaleTo(GameObject.Find("Antenne Pivot"), iTween.Hash("scale", new Vector3(0.1009348f, 0.1009348f, 0.1009348f), "time", 0.3f, "delay", 2f));
         Destroy(GameObject.Find("Antenne Pivot"), 3f);
         yield return new WaitForSeconds(2.5f);
         dezoom.interactable = true;

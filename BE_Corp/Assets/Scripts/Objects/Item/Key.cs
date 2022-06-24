@@ -37,7 +37,7 @@ public class Key : ClickableObject, IClicked, IItemInventaire, IAction
     public void OnPickUp()
     {
         //Debug.Log("Oui oui rab");
-        gameObject.SetActive(false);
+        StartCoroutine(AnimPickUp());
         PlayerPrefs.SetInt("VaseAndKey", 2);
     }
 
@@ -73,5 +73,18 @@ public class Key : ClickableObject, IClicked, IItemInventaire, IAction
     public void OnLook()
     {
         Debug.Log("Observe");
+    }
+
+    IEnumerator AnimPickUp()
+    {
+        GameObject.Find("Clef Pivot").transform.SetParent(Camera.main.transform);
+        Destroy(GameObject.Find("PU_shine Key"));
+        iTween.MoveTo(GameObject.Find("Clef Pivot"), iTween.Hash("position", new Vector3(-15.2102027f, 9.1944768f, -8.9273609f), "time", 0.9f, "easetype", iTween.EaseType.easeInOutSine));
+        iTween.RotateTo(GameObject.Find("Clef Pivot"), iTween.Hash("rotation", new Vector3(135.084f, -34.272f, 0f), "time", 1f, "delay", 0.9f));
+        iTween.ScaleTo(GameObject.Find("Clef Pivot"), iTween.Hash("scale", new Vector3(1.35147f, 1.35147f, 1.35147f), "time", 0.5f, "delay", 0.9f));
+        iTween.MoveTo(GameObject.Find("Clef Pivot"), iTween.Hash("position", new Vector3(20f, 3.575f, -40f), "time", 1.5f, "easetype", iTween.EaseType.easeInOutSine, "delay", 2f));
+        iTween.ScaleTo(GameObject.Find("Clef Pivot"), iTween.Hash("scale", new Vector3(0.2f, 0.2f, 0.2f), "time", 0.15f, "delay", 2f));
+        Destroy(GameObject.Find("Clef Pivot"), 3f);
+        yield return new WaitForSeconds(2.5f);
     }
 }

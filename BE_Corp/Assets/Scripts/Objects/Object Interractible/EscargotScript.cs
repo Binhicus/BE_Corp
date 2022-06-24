@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
+using UnityEngine.UI;
 
 public class EscargotScript : ClickableObject, IClicked, IItemInventaire, IAction
 {
+    Button dezoom;
+
     public string nomDelEscargot;
     //private GameObject Escargot;
     public string Name => "Petit Escargot";
@@ -64,6 +67,20 @@ public class EscargotScript : ClickableObject, IClicked, IItemInventaire, IActio
 
     public void OnPickUp()
     {
-        gameObject.SetActive(false);
+        StartCoroutine(AnimPickUp());
+    }
+
+    IEnumerator AnimPickUp()
+    {
+        dezoom = GameObject.Find("Dezoom").GetComponent<Button>();
+        dezoom.interactable = false;
+        iTween.MoveTo(GameObject.Find("Statuette Pivot"), iTween.Hash("position", new Vector3(-13.8982f, 5.565477f, -9.586361f), "time", 0.9f, "easetype", iTween.EaseType.easeInOutSine));
+        iTween.RotateTo(GameObject.Find("Statuette Pivot"), iTween.Hash("rotation", new Vector3(0f, 220f, 0f), "time", 1f, "delay", 0.9f));
+        iTween.ScaleTo(GameObject.Find("Statuette Pivot"), iTween.Hash("scale", new Vector3(0.1515318f, 0.1515318f, 0.1515318f), "time", 0.5f, "delay", 0.9f));
+        iTween.MoveTo(GameObject.Find("Statuette Pivot"), iTween.Hash("position", new Vector3(10f, 3.575f, -45f), "time", 1.5f, "easetype", iTween.EaseType.easeInOutSine, "delay", 2f));
+        iTween.ScaleTo(GameObject.Find("Statuette Pivot"), iTween.Hash("scale", new Vector3(0.04553575f, 0.04553575f, 0.04553575f), "time", 0.15f, "delay", 2f));
+        Destroy(GameObject.Find("Statuette Pivot"), 3f);
+        yield return new WaitForSeconds(2.5f);
+        dezoom.interactable = true;
     }
 }
