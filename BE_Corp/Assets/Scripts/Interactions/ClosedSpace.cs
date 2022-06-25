@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
 
-public class ClosedSpace : ClickableObject, IHasItemInteraction, IClicked, IAction
+public class ClosedSpace : MonoBehaviour, IHasItemInteraction, IClicked, IAction
 {
     public string nomItem;
     public string inventoryItemID => nomItem;
     public AudioSource unlocked;
-    public GameObject fog, bloqueur;
+    public GameObject fog, emetteur, epee, bloqueur;
     public GameObject OuverturePorteChambre;
 
     public BlockReference question, inspect ;
@@ -68,12 +68,23 @@ public class ClosedSpace : ClickableObject, IHasItemInteraction, IClicked, IActi
 
     public void DoItemInteraction()
     {
-        fog.GetComponentInChildren<ParticleSystem>().Stop();
+        EffetEpee();
+        EffetBrume();
         fog.GetComponent<BoxCollider>().enabled = false;
         bloqueur.SetActive(false);
         PlayerPrefs.SetInt("Brume", 1);
         OuverturePorteChambre.GetComponent<BoxCollider>().enabled=true;
         Jauge.Instance.stadeProg += 1;
+    }
+
+    void EffetBrume()
+    {
+        emetteur.GetComponent<BrumeSpawn>().enabled = false;
+        emetteur.GetComponent<Animator>().Play("Fumée_End"); //animation d'arrêt
+    }
+    void EffetEpee()
+    {
+        epee.GetComponent<Animator>().Play("MvtEpée");
     }
 
     // Start is called before the first frame update
