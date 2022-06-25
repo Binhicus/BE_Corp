@@ -19,6 +19,7 @@ public class SalonManager : MonoBehaviour
         PilesRobot = GameObject.FindWithTag("Test");
         ballon = GameObject.Find("Soccer Ball").transform.GetChild(0).gameObject;
         antenne = GameObject.Find("Antenne");
+
         SalonLoader();
     }
     public void VaseState()

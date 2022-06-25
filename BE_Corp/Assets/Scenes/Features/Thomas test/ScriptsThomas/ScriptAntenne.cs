@@ -130,6 +130,7 @@ public class ScriptAntenne : MonoBehaviour
         MisAJourEffect.Instance.MiseAJour();
         Jauge.Instance.stadeProg += 1;
         yield return new WaitForSeconds(2.0f);
+        PlayerPrefs.SetInt("Morceau1Tableau",1);
         pluie.Play();
         pluie.volume=1;
         maj.Execute();

@@ -110,6 +110,7 @@ public class FourScript : ClickableObject,IClicked, IAction
     {
         yield return new WaitForSeconds(5.5f);
         MisAJourEffect.Instance.MiseAJour();
+        PlayerPrefs.SetInt("Morceau2Tableau",1);
         PlayerPrefs.SetInt("Smoke",4);
         PlayerPrefs.SetInt("FourOk",2);
         this.GetComponent<BoxCollider>().enabled=false;

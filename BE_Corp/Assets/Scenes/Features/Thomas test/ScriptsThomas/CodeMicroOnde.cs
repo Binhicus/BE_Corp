@@ -357,5 +357,6 @@ public class CodeMicroOnde : MonoBehaviour
         PeutAppuyer=false;
         //Bon.color=new Color32(139,255,0,255);
         porteMicro.GetComponent<Animator>().SetTrigger("Ouvre");
+        PlayerPrefs.SetInt("Morceau3Tableau",1);
     }
 }
