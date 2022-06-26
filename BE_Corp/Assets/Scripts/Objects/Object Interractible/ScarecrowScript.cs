@@ -6,7 +6,7 @@ using Fungus;
 public class ScarecrowScript : ClickableObject, IClicked, IAction
 {
     public GameObject Epouvantail;
-    public GameObject PorteManteau;
+    //public GameObject PorteManteau;
     public BlockReference question, inspect, dissolve, maj;
     public AudioSource Son;
 
@@ -39,8 +39,10 @@ public class ScarecrowScript : ClickableObject, IClicked, IAction
             // Nothing
         } else {
             GetComponent<BoxCollider>().enabled = false ;
-            Epouvantail.GetComponent<Animator>().SetTrigger("Scarecrow Disable");
-            PorteManteau.GetComponent<Animator>().SetTrigger("CoatRack Enable");        
+            //Epouvantail.GetComponent<Animator>().SetTrigger("disabled");
+            Epouvantail.SetActive(false);
+
+            //PorteManteau.GetComponent<Animator>().SetTrigger("CoatRack Enable");        
         }
     }
 
@@ -61,8 +63,8 @@ public class ScarecrowScript : ClickableObject, IClicked, IAction
         maj.Execute();
         GetComponent<BoxCollider>().enabled = false ;
         Son.Play();
-        Epouvantail.GetComponent<Animator>().SetTrigger("Scarecrow Animation");
-        PorteManteau.GetComponent<Animator>().SetTrigger("CoatRack Animation");
+        Epouvantail.GetComponent<Animator>().SetTrigger("animation");
+        //PorteManteau.GetComponent<Animator>().SetTrigger("CoatRack Animation");
         Jauge.Instance.stadeProg += 1;
 
 

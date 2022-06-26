@@ -25,7 +25,7 @@ public class BDSalon :ClickableObject,IClicked, IAction
     {
         
         CameraActivate = GameObject.Find("---- CAMERAS ----").GetComponent<CameraContainerScript>().CameraBD;
-         TSommaire=GameObject.Find("BOOK");
+        TSommaire = GameObject.FindGameObjectWithTag("Book");
         TSommaire.SetActive(false);
     }
 

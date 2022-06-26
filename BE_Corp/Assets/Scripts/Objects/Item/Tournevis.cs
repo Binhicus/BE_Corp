@@ -20,7 +20,7 @@ public class Tournevis : ClickableObject, IClicked, IItemInventaire,IAction
     {
         if (PlayerPrefs.GetInt("Séquence 1 Done") == 0)
         {
-            this.gameObject.GetComponent<BoxCollider>().enabled = false;
+            this.gameObject.GetComponent<CapsuleCollider>().enabled = false;
         }
     }
 

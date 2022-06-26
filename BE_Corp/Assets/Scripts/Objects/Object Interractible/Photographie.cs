@@ -6,7 +6,7 @@ using UnityEngine;
 public class Photographie : ClickableObject, IClicked, IAction
 {
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>();
-    public BlockReference inspection, questionnement;
+    public BlockReference questionnement;
     private EntreeManager entreeManager;
 
     void Awake()
@@ -26,7 +26,7 @@ public class Photographie : ClickableObject, IClicked, IAction
 
     public void OnInspect()
     {
-        inspection.Execute();
+        //inspection.Execute();
     }
 
     public void OnLook()
