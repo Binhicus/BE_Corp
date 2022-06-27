@@ -29,7 +29,9 @@ public class ActionWheelChoice : MonoBehaviour
 {
     [Header ("Action Wheel Part")]
     public Image MainCircle;
-    public Image IconObject;
+    public Image BackgroundAction;
+    public Image ChoiceCirle ;
+
     public TextMeshProUGUI NameAction ;
     public AnimationCurve AnimCurvRef ;
 
@@ -37,7 +39,7 @@ public class ActionWheelChoice : MonoBehaviour
 
     [Header ("Action")]
     public IAction TargetAction ;
-    [HideInInspector] public ActionPossible StateAction = ActionPossible.Rien ;
+   /* [HideInInspector]*/ public ActionPossible StateAction = ActionPossible.Rien ;
 
     public void StateOvering(bool State)
     {
@@ -45,23 +47,31 @@ public class ActionWheelChoice : MonoBehaviour
         {
             StateMouseOver = ActionOveringState.NotOvering ;
 
-            IconObject.GetComponent<RectTransform>().DOScale(new Vector3(0.9f, 0.9f, 0.9f), 0.1f).SetEase(AnimCurvRef);
+            BackgroundAction.GetComponent<RectTransform>().DOScale(new Vector3(.9f, .9f, .9f), 0.1f)/*.SetEase(AnimCurvRef)*/;
             MainCircle.GetComponent<Image>().raycastTarget = false ;
-            NameAction.gameObject.SetActive(false);
+         //  NameAction.gameObject.SetActive(false);
         }
 
         if(State == true)
         {
             StateMouseOver = ActionOveringState.Overing ;
 
-            IconObject.GetComponent<RectTransform>().DOScale(new Vector3(1.25f, 1.25f, 1.25f), 0.1f).SetEase(AnimCurvRef);
+            BackgroundAction.GetComponent<RectTransform>().DOScale(new Vector3(1f, 1f, 1f), 0.1f)/*.SetEase(AnimCurvRef)*/;
             MainCircle.GetComponent<Image>().raycastTarget = true ;
-            NameAction.gameObject.SetActive(true);
+          //  NameAction.gameObject.SetActive(true);
         } 
     }
 
-    private void Update() {
-        if(NameAction.gameObject.activeSelf && Input.GetMouseButtonDown(0)) ClickAction();
+    public void AnimFillAmount(float FillValue, bool Enable)
+    {
+        if(Enable) ChoiceCirle.fillAmount = 0 ;
+        ChoiceCirle.DOFillAmount(FillValue, 0.4f);
+    }
+
+    private void Update() 
+    {
+        if(MainCircle.GetComponent<Image>().raycastTarget && Input.GetMouseButtonDown(0)) ClickAction();
+
     }
 
 
@@ -70,7 +80,7 @@ public class ActionWheelChoice : MonoBehaviour
         // State Nothing
         if(StateAction == ActionPossible.Rien)
         {
-            Debug.Log(GetComponentInParent<ActionWheel>().TitleCurrentActionChoice.text);            
+       //     Debug.Log(GetComponentInParent<ActionWheel>().TitleCurrentActionChoice.text);            
         }
 
         // State Ouvrir
@@ -106,7 +116,7 @@ public class ActionWheelChoice : MonoBehaviour
         // State Questionner
         if(StateAction == ActionPossible.Questionner)
         {
-            TargetAction.OnQuestion();          
+            TargetAction.OnQuestion();
         }
 
         // State Questionner

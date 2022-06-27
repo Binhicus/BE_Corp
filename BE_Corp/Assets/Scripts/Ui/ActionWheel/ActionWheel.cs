@@ -16,9 +16,11 @@ public class ActionWheelActionData
 
 public class ActionWheel : MonoBehaviour
 {
+    public List<Transform> CirclesImage ;
+
     public List<ActionWheelChoiceData> ChoicesDisplay = new List<ActionWheelChoiceData>();
     public Transform ActionChoiceContainer ;
-    public TextMeshProUGUI TitleCurrentActionChoice ;
+   // public TextMeshProUGUI TitleCurrentActionChoice ;
     public GameObject choicePrefab;
     List<ActionWheelChoice> choiceObjects = new List<ActionWheelChoice>();
 
@@ -43,8 +45,9 @@ public class ActionWheel : MonoBehaviour
 
     private void OnEnable() 
     {
+        EnableAnimationWheel();
         SetActionWheelPos();        
-        StartCoroutine(SetActionWheel()); 
+     //   StartCoroutine(SetActionWheel()); 
     }
     
 
@@ -53,7 +56,21 @@ public class ActionWheel : MonoBehaviour
         StartCoroutine(CloseWheel()); 
     }
 
-
+    void EnableAnimationWheel()
+    {
+        StartCoroutine(AnimCircle());
+        
+    }
+    IEnumerator AnimCircle()
+    {
+        CirclesImage[2].DOScale(Vector3.one, 0.2f);
+        yield return new WaitForSeconds(0.1f);
+        CirclesImage[1].DOScale(Vector3.one, 0.2f);
+        yield return new WaitForSeconds(0.1f);
+        CirclesImage[0].DOScale(Vector3.one, 0.2f);
+        
+        StartCoroutine(SetActionWheel());
+    }
 
     void SetActionWheelPos()
     {
@@ -99,6 +116,15 @@ public class ActionWheel : MonoBehaviour
 
             float angle = 360f / ChoicesDisplay.Count ;    
             choiceObject.MainCircle.fillAmount = angle / 360f;     
+
+            float FillAmountChoiceCircle ; 
+
+            if(ChoicesDisplay.Count <= 1) FillAmountChoiceCircle = angle / 360f;
+            else FillAmountChoiceCircle =  choiceObject.ChoiceCirle.fillAmount * 0.8f ;
+            choiceObject.ChoiceCirle.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, (360f * FillAmountChoiceCircle) / 2f -90f));
+            choiceObject.AnimFillAmount(FillAmountChoiceCircle, true) ;
+
+
             rotation.z = angle * i ; 
             float radianAngle = rotation.z * Mathf.Deg2Rad - (angle * Mathf.Deg2Rad * 0.5f);    
 
@@ -106,21 +132,23 @@ public class ActionWheel : MonoBehaviour
 
 
 
-            choiceObject.IconObject.sprite = ChoicesDisplay[i].IconAction;
-            choiceObject.IconObject.transform.rotation = Quaternion.identity;
-            SetAngledPosition(choiceObject.IconObject.transform, ActionChoiceContainer.transform.position, radianAngle, 50f);
-            choiceObject.IconObject.transform.GetComponent<RectTransform>().DOScale(new Vector3(0.75f, 0.75f, 0.75f), 0.125f);
+        //    choiceObject.BackgroundAction.sprite = ChoicesDisplay[i].IconAction;
+            choiceObject.BackgroundAction.transform.rotation = Quaternion.identity;
+            choiceObject.BackgroundAction.GetComponent<RectTransform>().pivot = SetTextPivot(choiceObject.BackgroundAction.transform.parent.GetComponent<RectTransform>());               
+            SetAngledPosition(choiceObject.BackgroundAction.transform, ActionChoiceContainer.transform.position, radianAngle, /*50f*/ 90f);
+            //  choiceObject.BackgroundAction.transform.GetComponent<RectTransform>().DOScale(new Vector3(0.75f, 0.75f, 0.75f), 0.125f);
+ 
+
 
             choiceObject.NameAction.text = ChoicesDisplay[i].NameActionFR;
             choiceObject.NameAction.transform.rotation = Quaternion.identity;    
 
 
+         //   choiceObject.NameAction.GetComponent<RectTransform>().pivot = SetTextPivot(choiceObject.BackgroundAction.GetComponent<RectTransform>());        
+          //  SetAngledPosition(choiceObject.NameAction.transform, ActionChoiceContainer.transform.position, radianAngle, 105f);
 
-            choiceObject.NameAction.GetComponent<RectTransform>().pivot = SetTextPivot(choiceObject.IconObject.GetComponent<RectTransform>());        
-            SetAngledPosition(choiceObject.NameAction.transform, ActionChoiceContainer.transform.position, radianAngle, 105f);
-
-
-            float ValueDecallage = (choiceObject.IconObject.GetComponent<RectTransform>().sizeDelta.x - choiceObject.IconObject.GetComponent<RectTransform>().sizeDelta.x / 4f) / 2f ;
+/*
+            float ValueDecallage = (choiceObject.BackgroundAction.GetComponent<RectTransform>().sizeDelta.x - choiceObject.BackgroundAction.GetComponent<RectTransform>().sizeDelta.x / 4f) / 2f ;
             if(choiceObject.NameAction.GetComponent<RectTransform>().pivot == new Vector2(0, 0)) choiceObject.NameAction.GetComponent<RectTransform>().anchoredPosition += new Vector2(ValueDecallage, ValueDecallage);
             if(choiceObject.NameAction.GetComponent<RectTransform>().pivot == new Vector2(0, 1f)) choiceObject.NameAction.GetComponent<RectTransform>().anchoredPosition += new Vector2(ValueDecallage, -ValueDecallage);
             if(choiceObject.NameAction.GetComponent<RectTransform>().pivot == new Vector2(1f, 0)) choiceObject.NameAction.GetComponent<RectTransform>().anchoredPosition += new Vector2(-ValueDecallage, ValueDecallage);
@@ -136,9 +164,12 @@ public class ActionWheel : MonoBehaviour
             if(choiceObject.NameAction.GetComponent<RectTransform>().pivot.x == 0) choiceObject.NameAction.alignment = TextAlignmentOptions.Left ;
             if(choiceObject.NameAction.GetComponent<RectTransform>().pivot.x == 0.5f) choiceObject.NameAction.alignment = TextAlignmentOptions.Center ;
             if(choiceObject.NameAction.GetComponent<RectTransform>().pivot.x == 1f) choiceObject.NameAction.alignment = TextAlignmentOptions.Right ;
-
+*/
             SetPartActionWheel(TargetAction, choiceObject.NameAction.text, choiceObject);
-            yield return new WaitForSeconds(0.075f);            
+
+            yield return new WaitForSeconds(0.025f);            
+            choiceObject.BackgroundAction.GetComponent<HoverElementMask>().ShowElement();
+            yield return new WaitForSeconds(0.055f);            
         }
 
         CanClick = true ;
@@ -202,7 +233,7 @@ public class ActionWheel : MonoBehaviour
                 if(GetAngleMouseOvered() >= 0 && GetAngleMouseOvered() < ActionChoiceContainer.transform.childCount && ActionChoiceContainer.transform.GetChild(GetAngleMouseOvered()).GetComponent<ActionWheelChoice>().StateMouseOver == ActionOveringState.NotOvering)
                 {
                     ActionChoiceContainer.transform.GetChild(GetAngleMouseOvered()).GetComponent<ActionWheelChoice>().StateOvering(true);
-                    TitleCurrentActionChoice.text = ChoicesDisplay[GetAngleMouseOvered()].NameActionFR ;
+                  //  TitleCurrentActionChoice.text = ChoicesDisplay[GetAngleMouseOvered()].NameActionFR ;
                 }
             } else {
                 if(Input.GetMouseButtonDown(0)) DisableWheel();
@@ -235,20 +266,35 @@ public class ActionWheel : MonoBehaviour
 
     IEnumerator CloseWheel()
     {
+
+        
+
+
+
         CanClick = false ;
 
         for (int i = 0; i < ActionChoiceContainer.transform.childCount; i++)
         {
-            ActionChoiceContainer.transform.GetChild(i).DOScale(Vector3.zero, 0.08f);
+            //ActionChoiceContainer.transform.GetChild(i).DOScale(Vector3.zero, 0.08f);
+            ActionChoiceContainer.transform.GetChild(i).transform.GetChild(2).GetComponent<HoverElementMask>().HideElement();
+            ActionChoiceContainer.transform.GetChild(i).GetComponent<ActionWheelChoice>().AnimFillAmount(0f, false) ;
             yield return new WaitForSeconds(0.06f);            
         }
 
+
+        CirclesImage[0].DOScale(Vector3.zero, 0.15f);
+        yield return new WaitForSeconds(0.09f);
+        CirclesImage[1].DOScale(Vector3.zero, 0.15f);
+        yield return new WaitForSeconds(0.09f);
+        CirclesImage[2].DOScale(Vector3.zero, 0.15f);
+
+        yield return new WaitForSeconds(0.01f);
         gameObject.SetActive(false);
     }
 
     bool MouseOverBool()
     {
-        float radius = 65f ;
+        float radius = 110f ;
 
         Vector2 Center = GetComponent<RectTransform>().anchoredPosition ;
 
