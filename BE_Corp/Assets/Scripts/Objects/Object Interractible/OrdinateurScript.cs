@@ -21,6 +21,34 @@ public class OrdinateurScript : ClickableObject, IClicked, IAction
         }
         if(PlayerPrefs.GetInt("NordMeteo")==1&&PlayerPrefs.GetInt("MdpOk")==0)
         {
+            Postit[3].SetActive(true);
+        }
+        if(PlayerPrefs.GetInt("Matisse")==1&&PlayerPrefs.GetInt("MdpOk")==0)
+        {
+            Postit[2].SetActive(true);
+        }
+        if(PlayerPrefs.GetInt("Tableau1")==1&&PlayerPrefs.GetInt("Tableau2")==1&&PlayerPrefs.GetInt("MdpOk")==0)
+        {
+            Postit[4].SetActive(true);
+        }
+    }
+
+    void Update()
+    {
+    }
+
+
+
+
+    void LookZone()
+    {
+
+        if(PlayerPrefs.GetInt("IndiceEscargot")==1&&PlayerPrefs.GetInt("MdpOk")==0)
+        {
+            Postit[1].SetActive(true);
+        }
+        if(PlayerPrefs.GetInt("NordMeteo")==1&&PlayerPrefs.GetInt("MdpOk")==0)
+        {
             Postit[2].SetActive(true);
         }
         if(PlayerPrefs.GetInt("Matisse")==1&&PlayerPrefs.GetInt("MdpOk")==0)
@@ -31,13 +59,7 @@ public class OrdinateurScript : ClickableObject, IClicked, IAction
         {
             Postit[4].SetActive(true);
         }
-    }
 
-
-
-
-    void LookZone()
-    {
         CameraActivate.SetActive(true);        
 
         if(ScriptAlimentationComputer.ComputerAsBeLunch == false)

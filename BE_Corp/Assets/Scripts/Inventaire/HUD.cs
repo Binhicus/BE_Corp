@@ -87,7 +87,6 @@ public class HUD : MonoBehaviour
             DezoomButton.SetActive(false);
         }
 
-
         GameObject[] IndiceZoneCollider ;
         IndiceZoneCollider = GameObject.FindGameObjectsWithTag("Indice Zone");
 
