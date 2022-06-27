@@ -25,8 +25,8 @@ public class BDSalon :ClickableObject,IClicked, IAction
     {
         
         CameraActivate = GameObject.Find("---- CAMERAS ----").GetComponent<CameraContainerScript>().CameraBD;
-        TSommaire = GameObject.FindGameObjectWithTag("Book");
-        TSommaire.SetActive(false);
+        //TSommaire = GameObject.FindGameObjectWithTag("Book");
+        //TSommaire.SetActive(false);
     }
 
     // Update is called once per frame
