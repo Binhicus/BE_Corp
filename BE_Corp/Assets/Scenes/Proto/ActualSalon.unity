@@ -43758,6 +43758,7 @@ GameObject:
   - component: {fileID: 1362304328}
   - component: {fileID: 1362304327}
   - component: {fileID: 1362304326}
+  - component: {fileID: 1362304336}
   m_Layer: 0
   m_Name: Flowchart Salon
   m_TagString: Untagged
@@ -43827,7 +43828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 1013.0857, y: 675.57465}
+  scrollPos: {x: 494.5142, y: 524.1458}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 312.5
@@ -43838,10 +43839,8 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks:
-  - {fileID: 1362304327}
-  selectedCommands:
-  - {fileID: 1362304326}
+  selectedBlocks: []
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -43937,7 +43936,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 5
   indentLevel: 0
-  storyText: "Ce jouet semble \xEAtre en \xE9tat de marche."
+  storyText: "Ce jouet semble \xEAtre en \xE9tat de marche, malgr\xE9 sa cache de
+    pile us\xE9e."
   description: 
   character: {fileID: 1770311226}
   portrait: {fileID: 0}
@@ -44109,8 +44109,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 78
   indentLevel: 0
-  storyText: "Cette pi\xE8ce \xE0 l'air remplis d'anomalie... votre souvenir \xE0
-    l'air d'\xEAtre tr\xE8s flou"
+  storyText: "Cette pi\xE8ce a l'air remplie d'anomalies... Beaucoup de travail de
+    synchronisation nous attend."
   description: 
   character: {fileID: 1770311226}
   portrait: {fileID: 0}
@@ -44137,7 +44137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 77
   indentLevel: 0
-  storyText: Que ce passe t'il ici ?
+  storyText: Que se passe-t-il ici ?
   description: 
   character: {fileID: 963957872}
   portrait: {fileID: 0}
@@ -44200,7 +44200,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1362304216}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
   m_Name: 
@@ -44234,7 +44234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 89
   indentLevel: 0
-  storyText: "Vous avez peut-\xEAtre raison"
+  storyText: "Vous avez peut-\xEAtre raison."
   description: 
   character: {fileID: 963957872}
   portrait: {fileID: 0}
@@ -44496,7 +44496,7 @@ MonoBehaviour:
   itemId: 99
   indentLevel: 0
   storyText: "Pr\xE9sent\xE9 ainsi je peux comprendre la repr\xE9sentation de cette
-    chaise, mais j'ai bien peur qu'on flirte avec un extr\xEAme pour le coup..."
+    chaise, mais j'ai bien peur que ce soit un peu excessif pour le coup..."
   description: 
   character: {fileID: 1770311226}
   portrait: {fileID: 0}
@@ -44523,8 +44523,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 97
   indentLevel: 0
-  storyText: Durant mon enfance, je me rappelle que je devais fournir dinombrable
-    efforts pour m'asseoir sur des chaises.
+  storyText: "Si vous saviez la violence des efforts que j'avais \xE0 fournir pour
+    prendre place sur ces chaises... Une fois"
   description: 
   character: {fileID: 963957872}
   portrait: {fileID: 0}
@@ -44551,8 +44551,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 96
   indentLevel: 0
-  storyText: "Madame Pinault, ont dirait que dans votre souvenir, vous voyez cette
-    chaise plus grande qu'elle ne devait \xEAtre"
+  storyText: "Madame Pinault, vos souvenirs semblent vous jouer des tours, vous voyez
+    cette chaise plus grande qu'elle ne devait \xEAtre."
   description: 
   character: {fileID: 1770311226}
   portrait: {fileID: 0}
@@ -44646,7 +44646,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1362304216}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
   m_Name: 
@@ -44681,8 +44681,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 102
   indentLevel: 0
-  storyText: "Personne ne vous reprochait de chaparder des piles en qui \xE9tait
-    en \xE9tat de marche dans toute la maison ?"
+  storyText: "Personne ne vous reprochait de chaparder des piles qui \xE9taient en
+    \xE9tat de marche dans toute la maison ?"
   description: 
   character: {fileID: 1770311226}
   portrait: {fileID: 0}
@@ -44710,8 +44710,8 @@ MonoBehaviour:
   itemId: 104
   indentLevel: 0
   storyText: "Si vous saviez la quantit\xE9 de piles que j'ai d\xE9rob\xE9 dans des
-    t\xE9l\xE9commandes, des horloges et autre appareil \xE9lectronique pour la faire
-    fonctionner..."
+    t\xE9l\xE9commandes, des horloges et autres appareils \xE9lectroniques pour la
+    faire fonctionner..."
   description: 
   character: {fileID: 963957872}
   portrait: {fileID: 0}
@@ -44739,8 +44739,8 @@ MonoBehaviour:
   itemId: 105
   indentLevel: 0
   storyText: "Au d\xE9but je demandais aux grandes personnes de changer les piles
-    pour moi, mais vu le nombre de pile qu'il fallait, ils ont vite arr\xEAt\xE9
-    et me disaient de jouer sans...."
+    pour moi, mais \xE0 la longue, ils ont vite arr\xEAt\xE9 et me disaient de jouer
+    sans...."
   description: 
   character: {fileID: 963957872}
   portrait: {fileID: 0}
@@ -44787,7 +44787,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1362304216}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
   m_Name: 
@@ -44821,7 +44821,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 107
   indentLevel: 0
-  storyText: "Du coup je le fasait moi m\xEAme quand ils avaient le dos tourn\xE9."
+  storyText: "Du coup je le faisais moi m\xEAme quand ils avaient le dos tourn\xE9."
   description: 
   character: {fileID: 963957872}
   portrait: {fileID: 0}
@@ -44933,7 +44933,7 @@ MonoBehaviour:
   itemId: 117
   indentLevel: 0
   storyText: "Cette chaise para\xEEt vraiment grande par rapport \xE0 la table qui
-    est \xE0 c\xF4t\xE9"
+    est \xE0 c\xF4t\xE9."
   description: 
   character: {fileID: 1770311226}
   portrait: {fileID: 0}
@@ -45074,7 +45074,7 @@ MonoBehaviour:
   itemId: 111
   indentLevel: 0
   storyText: "Cette table parait toute petite par rapport \xE0 la chaise qui est
-    \xE0 c\xF4t\xE9"
+    \xE0 c\xF4t\xE9."
   description: 
   character: {fileID: 1770311226}
   portrait: {fileID: 0}
@@ -45360,7 +45360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 198
   indentLevel: 0
-  storyText: Vous avez raison, toute mes excuses
+  storyText: ...
   description: 
   character: {fileID: 1770311226}
   portrait: {fileID: 0}
@@ -45387,8 +45387,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 171
   indentLevel: 0
-  storyText: En tout cas c'est une statue sympa ! J'aimerais bien en avoir une identique
-    sur mon bureau
+  storyText: "En tout cas j'aime beaucoup son design, \xE7a ferait une d\xE9coration
+    au poil pour le bureau !"
   description: 
   character: {fileID: 1770311226}
   portrait: {fileID: 0}
@@ -45469,7 +45469,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 168
   indentLevel: 0
-  storyText: "Et le tableau que je vous est demand\xE9 dans tout \xE7a ?"
+  storyText: "Et le tableau que je vous ai demand\xE9 dans tout \xE7a ?"
   description: 
   character: {fileID: 963957872}
   portrait: {fileID: 0}
@@ -45523,7 +45523,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 166
   indentLevel: 0
-  storyText: Il semblerais que oui.
+  storyText: En toute logique, oui.
   description: 
   character: {fileID: 1770311226}
   portrait: {fileID: 0}
@@ -45584,6 +45584,7 @@ MonoBehaviour:
   - {fileID: 1362304280}
   - {fileID: 1362304283}
   - {fileID: 1362304279}
+  - {fileID: 1362304336}
   suppressAllAutoSelections: 0
 --- !u!114 &1362304288
 MonoBehaviour:
@@ -45599,7 +45600,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 163
   indentLevel: 0
-  storyText: C'est assez original comme statue
+  storyText: C'est assez original comme statuette.
   description: 
   character: {fileID: 1770311226}
   portrait: {fileID: 0}
@@ -46020,8 +46021,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 193
   indentLevel: 0
-  storyText: "Madame Pinault, au vu de la taille de la taille et du reste des \xE9l\xE9ments
-    de la pi\xE8ce, cette chaise devait s'en doute \xEAtre plus petite"
+  storyText: "Madame Pinault, au vu de la taille et du reste des \xE9l\xE9ments de
+    la pi\xE8ce, cette chaise devait s'en doute \xEAtre plus petite."
   description: 
   character: {fileID: 1770311226}
   portrait: {fileID: 0}
@@ -46048,7 +46049,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 192
   indentLevel: 0
-  storyText: Est-ce normale que mes souvenirs soit aussi flou ?
+  storyText: Est-ce normale que mes souvenirs soient aussi flous ?
   description: 
   character: {fileID: 963957872}
   portrait: {fileID: 0}
@@ -46322,7 +46323,7 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
-  setSayDialog: {fileID: 223347813}
+  setSayDialog: {fileID: 332132280}
 --- !u!114 &1362304317
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -46476,7 +46477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -832.64905
+    x: -834.07764
     y: -352.3713
     width: 136.85712
     height: 40
@@ -46503,8 +46504,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 221
   indentLevel: 0
-  storyText: "Il y'a vraiment un th\xE8me commun dans ces tableaux, il y'a toujours
-    des tournesols."
+  storyText: "Il semble y avoir un th\xE8me commun dans ces tableaux, des tournesols
+    y figurent g\xE9n\xE9ralement."
   description: 
   character: {fileID: 1770311226}
   portrait: {fileID: 0}
@@ -46546,7 +46547,7 @@ MonoBehaviour:
   suppressAllAutoSelections: 0
 --- !u!114 &1362304326
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -46558,8 +46559,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 232
   indentLevel: 0
-  storyText: "Nous avons r\xE9ussis ! Le tableau est complet , nous pouvons enfin
-    le r\xE9cup\xE9rer ! "
+  storyText: "Nous avons r\xE9ussi ! Le tableau est complet, nous pouvons enfin le
+    r\xE9cup\xE9rer ! "
   description: 
   character: {fileID: 1770311226}
   portrait: {fileID: 0}
@@ -46574,7 +46575,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 332132280}
 --- !u!114 &1362304327
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -46613,7 +46614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 230
   indentLevel: 0
-  storyText: "En voil\xE0 une deuxi\xE8me , nous y sommes presque ! "
+  storyText: "En voil\xE0 une deuxi\xE8me, nous y sommes presque ! "
   description: 
   character: {fileID: 1770311226}
   portrait: {fileID: 0}
@@ -46668,7 +46669,7 @@ MonoBehaviour:
   itemId: 228
   indentLevel: 0
   storyText: "Nous avons r\xE9ussis \xE0 faire ressurgir une partie du tableau !
-    Continuons comme \xE7a ."
+    Continuons comme \xE7a."
   description: 
   character: {fileID: 1770311226}
   portrait: {fileID: 0}
@@ -46722,9 +46723,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 226
   indentLevel: 0
-  storyText: "Ne vous en faites pas , nous allons y rem\xE9dier !"
+  storyText: "Ne vous en faites pas, nous allons y rem\xE9dier !"
   description: 
-  character: {fileID: 0}
+  character: {fileID: 1770311226}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -46734,7 +46735,7 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
-  setSayDialog: {fileID: 332132280}
+  setSayDialog: {fileID: 223347813}
 --- !u!114 &1362304333
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -46749,10 +46750,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 225
   indentLevel: 0
-  storyText: "Il me semble que c'\xE9tait le tableau \xE0 cet emplacement oui , je
-    ne me souviens plus du tout de son contenu par contre..."
+  storyText: "Il me semble que c'\xE9tait le tableau \xE0 cet emplacement effectivement.
+    J'ai bien peur de ne plus du tout me souvenir de son contenu par contre..."
   description: 
-  character: {fileID: 0}
+  character: {fileID: 963957872}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -46790,7 +46791,7 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
-  setSayDialog: {fileID: 332132280}
+  setSayDialog: {fileID: 223347813}
 --- !u!114 &1362304335
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -46820,6 +46821,33 @@ MonoBehaviour:
   - {fileID: 1362304333}
   - {fileID: 1362304332}
   suppressAllAutoSelections: 0
+--- !u!114 &1362304336
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362304216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 237
+  indentLevel: 0
+  storyText: Remettons-nous au travail.
+  description: 
+  character: {fileID: 1770311226}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 223347813}
 --- !u!1 &1362825266
 GameObject:
   m_ObjectHideFlags: 0
