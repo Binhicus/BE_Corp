@@ -50,13 +50,14 @@ public class MessageManager : MonoBehaviour
     void Start()
     {
         PlayerPrefs.SetInt("Discussion E1", 34);        
-        PlayerPrefs.SetInt("Dialogue L1", 0);        
+        PlayerPrefs.SetInt("Discussion L1", 4);        
     }
 
     // Update is called once per frame
     void Update()
     {
         if(DiscussionDisplay.childCount != 0 && DiscussionDisplay.GetChild(0).name != "Bots Narrator Prefab(Clone)") Destroy(DiscussionDisplay.GetChild(0).gameObject);
+        
         CurrentName = FlowchartTextMenu.GetStringVariable("Name");   
 //        Debug.Log(FlowchartTextMenu.GetIntegerVariable("CurrentStateDiscussion")+  " + " + PlayerPrefs.GetInt(FlowchartTextMenu.GetStringVariable("DiscussionCurrent")));
 
@@ -295,10 +296,10 @@ public class MessageManager : MonoBehaviour
 
         TotalHeight += 20f ;
 
-        if(TotalHeight < 1575f) 
+        if(TotalHeight < (1575f -115f)) 
         {
             DiscussionDisplay.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 0f);
-            DiscussionDisplay.GetComponent<RectTransform>().sizeDelta = new Vector2(1060f,  1575f) ;
+            DiscussionDisplay.GetComponent<RectTransform>().sizeDelta = new Vector2(1060f,  (1575f -115f)) ;
 
             DiscussionDisplay.transform.parent.GetComponent<ScrollRect>().enabled = false ;
             DiscussionDisplay.transform.parent.GetComponent<ScrollRect>().verticalScrollbar.gameObject.SetActive(false) ;
@@ -314,6 +315,8 @@ public class MessageManager : MonoBehaviour
 
     void NewDialog()
     {
+        CurrentName = FlowchartTextMenu.GetStringVariable("Name");   
+
         if(CurrentName == DifferentNameInMessage.Bots.ToString())
         {
             if(DiscussionDisplay.childCount == 0 || DiscussionDisplay.GetChild(DiscussionDisplay.childCount -1).name != "Bots Narrator Prefab(Clone)")
@@ -324,7 +327,7 @@ public class MessageManager : MonoBehaviour
                 
               //  PlayerPrefs.SetInt(FlowchartTextMenu.GetStringVariable("DiscussionCurrent"), FlowchartTextMenu.GetIntegerVariable("CurrentStateDiscussion")) ;
 
-                StartCoroutine(WaitBeforeAutorizedNextDialogue(0.0000001f));
+                StartCoroutine(WaitBeforeAutorizedNextDialogue(0.000001f));
                 HeightDialogueDisplay();                   
             }
         }  
