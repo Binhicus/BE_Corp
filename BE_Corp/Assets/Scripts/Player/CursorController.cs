@@ -87,17 +87,17 @@ public class CursorController : Singleton<CursorController>
                     if (hit.collider.gameObject.GetComponent<ClickableObject>() != null)
                     {
                         ouvertureSound.Play();
-                        Debug.Log("je suis clickable");
+                        //Debug.Log("je suis clickable");
                     }
                     else if (hit.collider.gameObject.GetComponent<ZoomableObject>() != null)
                     {
                         observeSound.Play();
-                        Debug.Log("je suis observable");
+                        //Debug.Log("je suis observable");
                     }
                     else if (hit.collider.gameObject.GetComponent<ClickableSteps>() != null)
                     {
                         switchSceneSound.Play();
-                        Debug.Log("je change de scène");
+                        //Debug.Log("je change de scène");
                     }
                     if (click != null)
                     {
