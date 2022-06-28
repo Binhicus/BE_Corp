@@ -14,6 +14,10 @@ public class UIInventoryItem : MonoBehaviour, IDragHandler, IEndDragHandler
     //public GameObject animToSpawn;
     public MouseOnInventory mouseOnInventory;
 
+    [Header("Sounds")]
+    public AudioSource fusionSound;
+    public AudioSource deniedSound;
+
     private void Awake()
     {
        // mainCamera = CamScript.camInstance.GetComponent<Camera>();
@@ -45,6 +49,7 @@ public class UIInventoryItem : MonoBehaviour, IDragHandler, IEndDragHandler
                     {
                         hitSomething = true;
                         interaction.DoItemInteraction();
+                        fusionSound.Play();
                         GetComponent<Image>().enabled = false;
                         GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
                         gameObject.transform.GetChild(0).gameObject.SetActive(false);
@@ -57,6 +62,7 @@ public class UIInventoryItem : MonoBehaviour, IDragHandler, IEndDragHandler
         {
             transform.localPosition = Vector3.zero;
             Debug.Log("hihihi je vais serrer???");
+            deniedSound.Play();
             StartCoroutine(coroutineA());
         }
 

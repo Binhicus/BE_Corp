@@ -7,7 +7,7 @@ public enum CursorType { Default, Object, SceneChange, Observe }
 
 public class CursorController : Singleton<CursorController>
 {
-
+    //public CursorType cursorType1;
     //public Texture2D cursorClicked;
 
     public bool canInteract;
@@ -16,15 +16,18 @@ public class CursorController : Singleton<CursorController>
     [Header("Base")]    
     public Texture2D cursor;
     public Texture2D defaultCursor;
-
+    
     [Header("Object")]
     public Texture2D objectCursor;
+    public AudioSource ouvertureSound;
 
     [Header("SceneChange")]
     public Texture2D sceneChangeCursor;
+    public AudioSource switchSceneSound;
 
     [Header("Loupe")]
     public Texture2D observeCursor;
+    public AudioSource observeSound;
 
     [Header("Scripts refs")]
     public ActionWheel ActionWheelScript ;
@@ -80,12 +83,33 @@ public class CursorController : Singleton<CursorController>
                 {
                     IClicked click = hit.collider.gameObject.GetComponent<IClicked>();
                     //* IItemInventaire item = hit.collider.gameObject.GetComponent<IItemInventaire>();
-                    if (click != null) click.OnClickAction();
+
+                    if (hit.collider.gameObject.GetComponent<ClickableObject>() != null)
+                    {
+                        ouvertureSound.Play();
+                        Debug.Log("je suis clickable");
+                    }
+                    else if (hit.collider.gameObject.GetComponent<ZoomableObject>() != null)
+                    {
+                        observeSound.Play();
+                        Debug.Log("je suis observable");
+                    }
+                    else if (hit.collider.gameObject.GetComponent<ClickableSteps>() != null)
+                    {
+                        switchSceneSound.Play();
+                        Debug.Log("je change de scène");
+                    }
+                    if (click != null)
+                    {
+                        click.OnClickAction();
+                    }
+                        //ouverture.Play();
+                }
                     //if (click == null) return;
                     //* if (item != null) Inventaire.Instance.AddItem(item);
                     //Debug.Log("3D Hit: " + hit.collider.tag + " " + hit.collider.gameObject);
                     //Debug.DrawRay(transform.position, Vector3.forward, Color.green);
-                }
+                
             }
             #endregion
 
