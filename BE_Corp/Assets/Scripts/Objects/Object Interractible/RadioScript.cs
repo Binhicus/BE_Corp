@@ -46,8 +46,8 @@ public class RadioScript : ClickableObject,IClicked, IAction
     void LookZone()
     {
 
-        // if(PlayerPrefs.GetInt("Antenne")==1&&PlayerPrefs.GetInt("PileDansRadio")==1&&PlayerPrefs.GetInt("Parapluie")==0)
-        // {
+         if(PlayerPrefs.GetInt("Antenne")==1&&PlayerPrefs.GetInt("PileDansRadio")==1&&PlayerPrefs.GetInt("Parapluie")==0)
+         {
         AreaCam.SetActive(false);
             Debug.Log("Go");
         CameraActivate.SetActive(true);
@@ -61,13 +61,13 @@ public class RadioScript : ClickableObject,IClicked, IAction
         }
 
         StartCoroutine(coroutineA());
-     //}
+     }
      
-    // else
+     else
 
-    // {
+     {
         Debug.Log("Desole gros mais tu peux pas encore");
-    // }
+     }
         
     }
 
@@ -93,6 +93,7 @@ public class RadioScript : ClickableObject,IClicked, IAction
         if(PlayerPrefs.GetInt("PileDansRadio")==1&&PlayerPrefs.GetInt("Antenne Branchee")==1)
         {
             CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible2 ;
+            TexteMeteo.GetComponent<Animator>().SetInteger("PileAntenne",1);
         }
 
         if(PlayerPrefs.GetInt("Parapluie")==1)

@@ -895,6 +895,7 @@ GameObject:
   - component: {fileID: 214775221}
   - component: {fileID: 214775185}
   - component: {fileID: 214775184}
+  - component: {fileID: 214775186}
   m_Layer: 0
   m_Name: Flowchart Chambre
   m_TagString: Untagged
@@ -916,7 +917,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 66
   indentLevel: 0
-  storyText: "C'est un livre sur Matisse , \xE7a doit \xEAtre son artiste pr\xE9f\xE9r\xE9."
+  storyText: "C'est un livre sur Matisse, \xE7a doit \xEAtre son artiste pr\xE9f\xE9r\xE9."
   description: 
   character: {fileID: 70810898}
   portrait: {fileID: 0}
@@ -928,7 +929,7 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
-  setSayDialog: {fileID: 0}
+  setSayDialog: {fileID: 278779793}
 --- !u!114 &214775185
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -944,7 +945,7 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 480.3755
-    y: -204.76851
+    y: -206.49265
     width: 92.75862
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -954,8 +955,24 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 0}
   commandList:
+  - {fileID: 214775186}
   - {fileID: 214775184}
   suppressAllAutoSelections: 0
+--- !u!114 &214775186
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214775183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d65d551a201c94bc79950076ff3eaf2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 67
+  indentLevel: 0
+  sayDialog: {fileID: 278779793}
 --- !u!114 &214775221
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -984,7 +1001,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -294.0826, y: 783.5331}
+  scrollPos: {x: 505.9176, y: 599.0506}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 279.8
@@ -995,8 +1012,10 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 214775185}
+  selectedCommands:
+  - {fileID: 214775186}
   variables:
   - {fileID: 214775221}
   description: 
@@ -2800,7 +2819,7 @@ MonoBehaviour:
   drawingMode: 1
   outlineLayer: 0
   outlineTargets:
-  - IsVisible: 1
+  - IsVisible: 0
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -3044,7 +3063,7 @@ MonoBehaviour:
   drawingMode: 1
   outlineLayer: 0
   outlineTargets:
-  - IsVisible: 1
+  - IsVisible: 0
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -3060,7 +3079,7 @@ MonoBehaviour:
     cutoutTextureName: 
     DilateRenderingMode: 0
     cutoutTextureIndex: 0
-  - IsVisible: 1
+  - IsVisible: 0
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -3076,7 +3095,7 @@ MonoBehaviour:
     cutoutTextureName: 
     DilateRenderingMode: 0
     cutoutTextureIndex: 0
-  - IsVisible: 1
+  - IsVisible: 0
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -12498,7 +12517,7 @@ MonoBehaviour:
   drawingMode: 1
   outlineLayer: 0
   outlineTargets:
-  - IsVisible: 1
+  - IsVisible: 0
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -15365,7 +15384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameText: Barbara Pinault
-  nameColor: {r: 1, g: 0.5509434, b: 0.7038349, a: 1}
+  nameColor: {r: 0.94509804, g: 0.22745098, b: 0.47058824, a: 1}
   soundEffect: {fileID: 0}
   portraits: []
   portraitsFace: 0

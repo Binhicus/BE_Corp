@@ -8,7 +8,11 @@ public class ScarecrowScript : ClickableObject, IClicked, IAction
     public GameObject Epouvantail;
     //public GameObject PorteManteau;
     public BlockReference question, inspect, dissolve, maj;
+
+    [Header("Sounds")]
+    //public AudioSource ouverture;
     public AudioSource Son;
+
 
     private ScreenShake camShake;
     private DoorScript Door;
@@ -54,7 +58,8 @@ public class ScarecrowScript : ClickableObject, IClicked, IAction
         {
             CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible ;
             CursorController.Instance.ActionWheelScript.TargetAction = this;
-            CursorController.Instance.ActionWheelScript.gameObject.SetActive(true);            
+            CursorController.Instance.ActionWheelScript.gameObject.SetActive(true);
+
         }
     }
 
