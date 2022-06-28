@@ -1519,6 +1519,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1896105565367109719, guid: 041c26a8ef42c1a42a7fa1a37b588d58, type: 3}
+      propertyPath: m_Name
+      value: DezoomSound
+      objectReference: {fileID: 0}
     - target: {fileID: 1896105565717926338, guid: 041c26a8ef42c1a42a7fa1a37b588d58, type: 3}
       propertyPath: m_Name
       value: '---- SONS ---- '
@@ -2199,7 +2203,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &504099305
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2497,6 +2501,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 531896523}
   m_CullTransparentMesh: 0
+--- !u!82 &532129856 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1896105565750113798, guid: 041c26a8ef42c1a42a7fa1a37b588d58, type: 3}
+  m_PrefabInstance: {fileID: 426694945}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &534310015
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3453,7 +3462,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &717237189
 RectTransform:
   m_ObjectHideFlags: 0
@@ -45223,7 +45232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DezoomButton: {fileID: 1155799145}
   scene: 1
-  pickUpSound: {fileID: 0}
+  pickUpSound: {fileID: 532129856}
 --- !u!224 &8928677553250069691
 RectTransform:
   m_ObjectHideFlags: 0
