@@ -26,6 +26,7 @@ public class MessageManager : MonoBehaviour
     public Transform DiscussionDisplay ;
     public TextMeshProUGUI DiscussionWriterText ;
     public GameObject BotsNarratorTextPrefab;
+    private List<GameObject> BotsNarratorMessageContainer = new List<GameObject>() ;
     public GameObject EmployeeTextPrefab;    
     public GameObject ClientTextPrefab;
     public GameObject ClientWritePrefab ;
@@ -67,7 +68,7 @@ public class MessageManager : MonoBehaviour
         if(FlowchartTextMenu.GetIntegerVariable("CurrentStateDiscussion") >= PlayerPrefs.GetInt(FlowchartTextMenu.GetStringVariable("DiscussionCurrent")))
         {
             DiscussionLoading.SetActive(false) ;
-            if(DiscussionDisplay.childCount > 2) SD.GetComponent<Writer>().writingSpeed = 40f ;
+            if(DiscussionDisplay.childCount > 2) SD.GetComponent<Writer>().writingSpeed = 110f ;
 
 
             if(FlowchartTextMenu.GetBooleanVariable("ClientWrite"))
@@ -282,7 +283,7 @@ public class MessageManager : MonoBehaviour
         CurrentMissionDisplay = BRNumber ;
     }
 
-    void HeightDialogueDisplay()
+    public void HeightDialogueDisplay()
     {
         float TotalHeight = 0 ;
         foreach (RectTransform Child in DiscussionDisplay)
@@ -326,6 +327,8 @@ public class MessageManager : MonoBehaviour
                 BotsNarratorIns.GetComponent<RectTransform>().sizeDelta = new Vector2(BotsNarratorIns.GetComponent<RectTransform>().sizeDelta.x, BotsNarratorIns.GetComponentInChildren<TextMeshProUGUI>().preferredHeight + 10f)  ;
                 
               //  PlayerPrefs.SetInt(FlowchartTextMenu.GetStringVariable("DiscussionCurrent"), FlowchartTextMenu.GetIntegerVariable("CurrentStateDiscussion")) ;
+
+                BotsNarratorMessageContainer.Add(BotsNarratorIns.gameObject);
 
                 StartCoroutine(WaitBeforeAutorizedNextDialogue(0.000001f));
                 HeightDialogueDisplay();                   
@@ -443,5 +446,13 @@ public class MessageManager : MonoBehaviour
         }
     }
 
-    
+    public void ChangeFirstBotDate(string NewTextDate)
+    {
+        BotsNarratorMessageContainer[0].GetComponentInChildren<TextMeshProUGUI>().text = NewTextDate ;
+    }
+
+    public void ChangeSecondBotDate(string NewTextDate)
+    {
+        BotsNarratorMessageContainer[1].GetComponentInChildren<TextMeshProUGUI>().text = NewTextDate ;
+    }
 }

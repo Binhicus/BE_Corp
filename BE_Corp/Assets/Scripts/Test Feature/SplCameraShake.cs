@@ -22,7 +22,7 @@ public class SplCameraShake : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        vCam = GameObject.Find(nomDeLaCam).GetComponent<CinemachineVirtualCamera>();
+        if(GameObject.Find(nomDeLaCam).GetComponent<CinemachineVirtualCamera>() != null) vCam = GameObject.Find(nomDeLaCam).GetComponent<CinemachineVirtualCamera>();
         if (vCam != null)
         {
             vCamNoise = vCam.GetCinemachineComponent<Cinemachine.CinemachineBasicMultiChannelPerlin>();

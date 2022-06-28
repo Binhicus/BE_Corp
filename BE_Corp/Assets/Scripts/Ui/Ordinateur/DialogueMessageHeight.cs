@@ -41,9 +41,9 @@ public class DialogueMessageHeight : MonoBehaviour
         transform.parent.GetComponent<VerticalLayoutGroup>().spacing = transform.parent.GetComponent<VerticalLayoutGroup>().spacing - 1f ;
         transform.parent.GetComponent<VerticalLayoutGroup>().spacing = transform.parent.GetComponent<VerticalLayoutGroup>().spacing + 1f ;
 
-
+        yield return new WaitForSeconds(0.00001f);
+        if(GameObject.Find("Message") != null) GameObject.Find("Message").GetComponent<MessageManager>().HeightDialogueDisplay();
     }
-
 
 
 }

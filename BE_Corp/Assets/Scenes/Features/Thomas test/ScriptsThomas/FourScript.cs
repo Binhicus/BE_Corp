@@ -106,10 +106,14 @@ public class FourScript : ClickableObject,IClicked, IAction
         }
     }
 
+    public void CallMajFour()
+    {
+        MisAJourEffect.Instance.MiseAJour();
+    }
+
     IEnumerator coroutineA()
     {
-        yield return new WaitForSeconds(5.5f);
-        MisAJourEffect.Instance.MiseAJour();
+        yield return new WaitForSeconds(2.5f);
         PlayerPrefs.SetInt("Morceau2Tableau",1);
         PlayerPrefs.SetInt("Smoke",4);
         PlayerPrefs.SetInt("FourOk",2);
