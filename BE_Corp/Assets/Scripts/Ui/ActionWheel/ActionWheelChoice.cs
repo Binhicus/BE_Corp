@@ -36,10 +36,15 @@ public class ActionWheelChoice : MonoBehaviour
     public AnimationCurve AnimCurvRef ;
 
     [HideInInspector] public ActionOveringState StateMouseOver = ActionOveringState.NotOvering ;
+    public Color NormalBackgroundColor ;
+    public Color HoverredBackgroundColor ;
+    public Color NormalTextColor ;
+    public Color HoverredTextColor ;
+
 
     [Header ("Action")]
     public IAction TargetAction ;
-   /* [HideInInspector]*/ public ActionPossible StateAction = ActionPossible.Rien ;
+    [HideInInspector] public ActionPossible StateAction = ActionPossible.Rien ;
 
     public void StateOvering(bool State)
     {
@@ -49,6 +54,7 @@ public class ActionWheelChoice : MonoBehaviour
 
             BackgroundAction.GetComponent<RectTransform>().DOScale(new Vector3(.9f, .9f, .9f), 0.1f)/*.SetEase(AnimCurvRef)*/;
             MainCircle.GetComponent<Image>().raycastTarget = false ;
+
          //  NameAction.gameObject.SetActive(false);
         }
 
@@ -72,6 +78,29 @@ public class ActionWheelChoice : MonoBehaviour
     {
         if(MainCircle.GetComponent<Image>().raycastTarget && Input.GetMouseButtonDown(0)) ClickAction();
 
+        if(StateMouseOver == ActionOveringState.NotOvering)
+        {
+            if(BackgroundAction.transform.GetChild(0).GetComponent<Image>().color != NormalBackgroundColor)
+            {
+                BackgroundAction.transform.GetChild(0).DOKill();
+                BackgroundAction.transform.GetChild(0).GetComponent<Image>().DOColor(NormalBackgroundColor, 0.05f);
+
+                BackgroundAction.transform.GetChild(1).DOKill();
+                BackgroundAction.transform.GetChild(1).GetComponent<TextMeshProUGUI>().DOColor(NormalTextColor, 0.05f);
+            }
+        }
+
+        if(StateMouseOver == ActionOveringState.Overing)
+        {
+            if(BackgroundAction.transform.GetChild(0).GetComponent<Image>().color != HoverredBackgroundColor)
+            {
+                BackgroundAction.transform.GetChild(0).DOKill();
+                BackgroundAction.transform.GetChild(0).GetComponent<Image>().DOColor(HoverredBackgroundColor, 0.15f);
+
+                BackgroundAction.transform.GetChild(1).DOKill();
+                BackgroundAction.transform.GetChild(1).GetComponent<TextMeshProUGUI>().DOColor(HoverredTextColor, 0.15f);
+            }
+        }
     }
 
 
