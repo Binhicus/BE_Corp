@@ -13,6 +13,7 @@ public class ContainerMailScript : MonoBehaviour
     [Space(25)]
     public GameObject PrefabDateRibbon ;
     public GameObject PrefabMailDisplayer ;
+    public GameObject ErrorBox ;
     [Space(5)]
     public bool AllMailAsRead ;
     [Space(15)]
@@ -128,6 +129,12 @@ public class ContainerMailScript : MonoBehaviour
             EmailInstantiate ++ ;
         }
 
+        GameObject ErrorMessage = Instantiate(ErrorBox);
+        ErrorMessage.transform.SetParent(this.transform);
+        ErrorMessage.transform.localPosition = new Vector3(ErrorMessage.transform.localPosition.x, ErrorMessage.transform.localPosition.y, 0);
+        ErrorMessage.transform.localScale = Vector3.one ;
+        ErrorMessage.transform.localRotation = Quaternion.identity ;
+
         GetComponent<RectTransform>().sizeDelta = new Vector2(GetComponent<RectTransform>().sizeDelta.x, HeightContainerMailChoice()) ;
     }
 
@@ -148,6 +155,8 @@ public class ContainerMailScript : MonoBehaviour
 
         return GetRibbonText ;
     }
+
+
 
     string GetDayOfTheDate(string Date)
     {
@@ -237,7 +246,7 @@ public class ContainerMailScript : MonoBehaviour
     {
         float ContainerChoice = 0 ;
 
-        float HeightCalculate = HeightMailChoice + (HeightRibbon * RibbonInstatiate) + (HeightMailChoice * MailChoiceInstantiate) ;
+        float HeightCalculate = HeightMailChoice + (HeightRibbon * RibbonInstatiate) + (HeightMailChoice * MailChoiceInstantiate) + 180f ;
         
         if(HeightCalculate > transform.parent.GetComponent<RectTransform>().sizeDelta.y)
         {

@@ -32,10 +32,12 @@ public class ComputerNavigationScript : MonoBehaviour
     public RectTransform WindowMailDisplayer ;
     private bool MailIsInFullscreen ;
     private bool MailWindowIsOpen = false ;
+    [SerializeField] private GameObject MailSecondPlace ;
 
     public RectTransform WindowWeb ;
     private bool WebIsInFullscreen ;
     private bool WebWindowIsOpen = false ;
+    [SerializeField] private GameObject WebSecondPlace ;
 
 
     public TextMeshProUGUI HeureDisplay;
@@ -62,6 +64,15 @@ public class ComputerNavigationScript : MonoBehaviour
 
 
         HeureDisplay.text = Heure ;
+    }
+
+    private void FixedUpdate() 
+    {
+        if(WindowMail.GetSiblingIndex() == 2) MailSecondPlace.SetActive(false);
+        else  MailSecondPlace.SetActive(true);
+
+        if(WindowWeb.GetSiblingIndex() == 2) WebSecondPlace.SetActive(false);
+        else  WebSecondPlace.SetActive(true);
     }
 
     public void OpenLunchWindow()
@@ -104,10 +115,18 @@ public class ComputerNavigationScript : MonoBehaviour
         if(!MailWindowIsOpen)
         {
             MailStateBar.gameObject.SetActive(true);
-            MailWindowIsOpen = true ;
+            MailWindowIsOpen = true ;            
+            WindowMail.SetSiblingIndex(2);
+            AdaptStateBarWindows();
+
+            if(WindowWeb.gameObject.activeSelf)    WebStateBar.localScale = new Vector2(0.5f, 0.25f);
         } else {
-            if(!WindowMail.gameObject.activeSelf) MailStateBar.localScale = new Vector2(1f, 0.25f);
-            else MailStateBar.localScale = new Vector2(0.5f, 0.25f);
+            if(!WindowMail.gameObject.activeSelf)
+            {
+                MailStateBar.localScale = new Vector2(1f, 0.25f); 
+                if(WindowWeb.gameObject.activeSelf)    WebStateBar.localScale = new Vector2(0.5f, 0.25f);
+            } 
+            else MailStateBar.localScale = new Vector2(0.5f, 0.25f);              
         }
 
 
@@ -119,10 +138,19 @@ public class ComputerNavigationScript : MonoBehaviour
             WindowMail.DOScale(new Vector3(1.001f, 1.001f, 1f), .25f);
             WindowMail.DOAnchorPos(MailIsInFullscreen ? new Vector2(0, 50f) : new Vector2(45f, 50f) , 0.25f);
         } else {
-            WindowMail.GetComponent<CanvasGroup>().DOFade(0f, 0.25f) ;
+            if(WindowMail.GetSiblingIndex() != 2 && WindowWeb.gameObject.activeSelf)
+            {
+                WindowMail.SetSiblingIndex(2);
+                AdaptStateBarWindows();
+            } else {
+                WindowMail.GetComponent<CanvasGroup>().DOFade(0f, 0.25f) ;
 
-            WindowMail.DOScale(new Vector3(0.4f, 0.4f, 0.4f), 0.25f);
-            WindowMail.DOAnchorPos(new Vector3(-635f, -275f, 0), 0.25f).OnComplete(() => WindowMail.gameObject.SetActive(!WindowMail.gameObject.activeSelf));
+                WindowMail.DOScale(new Vector3(0.4f, 0.4f, 0.4f), 0.25f);
+                WindowMail.DOAnchorPos(new Vector3(-635f, -275f, 0), 0.25f).OnComplete(() => WindowMail.gameObject.SetActive(!WindowMail.gameObject.activeSelf)); 
+
+                if(WindowWeb.gameObject.activeSelf)    WebStateBar.localScale = new Vector2(1f, 0.25f);
+     
+            }
         }
     }
 
@@ -204,6 +232,8 @@ public class ComputerNavigationScript : MonoBehaviour
             WindowMailDisplayer.transform.GetChild(0).GetComponent<EmailDisplayerScript>().MailDisplay = null ;
             WindowMailDisplayer.transform.GetChild(0).GetComponent<EmailDisplayerScript>().SetDisplayer() ;
         }
+
+        if(WindowWeb.gameObject.activeSelf)    WebStateBar.localScale = new Vector2(1f, 0.25f); 
     }
 
     void CloseMailWindow()
@@ -224,101 +254,99 @@ public class ComputerNavigationScript : MonoBehaviour
     public void OpenWeb()
     {
         //Affiche la scroll bar et le fond a l'ouverture de la fenêtre
-        if(WindowMailDisplayer.transform.GetChild(0).GetComponent<EmailDisplayerScript>().MailDisplay == null) MailDisplaying(false);
-        else MailDisplaying(true);
-
-        if(!MailWindowIsOpen)
+        if(!WebWindowIsOpen)
         {
-            MailStateBar.gameObject.SetActive(true);
-            MailWindowIsOpen = true ;
+            WebStateBar.gameObject.SetActive(true);
+            WebWindowIsOpen = true ;            
+            WindowWeb.SetSiblingIndex(2);
+            AdaptStateBarWindows();
+
+            if(WindowMail.gameObject.activeSelf)    MailStateBar.localScale = new Vector2(0.5f, 0.25f);
         } else {
-            if(!WindowMail.gameObject.activeSelf) MailStateBar.localScale = new Vector2(1f, 0.25f);
-            else MailStateBar.localScale = new Vector2(0.5f, 0.25f);
+            if(!WindowWeb.gameObject.activeSelf) 
+            {
+                WebStateBar.localScale = new Vector2(1f, 0.25f);
+                if(WindowMail.gameObject.activeSelf)    MailStateBar.localScale = new Vector2(0.5f, 0.25f);
+            }
+            else WebStateBar.localScale = new Vector2(0.5f, 0.25f);  
+
+
         }
 
 
-        if(!WindowMail.gameObject.activeSelf)
+        if(!WindowWeb.gameObject.activeSelf)
         {
-            WindowMail.gameObject.SetActive(!WindowMail.gameObject.activeSelf) ;
-            WindowMail.GetComponent<CanvasGroup>().DOFade(1f, 0.25f) ;
+            WindowWeb.gameObject.SetActive(!WindowWeb.gameObject.activeSelf) ;
+            WindowWeb.GetComponent<CanvasGroup>().DOFade(1f, 0.25f) ;
 
-            WindowMail.DOScale(new Vector3(1.001f, 1.001f, 1f), .25f);
-            WindowMail.DOAnchorPos(MailIsInFullscreen ? new Vector2(0, 50f) : new Vector2(45f, 50f) , 0.25f);
+            WindowWeb.DOScale(new Vector3(1.001f, 1.001f, 1f), .25f);
+            WindowWeb.DOAnchorPos(WebIsInFullscreen ? new Vector2(0, 50f) : new Vector2(-150f, -30f) , 0.25f);
         } else {
-            WindowMail.GetComponent<CanvasGroup>().DOFade(0f, 0.25f) ;
+            if(WindowWeb.GetSiblingIndex() != 2 && WindowMail.gameObject.activeSelf)
+            {
+                WindowWeb.SetSiblingIndex(2);
+                AdaptStateBarWindows();
+            } else {
+                WindowWeb.GetComponent<CanvasGroup>().DOFade(0f, 0.25f) ;
 
-            WindowMail.DOScale(new Vector3(0.4f, 0.4f, 0.4f), 0.25f);
-            WindowMail.DOAnchorPos(new Vector3(-635f, -275f, 0), 0.25f).OnComplete(() => WindowMail.gameObject.SetActive(!WindowMail.gameObject.activeSelf));
+                WindowWeb.DOScale(new Vector3(0.4f, 0.4f, 0.4f), 0.25f);
+                WindowWeb.DOAnchorPos(new Vector3(-635f, -275f, 0), 0.25f).OnComplete(() => WindowWeb.gameObject.SetActive(!WindowWeb.gameObject.activeSelf));
+
+                if(WindowMail.gameObject.activeSelf)    MailStateBar.localScale = new Vector2(1f, 0.25f);
+            }
         }
     }
-/*
-    public void FullscreenMail(bool IsWeb)
+
+    public void FullscreenWeb()
     {
-        if(!MailIsInFullscreen)
+        if(!WebIsInFullscreen)
         {
-            MailIsInFullscreen = true ;
-            WindowMail.DOAnchorPos(new Vector3(0, 50f, 0), 0.25f);
-            WindowMail.DOSizeDelta(new Vector2(1920f, 980f), 0.25f);
-            WindoWMailContainer.DOSizeDelta(new Vector2(WindoWMailContainer.sizeDelta.x, 836f), 0.25f);
-            WindowScroll.DOSizeDelta(new Vector2(512f, 980f), 0.25f);
-            WindowMailDisplayer.DOSizeDelta(new Vector2(1408f, 980f), 0.25f);
-
-            InformationMail.transform.parent.GetComponent<RectTransform>().DOSizeDelta(new Vector3(512f, 836f), 0.05f) ;
-            SetMailHeihgt(836f); 
+            WebIsInFullscreen = true ;
+            WindowWeb.DOAnchorPos(new Vector3(0, 50f, 0), 0.25f);
+            WindowWeb.DOSizeDelta(new Vector2(1920f, 980f), 0.25f);
         } else {
-            MailIsInFullscreen = false ;
-            WindowMail.DOAnchorPos(new Vector3(45f, 50f, 0), 0.25f);
-            WindowMail.DOSizeDelta(new Vector2(1536f, 784f), 0.25f);
-            WindoWMailContainer.DOSizeDelta(new Vector2(WindoWMailContainer.sizeDelta.x, 640f), 0.25f);
-            WindowScroll.DOSizeDelta(new Vector2(512f, 980f), 0.25f);
-            WindowMailDisplayer.DOSizeDelta(new Vector2(1024f, 980f), 0.25f);
-
-
-            InformationMail.transform.parent.GetComponent<RectTransform>().DOSizeDelta(new Vector3(512f, 640f), 0.05f) ;               
-            SetMailHeihgt(640f);             
+            WebIsInFullscreen = false ;              
+            WindowWeb.DOAnchorPos(new Vector3(-150f, -30f, 0), 0.25f);
+            WindowWeb.DOSizeDelta(new Vector2(1260f, 720f), 0.25f);                        
         }      
     }
 
-    public void SetMailHeihgt(float FinalHeightAfterAnimation)
+
+    public void CloseWeb()
     {
+        WindowWeb.GetComponent<CanvasGroup>().DOFade(0f, .25f) ;
+        WindowWeb.DOScale(Vector3.zero, .25f).OnComplete(() => CloseWebWindow());
 
-        float HeightHeadMail = 0 ;
-        float HeightBlocText = 0 ;
-        float MailHeightCalc = 0 ;
-        float TotalHeight = 0 ;
-        bool MailIsPub = false ;
-
-        HeightHeadMail = WindowMailDisplayer.transform.GetChild(0).transform.GetChild(0).GetComponent<RectTransform>().sizeDelta.y ;
-        HeightBlocText = WindowMailDisplayer.transform.GetChild(0).GetComponent<EmailDisplayerScript>().HeightTextMail ;
-        MailIsPub = WindowMailDisplayer.transform.GetChild(0).GetComponent<EmailDisplayerScript>().MailPub ;
-
-        if(!MailIsPub) MailHeightCalc = HeightHeadMail + HeightBlocText ;
-        else MailHeightCalc = HeightHeadMail + HeightBlocText + 128f ;
-
-
-        if(MailHeightCalc < FinalHeightAfterAnimation) TotalHeight = FinalHeightAfterAnimation ;
-        else TotalHeight = MailHeightCalc ;
-
-        if(MailIsInFullscreen) WindowMailDisplayer.transform.GetChild(0).GetComponent<RectTransform>().DOSizeDelta(new Vector2(1408f, TotalHeight), 0.25f);
-        else WindowMailDisplayer.transform.GetChild(0).GetComponent<RectTransform>().DOSizeDelta(new Vector2(1024f, TotalHeight), 0.25f);
+        if(WindowMail.gameObject.activeSelf)    MailStateBar.localScale = new Vector2(1f, 0.25f);
     }
-
-    public void CloseWeb(bool EraseMailDisplay)
-    {
-        WindowMail.GetComponent<CanvasGroup>().DOFade(0f, .25f) ;
-        WindowMail.DOScale(Vector3.zero, .25f).OnComplete(() => CloseMailWindow());
-
-        if(EraseMailDisplay) 
-        {
-            WindowMailDisplayer.transform.GetChild(0).GetComponent<EmailDisplayerScript>().MailDisplay = null ;
-            WindowMailDisplayer.transform.GetChild(0).GetComponent<EmailDisplayerScript>().SetDisplayer() ;
-        }
-    }*/
 
     void CloseWebWindow()
     {
-        WindowMail.gameObject.SetActive(false);
-        MailStateBar.gameObject.SetActive(false);
-        MailWindowIsOpen = false;
+        WindowWeb.gameObject.SetActive(false);
+        WebStateBar.gameObject.SetActive(false);
+        WebWindowIsOpen = false;
+    }
+
+
+    public void ShowThisWindowBefore(Transform ThisWindow)
+    {
+        ThisWindow.SetSiblingIndex(2);
+        AdaptStateBarWindows();
+    }
+
+
+    void AdaptStateBarWindows()
+    {
+        if(WindowMail.GetSiblingIndex() == 2)
+        {
+            MailStateBar.localScale = new Vector2(1f, 0.25f);
+            WebStateBar.localScale = new Vector2(0.5f, 0.25f);
+        }
+
+        if(WindowWeb.GetSiblingIndex() == 2)
+        {
+            MailStateBar.localScale = new Vector2(0.5f, 0.25f); 
+            WebStateBar.localScale = new Vector2(1f, 0.25f);              
+        }
     }
 }
