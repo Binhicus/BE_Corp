@@ -32,6 +32,7 @@ public class AlimentationScript : MonoBehaviour
     [SerializeField] private GameObject IndiceObj ;
     [SerializeField] private GameObject WelcomeObj ;
     public RectTransform ShutdownPanel ;
+    public GameObject CloseShutPannelBigButton ;
 
     [SerializeField] private List<string> PassWordRequest ;
     [SerializeField] private string PassWordHelp = "Il dort tout le temps" ;
@@ -250,26 +251,37 @@ public class AlimentationScript : MonoBehaviour
     {
         if(!ShutdownPanel.gameObject.activeSelf)
         {
+            CloseShutPannelBigButton.SetActive(true);
             ShutdownPanel.gameObject.SetActive(true) ;
             ShutdownPanel.GetComponent<CanvasGroup>().DOFade(1f, 0.25f);
-            ShutdownPanel.DOAnchorPosY(135f, 0.25f);
+            ShutdownPanel.DOAnchorPosY(140f, 0.25f);
         } else {
-            ShutdownPanel.gameObject.SetActive(false) ;
-            ShutdownPanel.GetComponent<CanvasGroup>().alpha = 0 ;
-            ShutdownPanel.DOAnchorPosY(0f, 0f);
+            ShutdownPanel.GetComponent<CanvasGroup>().DOFade(0f, 0.25f);
+            ShutdownPanel.DOAnchorPosY(0f, 0.25f);
+            StartCoroutine(DelaiBeforeDisableObject(ShutdownPanel.gameObject, 0.25f)) ;   
+            CloseShutPannelBigButton.SetActive(false);         
         }
+    }
+    IEnumerator DelaiBeforeDisableObject(GameObject GODisable, float Delay)
+    {
+        yield return new WaitForSeconds(Delay);
+        GODisable.SetActive(false);
     }
 
     public void VerifPassword(string InputReturn)
     {
-        if(PassWordRequest.Contains(InputReturn))
+        if(InputLogIn.GetComponent<InputField>().text != null)
         {
-            StartCoroutine(UnlockComputer());
-            // Loader
-        } else {
-            InputLogIn.GetComponent<InputField>().text = null ;
-            IndiceObj.SetActive(true) ;
+            if(PassWordRequest.Contains(InputReturn))
+            {
+                StartCoroutine(UnlockComputer());
+                // Loader
+            } else {
+                if(InputLogIn.GetComponent<InputField>().text.Length > 1) IndiceObj.SetActive(true) ;
+                InputLogIn.GetComponent<InputField>().text = null ;                
+            }            
         }
+        InputLogIn.GetComponent<InputField>().ActivateInputField() ;   
     }
 
     IEnumerator UnlockComputer()
