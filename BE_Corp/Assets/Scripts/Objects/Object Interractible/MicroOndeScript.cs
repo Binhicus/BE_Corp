@@ -28,6 +28,10 @@ public class MicroOndeScript : ClickableObject,IClicked, IAction
     {
        
     }
+    public void CallMaj()
+    {
+        MisAJourEffect.Instance.MiseAJour();
+    }
 
     void LookZone()
     {
