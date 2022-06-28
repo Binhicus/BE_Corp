@@ -13,10 +13,17 @@ Setting,
 Quit
 }
 
+public enum Sequence
+{
+    InGame,
+    Menu
+}
+
 public class ZoomIndiceScript : ZoomableObject, IClicked, IAction
 {
     //public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>() ;
     public ZoomZone WhatIsObjectZoom = ZoomZone.Zone ;
+    public Sequence sequence;
     public GameObject CameraActivate ;
 
     [Header ("Zoom for Computer")]
@@ -31,6 +38,7 @@ public class ZoomIndiceScript : ZoomableObject, IClicked, IAction
     [Header ("Zoom for Setting")]
     public Image CloseSettingImageButton ;
     public Animator anim;
+    public DynamicMusic dynamicMusic;
 
 
     [Header ("Zoom for Quit the game")]
@@ -43,6 +51,17 @@ public class ZoomIndiceScript : ZoomableObject, IClicked, IAction
         {
             BackgroundComputer.color = BackgroundComputerClose ;
             ComputerWindow.localScale = Vector3.zero ;
+        }
+
+        /*if (GameObject.Find("Musique") != null)
+        {
+            officeSounds = GameObject.Find("Office_ambiance").GetComponent<AudioSource>();
+            officeMusic = GameObject.Find("OST").GetComponent<AudioSource>();
+        }*/
+
+        if (sequence == Sequence.Menu)
+        {
+            dynamicMusic = GameObject.Find("Musique").GetComponent<DynamicMusic>();
         }
 
     }
@@ -63,6 +82,10 @@ public class ZoomIndiceScript : ZoomableObject, IClicked, IAction
         {
             StopAllCoroutines();
             StartCoroutine(LunchLevelComputer());
+            if(sequence == Sequence.Menu)
+            {
+                dynamicMusic.AmbianceUp();
+            }
         }
 
         if(WhatIsObjectZoom == ZoomZone.Credits)
@@ -76,6 +99,7 @@ public class ZoomIndiceScript : ZoomableObject, IClicked, IAction
             StopAllCoroutines();
             CloseSettingImageButton.raycastTarget = true ;
             anim.CrossFade("Fade In", 0.3f);
+
         }
 
         if(WhatIsObjectZoom == ZoomZone.Quit)
