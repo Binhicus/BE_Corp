@@ -12,6 +12,11 @@ public class CuisineManager : MonoBehaviour
         CuisineLoader();   
    }
 
+   void Awake()
+   {
+    PlayerPrefs.SetInt("Cuisine Révélée",1);
+   }
+
     // Update is called once per frame
     void Update()
     {
