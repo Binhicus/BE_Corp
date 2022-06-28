@@ -30,6 +30,7 @@ public class ZoomIndiceScript : ZoomableObject, IClicked, IAction
 
     [Header ("Zoom for Setting")]
     public Image CloseSettingImageButton ;
+    public Animator anim;
 
 
     [Header ("Zoom for Quit the game")]
@@ -74,6 +75,7 @@ public class ZoomIndiceScript : ZoomableObject, IClicked, IAction
         {
             StopAllCoroutines();
             CloseSettingImageButton.raycastTarget = true ;
+            anim.CrossFade("Fade In", 0.3f);
         }
 
         if(WhatIsObjectZoom == ZoomZone.Quit)
@@ -92,6 +94,11 @@ public class ZoomIndiceScript : ZoomableObject, IClicked, IAction
         {
             GameCol.GetComponent<BoxCollider>().enabled = false ;
         }
+    }
+
+    public void ZOSettings()
+    {
+        anim.CrossFade("Fade Out", 0.3f);
     }
 
 
