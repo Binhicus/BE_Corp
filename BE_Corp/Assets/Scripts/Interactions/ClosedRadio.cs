@@ -24,10 +24,13 @@ public class ClosedRadio : MonoBehaviour,IHasItemInteraction
     public void DoItemInteraction()
     {
         Antenne.SetActive(true);
-        PlayerPrefs.SetInt("Antenne Branchee", 1);
-        
+        PlayerPrefs.SetInt("Antenne Branchee", 1);     
     }
 
+    public void ItemDropAnim() //////////////
+    {
+
+    }
 
     void Awake()
     {

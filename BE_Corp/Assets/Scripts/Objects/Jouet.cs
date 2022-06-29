@@ -18,6 +18,11 @@ public class Jouet : ClickableObject, IHasItemInteraction, IClicked, IAction
         PlayerPrefs.SetInt("Piles", 1);
     }
 
+    public void ItemDropAnim() //////////////
+    {
+
+    }
+
     // Start is called before the first frame update
     void Awake()
     {

@@ -24,6 +24,10 @@ public class ClosedRadioPile : MonoBehaviour,IHasItemInteraction
         PlayerPrefs.SetInt("PileDansRadio", 1);
     }
 
+    public void ItemDropAnim() //////////////
+    {
+
+    }
 
     void Awake()
     {

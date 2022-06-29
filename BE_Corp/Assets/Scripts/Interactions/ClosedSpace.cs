@@ -77,6 +77,11 @@ public class ClosedSpace : MonoBehaviour, IHasItemInteraction, IClicked, IAction
         Jauge.Instance.stadeProg += 1;
     }
 
+    public void ItemDropAnim() //////////////
+    {
+
+    }
+
     void EffetBrume()
     {
         emetteur.GetComponent<BrumeSpawn>().enabled = false;

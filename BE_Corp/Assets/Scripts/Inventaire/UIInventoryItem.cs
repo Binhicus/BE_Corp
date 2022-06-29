@@ -49,6 +49,7 @@ public class UIInventoryItem : MonoBehaviour, IDragHandler, IEndDragHandler
                     {
                         hitSomething = true;
                         interaction.DoItemInteraction();
+                        interaction.ItemDropAnim(); ////////////////////
                         fusionSound.Play();
                         GetComponent<Image>().enabled = false;
                         GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);

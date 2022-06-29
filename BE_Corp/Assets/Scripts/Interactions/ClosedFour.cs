@@ -26,6 +26,10 @@ public class ClosedFour : MonoBehaviour,IHasItemInteraction
         test.SetTrigger("Ouvre");
     }
 
+    public void ItemDropAnim() //////////////
+    {
+
+    }
 
     void Awake()
     {

@@ -17,6 +17,11 @@ public class ClosedRobot : MonoBehaviour,IHasItemInteraction
         Debug.Log("Je drope les piles normalement");
     }
 
+    public void ItemDropAnim() //////////////
+    {
+
+    }
+
     // Start is called before the first frame update
     void OnEnable()
     {
