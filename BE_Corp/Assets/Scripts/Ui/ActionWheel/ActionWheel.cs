@@ -46,14 +46,16 @@ public class ActionWheel : MonoBehaviour
     private void OnEnable() 
     {
         EnableAnimationWheel();
-        SetActionWheelPos();        
+        SetActionWheelPos();
+        CursorController.Instance.BoolFalseSetter();
      //   StartCoroutine(SetActionWheel()); 
     }
     
 
     public void DisableWheel()
     { 
-        StartCoroutine(CloseWheel()); 
+        StartCoroutine(CloseWheel());
+        CursorController.Instance.BoolTrueSetter();
     }
 
     void EnableAnimationWheel()
