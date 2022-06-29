@@ -5,7 +5,7 @@ using UnityEngine;
 public class EntreeManager : MonoBehaviour
 {
 
-    public GameObject fog, epouvantail, porteManteau, Porte, Pas, Tournevis, antenne;
+    public GameObject fog, epouvantail, porteManteau, Porte, Pas, Tournevis, antenne, enveloppe;
 
 
     private void OnEnable()
@@ -14,7 +14,7 @@ public class EntreeManager : MonoBehaviour
         porteManteau = GameObject.Find("Coat Rack");
         fog = GameObject.Find("Gray Volume Fog");
         Tournevis = GameObject.Find("Tournevis");
-        //antenne = GameObject.Find("Antenne");
+        enveloppe = GameObject.Find("Enveloppe 01");
         EntreeLoader();
     }
     public void EpouvantailState()
@@ -68,6 +68,8 @@ public class EntreeManager : MonoBehaviour
         Tournevis.GetComponent<CapsuleCollider>().enabled = true;
         epouvantail.GetComponent<BoxCollider>().enabled = true;
         fog.GetComponent<BoxCollider>().enabled = true;
+        enveloppe.GetComponent<BoxCollider>().enabled = true;
+        
     } 
 
     public void EntreeLoader()

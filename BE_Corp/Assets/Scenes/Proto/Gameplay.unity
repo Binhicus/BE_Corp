@@ -1571,6 +1571,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1896105565750113798, guid: 041c26a8ef42c1a42a7fa1a37b588d58, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2b030024fd00de94eb5d50200fbffe05, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 041c26a8ef42c1a42a7fa1a37b588d58, type: 3}
 --- !u!82 &426694946 stripped
@@ -1586,6 +1590,16 @@ AudioSource:
 --- !u!82 &426694948 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 1896105565949485402, guid: 041c26a8ef42c1a42a7fa1a37b588d58, type: 3}
+  m_PrefabInstance: {fileID: 426694945}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &426694949 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1896105566449413735, guid: 041c26a8ef42c1a42a7fa1a37b588d58, type: 3}
+  m_PrefabInstance: {fileID: 426694945}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &426694950 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1896105566000475878, guid: 041c26a8ef42c1a42a7fa1a37b588d58, type: 3}
   m_PrefabInstance: {fileID: 426694945}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &428700717
@@ -3359,8 +3373,8 @@ MonoBehaviour:
   objectID: 
   Inventaire: {fileID: 0}
   mouseOnInventory: {fileID: 0}
-  fusionSound: {fileID: 0}
-  deniedSound: {fileID: 0}
+  fusionSound: {fileID: 426694950}
+  deniedSound: {fileID: 426694949}
 --- !u!114 &677257088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3462,7 +3476,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &717237189
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5802,8 +5816,8 @@ MonoBehaviour:
   objectID: 
   Inventaire: {fileID: 0}
   mouseOnInventory: {fileID: 0}
-  fusionSound: {fileID: 0}
-  deniedSound: {fileID: 0}
+  fusionSound: {fileID: 426694950}
+  deniedSound: {fileID: 426694949}
 --- !u!114 &1069466511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7512,8 +7526,8 @@ MonoBehaviour:
   objectID: 
   Inventaire: {fileID: 0}
   mouseOnInventory: {fileID: 0}
-  fusionSound: {fileID: 0}
-  deniedSound: {fileID: 0}
+  fusionSound: {fileID: 426694950}
+  deniedSound: {fileID: 426694949}
 --- !u!114 &1276265934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8234,8 +8248,8 @@ MonoBehaviour:
   objectID: 
   Inventaire: {fileID: 0}
   mouseOnInventory: {fileID: 0}
-  fusionSound: {fileID: 0}
-  deniedSound: {fileID: 0}
+  fusionSound: {fileID: 426694950}
+  deniedSound: {fileID: 426694949}
 --- !u!114 &1395519920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11136,8 +11150,8 @@ MonoBehaviour:
   objectID: 
   Inventaire: {fileID: 0}
   mouseOnInventory: {fileID: 0}
-  fusionSound: {fileID: 0}
-  deniedSound: {fileID: 0}
+  fusionSound: {fileID: 426694950}
+  deniedSound: {fileID: 426694949}
 --- !u!114 &1771451403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45530,8 +45544,8 @@ MonoBehaviour:
   objectID: 
   Inventaire: {fileID: 0}
   mouseOnInventory: {fileID: 0}
-  fusionSound: {fileID: 0}
-  deniedSound: {fileID: 0}
+  fusionSound: {fileID: 426694950}
+  deniedSound: {fileID: 426694949}
 --- !u!114 &8928677553583445770
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,9 +11,12 @@ public class EnveloppeScript : ClickableObject,IClicked, IAction
 
     public BlockReference DialogEnvelop;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        if (PlayerPrefs.GetInt("Séquence 1 Done") == 0)
+        {
+            this.gameObject.GetComponent<BoxCollider>().enabled = false;
+        }
     }
 
     // Update is called once per frame
