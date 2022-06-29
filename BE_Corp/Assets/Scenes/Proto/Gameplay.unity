@@ -275,8 +275,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -41, y: -40}
-  m_SizeDelta: {x: 365, y: 50}
+  m_AnchoredPosition: {x: 55, y: -40}
+  m_SizeDelta: {x: 550, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &76152494
 MonoBehaviour:
@@ -298,7 +298,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ouga bouga
+  m_text: chungus chungus chungs.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b04f3173f946b754db673ac13842f4c1, type: 2}
   m_sharedMaterial: {fileID: 21728410361126204, guid: b04f3173f946b754db673ac13842f4c1, type: 2}
@@ -2311,7 +2311,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &505096102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5643,6 +5643,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Fademaj: {fileID: 504099307}
+  maj:
+    block: {fileID: 1270791276}
+  tableau:
+    block: {fileID: 1270791231}
+  mdp:
+    block: {fileID: 1270791226}
 --- !u!1 &1035832016
 GameObject:
   m_ObjectHideFlags: 0
@@ -7081,6 +7087,36 @@ MonoBehaviour:
     floatRef: {fileID: 0}
     floatVal: 3
   durationOLD: 0
+--- !u!114 &1270791219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270791217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c6dd8d3a780f4d1ea772e3daf10c372, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 81
+  indentLevel: 0
+  targetObjects:
+  - {fileID: 4006959862253453555}
+  tweenType: 2
+  waitUntilFinished:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  duration:
+    floatRef: {fileID: 0}
+    floatVal: 0.8
+  fadeMode: 0
+  targetColor:
+    colorRef: {fileID: 0}
+    colorVal: {r: 1, g: 1, b: 1, a: 1}
+  targetAlpha:
+    floatRef: {fileID: 0}
+    floatVal: 0
 --- !u!114 &1270791220
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -7171,6 +7207,232 @@ MonoBehaviour:
   targetAlpha:
     floatRef: {fileID: 0}
     floatVal: 1
+--- !u!114 &1270791223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270791217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 80
+  indentLevel: 0
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 3
+  durationOLD: 0
+--- !u!114 &1270791224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270791217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c6dd8d3a780f4d1ea772e3daf10c372, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 79
+  indentLevel: 0
+  targetObjects:
+  - {fileID: 4006959862253453555}
+  tweenType: 2
+  waitUntilFinished:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  duration:
+    floatRef: {fileID: 0}
+    floatVal: 0.3
+  fadeMode: 0
+  targetColor:
+    colorRef: {fileID: 0}
+    colorVal: {r: 1, g: 1, b: 1, a: 1}
+  targetAlpha:
+    floatRef: {fileID: 0}
+    floatVal: 1
+--- !u!114 &1270791225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270791217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78c0367bf08d147bd80b5454de50e9d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 78
+  indentLevel: 0
+  targetTextObject: {fileID: 76152492}
+  text:
+    stringRef: {fileID: 0}
+    stringVal: "Les choix de mots de passe ont \xE9t\xE9 mis \xE0 jour."
+  description: 
+  _textObjectObsolete: {fileID: 0}
+--- !u!114 &1270791226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270791217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 210.13922
+    y: 264.45566
+    width: 76.32911
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 83
+  blockName: MdP
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 1270791225}
+  - {fileID: 1270791224}
+  - {fileID: 1270791223}
+  - {fileID: 1270791219}
+  suppressAllAutoSelections: 0
+--- !u!114 &1270791227
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270791217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c6dd8d3a780f4d1ea772e3daf10c372, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 76
+  indentLevel: 0
+  targetObjects:
+  - {fileID: 4006959862253453555}
+  tweenType: 2
+  waitUntilFinished:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  duration:
+    floatRef: {fileID: 0}
+    floatVal: 0.8
+  fadeMode: 0
+  targetColor:
+    colorRef: {fileID: 0}
+    colorVal: {r: 1, g: 1, b: 1, a: 1}
+  targetAlpha:
+    floatRef: {fileID: 0}
+    floatVal: 0
+--- !u!114 &1270791228
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270791217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 75
+  indentLevel: 0
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 3
+  durationOLD: 0
+--- !u!114 &1270791229
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270791217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c6dd8d3a780f4d1ea772e3daf10c372, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 74
+  indentLevel: 0
+  targetObjects:
+  - {fileID: 4006959862253453555}
+  tweenType: 2
+  waitUntilFinished:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  duration:
+    floatRef: {fileID: 0}
+    floatVal: 0.3
+  fadeMode: 0
+  targetColor:
+    colorRef: {fileID: 0}
+    colorVal: {r: 1, g: 1, b: 1, a: 1}
+  targetAlpha:
+    floatRef: {fileID: 0}
+    floatVal: 1
+--- !u!114 &1270791230
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270791217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78c0367bf08d147bd80b5454de50e9d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 73
+  indentLevel: 0
+  targetTextObject: {fileID: 76152492}
+  text:
+    stringRef: {fileID: 0}
+    stringVal: "Le tableau a \xE9t\xE9 r\xE9v\xE9l\xE9."
+  description: 
+  _textObjectObsolete: {fileID: 0}
+--- !u!114 &1270791231
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270791217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: -47.835342
+    y: 193.56958
+    width: 139.11389
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 82
+  blockName: Tableau Reveal
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 1270791230}
+  - {fileID: 1270791229}
+  - {fileID: 1270791228}
+  - {fileID: 1270791227}
+  suppressAllAutoSelections: 0
 --- !u!114 &1270791245 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1125486771945344881, guid: a299a6111c5ba1149a23c70d74c34d3f, type: 3}
@@ -7478,7 +7740,7 @@ MonoBehaviour:
   drawingMode: 1
   outlineLayer: 0
   outlineTargets:
-  - IsVisible: 1
+  - IsVisible: 0
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -7494,7 +7756,7 @@ MonoBehaviour:
     cutoutTextureName: 
     DilateRenderingMode: 0
     cutoutTextureIndex: 0
-  - IsVisible: 1
+  - IsVisible: 0
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -8425,7 +8687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 0}
+  selectedFlowchart: {fileID: 1125486772892927073}
 --- !u!4 &1407439855
 Transform:
   m_ObjectHideFlags: 1
@@ -10701,7 +10963,7 @@ MonoBehaviour:
   drawingMode: 1
   outlineLayer: 0
   outlineTargets:
-  - IsVisible: 1
+  - IsVisible: 0
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -10717,7 +10979,7 @@ MonoBehaviour:
     cutoutTextureName: 
     DilateRenderingMode: 0
     cutoutTextureIndex: 0
-  - IsVisible: 1
+  - IsVisible: 0
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -11518,9 +11780,9 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 65
+  field of view: 60
   orthographic: 1
-  orthographic size: 8.13
+  orthographic size: 4.5
   m_Depth: 2
   m_CullingMask:
     serializedVersion: 2
@@ -11543,8 +11805,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1938412484}
-  m_LocalRotation: {x: 0.23911765, y: 0.3696438, z: -0.09904577, w: 0.89239913}
-  m_LocalPosition: {x: -40, y: 9, z: -12}
+  m_LocalRotation: {x: 0.13088542, y: 0.8681629, z: -0.31598538, w: 0.3596048}
+  m_LocalPosition: {x: -7.31, y: 7.5, z: 6.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1030794469}
@@ -12494,7 +12756,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2084106741
 Transform:
   m_ObjectHideFlags: 0
@@ -17717,7 +17979,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &846323595764983956
 Transform:
   m_ObjectHideFlags: 0
@@ -17741,7 +18003,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 846323595764983955}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -22686,7 +22948,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &846323596368069405
 Transform:
   m_ObjectHideFlags: 0
@@ -22708,7 +22970,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 846323596368069404}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -22844,7 +23106,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 846323596789553800}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 50, y: -80, z: 65.43}
+  m_LocalPosition: {x: -280, y: -100, z: 65.43}
   m_LocalScale: {x: 6, y: 6, z: 1}
   m_Children:
   - {fileID: 846323596368069405}
@@ -22892,7 +23154,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &846323596987175377
 Transform:
   m_ObjectHideFlags: 0
@@ -22916,7 +23178,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 846323596987175376}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -23048,7 +23310,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &846323597028375780
 Transform:
   m_ObjectHideFlags: 0
@@ -23072,7 +23334,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 846323597028375779}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -23204,7 +23466,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &846323597115565472
 Transform:
   m_ObjectHideFlags: 0
@@ -23228,7 +23490,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 846323597115565471}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -32989,11 +33251,11 @@ PrefabInstance:
       objectReference: {fileID: 76152492}
     - target: {fileID: 1125486771945344655, guid: a299a6111c5ba1149a23c70d74c34d3f, type: 3}
       propertyPath: nodeRect.x
-      value: 9.379757
+      value: 6.848112
       objectReference: {fileID: 0}
     - target: {fileID: 1125486771945344655, guid: a299a6111c5ba1149a23c70d74c34d3f, type: 3}
       propertyPath: nodeRect.y
-      value: 56.86075
+      value: 58.12657
       objectReference: {fileID: 0}
     - target: {fileID: 1125486771945344655, guid: a299a6111c5ba1149a23c70d74c34d3f, type: 3}
       propertyPath: nodeRect.width
@@ -33045,7 +33307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1125486771945344656, guid: a299a6111c5ba1149a23c70d74c34d3f, type: 3}
       propertyPath: selectedBlocks.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1125486771945344656, guid: a299a6111c5ba1149a23c70d74c34d3f, type: 3}
       propertyPath: selectedCommands.Array.size
@@ -33395,6 +33657,17 @@ PrefabInstance:
     - {fileID: 1125486771945344660, guid: a299a6111c5ba1149a23c70d74c34d3f, type: 3}
     - {fileID: 1125486771945344662, guid: a299a6111c5ba1149a23c70d74c34d3f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a299a6111c5ba1149a23c70d74c34d3f, type: 3}
+--- !u!114 &1125486772892927073 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1125486771945344656, guid: a299a6111c5ba1149a23c70d74c34d3f, type: 3}
+  m_PrefabInstance: {fileID: 1125486772892927072}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270791217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1150245555413471236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33826,7 +34099,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1150245557305730280}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -33921,16 +34194,16 @@ VisualEffect:
       m_Array: []
     m_Vector3f:
       m_Array:
-      - m_Value: {x: -5039.4194, y: 173.65225, z: 50.53}
+      - m_Value: {x: -5369.4194, y: 153.65225, z: 50.53}
         m_Name: Pos1
         m_Overridden: 1
-      - m_Value: {x: -5019.2915, y: 179.43784, z: 50.53}
+      - m_Value: {x: -5349.2915, y: 159.43784, z: 50.53}
         m_Name: Pos2
         m_Overridden: 1
-      - m_Value: {x: -5043.8374, y: 182.52872, z: 50.53}
+      - m_Value: {x: -5373.8374, y: 162.52872, z: 50.53}
         m_Name: Pos3
         m_Overridden: 1
-      - m_Value: {x: -5017.8896, y: 191.88985, z: 50.53}
+      - m_Value: {x: -5347.8896, y: 171.88985, z: 50.53}
         m_Name: Pos4
         m_Overridden: 1
     m_Vector4f:
@@ -33980,7 +34253,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
-  m_Bindings: []
+  m_Bindings:
+  - {fileID: 1150245557305731856}
+  - {fileID: 1150245557305730286}
+  - {fileID: 1150245557305730284}
+  - {fileID: 1150245557305731857}
   m_VisualEffect: {fileID: 1150245557305730285}
 --- !u!114 &1150245557305731856
 MonoBehaviour:
@@ -41099,16 +41376,16 @@ VisualEffect:
       m_Array: []
     m_Vector3f:
       m_Array:
-      - m_Value: {x: -5017.587, y: 191.03029, z: 50.53}
+      - m_Value: {x: -5347.587, y: 171.03029, z: 50.53}
         m_Name: Pos1
         m_Overridden: 1
-      - m_Value: {x: -5006.571, y: 172.90244, z: 50.53}
+      - m_Value: {x: -5336.571, y: 152.90244, z: 50.53}
         m_Name: Pos2
         m_Overridden: 1
-      - m_Value: {x: -5006.5317, y: 192.89963, z: 50.53}
+      - m_Value: {x: -5336.5317, y: 172.89963, z: 50.53}
         m_Name: Pos3
         m_Overridden: 1
-      - m_Value: {x: -4995.739, y: 173.09567, z: 50.53}
+      - m_Value: {x: -5325.739, y: 153.09567, z: 50.53}
         m_Name: Pos4
         m_Overridden: 1
     m_Vector4f:
@@ -41158,7 +41435,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
-  m_Bindings: []
+  m_Bindings:
+  - {fileID: 4702641962687741540}
+  - {fileID: 4702641962687741541}
+  - {fileID: 4702641962687738266}
+  - {fileID: 4702641962687738264}
   m_VisualEffect: {fileID: 4702641962687738265}
 --- !u!1 &4702641962687738268
 GameObject:
@@ -41190,7 +41471,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4702641962687738268}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -41311,7 +41592,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
-  m_Bindings: []
+  m_Bindings:
+  - {fileID: 4702641962754417657}
+  - {fileID: 4702641962754417659}
+  - {fileID: 4702641962754419719}
+  - {fileID: 4702641962754419718}
   m_VisualEffect: {fileID: 4702641962754417658}
 --- !u!114 &4702641962754417657
 MonoBehaviour:
@@ -41360,16 +41645,16 @@ VisualEffect:
       m_Array: []
     m_Vector3f:
       m_Array:
-      - m_Value: {x: -4970.2173, y: 194.83997, z: 50.53}
+      - m_Value: {x: -5300.2173, y: 174.83997, z: 50.53}
         m_Name: Pos1
         m_Overridden: 1
-      - m_Value: {x: -4964.5176, y: 174.40741, z: 50.53}
+      - m_Value: {x: -5294.5176, y: 154.40741, z: 50.53}
         m_Name: Pos2
         m_Overridden: 1
-      - m_Value: {x: -4959.069, y: 193.64804, z: 50.53}
+      - m_Value: {x: -5289.069, y: 173.64804, z: 50.53}
         m_Name: Pos3
         m_Overridden: 1
-      - m_Value: {x: -4954.0376, y: 171.66241, z: 50.53}
+      - m_Value: {x: -5284.0376, y: 151.66241, z: 50.53}
         m_Name: Pos4
         m_Overridden: 1
     m_Vector4f:
@@ -41427,7 +41712,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4702641962754417663}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -41641,16 +41926,16 @@ VisualEffect:
       m_Array: []
     m_Vector3f:
       m_Array:
-      - m_Value: {x: -4969.4272, y: 200.46613, z: 50.53}
+      - m_Value: {x: -5299.4272, y: 180.46613, z: 50.53}
         m_Name: Pos1
         m_Overridden: 1
-      - m_Value: {x: -4964.5176, y: 174.40741, z: 50.53}
+      - m_Value: {x: -5294.5176, y: 154.40741, z: 50.53}
         m_Name: Pos2
         m_Overridden: 1
-      - m_Value: {x: -4960.176, y: 190.14525, z: 50.53}
+      - m_Value: {x: -5290.176, y: 170.14525, z: 50.53}
         m_Name: Pos3
         m_Overridden: 1
-      - m_Value: {x: -4955.046, y: 168.72745, z: 50.53}
+      - m_Value: {x: -5285.046, y: 148.72745, z: 50.53}
         m_Name: Pos4
         m_Overridden: 1
     m_Vector4f:
@@ -41700,7 +41985,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
-  m_Bindings: []
+  m_Bindings:
+  - {fileID: 4702641962843195116}
+  - {fileID: 4702641962843195117}
+  - {fileID: 4702641962843195665}
+  - {fileID: 4702641962843195667}
   m_VisualEffect: {fileID: 4702641962843195664}
 --- !u!114 &4702641962843195667
 MonoBehaviour:
@@ -41761,7 +42050,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4702641962843195669}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -41903,7 +42192,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
-  m_Bindings: []
+  m_Bindings:
+  - {fileID: 4702641962971095899}
+  - {fileID: 4702641962971098278}
+  - {fileID: 4702641962971095897}
+  - {fileID: 4702641962971098279}
   m_VisualEffect: {fileID: 4702641962971095898}
 --- !u!114 &4702641962971095897
 MonoBehaviour:
@@ -41952,16 +42245,16 @@ VisualEffect:
       m_Array: []
     m_Vector3f:
       m_Array:
-      - m_Value: {x: -4990.098, y: 174.91318, z: 50.53}
+      - m_Value: {x: -5320.098, y: 154.91318, z: 50.53}
         m_Name: Pos1
         m_Overridden: 1
-      - m_Value: {x: -4972.185, y: 186.27553, z: 50.53}
+      - m_Value: {x: -5302.185, y: 166.27553, z: 50.53}
         m_Name: Pos2
         m_Overridden: 1
-      - m_Value: {x: -4992.1797, y: 185.93045, z: 50.53}
+      - m_Value: {x: -5322.1797, y: 165.93045, z: 50.53}
         m_Name: Pos3
         m_Overridden: 1
-      - m_Value: {x: -4972.5864, y: 197.10143, z: 50.53}
+      - m_Value: {x: -5302.5864, y: 177.10143, z: 50.53}
         m_Name: Pos4
         m_Overridden: 1
     m_Vector4f:
@@ -42019,7 +42312,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4702641962971095903}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -42338,16 +42631,16 @@ VisualEffect:
       m_Array: []
     m_Vector3f:
       m_Array:
-      - m_Value: {x: -5038.657, y: 170.78033, z: 50.53}
+      - m_Value: {x: -5368.657, y: 150.78033, z: 50.53}
         m_Name: Pos1
         m_Overridden: 1
-      - m_Value: {x: -5019.2915, y: 179.43784, z: 50.53}
+      - m_Value: {x: -5349.2915, y: 159.43784, z: 50.53}
         m_Name: Pos2
         m_Overridden: 1
-      - m_Value: {x: -5039.126, y: 181.98267, z: 50.53}
+      - m_Value: {x: -5369.126, y: 161.98267, z: 50.53}
         m_Name: Pos3
         m_Overridden: 1
-      - m_Value: {x: -5018.1255, y: 190.20824, z: 50.53}
+      - m_Value: {x: -5348.1255, y: 170.20824, z: 50.53}
         m_Name: Pos4
         m_Overridden: 1
     m_Vector4f:
@@ -42397,7 +42690,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
-  m_Bindings: []
+  m_Bindings:
+  - {fileID: 4702641963176843741}
+  - {fileID: 4702641963176843740}
+  - {fileID: 4702641963176842786}
+  - {fileID: 4702641963176842784}
   m_VisualEffect: {fileID: 4702641963176842785}
 --- !u!1 &4702641963176842788
 GameObject:
@@ -42429,7 +42726,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4702641963176842788}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -42676,7 +42973,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4702641963274402697}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -42742,16 +43039,16 @@ VisualEffect:
       m_Array: []
     m_Vector3f:
       m_Array:
-      - m_Value: {x: -5018.3486, y: 196.66043, z: 50.53}
+      - m_Value: {x: -5348.3486, y: 176.66043, z: 50.53}
         m_Name: Pos1
         m_Overridden: 1
-      - m_Value: {x: -5006.571, y: 172.90244, z: 50.53}
+      - m_Value: {x: -5336.571, y: 152.90244, z: 50.53}
         m_Name: Pos2
         m_Overridden: 1
-      - m_Value: {x: -5006.6494, y: 189.22801, z: 50.53}
+      - m_Value: {x: -5336.6494, y: 169.22801, z: 50.53}
         m_Name: Pos3
         m_Overridden: 1
-      - m_Value: {x: -4995.9155, y: 169.99733, z: 50.53}
+      - m_Value: {x: -5325.9155, y: 149.99733, z: 50.53}
         m_Name: Pos4
         m_Overridden: 1
     m_Vector4f:
@@ -42801,7 +43098,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
-  m_Bindings: []
+  m_Bindings:
+  - {fileID: 4702641963274400881}
+  - {fileID: 4702641963274400880}
+  - {fileID: 4702641963274402701}
+  - {fileID: 4702641963274402703}
   m_VisualEffect: {fileID: 4702641963274402700}
 --- !u!114 &4702641963274402703
 MonoBehaviour:
@@ -43115,16 +43416,16 @@ VisualEffect:
       m_Array: []
     m_Vector3f:
       m_Array:
-      - m_Value: {x: -5044.3384, y: 170.73047, z: 50.53}
+      - m_Value: {x: -5374.3384, y: 150.73047, z: 50.53}
         m_Name: Pos1
         m_Overridden: 1
-      - m_Value: {x: -5019.2915, y: 179.43784, z: 50.53}
+      - m_Value: {x: -5349.2915, y: 159.43784, z: 50.53}
         m_Name: Pos2
         m_Overridden: 1
-      - m_Value: {x: -5035.498, y: 181.4057, z: 50.53}
+      - m_Value: {x: -5365.498, y: 161.4057, z: 50.53}
         m_Name: Pos3
         m_Overridden: 1
-      - m_Value: {x: -5015.0737, y: 189.64476, z: 50.53}
+      - m_Value: {x: -5345.0737, y: 169.64476, z: 50.53}
         m_Name: Pos4
         m_Overridden: 1
     m_Vector4f:
@@ -43174,7 +43475,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
-  m_Bindings: []
+  m_Bindings:
+  - {fileID: 4702641963601044272}
+  - {fileID: 4702641963601046733}
+  - {fileID: 4702641963601044274}
+  - {fileID: 4702641963601046732}
   m_VisualEffect: {fileID: 4702641963601044273}
 --- !u!1 &4702641963601044276
 GameObject:
@@ -43206,7 +43511,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4702641963601044276}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -43918,7 +44223,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4702641964395181257}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -43984,16 +44289,16 @@ VisualEffect:
       m_Array: []
     m_Vector3f:
       m_Array:
-      - m_Value: {x: -4995.713, y: 174.04372, z: 50.53}
+      - m_Value: {x: -5325.713, y: 154.04372, z: 50.53}
         m_Name: Pos1
         m_Overridden: 1
-      - m_Value: {x: -4972.185, y: 186.27553, z: 50.53}
+      - m_Value: {x: -5302.185, y: 166.27553, z: 50.53}
         m_Name: Pos2
         m_Overridden: 1
-      - m_Value: {x: -4988.5063, y: 185.88326, z: 50.53}
+      - m_Value: {x: -5318.5063, y: 165.88326, z: 50.53}
         m_Name: Pos3
         m_Overridden: 1
-      - m_Value: {x: -4969.4854, y: 196.98438, z: 50.53}
+      - m_Value: {x: -5299.4854, y: 176.98438, z: 50.53}
         m_Name: Pos4
         m_Overridden: 1
     m_Vector4f:
@@ -44043,7 +44348,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
-  m_Bindings: []
+  m_Bindings:
+  - {fileID: 4702641964395181261}
+  - {fileID: 4702641964395182897}
+  - {fileID: 4702641964395181263}
+  - {fileID: 4702641964395182896}
   m_VisualEffect: {fileID: 4702641964395181260}
 --- !u!114 &4702641964395181263
 MonoBehaviour:
@@ -44254,7 +44563,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4702641964461112713}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -44320,16 +44629,16 @@ VisualEffect:
       m_Array: []
     m_Vector3f:
       m_Array:
-      - m_Value: {x: -4991.267, y: 177.64496, z: 50.53}
+      - m_Value: {x: -5321.267, y: 157.64496, z: 50.53}
         m_Name: Pos1
         m_Overridden: 1
-      - m_Value: {x: -4972.185, y: 186.27553, z: 50.53}
+      - m_Value: {x: -5302.185, y: 166.27553, z: 50.53}
         m_Name: Pos2
         m_Overridden: 1
-      - m_Value: {x: -4996.9204, y: 185.79071, z: 50.53}
+      - m_Value: {x: -5326.9204, y: 165.79071, z: 50.53}
         m_Name: Pos3
         m_Overridden: 1
-      - m_Value: {x: -4972.595, y: 198.79951, z: 50.53}
+      - m_Value: {x: -5302.5957, y: 178.79951, z: 50.53}
         m_Name: Pos4
         m_Overridden: 1
     m_Vector4f:
@@ -44379,7 +44688,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
-  m_Bindings: []
+  m_Bindings:
+  - {fileID: 4702641964461109873}
+  - {fileID: 4702641964461112719}
+  - {fileID: 4702641964461109872}
+  - {fileID: 4702641964461112717}
   m_VisualEffect: {fileID: 4702641964461112716}
 --- !u!114 &4702641964461112719
 MonoBehaviour:
@@ -44558,7 +44871,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4702641964586703426}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -44657,7 +44970,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
-  m_Bindings: []
+  m_Bindings:
+  - {fileID: 4702641964586703428}
+  - {fileID: 4702641964586702267}
+  - {fileID: 4702641964586702266}
+  - {fileID: 4702641964586703430}
   m_VisualEffect: {fileID: 4702641964586703431}
 --- !u!114 &4702641964586703430
 MonoBehaviour:
@@ -44706,16 +45023,16 @@ VisualEffect:
       m_Array: []
     m_Vector3f:
       m_Array:
-      - m_Value: {x: -4967.2646, y: 195.1694, z: 50.53}
+      - m_Value: {x: -5297.2646, y: 175.1694, z: 50.53}
         m_Name: Pos1
         m_Overridden: 1
-      - m_Value: {x: -4964.5176, y: 174.40741, z: 50.53}
+      - m_Value: {x: -5294.5176, y: 154.40741, z: 50.53}
         m_Name: Pos2
         m_Overridden: 1
-      - m_Value: {x: -4957.8325, y: 198.22679, z: 50.53}
+      - m_Value: {x: -5287.8325, y: 178.22679, z: 50.53}
         m_Name: Pos3
         m_Overridden: 1
-      - m_Value: {x: -4952.4097, y: 171.18028, z: 50.53}
+      - m_Value: {x: -5282.4097, y: 151.18028, z: 50.53}
         m_Name: Pos4
         m_Overridden: 1
     m_Vector4f:
@@ -44788,7 +45105,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4702641964596363131}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -44858,7 +45175,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
-  m_Bindings: []
+  m_Bindings:
+  - {fileID: 4702641964596359299}
+  - {fileID: 4702641964596363133}
+  - {fileID: 4702641964596363135}
+  - {fileID: 4702641964596359298}
   m_VisualEffect: {fileID: 4702641964596363134}
 --- !u!114 &4702641964596363133
 MonoBehaviour:
@@ -44907,16 +45228,16 @@ VisualEffect:
       m_Array: []
     m_Vector3f:
       m_Array:
-      - m_Value: {x: -5014.833, y: 192.14655, z: 50.53}
+      - m_Value: {x: -5344.833, y: 172.14655, z: 50.53}
         m_Name: Pos1
         m_Overridden: 1
-      - m_Value: {x: -5006.571, y: 172.90244, z: 50.53}
+      - m_Value: {x: -5336.571, y: 152.90244, z: 50.53}
         m_Name: Pos2
         m_Overridden: 1
-      - m_Value: {x: -5006.5806, y: 197.64212, z: 50.53}
+      - m_Value: {x: -5336.5806, y: 177.64212, z: 50.53}
         m_Name: Pos3
         m_Overridden: 1
-      - m_Value: {x: -4994.041, y: 173.07213, z: 50.53}
+      - m_Value: {x: -5324.041, y: 153.07213, z: 50.53}
         m_Name: Pos4
         m_Overridden: 1
     m_Vector4f:

@@ -59,7 +59,6 @@ public class ScarecrowScript : ClickableObject, IClicked, IAction
             CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible ;
             CursorController.Instance.ActionWheelScript.TargetAction = this;
             CursorController.Instance.ActionWheelScript.gameObject.SetActive(true);
-
         }
     }
 
