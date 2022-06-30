@@ -108,7 +108,7 @@ public class FourScript : ClickableObject,IClicked, IAction
 
     public void CallMajFour()
     {
-        MisAJourEffect.Instance.MiseAJour();
+        MisAJourEffect.Instance.TableauUpdated();
     }
 
     IEnumerator coroutineA()

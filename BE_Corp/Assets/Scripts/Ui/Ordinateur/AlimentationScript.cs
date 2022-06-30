@@ -288,6 +288,7 @@ public class AlimentationScript : MonoBehaviour
     {
         CanvasGroupPostIt.GetComponent<Animator>().SetBool("Disparait", true);
         PlayerPrefs.SetInt("MdpOk",1);
+        PlayerPrefs.SetInt("Morceau1Tableau",1);
         IndiceObj.SetActive(false);
         InputLogIn.SetActive(false);
         InputLogIn.GetComponent<InputField>().text = null ;

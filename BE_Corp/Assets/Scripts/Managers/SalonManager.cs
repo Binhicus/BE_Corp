@@ -10,6 +10,7 @@ public class SalonManager : MonoBehaviour
     public GameObject PilesRobot;
     public GameObject ballon, antenne;
     public GameObject salonAvant, salonApres;
+    public GameObject TableauPart1,TableauPart2,TableauPart3;
 
     private void OnEnable()
     {
@@ -19,6 +20,9 @@ public class SalonManager : MonoBehaviour
         PilesRobot = GameObject.FindWithTag("Test");
         ballon = GameObject.Find("Soccer Ball").transform.GetChild(0).gameObject;
         antenne = GameObject.Find("Antenne");
+        TableauPart1 = GameObject.Find("Part1 tableau");
+        TableauPart2 = GameObject.Find("Part 2 tableau");
+        TableauPart3 = GameObject.Find("Part 3 tableu");
 
         SalonLoader();
     }
@@ -26,6 +30,19 @@ public class SalonManager : MonoBehaviour
     void Awake()
     {
         //PlayerPrefs.SetInt("Salon Révélé",1);
+
+        if(PlayerPrefs.GetInt("Morceau1Tableau")==1)
+        {
+            TableauPart1.SetActive(true);
+        }
+        if(PlayerPrefs.GetInt("Morceau2Tableau")==1)
+        {
+            TableauPart2.SetActive(true);
+        }
+        if(PlayerPrefs.GetInt("Morceau3Tableau")==1)
+        {
+            TableauPart3.SetActive(true);
+        }
     }
     public void VaseState()
     {

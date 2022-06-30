@@ -18,7 +18,7 @@ public class MisAJourEffect : Singleton<MisAJourEffect>
     {
         base.Awake();
         checkpoint = GameObject.FindGameObjectWithTag("Checkpoint");
-        animator = checkpoint.GetComponent<Animator>();
+        //animator = checkpoint.GetComponent<Animator>();
 
     }
     void Update()
@@ -51,7 +51,7 @@ public class MisAJourEffect : Singleton<MisAJourEffect>
         //Fademaj.GetComponent<Animator>().SetTrigger("Maj");
         //tableau.Execute();
         audioCue.Play();
-        message.text = "Une information visuelle a été ajouté au tableau.";
+        //message.text = "Une information visuelle a été ajouté au tableau.";
         tableauUpdate.Execute();
         //animator.CrossFade("TableauReveal", 0.3f);
     }
@@ -61,7 +61,6 @@ public class MisAJourEffect : Singleton<MisAJourEffect>
         audioCue.Play();
         //message.text = "Un nouveau choix de mot de passe a été enregistré.";
         password.Execute();
-        animator.CrossFade("PasswordHint", 0.3f);
     }
 
 }

@@ -45,12 +45,12 @@ public class TableauFinalScript : ClickableObject, IClicked, IAction
 
     void Start()
     {
-        PlayerPrefs.SetInt("Morceau1Tableau",1);
+       /* PlayerPrefs.SetInt("Morceau1Tableau",1);
         PlayerPrefs.SetInt("Morceau2Tableau",1);
-        PlayerPrefs.SetInt("Morceau3Tableau",1);
+        PlayerPrefs.SetInt("Morceau3Tableau",1);*/
 
 
-        if(PlayerPrefs.GetInt("Morceau1Tableau1")==1)
+       /* if(PlayerPrefs.GetInt("Morceau1Tableau1")==1)
         {
             Morceau1.SetActive(true);
         }
@@ -61,12 +61,12 @@ public class TableauFinalScript : ClickableObject, IClicked, IAction
         if(PlayerPrefs.GetInt("Morceau3Tableau")==1)
         {
             Morceau3.SetActive(true);
-        }
+        }*/
     }
 
     void OnEnable()
     {
-        if(PlayerPrefs.GetInt("Morceau1Tableau")==1)
+       /* if(PlayerPrefs.GetInt("Morceau1Tableau")==1)
         {
             Morceau1.SetActive(true);
         }
@@ -77,7 +77,7 @@ public class TableauFinalScript : ClickableObject, IClicked, IAction
         if(PlayerPrefs.GetInt("Morceau3Tableau")==1)
         {
             Morceau3.SetActive(true);
-        }
+        }*/
     }
     public void Observer()
     {

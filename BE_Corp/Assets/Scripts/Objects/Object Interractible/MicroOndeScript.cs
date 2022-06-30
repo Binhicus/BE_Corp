@@ -5,7 +5,7 @@ using Fungus;
 
 public class MicroOndeScript : ClickableObject,IClicked, IAction
 {
-     public BlockReference etatZero, etatUn, etatDeux, etatTrois, remarqueClient;
+     public BlockReference remarqueClient;
 
     public AudioSource Son;
 

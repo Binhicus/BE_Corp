@@ -46,6 +46,8 @@ public class EnveloppeScript : ClickableObject,IClicked, IAction
         DialogEnvelop.Execute();
 
         PlayerPrefs.SetInt("IndiceEscargot",1);
+
+        //Invoke("FonctionMaj", 1.5f);
         
     }
 

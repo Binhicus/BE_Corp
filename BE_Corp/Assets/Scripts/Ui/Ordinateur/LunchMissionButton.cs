@@ -17,10 +17,6 @@ public class LunchMissionButton : MonoBehaviour
         StartCoroutine(WaitAndLunchTheMission());
     }
 
-    /*void LoadFirstRoom()
-    {
-
-    }*/
 
     public void PlayerCanPlayThisMission(bool Possible)
     {
@@ -45,6 +41,9 @@ public class LunchMissionButton : MonoBehaviour
         GameObject.Find("FADE Lunch").GetComponent<Image>().DOFade(1f, 0.95f) ;
         yield return new WaitForSeconds(1f);
         PlayerPrefs.DeleteAll();
+
+      //  PlayerPrefs.SetInt("Mission1Finish", 1);
+
         SceneManager.LoadScene("Gameplay");        
         SceneManager.LoadSceneAsync("EntréeTemp", LoadSceneMode.Additive);    
     }

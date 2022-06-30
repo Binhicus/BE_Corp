@@ -5,7 +5,9 @@ using DG.Tweening;
 
 public class HoverElementMask : MonoBehaviour
 {
-    public float HeightMax ;
+    public float ValueMax ;
+    public float Speed ;
+
     RectTransform ThisRect ;
 
     private void Awake() 
@@ -16,12 +18,12 @@ public class HoverElementMask : MonoBehaviour
     public void ShowElement()
     {
         ThisRect.DOKill();
-        ThisRect.DOSizeDelta(new Vector2(HeightMax, ThisRect.sizeDelta.y), 0.15f);
+        ThisRect.DOSizeDelta(new Vector2(ValueMax, ThisRect.sizeDelta.y), Speed);
     }
 
     public void HideElement()
     {
         ThisRect.DOKill();
-        ThisRect.DOSizeDelta(new Vector2(0f, ThisRect.sizeDelta.y), 0.1f);
+        ThisRect.DOSizeDelta(new Vector2(0f, ThisRect.sizeDelta.y), (Speed * .7f));
     }
 }

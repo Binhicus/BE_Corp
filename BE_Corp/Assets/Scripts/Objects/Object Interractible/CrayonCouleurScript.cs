@@ -28,6 +28,7 @@ public class CrayonCouleurScript : ClickableObject,IClicked, IAction
     public void Question()
     {
         Ques.Execute();
+        PlayerPrefs.SetInt("Morceau3Tableau",1);
     }
 
     public void OnOpen() {Debug.Log("Open") ;}
