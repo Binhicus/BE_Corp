@@ -2685,6 +2685,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1082724738}
+  - {fileID: 1656726726}
   m_Father: {fileID: 993174050}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 40, y: 135, z: 0}
@@ -8864,7 +8865,7 @@ MonoBehaviour:
   drawingMode: 1
   outlineLayer: 0
   outlineTargets:
-  - IsVisible: 0
+  - IsVisible: 1
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -8880,7 +8881,7 @@ MonoBehaviour:
     cutoutTextureName: 
     DilateRenderingMode: 0
     cutoutTextureIndex: 0
-  - IsVisible: 0
+  - IsVisible: 1
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -11855,6 +11856,68 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1001 &1656726725
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 505096103}
+    m_Modifications:
+    - target: {fileID: 3631004552737107282, guid: 20351c965a380804d8bbbc1f9df8c609, type: 3}
+      propertyPath: m_Name
+      value: Fond_Cuisine_Animation
+      objectReference: {fileID: 0}
+    - target: {fileID: 9130776675028425331, guid: 20351c965a380804d8bbbc1f9df8c609, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9130776675028425331, guid: 20351c965a380804d8bbbc1f9df8c609, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.6063347
+      objectReference: {fileID: 0}
+    - target: {fileID: 9130776675028425331, guid: 20351c965a380804d8bbbc1f9df8c609, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 23.074001
+      objectReference: {fileID: 0}
+    - target: {fileID: 9130776675028425331, guid: 20351c965a380804d8bbbc1f9df8c609, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 46.268223
+      objectReference: {fileID: 0}
+    - target: {fileID: 9130776675028425331, guid: 20351c965a380804d8bbbc1f9df8c609, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.3596048
+      objectReference: {fileID: 0}
+    - target: {fileID: 9130776675028425331, guid: 20351c965a380804d8bbbc1f9df8c609, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.13088542
+      objectReference: {fileID: 0}
+    - target: {fileID: 9130776675028425331, guid: 20351c965a380804d8bbbc1f9df8c609, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.8681629
+      objectReference: {fileID: 0}
+    - target: {fileID: 9130776675028425331, guid: 20351c965a380804d8bbbc1f9df8c609, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.31598538
+      objectReference: {fileID: 0}
+    - target: {fileID: 9130776675028425331, guid: 20351c965a380804d8bbbc1f9df8c609, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9130776675028425331, guid: 20351c965a380804d8bbbc1f9df8c609, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9130776675028425331, guid: 20351c965a380804d8bbbc1f9df8c609, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 20351c965a380804d8bbbc1f9df8c609, type: 3}
+--- !u!4 &1656726726 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9130776675028425331, guid: 20351c965a380804d8bbbc1f9df8c609, type: 3}
+  m_PrefabInstance: {fileID: 1656726725}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1664424230
 GameObject:
   m_ObjectHideFlags: 0
@@ -12090,7 +12153,7 @@ MonoBehaviour:
   drawingMode: 1
   outlineLayer: 0
   outlineTargets:
-  - IsVisible: 0
+  - IsVisible: 1
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -12106,7 +12169,7 @@ MonoBehaviour:
     cutoutTextureName: 
     DilateRenderingMode: 0
     cutoutTextureIndex: 0
-  - IsVisible: 0
+  - IsVisible: 1
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
