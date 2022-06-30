@@ -51,7 +51,7 @@ public class EnveloppeScript : ClickableObject,IClicked, IAction
 
     public void FonctionMaj()
     {
-        MisAJourEffect.Instance.MiseAJour();
+        MisAJourEffect.Instance.PasswordUpdate();
     }
 
     public void OnOpen() {Debug.Log("Open") ;}

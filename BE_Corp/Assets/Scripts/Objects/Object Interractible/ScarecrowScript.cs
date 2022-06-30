@@ -15,7 +15,7 @@ public class ScarecrowScript : ClickableObject, IClicked, IAction
 
 
     private ScreenShake camShake;
-    private DoorScript Door;
+    public DoorScript Door;
 
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>() ;
 
@@ -64,16 +64,21 @@ public class ScarecrowScript : ClickableObject, IClicked, IAction
 
     public void Disparait()
     {
-        maj.Execute();
+        //maj.Execute();
         GetComponent<BoxCollider>().enabled = false ;
+        Debug.Log("collider enlevé");
         Son.Play();
-        Epouvantail.GetComponent<Animator>().SetTrigger("animation");
+        Debug.Log("son joué");
+        Epouvantail.GetComponent<Animator>().CrossFade("Disappear", 0.3f);
+        Debug.Log("animation lancée");
         //PorteManteau.GetComponent<Animator>().SetTrigger("CoatRack Animation");
         Jauge.Instance.stadeProg += 1;
-
+        Debug.Log("progression ++");
+        MisAJourEffect.Instance.MiseAJour();
 
         PlayerPrefs.SetInt("Scarecrow", 1);
-        Door.OpenDoorAnimation();
+        Door.OpenDoorAnimation();        
+        Debug.Log("porte ouverte");
 
         dissolve.Execute();
     }
