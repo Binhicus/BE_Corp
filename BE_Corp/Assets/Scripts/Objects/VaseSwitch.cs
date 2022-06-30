@@ -68,7 +68,7 @@ public class VaseSwitch : ClickableObject
     {
             Vasecassé.Execute();
         casse.Play();
-        Jauge.Instance.stadeProg += 1;
+        //Jauge.Instance.stadeProg += 1;
         vase.SetActive(false);
         brokenVase.SetActive(true);
         PlayerPrefs.SetInt("VaseAndKey", 1);

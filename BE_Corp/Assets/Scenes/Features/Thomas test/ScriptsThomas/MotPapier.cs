@@ -255,7 +255,8 @@ public class MotPapier : MonoBehaviour
         {
             Une=true;
             PlayerPrefs.SetInt("Cuisine Révélée",1);
-        MisAJourEffect.Instance.MiseAJour();
+            MisAJourEffect.Instance.MiseAJour();
+            Jauge.Instance.stadeProg += 1;
         }
         
     }

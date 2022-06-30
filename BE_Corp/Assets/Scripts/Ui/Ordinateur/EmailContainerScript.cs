@@ -110,7 +110,12 @@ public class EmailContainerScript : MonoBehaviour
 
         GetComponentInParent<ContainerMailScript>().EmailDisplayerManager.SetMailDisplay(MailInformations);
 
-        if(MailInformations.IsStoryMail) PlayerPrefs.SetInt("Salon Révélé", 1);
+        if (MailInformations.IsStoryMail)
+        {
+            PlayerPrefs.SetInt("Salon Révélé", 1);
+            MisAJourEffect.Instance.TableauReveal();
+            Jauge.Instance.stadeProg += 1;
+        }
     }
 
 

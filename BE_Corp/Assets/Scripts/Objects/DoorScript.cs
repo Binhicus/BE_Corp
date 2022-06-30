@@ -7,7 +7,7 @@ using UnityEngine.Rendering.Universal;
 [RequireComponent (typeof(Animator))]
 public class DoorScript : MonoBehaviour
 {
-    private SplCameraShake cameraShake;
+    public SplCameraShake cameraShake;
     [SerializeField] private GameObject Panel;
     [SerializeField] private Material glitchEffectOn, glitchEffectOff;
     [SerializeField] ForwardRendererData rendererData;

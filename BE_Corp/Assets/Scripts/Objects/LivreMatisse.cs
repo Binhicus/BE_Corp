@@ -30,6 +30,7 @@ public class LivreMatisse : ClickableObject,IClicked, IAction
     public void Parle()
     {
         DialogMatisse.Execute();  PlayerPrefs.SetInt("Matisse",1);
+        MisAJourEffect.Instance.PasswordUpdate();
     }
 
     public void OnOpen() {Debug.Log("Open") ;}
