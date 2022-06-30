@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CuisineManager : MonoBehaviour
 {
-    public GameObject radio, gateau, microOndes, cuisineHidden, cuisineReveal;
+    public GameObject cuisineHidden, cuisineReveal;
     // Start is called before the first frame update
    void OnEnable()
    {
@@ -13,7 +13,7 @@ public class CuisineManager : MonoBehaviour
 
    void Awake()
    {
-    PlayerPrefs.SetInt("Cuisine Révélée",1);
+    //PlayerPrefs.SetInt("Cuisine Révélée",1);
    }
 
     // Update is called once per frame

@@ -64,7 +64,7 @@ public class ClosedDoor : MonoBehaviour, IHasItemInteraction
 
     IEnumerator AnimDrop() /////////////////////
     {
-        GameObject.Find("Clef Pivot Clone").transform.SetParent(Camera.main.transform);
+        GameObject.Find("Clef Pivot(Clone)").transform.SetParent(Camera.main.transform);
 
         foreach (GameObject indiceZone in GameObject.FindGameObjectsWithTag("Indice Zone"))
         {
@@ -77,14 +77,15 @@ public class ClosedDoor : MonoBehaviour, IHasItemInteraction
         }
 
         Destroy(GameObject.Find("PU_shine Key"));
-        iTween.RotateTo(GameObject.Find("Clef Pivot"), iTween.Hash("rotation", new Vector3(135.084f, -34.272f, 0f), "time", 1f, "delay", 0.5f));
-        iTween.ScaleTo(GameObject.Find("Clef Pivot"), iTween.Hash("scale", new Vector3(1.35147f, 1.35147f, 1.35147f), "time", 0.5f, "delay", 0.5f));
-        GameObject.Find("Clef Pivot").transform.SetParent(GameObject.Find("Door Room").transform);
-        iTween.MoveTo(GameObject.Find("Clef Pivot"), iTween.Hash("position", GameObject.Find("Key Target").transform.position, "time", 1.5f, "easetype", iTween.EaseType.easeInOutSine, "delay", 2f));
-        iTween.RotateTo(GameObject.Find("Clef Pivot"), iTween.Hash("rotation", new Vector3(0f, -90f, 0f), "time", 1f, "delay", 2f));
-        iTween.ScaleTo(GameObject.Find("Clef Pivot"), iTween.Hash("scale", new Vector3(0.00199823268f, 0.00199823361f, 0.00281441351f), "time", 0.15f, "delay", 2f));
-        Destroy(GameObject.Find("Clef Pivot"), 3f);
-        yield return new WaitForSeconds(2.5f);
+        iTween.RotateTo(GameObject.Find("Clef Pivot(Clone)"), iTween.Hash("rotation", new Vector3(47.009f, -65.723f, 167.92f), "time", 1f, "delay", 0.5f));
+        iTween.ScaleTo(GameObject.Find("Clef Pivot(Clone)"), iTween.Hash("scale", new Vector3(2.5f, 2.5f, 2.5f), "time", 0.5f, "delay", 0.5f));
+        yield return new WaitForSeconds(2f);
+        GameObject.Find("Clef Pivot(Clone)").transform.SetParent(GameObject.Find("Door Room").transform);
+        iTween.MoveTo(GameObject.Find("Clef Pivot(Clone)"), iTween.Hash("position", GameObject.Find("Key Target").transform.position, "time", 1.5f, "easetype", iTween.EaseType.easeInOutSine, "delay", 2f));
+        iTween.RotateTo(GameObject.Find("Clef Pivot(Clone)"), iTween.Hash("rotation", new Vector3(0f, -90f, 0f), "time", 1f, "delay", 2f));
+        iTween.ScaleTo(GameObject.Find("Clef Pivot(Clone)"), iTween.Hash("scale", new Vector3(0.00199823268f, 0.00199823361f, 0.00281441351f), "time", 0.15f, "delay", 2f));
+        Destroy(GameObject.Find("Clef Pivot(Clone)"), 4f);
+        yield return new WaitForSeconds(1.5f);
 
         for (int i = 0; i < zonesZoom.Count; i++)
         {
