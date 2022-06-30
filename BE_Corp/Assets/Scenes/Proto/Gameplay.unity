@@ -6316,13 +6316,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8acf09c129b09fe4f80c848627f63503, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fademaj: {fileID: 504099307}
+  checkpoint: {fileID: 0}
+  animator: {fileID: 0}
+  message: {fileID: 0}
+  audioCue: {fileID: 0}
   maj:
     block: {fileID: 1270791276}
   tableau:
     block: {fileID: 1270791231}
-  mdp:
-    block: {fileID: 1270791226}
+  tableauUpdate:
+    block: {fileID: 0}
+  password:
+    block: {fileID: 0}
 --- !u!1 &1035832016
 GameObject:
   m_ObjectHideFlags: 0
@@ -10259,7 +10264,7 @@ MonoBehaviour:
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
   m_AmplitudeGain: 0
-  m_FrequencyGain: 2
+  m_FrequencyGain: 1.85
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!114 &1579892255
 MonoBehaviour:
@@ -10788,7 +10793,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1609803807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12456,9 +12461,9 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 65
   orthographic: 1
-  orthographic size: 6.07
+  orthographic size: 8.13
   m_Depth: 2
   m_CullingMask:
     serializedVersion: 2
@@ -12482,7 +12487,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1938412484}
   m_LocalRotation: {x: 0.23911765, y: 0.3696438, z: -0.09904577, w: 0.89239913}
-  m_LocalPosition: {x: -16.65, y: 8.94, z: -10.49}
+  m_LocalPosition: {x: -40, y: 9, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1030794469}
@@ -13566,7 +13571,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2084106741
 Transform:
   m_ObjectHideFlags: 0
@@ -35064,10 +35069,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
   m_Bindings:
-  - {fileID: 1150245557305731857}
+  - {fileID: 1150245557305730284}
   - {fileID: 1150245557305731856}
   - {fileID: 1150245557305730286}
-  - {fileID: 1150245557305730284}
+  - {fileID: 1150245557305731857}
   m_VisualEffect: {fileID: 1150245557305730285}
 --- !u!114 &1150245557305731856
 MonoBehaviour:
@@ -43319,10 +43324,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
   m_Bindings:
-  - {fileID: 4702641962687741541}
-  - {fileID: 4702641962687741540}
-  - {fileID: 4702641962687738266}
   - {fileID: 4702641962687738264}
+  - {fileID: 4702641962687738266}
+  - {fileID: 4702641962687741540}
+  - {fileID: 4702641962687741541}
   m_VisualEffect: {fileID: 4702641962687738265}
 --- !u!1 &4702641962687738268
 GameObject:
@@ -43476,10 +43481,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
   m_Bindings:
-  - {fileID: 4702641962754419719}
-  - {fileID: 4702641962754419718}
-  - {fileID: 4702641962754417659}
   - {fileID: 4702641962754417657}
+  - {fileID: 4702641962754419718}
+  - {fileID: 4702641962754419719}
+  - {fileID: 4702641962754417659}
   m_VisualEffect: {fileID: 4702641962754417658}
 --- !u!114 &4702641962754417657
 MonoBehaviour:
@@ -43869,10 +43874,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
   m_Bindings:
-  - {fileID: 4702641962843195667}
+  - {fileID: 4702641962843195116}
   - {fileID: 4702641962843195665}
   - {fileID: 4702641962843195117}
-  - {fileID: 4702641962843195116}
+  - {fileID: 4702641962843195667}
   m_VisualEffect: {fileID: 4702641962843195664}
 --- !u!114 &4702641962843195667
 MonoBehaviour:
@@ -44077,9 +44082,9 @@ MonoBehaviour:
   m_ExecuteInEditor: 1
   m_Bindings:
   - {fileID: 4702641962971098279}
-  - {fileID: 4702641962971098278}
-  - {fileID: 4702641962971095899}
   - {fileID: 4702641962971095897}
+  - {fileID: 4702641962971095899}
+  - {fileID: 4702641962971098278}
   m_VisualEffect: {fileID: 4702641962971095898}
 --- !u!114 &4702641962971095897
 MonoBehaviour:
@@ -44574,9 +44579,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
   m_Bindings:
-  - {fileID: 4702641963176843741}
   - {fileID: 4702641963176843740}
   - {fileID: 4702641963176842786}
+  - {fileID: 4702641963176843741}
   - {fileID: 4702641963176842784}
   m_VisualEffect: {fileID: 4702641963176842785}
 --- !u!1 &4702641963176842788
@@ -44982,10 +44987,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
   m_Bindings:
-  - {fileID: 4702641963274402703}
-  - {fileID: 4702641963274402701}
-  - {fileID: 4702641963274400881}
   - {fileID: 4702641963274400880}
+  - {fileID: 4702641963274402701}
+  - {fileID: 4702641963274402703}
+  - {fileID: 4702641963274400881}
   m_VisualEffect: {fileID: 4702641963274402700}
 --- !u!114 &4702641963274402703
 MonoBehaviour:
@@ -45359,10 +45364,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
   m_Bindings:
-  - {fileID: 4702641963601046733}
   - {fileID: 4702641963601046732}
-  - {fileID: 4702641963601044274}
   - {fileID: 4702641963601044272}
+  - {fileID: 4702641963601044274}
+  - {fileID: 4702641963601046733}
   m_VisualEffect: {fileID: 4702641963601044273}
 --- !u!1 &4702641963601044276
 GameObject:
@@ -46232,8 +46237,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
   m_Bindings:
-  - {fileID: 4702641964395182897}
   - {fileID: 4702641964395182896}
+  - {fileID: 4702641964395182897}
   - {fileID: 4702641964395181263}
   - {fileID: 4702641964395181261}
   m_VisualEffect: {fileID: 4702641964395181260}
@@ -46572,8 +46577,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
   m_Bindings:
-  - {fileID: 4702641964461112719}
   - {fileID: 4702641964461112717}
+  - {fileID: 4702641964461112719}
   - {fileID: 4702641964461109873}
   - {fileID: 4702641964461109872}
   m_VisualEffect: {fileID: 4702641964461112716}
@@ -47059,8 +47064,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
   m_Bindings:
-  - {fileID: 4702641964596363135}
   - {fileID: 4702641964596363133}
+  - {fileID: 4702641964596363135}
   - {fileID: 4702641964596359299}
   - {fileID: 4702641964596359298}
   m_VisualEffect: {fileID: 4702641964596363134}
