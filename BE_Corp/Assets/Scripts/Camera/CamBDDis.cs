@@ -5,6 +5,7 @@ using UnityEngine;
 public class CamBDDis : MonoBehaviour
 {
     public GameObject Book;
+    public GameObject LivreFerme;
 
     // Start is called before the first frame update
 
@@ -15,6 +16,7 @@ public class CamBDDis : MonoBehaviour
 
     private void OnEnable() {
         Book=GameObject.Find("BOOK");
+        LivreFerme=GameObject.Find("BD_Tournesol_fermée");
     }
 
     // Update is called once per frame
@@ -24,6 +26,7 @@ public class CamBDDis : MonoBehaviour
     }
 
     private void OnDisable() {
+        LivreFerme.SetActive(true);
         Book=GameObject.Find("BOOK");
         Book.SetActive(false);
         PlayerPrefs.SetInt("LivreOpen",0);
