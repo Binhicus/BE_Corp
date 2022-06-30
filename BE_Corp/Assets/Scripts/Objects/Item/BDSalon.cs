@@ -32,11 +32,11 @@ public class BDSalon :ClickableObject,IClicked, IAction
     // Update is called once per frame
     public void OnClickAction()
     {
-        if(PlayerPrefs.GetInt("Cuisine Révélée")==0)
+        if(PlayerPrefs.GetInt("BDOk")==0)
         {
             CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible ;
         }
-        if(PlayerPrefs.GetInt("Cuisine Révélée")==1)
+        if(PlayerPrefs.GetInt("BDOk")==1)
         {
             CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible2 ;
         }
@@ -65,6 +65,7 @@ public class BDSalon :ClickableObject,IClicked, IAction
         LivreOuvert.SetActive(true);
         TSommaire.SetActive(true);
         TSommaire.GetComponent<Animator>().SetBool("Go", true);
+        this.gameObject.SetActive(false);
     }
 
 
