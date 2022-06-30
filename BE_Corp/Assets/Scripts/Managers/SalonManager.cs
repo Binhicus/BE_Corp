@@ -22,6 +22,11 @@ public class SalonManager : MonoBehaviour
 
         SalonLoader();
     }
+
+    void Awake()
+    {
+        PlayerPrefs.SetInt("Salon Révélé",1);
+    }
     public void VaseState()
     {
         //PlayerPrefs.SetInt("Vase",1);

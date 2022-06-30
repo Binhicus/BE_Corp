@@ -14,17 +14,17 @@ public class MotPapier : MonoBehaviour
     public int SurvoleLaZone;
 
 
-    public static bool Place1Prise;
-    public static bool Place2Prise;
-    public static bool Place3Prise;
-    public static bool Place4Prise;
-    public static bool Place5Prise;
-    public static bool Place6Prise;
+    public static bool place1Prise;
+    public static bool place2Prise;
+    public static bool place3Prise;
+    public static bool place4Prise;
+    public static bool place5Prise;
+    public static bool place6Prise;
 
     public static float BonneReponse;
 
 
-    private bool Survole1;
+    public bool Survole1;
     private bool Survole2;
     private bool Survole3;
     private bool Survole4;
@@ -32,200 +32,171 @@ public class MotPapier : MonoBehaviour
     private bool Survole6;
     public Color ColorNormal;
     public Color ColorPlace;
+    public Color couleurtouche;
 
-    private bool Une;
+    public int TrouveouPas;
+    
+    public static bool Une;
 
     public float BonneAnswer;
 
     public bool Termine;
 
-    public GameObject FiniTrouve;
+    public bool Prem;
+    public bool Deux;
+    public bool Trois;
+    public bool Quatre;
+    public bool Cinq;
+    public bool Six;
+
+    public GameObject Book;
     // Start is called before the first frame update
     void Start()
     {
-        
+    
     }
 
     // Update is called once per frame
     void Update()
     {
+
         BonneAnswer=BonneReponse;
-
-        //Debug.Log(BonneAnswer);
-
-       // Debug.Log(Place1Prise);
-        if (Input.GetMouseButtonDown(0)&&Dessus&&!Termine)
+        if (Input.GetMouseButtonDown(0)&&Dessus&&!Termine&&Une==false)
         {
              deplace=true;
+             this.GetComponentInChildren<Image>().color=couleurtouche;
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0)&&Une==false)
         {
             deplace=false;
         }
-        if(deplace)
+        if(deplace&&Une==false)
         {
-            transform.position = Input.mousePosition;
+            transform.position = new Vector3(Input.mousePosition.x+450,Input.mousePosition.y+100,0);
         }
-
-        if(deplace==false&&Survole1&&Place1Prise==false)
+        if(deplace==false&&Survole1)
         {
             Place1();
         }
-        if(deplace==false&&Survole2&&Place2Prise==false)
+        if(deplace==false&&Survole2)
         {
             Place2();
         }
-        if(deplace==false&&Survole3&&Place3Prise==false)
+        if(deplace==false&&Survole3)
         {
             Place3();
         }
-        if(deplace==false&&Survole4&&Place4Prise==false)
+        if(deplace==false&&Survole4)
         {
             Place4();
         }
-        if(deplace==false&&Survole5&&Place5Prise==false)
+        if(deplace==false&&Survole5)
         {
             Place5();
         }
-        if(deplace==false&&Survole6&&Place6Prise==false)
+        if(deplace==false&&Survole6)
         {
             Place6();
         }
 
 
         // POUR CHAPITRE 1
-        if(this.GetComponent<RectTransform>().localPosition.x<-35f&&this.GetComponent<RectTransform>().localPosition.x>-71&&this.GetComponent<RectTransform>().localPosition.y<121&&this.GetComponent<RectTransform>().localPosition.y>102)
+        if(this.GetComponent<RectTransform>().localPosition.x>75f&&this.GetComponent<RectTransform>().localPosition.x<245f&&this.GetComponent<RectTransform>().localPosition.y>79f&&this.GetComponent<RectTransform>().localPosition.y<107f)
         {
-        Survole1=true;
+            Survole1=true;
         }
         else
         {
             Survole1=false;
 
-            if(jeSuisSurLaPlace==1)
+            if(NumeroChapitre==1&&Prem==true)
             {
-                this.gameObject.transform.GetChild(0).GetComponent<Image>().color=ColorNormal;
-                Place1Prise=false;
-                jeSuisSurLaPlace=0;
-
-                if(NumeroChapitre==1)
-                {
-                    BonneReponse-=1;
-                }
+                Prem=false;
+                BonneReponse-=1;
             }
         }
 
-        // POUR CHAPITRE 2
-        if(this.GetComponent<RectTransform>().localPosition.x<-47f&&this.GetComponent<RectTransform>().localPosition.x>-74&&this.GetComponent<RectTransform>().localPosition.y<81&&this.GetComponent<RectTransform>().localPosition.y>68)
+         //POUR CHAPITRE 2
+        if(this.GetComponent<RectTransform>().localPosition.x>58f&&this.GetComponent<RectTransform>().localPosition.x<212f&&this.GetComponent<RectTransform>().localPosition.y>32.5f&&this.GetComponent<RectTransform>().localPosition.y<74f)
         {
-        Survole2=true;
+            Survole2=true;
         }
         else
         {
+            place2Prise=false;
             Survole2=false;
-
-            if(jeSuisSurLaPlace==2)
+            if(NumeroChapitre==2&&Deux==true)
             {
-                this.gameObject.transform.GetChild(0).GetComponent<Image>().color=ColorNormal;
-                Place2Prise=false;
-                jeSuisSurLaPlace=0;
-
-                if(NumeroChapitre==2)
-                {
-                    BonneReponse-=1;
-                }
+                Deux=false;
+                BonneReponse-=1;
+                //place1Prise=false;
             }
         }
 
         // POUR CHAPITRE 3
-        if(this.GetComponent<RectTransform>().localPosition.x<-49f&&this.GetComponent<RectTransform>().localPosition.x>-97&&this.GetComponent<RectTransform>().localPosition.y<46&&this.GetComponent<RectTransform>().localPosition.y>23)
+        if(this.GetComponent<RectTransform>().localPosition.x>36.7f&&this.GetComponent<RectTransform>().localPosition.x<197f&&this.GetComponent<RectTransform>().localPosition.y>-10.8f&&this.GetComponent<RectTransform>().localPosition.y<25.4f)
         {
-        Survole3=true;
+            Survole3=true;
         }
         else
         {
             Survole3=false;
-
-            if(jeSuisSurLaPlace==3)
+            if(NumeroChapitre==3&&Trois==true)
             {
-                this.gameObject.transform.GetChild(0).GetComponent<Image>().color=ColorNormal;
-                Place3Prise=false;
-                jeSuisSurLaPlace=0;
-
-                if(NumeroChapitre==3)
-                {
-                    BonneReponse-=1;
-                }
+                Trois=false;
+                BonneReponse-=1;
+                //place1Prise=false;
             }
         }
 
          // POUR CHAPITRE 4
-        if(this.GetComponent<RectTransform>().localPosition.x<-53f&&this.GetComponent<RectTransform>().localPosition.x>-112&&this.GetComponent<RectTransform>().localPosition.y<-1&&this.GetComponent<RectTransform>().localPosition.y>-10.81f)
+        if(this.GetComponent<RectTransform>().localPosition.x>34.6f&&this.GetComponent<RectTransform>().localPosition.x<185f&&this.GetComponent<RectTransform>().localPosition.y>-68.3f&&this.GetComponent<RectTransform>().localPosition.y<-22.4f)
         {
-        Survole4=true;
+            Survole4=true;
         }
         else
         {
             Survole4=false;
-
-            if(jeSuisSurLaPlace==4)
+            if(NumeroChapitre==4&&Quatre==true)
             {
-                this.gameObject.transform.GetChild(0).GetComponent<Image>().color=ColorNormal;
-                Place4Prise=false;
-                jeSuisSurLaPlace=0;
-
-                if(NumeroChapitre==4)
-                {
-                    BonneReponse-=1;
-                }
+                Quatre=false;
+                BonneReponse-=1;
+                //place1Prise=false;
             }
         }
 
-        // POUR CHAPITRE 5
-        if(this.GetComponent<RectTransform>().localPosition.x<-76f&&this.GetComponent<RectTransform>().localPosition.x>-121&&this.GetComponent<RectTransform>().localPosition.y<-38&&this.GetComponent<RectTransform>().localPosition.y>-56f)
+         //POUR CHAPITRE 5
+        if(this.GetComponent<RectTransform>().localPosition.x>11.8f&&this.GetComponent<RectTransform>().localPosition.x<172f&&this.GetComponent<RectTransform>().localPosition.y>-104f&&this.GetComponent<RectTransform>().localPosition.y<-65f)
         {
-        Survole5=true;
+            Survole5=true;
         }
         else
         {
             Survole5=false;
-
-            if(jeSuisSurLaPlace==5)
+            if(NumeroChapitre==5&&Cinq==true)
             {
-                this.gameObject.transform.GetChild(0).GetComponent<Image>().color=ColorNormal;
-                Place5Prise=false;
-                jeSuisSurLaPlace=0;
-
-                if(NumeroChapitre==5)
-                {
-                    BonneReponse-=1;
-                }
+                Cinq=false;
+                BonneReponse-=1;
+                //place1Prise=false;
             }
         }
 
         // POUR CHAPITRE 6
-        if(this.GetComponent<RectTransform>().localPosition.x<-89f&&this.GetComponent<RectTransform>().localPosition.x>-136&&this.GetComponent<RectTransform>().localPosition.y<-81&&this.GetComponent<RectTransform>().localPosition.y>-103f)
+        if(this.GetComponent<RectTransform>().localPosition.x>9.8f&&this.GetComponent<RectTransform>().localPosition.x<165f&&this.GetComponent<RectTransform>().localPosition.y>-164f&&this.GetComponent<RectTransform>().localPosition.y<-95f)
         {
-        Survole6=true;
+            Survole6=true;
         }
         else
         {
             Survole6=false;
-
-            if(jeSuisSurLaPlace==6)
+            if(NumeroChapitre==6&&Six==true)
             {
-                this.gameObject.transform.GetChild(0).GetComponent<Image>().color=ColorNormal;
-                Place6Prise=false;
-                jeSuisSurLaPlace=0;
-
-                if(NumeroChapitre==6)
-                {
-                    BonneReponse-=1;
-                }
+                Six=false;
+                BonneReponse-=1;
+                //place1Prise=false;
             }
         }
-        
             
     }
 
@@ -233,7 +204,7 @@ public class MotPapier : MonoBehaviour
     {
         if(!Termine)
         {
-            this.GetComponent<Image>().enabled=true;
+            this.GetComponentInChildren<Image>().color=couleurtouche;
         Dessus=true;
         }
         
@@ -243,7 +214,7 @@ public class MotPapier : MonoBehaviour
     {
         if(!Termine)
         {
-            this.GetComponent<Image>().enabled=false;
+            this.GetComponentInChildren<Image>().color=ColorNormal;
         Dessus=false;
         }
         
@@ -251,118 +222,129 @@ public class MotPapier : MonoBehaviour
 
     public void Terminado()
     {
+        Debug.Log("Termine");
         if(Une==false)
         {
             Une=true;
-            PlayerPrefs.SetInt("Cuisine Révélée",1);
-            MisAJourEffect.Instance.MiseAJour();
-            Jauge.Instance.stadeProg += 1;
+            Book.GetComponent<Animator>().SetTrigger("Apparait");
+            StartCoroutine(coroutineA());
         }
         
     }
 
     public void Place1()
+    { 
+    this.GetComponentInChildren<Image>().color=ColorPlace;
+    place1Prise=true;
+    jeSuisSurLaPlace=1;
+    this.GetComponent<RectTransform>().localPosition=new Vector3(163f,81f,0);
+
+    if(NumeroChapitre==1&&!Prem)
     {
-        this.gameObject.transform.GetChild(0).GetComponent<Image>().color=ColorPlace;
-        Place1Prise=true;
-        jeSuisSurLaPlace=1;
-        this.GetComponent<RectTransform>().localPosition=new Vector3(-56.3f,110.3f,0);
+        Prem=true;
+        BonneReponse+=1;
 
-        if(NumeroChapitre==jeSuisSurLaPlace)
+        if(BonneReponse>=6)
         {
-            BonneReponse+=1;
-
-
-            if(BonneReponse==6)
-            {
-                Terminado();
-            }
+            Terminado();
         }
+    }
+        
     }
 
     public void Place2()
     {
-        this.gameObject.transform.GetChild(0).GetComponent<Image>().color=ColorPlace;
-        Place2Prise=true;
+        this.GetComponentInChildren<Image>().color=ColorPlace;
+        place2Prise=true;
         jeSuisSurLaPlace=2;
-        this.GetComponent<RectTransform>().localPosition=new Vector3(-67f,71f,0);
+        this.GetComponent<RectTransform>().localPosition=new Vector3(146f,41f,0);
+        if(NumeroChapitre==2&&!Deux)
+    {
+        Deux=true;
+        BonneReponse+=1;
 
-        if(NumeroChapitre==jeSuisSurLaPlace)
+        if(BonneReponse>=6)
         {
-            BonneReponse+=1;
-
-            if(BonneReponse==6)
-            {
-                Terminado();
-            }
+            Terminado();
         }
+    }
+
     }
     public void Place3()
     {
-        this.gameObject.transform.GetChild(0).GetComponent<Image>().color=ColorPlace;
-        Place3Prise=true;
+         this.GetComponentInChildren<Image>().color=ColorPlace;
+        //Place3Prise=true;
         jeSuisSurLaPlace=3;
-        this.GetComponent<RectTransform>().localPosition=new Vector3(-80.7f,32.1f,0);
+        this.GetComponent<RectTransform>().localPosition=new Vector3(128f,-2f,0);
+        if(NumeroChapitre==3&&!Trois)
+    {
+        Trois=true;
+        BonneReponse+=1;
 
-        if(NumeroChapitre==jeSuisSurLaPlace)
+        if(BonneReponse>=6)
         {
-            BonneReponse+=1;
-
-            if(BonneReponse==6)
-            {
-                Terminado();
-            }
+            Terminado();
         }
+    }
     }
     public void Place4()
     {
-        this.gameObject.transform.GetChild(0).GetComponent<Image>().color=ColorPlace;
-        Place4Prise=true;
+         this.GetComponentInChildren<Image>().color=ColorPlace;
+       // Place4Prise=true;
         jeSuisSurLaPlace=4;
-        this.GetComponent<RectTransform>().localPosition=new Vector3(-91f,-7.55f,0);
+        this.GetComponent<RectTransform>().localPosition=new Vector3(118f,-50f,0);
+        if(NumeroChapitre==4&&!Quatre)
+    {
+        Quatre=true;
+        BonneReponse+=1;
 
-        if(NumeroChapitre==jeSuisSurLaPlace)
+        if(BonneReponse>=6)
         {
-            BonneReponse+=1;
-
-            if(BonneReponse==6)
-            {
-                Terminado();
-            }
+            Terminado();
         }
+    }
     }
     public void Place5()
     {
-        this.gameObject.transform.GetChild(0).GetComponent<Image>().color=ColorPlace;
-        Place5Prise=true;
+         this.GetComponentInChildren<Image>().color=ColorPlace;
+        //Place5Prise=true;
         jeSuisSurLaPlace=5;
-        this.GetComponent<RectTransform>().localPosition=new Vector3(-108f,-48f,0);
+        this.GetComponent<RectTransform>().localPosition=new Vector3(101f,-91f,0);
+        if(NumeroChapitre==5&&!Cinq)
+    {
+        Cinq=true;
+        BonneReponse+=1;
 
-        if(NumeroChapitre==jeSuisSurLaPlace)
+        if(BonneReponse>=6)
         {
-            BonneReponse+=1;
-
-            if(BonneReponse==6)
-            {
-                Terminado();
-            }
+            Terminado();
         }
+    }
     }
     public void Place6()
     {
-        this.gameObject.transform.GetChild(0).GetComponent<Image>().color=ColorPlace;
-        Place6Prise=true;
+         this.GetComponentInChildren<Image>().color=ColorPlace;
+        //Place6Prise=true;
         jeSuisSurLaPlace=6;
-        this.GetComponent<RectTransform>().localPosition=new Vector3(-118f,-88f,0);
+        this.GetComponent<RectTransform>().localPosition=new Vector3(87f,-135f,0);
+        if(NumeroChapitre==6&&!Six)
+    {
+        Six=true;
+        BonneReponse+=1;
 
-        if(NumeroChapitre==jeSuisSurLaPlace)
+        if(BonneReponse>=6)
         {
-            BonneReponse+=1;
-
-            if(BonneReponse==6)
-            {
-                Terminado();
-            }
+            Terminado();
         }
+    }
+    }
+
+
+    IEnumerator coroutineA()
+    {
+        
+        yield return new WaitForSeconds(4.0f);
+        PlayerPrefs.SetInt("Cuisine Révélée",1);
+        MisAJourEffect.Instance.MiseAJour();
     }
 }
