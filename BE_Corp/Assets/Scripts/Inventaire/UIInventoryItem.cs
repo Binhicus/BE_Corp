@@ -48,8 +48,8 @@ public class UIInventoryItem : MonoBehaviour, IDragHandler, IEndDragHandler
                     if (interaction.inventoryItemID == objectID)
                     {
                         hitSomething = true;
-                        interaction.DoItemInteraction();
                         interaction.ItemDropAnim(); ////////////////////
+                        interaction.DoItemInteraction();
                         fusionSound.Play();
                         GetComponent<Image>().enabled = false;
                         GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
