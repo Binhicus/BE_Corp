@@ -46,8 +46,8 @@ public class RadioScript : ClickableObject,IClicked, IAction
     void LookZone()
     {
 
-         if(PlayerPrefs.GetInt("Antenne")==1&&PlayerPrefs.GetInt("PileDansRadio")==1&&PlayerPrefs.GetInt("Parapluie")==0)
-         {
+         //if(PlayerPrefs.GetInt("Antenne")==1&&PlayerPrefs.GetInt("PileDansRadio")==1&&PlayerPrefs.GetInt("Parapluie")==0)
+        // {
         AreaCam.SetActive(false);
             Debug.Log("Go");
         CameraActivate.SetActive(true);
@@ -57,17 +57,17 @@ public class RadioScript : ClickableObject,IClicked, IAction
 
         foreach (GameObject GameCol in IndiceZoneCollider)
         {
-            GameCol.GetComponent<BoxCollider>().enabled = false ;
+           GameCol.GetComponent<BoxCollider>().enabled = false ;
         }
 
         StartCoroutine(coroutineA());
-     }
+    // }
      
-     else
+     //else
 
-     {
-        Debug.Log("Desole gros mais tu peux pas encore");
-     }
+     //{
+//Debug.Log("Desole gros mais tu peux pas encore");
+     //}
         
     }
 
