@@ -432,4 +432,6 @@ public class MessageManager : MonoBehaviour
         BotsNarratorMessageContainer[1].GetComponentInChildren<TextMeshProUGUI>().text = NewTextDate ;
     }
     
+
+    
 }
