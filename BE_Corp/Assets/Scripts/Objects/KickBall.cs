@@ -20,7 +20,11 @@ public class KickBall : ClickableObject
 
         if (PlayerPrefs.GetInt("VaseAndKey") <= 1)
         {
-            vaseSwitch = GameObject.Find("Switch").GetComponent<VaseSwitch>();            
+            if (GameObject.Find("Switch") != null)
+            {
+                vaseSwitch = GameObject.Find("Switch").GetComponent<VaseSwitch>();   
+            }
+         
         }
     }
 

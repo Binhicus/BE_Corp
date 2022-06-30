@@ -42,6 +42,15 @@ public class MouseOnInventory : MonoBehaviour
         }
     }
 
+    public void BoolTrue()
+    {
+        isOn = true;
+    }
+    public void BoolFalse()
+    {
+        isOn = false;
+    }
+
     public void MontreObjetRecup()
     {
          StartCoroutine(coroutineA());
