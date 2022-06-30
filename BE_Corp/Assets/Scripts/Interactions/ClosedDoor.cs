@@ -5,6 +5,7 @@ using UnityEngine;
 public class ClosedDoor : MonoBehaviour, IHasItemInteraction
 {
     List<GameObject> zonesZoom = new List<GameObject>(); //////////////////
+    List<GameObject> steps = new List<GameObject>(); //////////////////
     public string nomItem;
     private Animator DoorAnimator;
     private string LeaveStepName;
@@ -76,6 +77,16 @@ public class ClosedDoor : MonoBehaviour, IHasItemInteraction
             zonesZoom[i].GetComponent<Collider>().enabled = false;
         }
 
+        foreach (GameObject _steps in GameObject.FindGameObjectsWithTag("Steps"))
+        {
+            steps.Add(_steps);
+        }
+
+        for (int i = 0; i < steps.Count; i++)
+        {
+            steps[i].GetComponent<Collider>().enabled = false;
+        }
+
         Destroy(GameObject.Find("PU_shine Key"));
         iTween.RotateTo(GameObject.Find("Clef Pivot(Clone)"), iTween.Hash("rotation", new Vector3(47.009f, -65.723f, 167.92f), "time", 1f, "delay", 0.5f));
         iTween.ScaleTo(GameObject.Find("Clef Pivot(Clone)"), iTween.Hash("scale", new Vector3(2.5f, 2.5f, 2.5f), "time", 0.5f, "delay", 0.5f));
@@ -90,6 +101,11 @@ public class ClosedDoor : MonoBehaviour, IHasItemInteraction
         for (int i = 0; i < zonesZoom.Count; i++)
         {
             zonesZoom[i].GetComponent<Collider>().enabled = true;
+        }
+
+        for (int i = 0; i < steps.Count; i++)
+        {
+            steps[i].GetComponent<Collider>().enabled = true;
         }
     }
 }
