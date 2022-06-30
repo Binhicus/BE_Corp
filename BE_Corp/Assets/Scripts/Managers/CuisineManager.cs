@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class CuisineManager : MonoBehaviour
 {
-    public GameObject radio, gateau, microOndes, cuisinePartUne, cuisinePartDeux,cuisinePartTrois;
-    public GameObject Holo1,Holo2;
+    public GameObject radio, gateau, microOndes, cuisineHidden, cuisineReveal;
     // Start is called before the first frame update
    void OnEnable()
    {
@@ -27,17 +26,13 @@ public class CuisineManager : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("Cuisine Révélée") == 0)
         {
-            cuisinePartUne.SetActive(true);
-            Holo1.SetActive(true);
-            cuisinePartDeux.SetActive(false);
-            cuisinePartTrois.SetActive(false);
+            cuisineReveal.SetActive(false);
+            cuisineHidden.SetActive(true);
         }
         if (PlayerPrefs.GetInt("Cuisine Révélée") == 1)
         {
-            Holo1.SetActive(false);
-            cuisinePartUne.SetActive(true);
-            cuisinePartDeux.SetActive(true);
-             cuisinePartTrois.SetActive(false);
+            cuisineReveal.SetActive(true);
+            cuisineHidden.SetActive(false);
         }
        /* if (PlayerPrefs.GetInt("Cuisine Révélée") == 2)
         {
