@@ -133,7 +133,7 @@ public class ScriptAntenne : MonoBehaviour
         PlayerPrefs.SetInt("Morceau1Tableau",1);
         pluie.Play();
         pluie.volume=1;
-        maj.Execute();
+        //maj.Execute();
        
     }
 

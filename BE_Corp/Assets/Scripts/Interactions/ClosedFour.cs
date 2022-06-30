@@ -23,7 +23,7 @@ public class ClosedFour : MonoBehaviour,IHasItemInteraction
     public void DoItemInteraction()
     {
         PlayerPrefs.SetInt("Four", 1);
-        test.SetTrigger("Ouvre");
+        //test.SetTrigger("Ouvre");  /!\ CA MARCHE PO
     }
 
     public void ItemDropAnim() //////////////

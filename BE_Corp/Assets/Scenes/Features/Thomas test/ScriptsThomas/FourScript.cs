@@ -118,6 +118,7 @@ public class FourScript : ClickableObject,IClicked, IAction
         PlayerPrefs.SetInt("Smoke",4);
         PlayerPrefs.SetInt("FourOk",2);
         this.GetComponent<BoxCollider>().enabled=false;
+        MisAJourEffect.Instance.TableauUpdated();
     }
 
 
