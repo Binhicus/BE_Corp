@@ -66,19 +66,19 @@ public class ScarecrowScript : ClickableObject, IClicked, IAction
     {
         //maj.Execute();
         GetComponent<BoxCollider>().enabled = false ;
-        Debug.Log("collider enlevé");
+        //Debug.Log("collider enlevé");
         Son.Play();
-        Debug.Log("son joué");
+       // Debug.Log("son joué");
         Epouvantail.GetComponent<Animator>().CrossFade("Disappear", 0.3f);
-        Debug.Log("animation lancée");
+        //Debug.Log("animation lancée");
         //PorteManteau.GetComponent<Animator>().SetTrigger("CoatRack Animation");
         Jauge.Instance.stadeProg += 1;
-        Debug.Log("progression ++");
+       // Debug.Log("progression ++");
         MisAJourEffect.Instance.MiseAJour();
 
         PlayerPrefs.SetInt("Scarecrow", 1);
         Door.OpenDoorAnimation();        
-        Debug.Log("porte ouverte");
+       // Debug.Log("porte ouverte");
 
         dissolve.Execute();
     }
