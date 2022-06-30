@@ -28,6 +28,7 @@ public class MessageManager : MonoBehaviour
     public GameObject BotsNarratorTextPrefab;
     private List<GameObject> BotsNarratorMessageContainer = new List<GameObject>() ;
     public GameObject EmployeeTextPrefab;    
+    private bool WrtieBarState ;
     public GameObject ClientTextPrefab;
     public GameObject ClientWritePrefab ;
     private GameObject ClientWritePrefabInst ;
@@ -51,7 +52,16 @@ public class MessageManager : MonoBehaviour
     void Start()
     {
         PlayerPrefs.SetInt("Discussion E1", 34);        
-        PlayerPrefs.SetInt("Discussion L1", 4);        
+        PlayerPrefs.SetInt("Discussion L1", 4);
+
+        StartCoroutine(WriteBarAnim());       
+    }
+
+    IEnumerator WriteBarAnim()
+    {
+        WrtieBarState = !WrtieBarState ;
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(WriteBarAnim());
     }
 
     // Update is called once per frame
@@ -80,8 +90,9 @@ public class MessageManager : MonoBehaviour
                     FlowchartTextMenu.SetBooleanVariable("ClientWrite", false);                
                     TheClientWritePrefabInst = false ;
                     Destroy(ClientWritePrefabInst);
-                    DisplayCompleteClientMessage();               
-                    StopAllCoroutines(); 
+                    DisplayCompleteClientMessage();          
+                    // StopAllCoroutines();          
+                    StopCoroutine(WaitBeforeAutorizedNextDialogue(0f)); 
                 }
             }
 
@@ -94,10 +105,15 @@ public class MessageManager : MonoBehaviour
 
                 if(DiscussionWriterText.text.Length != EmployeeStoryTextRef.text.Length)
                 {
+                    if(DiscussionWriterText.text.Length < EmployeeStoryTextRef.text.Length + 1 && WrtieBarState) DiscussionWriterText.text = DiscussionWriterText.text + "|" ;
+                    else DiscussionWriterText.text = DiscussionWriterText.text ;       
+
                     if(Input.anyKey && (!Input.GetMouseButton(0) && !Input.GetMouseButton(1) && !Input.GetMouseButton(2) && !Input.GetKey(KeyCode.KeypadEnter)) &&!Input.GetKeyDown(KeyCode.Return))
                     {
                         SetHeightWriterBox(725f, DiscussionWriterText);                       
                         FlowchartTextMenu.SetIntegerVariable("EmployeeMessageDisp", FlowchartTextMenu.GetIntegerVariable("EmployeeMessageDisp") + 1);
+
+
                     }
                 } else {
                     if(Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Return))
@@ -105,6 +121,8 @@ public class MessageManager : MonoBehaviour
                         if(DiscussionDisplay.childCount != 0)   SendEmployeeMessage();
                     }
                 } 
+
+
             }   
 
             if(!FlowchartTextMenu.GetBooleanVariable("EmployeeWrite") || (FlowchartTextMenu.GetBooleanVariable("EmployeeWrite") && DiscussionWriterText.text.Length != EmployeeStoryTextRef.text.Length))
@@ -125,7 +143,8 @@ public class MessageManager : MonoBehaviour
                     TheClientWritePrefabInst = false ;
                     Destroy(ClientWritePrefabInst);
                     DisplayCompleteClientMessage();               
-                    StopAllCoroutines();                     
+                    // StopAllCoroutines();          
+                    StopCoroutine(WaitBeforeAutorizedNextDialogue(0f));                    
                 }
 
             }
@@ -352,12 +371,12 @@ public class MessageManager : MonoBehaviour
 
     }
 
-    bool newBotsmessage = true ;
-    IEnumerator WaitBeforeNEwBotsMesssage()
+   /* bool newBotsmessage = true ;
+    IEnumerator WaitBeforeNewBotsMesssage()
     {
         yield return new WaitForSeconds(0.1f);
         newBotsmessage = true ;
-    }
+    }*/
 
     void SetHeightWriterBox(float WidthMax, TextMeshProUGUI TMPCurrent)
     {
@@ -380,7 +399,7 @@ public class MessageManager : MonoBehaviour
     }
 
 
-    bool WriteCoroutineLunch = false ;
+ /*   bool WriteCoroutineLunch = false ;
     IEnumerator HeightDuringWriting(float WidthMax, TextMeshProUGUI TMPCurrent)
     {
         WriteCoroutineLunch = true;
@@ -405,7 +424,7 @@ public class MessageManager : MonoBehaviour
             yield return new WaitForSeconds(1.25f) ;    
             GoodHeightIns++ ;                                          
         }
-    }
+    }*/
 
   /*  void SetFinalHeight(float WidthMax, TextMeshProUGUI TMPCurrent)
     {
@@ -455,4 +474,5 @@ public class MessageManager : MonoBehaviour
     {
         BotsNarratorMessageContainer[1].GetComponentInChildren<TextMeshProUGUI>().text = NewTextDate ;
     }
+    
 }
