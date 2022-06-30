@@ -74,10 +74,10 @@ public class Gateau : ClickableObject, IClicked, IItemInventaire, IAction
             zonesZoom[i].GetComponent<Collider>().enabled = false;
         }
 
-        iTween.MoveTo(GameObject.Find("Pie Pivot"), iTween.Hash("position", GameObject.Find("TargetCuisine").transform.position, "time", 0.9f, "easetype", iTween.EaseType.easeInOutSine));
+        iTween.MoveTo(GameObject.Find("Pie Pivot"), iTween.Hash("position", GameObject.Find("MC_Target_Pie").transform.position, "time", 0.9f, "easetype", iTween.EaseType.easeInOutSine));
         iTween.RotateTo(GameObject.Find("Pie Pivot"), iTween.Hash("rotation", new Vector3(23.471f, -50.622f, 37.641f), "time", 1f, "delay", 0.9f));
         iTween.ScaleTo(GameObject.Find("Pie Pivot"), iTween.Hash("scale", new Vector3(0.3f, 0.3f, 0.3f), "time", 0.5f, "delay", 0.9f));
-        iTween.MoveTo(GameObject.Find("Pie Pivot"), iTween.Hash("position", GameObject.Find("TargetCuisine").transform.position + new Vector3(-20f, 0f, -20f), "time", 1f, "easetype", iTween.EaseType.easeInOutSine, "delay", 2f));
+        iTween.MoveTo(GameObject.Find("Pie Pivot"), iTween.Hash("position", GameObject.Find("MC_Target_Pie").transform.position + new Vector3(-20f, 0f, -20f), "time", 1f, "easetype", iTween.EaseType.easeInOutSine, "delay", 2f));
         iTween.ScaleTo(GameObject.Find("Pie Pivot"), iTween.Hash("scale", new Vector3(0.1f, 0.1f, 0.1f), "time", 0.15f, "delay", 2f));
         Destroy(GameObject.Find("Pie Pivot"), 3f);
         yield return new WaitForSeconds(2.5f);
