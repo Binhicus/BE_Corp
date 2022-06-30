@@ -56,46 +56,77 @@ public class MotPapier : MonoBehaviour
     
     }
 
+    void Awake()
+    {
+        if(PlayerPrefs.GetInt("Cuisine Révélée")==1)
+        {
+            if(NumeroChapitre==1)
+            {
+                this.GetComponent<RectTransform>().localPosition=new Vector3(163f,81f,0);
+            }
+            if(NumeroChapitre==2)
+            {
+                this.GetComponent<RectTransform>().localPosition=new Vector3(146f,41f,0);
+            }
+            if(NumeroChapitre==3)
+            {
+                 this.GetComponent<RectTransform>().localPosition=new Vector3(128f,-2f,0);
+            }
+            if(NumeroChapitre==4)
+            {
+                this.GetComponent<RectTransform>().localPosition=new Vector3(118f,-50f,0);
+            }
+            if(NumeroChapitre==5)
+            {
+                this.GetComponent<RectTransform>().localPosition=new Vector3(101f,-91f,0);
+            }
+            if(NumeroChapitre==6)
+            {
+                this.GetComponent<RectTransform>().localPosition=new Vector3(87f,-135f,0);
+            }
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
 
         BonneAnswer=BonneReponse;
-        if (Input.GetMouseButtonDown(0)&&Dessus&&!Termine&&Une==false)
+        if (Input.GetMouseButtonDown(0)&&Dessus&&!Termine&&PlayerPrefs.GetInt("Cuisine Révélée")!=1)
         {
              deplace=true;
              this.GetComponentInChildren<Image>().color=couleurtouche;
         }
 
-        if (Input.GetMouseButtonUp(0)&&Une==false)
+        if (Input.GetMouseButtonUp(0)&&PlayerPrefs.GetInt("Cuisine Révélée")!=1)
         {
             deplace=false;
         }
-        if(deplace&&Une==false)
+        if(deplace&&PlayerPrefs.GetInt("Cuisine Révélée")!=1)
         {
             transform.position = new Vector3(Input.mousePosition.x+450,Input.mousePosition.y+100,0);
         }
-        if(deplace==false&&Survole1)
+        if(deplace==false&&Survole1&&!place1Prise)
         {
             Place1();
         }
-        if(deplace==false&&Survole2)
+        if(deplace==false&&Survole2&&!place2Prise)
         {
             Place2();
         }
-        if(deplace==false&&Survole3)
+        if(deplace==false&&Survole3&&!place3Prise)
         {
             Place3();
         }
-        if(deplace==false&&Survole4)
+        if(deplace==false&&Survole4&&!place4Prise)
         {
             Place4();
         }
-        if(deplace==false&&Survole5)
+        if(deplace==false&&Survole5&&!place5Prise)
         {
             Place5();
         }
-        if(deplace==false&&Survole6)
+        if(deplace==false&&Survole6&&!place6Prise)
         {
             Place6();
         }
@@ -108,6 +139,7 @@ public class MotPapier : MonoBehaviour
         }
         else
         {
+            place1Prise=false;
             Survole1=false;
 
             if(NumeroChapitre==1&&Prem==true)
@@ -125,6 +157,7 @@ public class MotPapier : MonoBehaviour
         else
         {
             place2Prise=false;
+            place2Prise=false;
             Survole2=false;
             if(NumeroChapitre==2&&Deux==true)
             {
@@ -141,6 +174,7 @@ public class MotPapier : MonoBehaviour
         }
         else
         {
+            place3Prise=false;
             Survole3=false;
             if(NumeroChapitre==3&&Trois==true)
             {
@@ -157,6 +191,7 @@ public class MotPapier : MonoBehaviour
         }
         else
         {
+            place4Prise=false;
             Survole4=false;
             if(NumeroChapitre==4&&Quatre==true)
             {
@@ -173,6 +208,7 @@ public class MotPapier : MonoBehaviour
         }
         else
         {
+            place5Prise=false;
             Survole5=false;
             if(NumeroChapitre==5&&Cinq==true)
             {
@@ -189,6 +225,7 @@ public class MotPapier : MonoBehaviour
         }
         else
         {
+            place6Prise=false;
             Survole6=false;
             if(NumeroChapitre==6&&Six==true)
             {
@@ -233,7 +270,7 @@ public class MotPapier : MonoBehaviour
     }
 
     public void Place1()
-    { 
+    {     
     this.GetComponentInChildren<Image>().color=ColorPlace;
     place1Prise=true;
     jeSuisSurLaPlace=1;
@@ -244,7 +281,7 @@ public class MotPapier : MonoBehaviour
         Prem=true;
         BonneReponse+=1;
 
-        if(BonneReponse>=6)
+        if(BonneReponse>=6&&PlayerPrefs.GetInt("Cuisine Révélée")!=1)
         {
             Terminado();
         }
@@ -263,7 +300,7 @@ public class MotPapier : MonoBehaviour
         Deux=true;
         BonneReponse+=1;
 
-        if(BonneReponse>=6)
+        if(BonneReponse>=6&&PlayerPrefs.GetInt("Cuisine Révélée")!=1)
         {
             Terminado();
         }
@@ -273,7 +310,7 @@ public class MotPapier : MonoBehaviour
     public void Place3()
     {
          this.GetComponentInChildren<Image>().color=ColorPlace;
-        //Place3Prise=true;
+        place3Prise=true;
         jeSuisSurLaPlace=3;
         this.GetComponent<RectTransform>().localPosition=new Vector3(128f,-2f,0);
         if(NumeroChapitre==3&&!Trois)
@@ -281,7 +318,7 @@ public class MotPapier : MonoBehaviour
         Trois=true;
         BonneReponse+=1;
 
-        if(BonneReponse>=6)
+        if(BonneReponse>=6&&PlayerPrefs.GetInt("Cuisine Révélée")!=1)
         {
             Terminado();
         }
@@ -290,7 +327,7 @@ public class MotPapier : MonoBehaviour
     public void Place4()
     {
          this.GetComponentInChildren<Image>().color=ColorPlace;
-       // Place4Prise=true;
+        place4Prise=true;
         jeSuisSurLaPlace=4;
         this.GetComponent<RectTransform>().localPosition=new Vector3(118f,-50f,0);
         if(NumeroChapitre==4&&!Quatre)
@@ -298,7 +335,7 @@ public class MotPapier : MonoBehaviour
         Quatre=true;
         BonneReponse+=1;
 
-        if(BonneReponse>=6)
+        if(BonneReponse>=6&&PlayerPrefs.GetInt("Cuisine Révélée")!=1)
         {
             Terminado();
         }
@@ -307,7 +344,7 @@ public class MotPapier : MonoBehaviour
     public void Place5()
     {
          this.GetComponentInChildren<Image>().color=ColorPlace;
-        //Place5Prise=true;
+        place5Prise=true;
         jeSuisSurLaPlace=5;
         this.GetComponent<RectTransform>().localPosition=new Vector3(101f,-91f,0);
         if(NumeroChapitre==5&&!Cinq)
@@ -315,7 +352,7 @@ public class MotPapier : MonoBehaviour
         Cinq=true;
         BonneReponse+=1;
 
-        if(BonneReponse>=6)
+        if(BonneReponse>=6&&PlayerPrefs.GetInt("Cuisine Révélée")!=1)
         {
             Terminado();
         }
@@ -324,7 +361,7 @@ public class MotPapier : MonoBehaviour
     public void Place6()
     {
          this.GetComponentInChildren<Image>().color=ColorPlace;
-        //Place6Prise=true;
+        place6Prise=true;
         jeSuisSurLaPlace=6;
         this.GetComponent<RectTransform>().localPosition=new Vector3(87f,-135f,0);
         if(NumeroChapitre==6&&!Six)
@@ -332,7 +369,7 @@ public class MotPapier : MonoBehaviour
         Six=true;
         BonneReponse+=1;
 
-        if(BonneReponse>=6)
+        if(BonneReponse>=6&&PlayerPrefs.GetInt("Cuisine Révélée")!=1)
         {
             Terminado();
         }

@@ -6,7 +6,7 @@ using Fungus;
 public class BDSalon :ClickableObject,IClicked, IAction
 {
 
-    public BlockReference inspect, question;
+    public BlockReference question;
 
      public GameObject CameraActivate ;
      public GameObject AreaCam;
@@ -66,6 +66,10 @@ public class BDSalon :ClickableObject,IClicked, IAction
         TSommaire.SetActive(true);
         TSommaire.GetComponent<Animator>().SetBool("Go", true);
         this.gameObject.SetActive(false);
+        if(PlayerPrefs.GetInt("Cuisine Révélée")==1)
+        {
+            TSommaire.GetComponent<Animator>().SetTrigger("Apparait");
+        }
     }
 
 
@@ -73,7 +77,7 @@ public class BDSalon :ClickableObject,IClicked, IAction
     public void OnClose() { Debug.Log("Close"); }
 
     public void OnUse() { UtiliseLivre(); }
-    public void OnInspect() { inspect.Execute(); }
+    public void OnInspect() {  }
     public void OnQuestion() { question.Execute(); }
 
     public void OnLunchActionAfterCloseDialogue() {}
