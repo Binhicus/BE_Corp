@@ -28,6 +28,7 @@ public class MessageManager : MonoBehaviour
     public GameObject BotsNarratorTextPrefab;
     private List<GameObject> BotsNarratorMessageContainer = new List<GameObject>() ;
     public GameObject EmployeeTextPrefab;    
+    private bool WrtieBarState ;
     public GameObject ClientTextPrefab;
     public GameObject ClientWritePrefab ;
     private GameObject ClientWritePrefabInst ;
@@ -40,27 +41,55 @@ public class MessageManager : MonoBehaviour
 
 
     public SayDialog SD ;
-    public BlockReference BR1, BRE1, BRE2, BRE3 ;
+    public BlockReference BRUI, BR1, BRE1, BRE2, BRE3 ;
     private BlockReference CurrentBlockReference ;
 
+    public RectTransform ChoiceDiscussionContainer ;
+    public TextMeshProUGUI LunchMissionTextRef ;
     
 
     private int CurrentMissionDisplay = -5 ;
 
-    // Start is called before the first frame update
+    void Awake() 
+    {
+        BRUI.Execute();
+    }
     void Start()
     {
         PlayerPrefs.SetInt("Discussion E1", 34);        
-        PlayerPrefs.SetInt("Discussion L1", 4);        
+        PlayerPrefs.SetInt("Discussion L1", 4);
+
+        StartCoroutine(WriteBarAnim());   
+        PlayerPrefs.SetInt("Mission1Finish", 0);
+        VerfifMission1State();    
     }
 
-    // Update is called once per frame
+    void VerfifMission1State()
+    {
+        if(PlayerPrefs.GetInt("Mission1Finish") == 1)
+        {
+            ChoiceDiscussionContainer.GetChild(0).GetComponent<Button>().enabled = false ;
+            ChoiceDiscussionContainer.GetChild(0).GetComponent<Image>().color = ChoiceDiscussionContainer.GetChild(1).GetComponent<Image>().color ;
+
+            ChoiceDiscussionContainer.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = ChoiceDiscussionContainer.GetChild(1).transform.GetChild(0).GetComponent<TextMeshProUGUI>().color ;
+            ChoiceDiscussionContainer.GetChild(0).transform.GetChild(1).GetComponent<TextMeshProUGUI>().color = ChoiceDiscussionContainer.GetChild(1).transform.GetChild(1).GetComponent<TextMeshProUGUI>().color ;
+            ChoiceDiscussionContainer.GetChild(0).transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = ChoiceDiscussionContainer.GetChild(1).transform.GetChild(2).GetComponent<TextMeshProUGUI>().text ;
+        }
+    }
+
+    IEnumerator WriteBarAnim()
+    {
+        WrtieBarState = !WrtieBarState ;
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(WriteBarAnim());
+    }
+
+
     void Update()
     {
         if(DiscussionDisplay.childCount != 0 && DiscussionDisplay.GetChild(0).name != "Bots Narrator Prefab(Clone)") Destroy(DiscussionDisplay.GetChild(0).gameObject);
         
         CurrentName = FlowchartTextMenu.GetStringVariable("Name");   
-//        Debug.Log(FlowchartTextMenu.GetIntegerVariable("CurrentStateDiscussion")+  " + " + PlayerPrefs.GetInt(FlowchartTextMenu.GetStringVariable("DiscussionCurrent")));
 
         if(FlowchartTextMenu.GetBooleanVariable("EmployeeWrite") == false) SendEmployeeMessageButton.transform.GetChild(0).GetComponent<Image>().color = EmployeeDoesntWriteColor ;
         else SendEmployeeMessageButton.transform.GetChild(0).GetComponent<Image>().color = EmployeeWriteColor ;
@@ -80,8 +109,9 @@ public class MessageManager : MonoBehaviour
                     FlowchartTextMenu.SetBooleanVariable("ClientWrite", false);                
                     TheClientWritePrefabInst = false ;
                     Destroy(ClientWritePrefabInst);
-                    DisplayCompleteClientMessage();               
-                    StopAllCoroutines(); 
+                    DisplayCompleteClientMessage();          
+         
+                    StopCoroutine(WaitBeforeAutorizedNextDialogue(0f)); 
                 }
             }
 
@@ -94,10 +124,15 @@ public class MessageManager : MonoBehaviour
 
                 if(DiscussionWriterText.text.Length != EmployeeStoryTextRef.text.Length)
                 {
+                    if(DiscussionWriterText.text.Length < EmployeeStoryTextRef.text.Length + 1 && WrtieBarState) DiscussionWriterText.text = DiscussionWriterText.text + "|" ;
+                    else DiscussionWriterText.text = DiscussionWriterText.text ;       
+
                     if(Input.anyKey && (!Input.GetMouseButton(0) && !Input.GetMouseButton(1) && !Input.GetMouseButton(2) && !Input.GetKey(KeyCode.KeypadEnter)) &&!Input.GetKeyDown(KeyCode.Return))
                     {
                         SetHeightWriterBox(725f, DiscussionWriterText);                       
                         FlowchartTextMenu.SetIntegerVariable("EmployeeMessageDisp", FlowchartTextMenu.GetIntegerVariable("EmployeeMessageDisp") + 1);
+
+
                     }
                 } else {
                     if(Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Return))
@@ -105,6 +140,8 @@ public class MessageManager : MonoBehaviour
                         if(DiscussionDisplay.childCount != 0)   SendEmployeeMessage();
                     }
                 } 
+
+
             }   
 
             if(!FlowchartTextMenu.GetBooleanVariable("EmployeeWrite") || (FlowchartTextMenu.GetBooleanVariable("EmployeeWrite") && DiscussionWriterText.text.Length != EmployeeStoryTextRef.text.Length))
@@ -114,7 +151,7 @@ public class MessageManager : MonoBehaviour
                 SetEmployeeButton(true);
             }
         } else {
-            /*if(DiscussionDisplay.childCount > 2)*/ SD.GetComponent<Writer>().writingSpeed = 10000000f ;
+            SD.GetComponent<Writer>().writingSpeed = 10000000f ;
             DiscussionLoading.SetActive(true) ;
 
             if(FlowchartTextMenu.GetBooleanVariable("ClientWrite"))
@@ -124,8 +161,9 @@ public class MessageManager : MonoBehaviour
                     FlowchartTextMenu.SetBooleanVariable("ClientWrite", false);                
                     TheClientWritePrefabInst = false ;
                     Destroy(ClientWritePrefabInst);
-                    DisplayCompleteClientMessage();               
-                    StopAllCoroutines();                     
+                    DisplayCompleteClientMessage();   
+
+                    StopCoroutine(WaitBeforeAutorizedNextDialogue(0f));                    
                 }
 
             }
@@ -143,7 +181,6 @@ public class MessageManager : MonoBehaviour
     public void CallNextDialog()
     {
         FlowchartTextMenu.SetBooleanVariable("CanDisplayNext", false) ; 
-      //  if(FlowchartTextMenu.GetIntegerVariable("CurrentStateDiscussion") == PlayerPrefs.GetInt(FlowchartTextMenu.GetStringVariable("DiscussionCurrent"))) PlayerPrefs.SetInt(FlowchartTextMenu.GetStringVariable("DiscussionCurrent"), FlowchartTextMenu.GetIntegerVariable("CurrentStateDiscussion")  + 1) ;
         NewDialog();            
     }
 
@@ -159,20 +196,6 @@ public class MessageManager : MonoBehaviour
             DiscussionWriterText.text = " " ;
             EmployeeStoryTextRef.text = " " ;
 
-       /*     Vector2 NewSize ;
-
-            if(EmployeeTextIns.GetComponentInChildren<TextMeshProUGUI>().preferredWidth < 795f)
-            {
-                NewSize.x = EmployeeTextIns.GetComponentInChildren<TextMeshProUGUI>().preferredWidth ;
-            } else {
-                NewSize.x =  800f ;
-            }
-
-            NewSize.y = EmployeeTextIns.GetComponentInChildren<TextMeshProUGUI>().preferredHeight /*- 10f *; 
-
-            EmployeeTextIns.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(NewSize.x + 15f, NewSize.y) ;
-            EmployeeTextIns.GetComponent<RectTransform>().sizeDelta = new Vector2(EmployeeTextIns.GetComponent<RectTransform>().sizeDelta.x, NewSize.y)  ;
-*/
             SetHeightWriterBox(900f, DiscussionWriterText);    
 
             StartCoroutine(WaitBeforeAutorizedNextDialogue(0.5f));  
@@ -182,28 +205,12 @@ public class MessageManager : MonoBehaviour
     void SendEmployeeMessageExisted()
     {   
         GameObject EmployeeTextIns = Instantiate(EmployeeTextPrefab, DiscussionDisplay.transform);
-//        HeightDialogueDisplay();
+
         EmployeeTextIns.GetComponentInChildren<TextMeshProUGUI>().text = EmployeeStoryTextRef.text ;
 
         FlowchartTextMenu.SetBooleanVariable("EmployeeWrite", false);
         DiscussionWriterText.text = " " ;
         EmployeeStoryTextRef.text = " " ;
-/*
-        Vector2 NewSize ;
-
-        if(EmployeeTextIns.GetComponentInChildren<TextMeshProUGUI>().preferredWidth < 795f)
-        {
-            NewSize.x = EmployeeTextIns.GetComponentInChildren<TextMeshProUGUI>().preferredWidth ;
-        } else {
-            NewSize.x =  800f ;
-        }
-
-        NewSize.y = EmployeeTextIns.GetComponentInChildren<TextMeshProUGUI>().preferredHeight /*- 10f/ ; 
-
-        EmployeeTextIns.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(NewSize.x + 20f, NewSize.y) ;
-        EmployeeTextIns.GetComponent<RectTransform>().sizeDelta = new Vector2(EmployeeTextIns.GetComponent<RectTransform>().sizeDelta.x, NewSize.y)  ;
-*/
-        //SetHeightWriterBox(725f, DiscussionWriterText);    
 
         StartCoroutine(WaitBeforeAutorizedNextDialogue(0.0000001f));  
  
@@ -216,35 +223,14 @@ public class MessageManager : MonoBehaviour
         GameObject ClientWriteIns = Instantiate(ClientWritePrefab, DiscussionDisplay.transform);
         HeightDialogueDisplay();
         ClientWritePrefabInst = ClientWriteIns ;   
-       // ClientWritePrefabInst.transform.SetSiblingIndex(1);
-
-        //PlayerPrefs.SetInt(FlowchartTextMenu.GetStringVariable("DiscussionCurrent"), FlowchartTextMenu.GetIntegerVariable("CurrentStateDiscussion")) ;
-
     }
 
     void DisplayCompleteClientMessage()
     {
-       // PlayerPrefs.SetInt(FlowchartTextMenu.GetStringVariable("DiscussionCurrent"), FlowchartTextMenu.GetIntegerVariable("CurrentStateDiscussion")) ;
-
-
         GameObject ClientTextIns = Instantiate(ClientTextPrefab, DiscussionDisplay.transform);
 
         ClientTextIns.GetComponentInChildren<TextMeshProUGUI>().text = StoryTextReference.text ;
 
-     /*   Vector2 NewSize ;
-
-        if(ClientTextIns.GetComponentInChildren<TextMeshProUGUI>().preferredWidth < 795f)
-        {
-            NewSize.x = ClientTextIns.GetComponentInChildren<TextMeshProUGUI>().preferredWidth ;
-        } else {
-            NewSize.x =  800f ;
-        }
-
-        NewSize.y = ClientTextIns.GetComponentInChildren<TextMeshProUGUI>().preferredHeight /*+ 10f* ; 
-
-        ClientTextIns.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(NewSize.x + 20f, NewSize.y) ;
-        ClientTextIns.GetComponent<RectTransform>().sizeDelta = new Vector2(ClientTextIns.GetComponent<RectTransform>().sizeDelta.x, NewSize.y)  ;          
-     */   
         HeightDialogueDisplay();
     }
 
@@ -256,7 +242,6 @@ public class MessageManager : MonoBehaviour
         if(FlowchartTextMenu.GetStringVariable("DiscussionCurrent") != "")
         {
             if(FlowchartTextMenu.GetIntegerVariable("CurrentStateDiscussion") >= PlayerPrefs.GetInt(FlowchartTextMenu.GetStringVariable("DiscussionCurrent")) && DiscussionDisplay.childCount != 0) PlayerPrefs.SetInt(FlowchartTextMenu.GetStringVariable("DiscussionCurrent"), FlowchartTextMenu.GetIntegerVariable("CurrentStateDiscussion")) ;
-            //Debug.Log(FlowchartTextMenu.GetStringVariable("DiscussionCurrent") +  " : " + FlowchartTextMenu.GetIntegerVariable("CurrentStateDiscussion") +  " + " + PlayerPrefs.GetInt(FlowchartTextMenu.GetStringVariable("DiscussionCurrent")));
         }
 
         if(CurrentMissionDisplay != BRNumber)
@@ -325,8 +310,6 @@ public class MessageManager : MonoBehaviour
                 GameObject BotsNarratorIns = Instantiate(BotsNarratorTextPrefab, DiscussionDisplay.transform);
                 BotsNarratorIns.GetComponentInChildren<TextMeshProUGUI>().text = StoryTextReference.text ;
                 BotsNarratorIns.GetComponent<RectTransform>().sizeDelta = new Vector2(BotsNarratorIns.GetComponent<RectTransform>().sizeDelta.x, BotsNarratorIns.GetComponentInChildren<TextMeshProUGUI>().preferredHeight + 10f)  ;
-                
-              //  PlayerPrefs.SetInt(FlowchartTextMenu.GetStringVariable("DiscussionCurrent"), FlowchartTextMenu.GetIntegerVariable("CurrentStateDiscussion")) ;
 
                 BotsNarratorMessageContainer.Add(BotsNarratorIns.gameObject);
 
@@ -338,25 +321,18 @@ public class MessageManager : MonoBehaviour
         if(CurrentName == DifferentNameInMessage.Mission.ToString())
         {
             GameObject LunchMissionInst = Instantiate(LunchMissionButtonPrefab, DiscussionDisplay.transform);
-            if(FlowchartTextMenu.GetStringVariable("DiscussionCurrent") == "Discussion L1") LunchMissionInst.GetComponentInChildren<LunchMissionButton>().PlayerCanPlayThisMission(true) ;
-            if(FlowchartTextMenu.GetStringVariable("DiscussionCurrent") == "Discussion E1") LunchMissionInst.GetComponentInChildren<LunchMissionButton>().PlayerCanPlayThisMission(false) ;
+           /* if(FlowchartTextMenu.GetStringVariable("DiscussionCurrent") == "Discussion L1")*/ LunchMissionInst.GetComponentInChildren<TextMeshProUGUI>().text = LunchMissionTextRef.text ;
 
-           if(FlowchartTextMenu.GetStringVariable("DiscussionCurrent") != "")
+          /*  if(FlowchartTextMenu.GetStringVariable("DiscussionCurrent") != "")
             {
                 if(FlowchartTextMenu.GetIntegerVariable("CurrentStateDiscussion") >= PlayerPrefs.GetInt(FlowchartTextMenu.GetStringVariable("DiscussionCurrent")) && DiscussionDisplay.childCount != 0) PlayerPrefs.SetInt(FlowchartTextMenu.GetStringVariable("DiscussionCurrent"), FlowchartTextMenu.GetIntegerVariable("CurrentStateDiscussion")) ;
-            }
+            }*/
+            LunchMissionTextRef.GetComponent<RectTransform>().sizeDelta = new Vector2(LunchMissionInst.GetComponentInChildren<TextMeshProUGUI>().preferredWidth + 30f, LunchMissionInst.GetComponentInChildren<TextMeshProUGUI>().preferredHeight + 20f);   
 
             StartCoroutine(WaitBeforeAutorizedNextDialogue(0.0000001f));
             HeightDialogueDisplay();                   
         } 
 
-    }
-
-    bool newBotsmessage = true ;
-    IEnumerator WaitBeforeNEwBotsMesssage()
-    {
-        yield return new WaitForSeconds(0.1f);
-        newBotsmessage = true ;
     }
 
     void SetHeightWriterBox(float WidthMax, TextMeshProUGUI TMPCurrent)
@@ -380,7 +356,7 @@ public class MessageManager : MonoBehaviour
     }
 
 
-    bool WriteCoroutineLunch = false ;
+ /*   bool WriteCoroutineLunch = false ;
     IEnumerator HeightDuringWriting(float WidthMax, TextMeshProUGUI TMPCurrent)
     {
         WriteCoroutineLunch = true;
@@ -405,7 +381,7 @@ public class MessageManager : MonoBehaviour
             yield return new WaitForSeconds(1.25f) ;    
             GoodHeightIns++ ;                                          
         }
-    }
+    }*/
 
   /*  void SetFinalHeight(float WidthMax, TextMeshProUGUI TMPCurrent)
     {
@@ -455,4 +431,5 @@ public class MessageManager : MonoBehaviour
     {
         BotsNarratorMessageContainer[1].GetComponentInChildren<TextMeshProUGUI>().text = NewTextDate ;
     }
+    
 }
