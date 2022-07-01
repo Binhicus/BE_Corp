@@ -79,7 +79,10 @@ public class ClosedDoor : MonoBehaviour, IHasItemInteraction
 
         foreach (GameObject _steps in GameObject.FindGameObjectsWithTag("Steps"))
         {
-            steps.Add(_steps);
+            if (_steps.GetComponent<Collider>().enabled)
+            {
+                steps.Add(_steps);
+            }
         }
 
         for (int i = 0; i < steps.Count; i++)
