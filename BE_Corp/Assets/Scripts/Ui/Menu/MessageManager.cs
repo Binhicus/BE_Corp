@@ -46,6 +46,7 @@ public class MessageManager : MonoBehaviour
 
     public RectTransform ChoiceDiscussionContainer ;
     public TextMeshProUGUI LunchMissionTextRef ;
+    public GameObject AlertNewMessage ;
     
 
     private int CurrentMissionDisplay = -5 ;
@@ -57,7 +58,7 @@ public class MessageManager : MonoBehaviour
     void Start()
     {
         PlayerPrefs.SetInt("Discussion E1", 34);        
-        PlayerPrefs.SetInt("Discussion L1", 4);
+        PlayerPrefs.SetInt("Discussion L1", 5);
 
         StartCoroutine(WriteBarAnim());   
         PlayerPrefs.SetInt("Mission1Finish", 0);
@@ -74,6 +75,8 @@ public class MessageManager : MonoBehaviour
             ChoiceDiscussionContainer.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = ChoiceDiscussionContainer.GetChild(1).transform.GetChild(0).GetComponent<TextMeshProUGUI>().color ;
             ChoiceDiscussionContainer.GetChild(0).transform.GetChild(1).GetComponent<TextMeshProUGUI>().color = ChoiceDiscussionContainer.GetChild(1).transform.GetChild(1).GetComponent<TextMeshProUGUI>().color ;
             ChoiceDiscussionContainer.GetChild(0).transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = ChoiceDiscussionContainer.GetChild(1).transform.GetChild(2).GetComponent<TextMeshProUGUI>().text ;
+        
+            AlertNewMessage.SetActive(false);
         }
     }
 
