@@ -37,12 +37,7 @@ public class ClosedDoor : MonoBehaviour, IHasItemInteraction
     }*/
     public void DoItemInteraction()
     {
-        //Debug.Log("C'est ouvert merci beaucoup pour la participation");
-        unlocked.Play();
-        PorteOuverte();
-        PasActifs();
-        this.GetComponent<BoxCollider>().enabled = false;
-       
+        StartCoroutine(DelayBeforeDropAnim());
     }
 
     public void ItemDropAnim () //////////////
@@ -110,5 +105,15 @@ public class ClosedDoor : MonoBehaviour, IHasItemInteraction
         {
             steps[i].GetComponent<Collider>().enabled = true;
         }
+    }
+
+    IEnumerator DelayBeforeDropAnim()
+    {
+        yield return new WaitForSeconds(6f);
+        //Debug.Log("C'est ouvert merci beaucoup pour la participation");
+        unlocked.Play();
+        PorteOuverte();
+        PasActifs();
+        this.GetComponent<BoxCollider>().enabled = false;
     }
 }
