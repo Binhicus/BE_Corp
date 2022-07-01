@@ -9685,6 +9685,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BarbaraDialog
       objectReference: {fileID: 0}
+    - target: {fileID: 4657532175330266179, guid: 555e864ab86a6154a83a656997f336ae, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 555e864ab86a6154a83a656997f336ae, type: 3}
 --- !u!1 &1036134397
@@ -10406,15 +10410,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 118572618651905422, guid: 555e864ab86a6154a83a656997f336ae, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 118572618651905422, guid: 555e864ab86a6154a83a656997f336ae, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 118572618651905422, guid: 555e864ab86a6154a83a656997f336ae, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 118572618651905422, guid: 555e864ab86a6154a83a656997f336ae, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -10439,6 +10443,10 @@ PrefabInstance:
     - target: {fileID: 4657532175330266179, guid: 555e864ab86a6154a83a656997f336ae, type: 3}
       propertyPath: m_Name
       value: AgentDialog
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657532175330266179, guid: 555e864ab86a6154a83a656997f336ae, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 555e864ab86a6154a83a656997f336ae, type: 3}
@@ -19331,6 +19339,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Interface Cuisine
       objectReference: {fileID: 0}
+    - target: {fileID: 1125486771945344653, guid: a299a6111c5ba1149a23c70d74c34d3f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1125486771945344654, guid: a299a6111c5ba1149a23c70d74c34d3f, type: 3}
       propertyPath: targetTextObject
       value: 
@@ -20070,7 +20082,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2078998318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.05, y: 0.97, z: -1}
+  m_LocalPosition: {x: 0.05, y: 0.64, z: -1.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2127900947}
@@ -20096,7 +20108,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
+  - {fileID: 2100000, guid: 84d5f128915bea04089c4f0a3002d3d2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20224,9 +20236,9 @@ ParticleSystem:
     enabled: 1
     startLifetime:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0.93
-      minScalar: 5
+      minMaxState: 3
+      scalar: 0.5
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -20394,7 +20406,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2.26
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -20770,14 +20782,14 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 25
+    angle: 30
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 1, y: 1, z: 1}
+    m_Scale: {x: 0.5, y: 0.1, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -20975,7 +20987,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 20
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -28013,8 +28025,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25fb867d2049d41f597aefdd6b19f598, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: Agent Domingus
-  nameColor: {r: 0.2679245, g: 0.6613108, b: 1, a: 1}
+  nameText: Agent 1406
+  nameColor: {r: 1, g: 1, b: 1, a: 1}
   soundEffect: {fileID: 0}
   portraits: []
   portraitsFace: 0
@@ -28064,7 +28076,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameText: Barbara Pinault
-  nameColor: {r: 0.94509804, g: 0.22745098, b: 0.47058824, a: 1}
+  nameColor: {r: 1, g: 1, b: 1, a: 1}
   soundEffect: {fileID: 0}
   portraits: []
   portraitsFace: 0
