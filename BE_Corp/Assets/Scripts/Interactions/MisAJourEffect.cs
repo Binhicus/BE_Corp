@@ -8,16 +8,13 @@ using TMPro;
 public class MisAJourEffect : Singleton<MisAJourEffect>
 {
     //public Image Fademaj;
-    public GameObject checkpoint;
-    public Animator animator;
-    public TextMeshProUGUI message;
     public AudioSource audioCue;
     public BlockReference maj, tableau, tableauUpdate, password;
 
     protected override void Awake()
     {
         base.Awake();
-        checkpoint = GameObject.FindGameObjectWithTag("Checkpoint");
+        //checkpoint = GameObject.FindGameObjectWithTag("Checkpoint");
         //animator = checkpoint.GetComponent<Animator>();
 
     }

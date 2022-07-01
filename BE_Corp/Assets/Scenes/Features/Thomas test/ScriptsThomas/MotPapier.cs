@@ -265,6 +265,7 @@ public class MotPapier : MonoBehaviour
             Une=true;
             Book.GetComponent<Animator>().SetTrigger("Apparait");
             StartCoroutine(coroutineA());
+
         }
         
     }
@@ -383,5 +384,6 @@ public class MotPapier : MonoBehaviour
         yield return new WaitForSeconds(4.0f);
         PlayerPrefs.SetInt("Cuisine Révélée",1);
         MisAJourEffect.Instance.MiseAJour();
+        Jauge.Instance.stadeProg += 1;
     }
 }

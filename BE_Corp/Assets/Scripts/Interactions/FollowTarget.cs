@@ -15,5 +15,6 @@ public class FollowTarget : MonoBehaviour
     void Update()
     {
         this.gameObject.transform.position = target.transform.position;
+        this.gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
     }
 }

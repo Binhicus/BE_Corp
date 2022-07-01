@@ -59,9 +59,9 @@ public class MouseOnInventory : MonoBehaviour
     IEnumerator coroutineA()
     {
         //Inventory.GetComponent<RectTransform>().anchoredPosition = new Vector3(10, 0,0);  
-        animHUD.CrossFade("Window In", 0.1f);
+        animHUD.CrossFade("Window In", 0.03f);
         yield return new WaitForSeconds(2.5f);
-        animHUD.CrossFade("Window Out", 0.1f);
+        animHUD.CrossFade("Window Out", 0.03f);
         //Inventory.GetComponent<RectTransform>().anchoredPosition = new Vector3(150, 0,0);
 
     }

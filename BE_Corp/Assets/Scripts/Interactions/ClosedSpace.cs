@@ -85,11 +85,18 @@ public class ClosedSpace : MonoBehaviour, IHasItemInteraction, IClicked, IAction
     void EffetBrume()
     {
         emetteur.GetComponent<BrumeSpawn>().enabled = false;
-        emetteur.GetComponent<Animator>().Play("Fumée_End"); //animation d'arrêt
+        emetteur.GetComponent<Animator>().CrossFade("Fumée_End", 0.1f);
+        Invoke("DisableFace", 1.3f);
+        //animation d'arrêt
+    }
+    void DisableFace()
+    {
+        emetteur.SetActive(false);
     }
     void EffetEpee()
     {
-        epee.GetComponent<Animator>().Play("MvtEpée");
+        epee.SetActive(true);
+        epee.GetComponent<Animator>().CrossFade("MvtEpée", 0.1f);
     }
 
     // Start is called before the first frame update
