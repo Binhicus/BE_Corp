@@ -112,6 +112,7 @@ public class ScriptAntenne : MonoBehaviour
         if(Une==false)
         {
             Une=true;
+            RadioBug.Stop();
             StartCoroutine(coroutineA());
         }
         

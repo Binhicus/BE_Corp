@@ -6,7 +6,6 @@ public class ClosedRadioPile : MonoBehaviour,IHasItemInteraction
 {
     public string nomItem;
     public string inventoryItemID => nomItem;
-    public AudioSource unlocked;
     // Start is called before the first frame update
     void Start()
     {
