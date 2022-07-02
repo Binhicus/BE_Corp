@@ -94,7 +94,7 @@ public class EmailDisplayerScript : MonoBehaviour
             ContactAdress.text = MailDisplay.Account.NameAccount + " " + "<"+ MailDisplay.Account.MailAdress +">" ;
 
             // Affichage Date et Heure : xx/xx/xxxx xx:xx
-            DateReception.text = MailDisplay.Date + " " + MailDisplay.Heure ;
+            DateReception.text = MailDisplay.Date.Remove(5) + "  " + MailDisplay.Heure ;
 
 
 
