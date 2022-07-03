@@ -883,7 +883,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 47557066}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3fe91dc294731a9428c0941ea7579110, type: 3}
   m_Name: 
@@ -892,22 +892,6 @@ MonoBehaviour:
   drawingMode: 1
   outlineLayer: 0
   outlineTargets:
-  - IsVisible: 0
-    CutoutMask: 8
-    edgeDilateAmount: 5
-    frontEdgeDilateAmount: 5
-    backEdgeDilateAmount: 5
-    renderer: {fileID: 369941053}
-    SubmeshIndex: 0
-    BoundsMode: 0
-    Bounds:
-      m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0.5, y: 0.5, z: 0.5}
-    CutoutThreshold: 0.5
-    CullMode: 2
-    cutoutTextureName: 
-    DilateRenderingMode: 0
-    cutoutTextureIndex: 0
   - IsVisible: 1
     CutoutMask: 8
     edgeDilateAmount: 5
@@ -4125,7 +4109,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 171379552}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3fe91dc294731a9428c0941ea7579110, type: 3}
   m_Name: 
@@ -9049,7 +9033,7 @@ MeshFilter:
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &369941055
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -11571,6 +11555,7 @@ GameObject:
   - component: {fileID: 501602206}
   - component: {fileID: 501602205}
   - component: {fileID: 501602204}
+  - component: {fileID: 501602207}
   m_Layer: 0
   m_Name: Pile Pivot
   m_TagString: Untagged
@@ -11655,6 +11640,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 501602202}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &501602207
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501602202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 034bc47afcbf5e141a58d5c20b7808e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &508316063
 GameObject:
   m_ObjectHideFlags: 0
@@ -17115,7 +17112,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 765167892}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3fe91dc294731a9428c0941ea7579110, type: 3}
   m_Name: 
@@ -17585,14 +17582,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 782583471}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.934, y: 0.882, z: 0.92}
-  m_LocalScale: {x: 0.91528195, y: 1.12122, z: 2.4025762}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -4.971, y: 0.804, z: 0.901}
+  m_LocalScale: {x: 0.31084356, y: 0.75823796, z: 0.7995072}
   m_Children:
   - {fileID: 1234074197}
   m_Father: {fileID: 171379553}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &782583473
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -17666,7 +17663,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 782583471}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -8113768720884857512, guid: dbf9bf0a498b8ae42bea976e3d00b1fa, type: 3}
 --- !u!1 &788556128 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 181286468421658977, guid: ff447edea11f9804080aed4a7fd99167, type: 3}
@@ -20045,7 +20042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameText: Barbara Pinault
-  nameColor: {r: 0.94509804, g: 0.22745098, b: 0.47058824, a: 1}
+  nameColor: {r: 1, g: 1, b: 1, a: 1}
   soundEffect: {fileID: 0}
   portraits: []
   portraitsFace: 0
@@ -26355,7 +26352,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1236805340}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3fe91dc294731a9428c0941ea7579110, type: 3}
   m_Name: 
@@ -32597,7 +32594,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1440595030}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3fe91dc294731a9428c0941ea7579110, type: 3}
   m_Name: 
@@ -39148,8 +39145,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25fb867d2049d41f597aefdd6b19f598, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: Agent Domingus
-  nameColor: {r: 0.2679245, g: 0.6613108, b: 1, a: 1}
+  nameText: Agent 1406
+  nameColor: {r: 1, g: 1, b: 1, a: 1}
   soundEffect: {fileID: 0}
   portraits: []
   portraitsFace: 0
@@ -40828,6 +40825,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e736c5ef3ac4bab4c965d79ea22a26a2, type: 3}
       propertyPath: m_Name
       value: CART
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e736c5ef3ac4bab4c965d79ea22a26a2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8164078558771037576, guid: e736c5ef3ac4bab4c965d79ea22a26a2, type: 3}
       propertyPath: m_IsActive
@@ -44861,6 +44862,10 @@ PrefabInstance:
       propertyPath: question.block
       value: 
       objectReference: {fileID: 1362304272}
+    - target: {fileID: 181286468421658981, guid: ff447edea11f9804080aed4a7fd99167, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 181286469094290864, guid: ff447edea11f9804080aed4a7fd99167, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -45176,7 +45181,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7229727939668006220, guid: 8d949d1f4996e2048a01ce8c8ad93b12, type: 3}
       propertyPath: m_Materials.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7229727939668006220, guid: 8d949d1f4996e2048a01ce8c8ad93b12, type: 3}
       propertyPath: m_Materials.Array.data[0]
