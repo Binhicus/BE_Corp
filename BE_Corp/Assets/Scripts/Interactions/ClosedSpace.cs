@@ -28,6 +28,10 @@ public class ClosedSpace : ClickableObject, IHasItemInteraction, IClicked, IActi
         {
             this.gameObject.GetComponent<BoxCollider>().enabled = false;
         }
+        if (PlayerPrefs.GetInt("Sequence 1 Done") == 1)
+        {
+            this.gameObject.GetComponent<BoxCollider>().enabled = true;
+        }
         fog = GameObject.Find("Gray Volume Fog");
         OuverturePorteChambre=GameObject.Find("Ouverture");
 
@@ -93,10 +97,11 @@ public class ClosedSpace : ClickableObject, IHasItemInteraction, IClicked, IActi
     {
         emetteur.GetComponent<BrumeSpawn>().enabled = false;
         emetteur.GetComponent<Animator>().CrossFade("Fum�e_End", 0.1f);
+        
         yeux.GetComponent<Animator>().CrossFade("Yeux_fade", 0.1f);
         yeux2.GetComponent<Animator>().CrossFade("Yeux_fade", 0.1f);
         bras.GetComponent<Animator>().CrossFade("Bras_Fade", 0.1f);
-        Invoke("DisableFace", 1.3f);
+        Invoke("DisableFace", 2f);
         //animation d'arr�t
     }
     void DisableFace()

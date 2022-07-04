@@ -16,6 +16,7 @@ public class EntreeManager : MonoBehaviour
         Tournevis = GameObject.Find("Tournevis");
         enveloppe = GameObject.Find("Enveloppe 01");
         EntreeLoader();
+
     }
     public void EpouvantailState()
     {
@@ -78,5 +79,9 @@ public class EntreeManager : MonoBehaviour
         //AntenneState();
         FogState();
         EpouvantailState();
+        if (PlayerPrefs.GetInt("Séquence 1 Done") == 1)
+        {
+            IntroState();
+        }
     }
 }
