@@ -150,7 +150,7 @@ public class ContainerMailScript : MonoBehaviour
         if((GetDate(DateBeChecked) + 2) <  GetDate(DateRef))
         {
             //GetRibbonText = "Faut encore que je le fasse zebis" ;
-            GetRibbonText = GetDayOfTheDate(DateBeChecked) + " " + GetPartOfTheDate(DateBeChecked, 0) + " " + GetPartOfTheDate(DateBeChecked, 1) + " " + GetPartOfTheDate(DateBeChecked, 2) ;
+            GetRibbonText = GetDayOfTheDate(DateBeChecked) + " " + GetPartOfTheDate(DateBeChecked, 0) + " " + GetPartOfTheDate(DateBeChecked, 1) /*+ " " + GetPartOfTheDate(DateBeChecked, 2)*/ ;
         }    
 
         return GetRibbonText ;

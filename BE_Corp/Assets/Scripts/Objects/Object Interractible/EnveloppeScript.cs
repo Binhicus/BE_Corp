@@ -53,7 +53,16 @@ public class EnveloppeScript : ClickableObject,IClicked, IAction
 
     public void FonctionMaj()
     {
-        MisAJourEffect.Instance.PasswordUpdate();
+        if (PlayerPrefs.GetInt("Indice Enveloppe") == 0)
+        {
+            MisAJourEffect.Instance.PasswordUpdate();
+        }
+        Invoke("PPrefIndice", 0.6f);
+    }
+
+    void PPrefIndice()
+    {
+        PlayerPrefs.SetInt("Indice Enveloppe", 1);
     }
 
     public void OnOpen() {Debug.Log("Open") ;}
