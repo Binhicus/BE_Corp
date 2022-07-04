@@ -16414,7 +16414,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &695112612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16514,16 +16514,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 695112611}
-  m_LocalRotation: {x: -0, y: 0.9078517, z: -0, w: 0.4192915}
-  m_LocalPosition: {x: 0, y: 0, z: 0.026}
+  m_LocalRotation: {x: -0, y: 0.40034378, z: -0, w: 0.916365}
+  m_LocalPosition: {x: 0, y: 0, z: -0.304}
   m_LocalScale: {x: 0.08204295, y: 0.06836911, z: 0.08204295}
   m_Children: []
   m_Father: {fileID: 1618392712}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 130.42, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 47.199, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.528, y: 0.949}
+  m_AnchoredPosition: {x: 0.481, y: 0.151}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &695112614
@@ -21713,6 +21713,7 @@ RectTransform:
   - {fileID: 188079275}
   - {fileID: 689260058}
   - {fileID: 782025388}
+  - {fileID: 1180421426}
   m_Father: {fileID: 223347808}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -25181,6 +25182,81 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1176544467}
   m_Mesh: {fileID: 2355163512990625191, guid: 128b9cc29bcea0345b5a193d0c417607, type: 3}
+--- !u!1 &1180421425
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1180421426}
+  - component: {fileID: 1180421428}
+  - component: {fileID: 1180421427}
+  m_Layer: 5
+  m_Name: Contour
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1180421426
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180421425}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.57521, y: 2.1936722, z: 0.57521}
+  m_Children: []
+  m_Father: {fileID: 999614143}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -749.66, y: 163.8}
+  m_SizeDelta: {x: 2646.6768, y: 157.42265}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1180421427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180421425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 42fae38624445f04fa57e8567a73ddae, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1180421428
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180421425}
+  m_CullTransparentMesh: 0
 --- !u!1 &1181885344
 GameObject:
   m_ObjectHideFlags: 0
@@ -46410,7 +46486,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7229727939668006220, guid: 8d949d1f4996e2048a01ce8c8ad93b12, type: 3}
       propertyPath: m_Materials.Array.size
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7229727939668006220, guid: 8d949d1f4996e2048a01ce8c8ad93b12, type: 3}
       propertyPath: m_Materials.Array.data[0]
