@@ -38,7 +38,8 @@ public class RadioScript : ClickableObject,IClicked, IAction
 
 
         // PlayerPrefs.SetInt("PileDansRadio",1);
-         //PlayerPrefs.SetInt("Antenne Branchee",1);
+         //PlayerPrefs.SetInt("Antenne Branchée",1);
+         //PlayerPrefs.SetInt("Parapluie",1);
          
     }
 
@@ -50,7 +51,7 @@ public class RadioScript : ClickableObject,IClicked, IAction
     void LookZone()
     {
 
-         if(PlayerPrefs.GetInt("Antenne")==1&&PlayerPrefs.GetInt("PileDansRadio")==1&&PlayerPrefs.GetInt("Parapluie")==0)
+         if(PlayerPrefs.GetInt("Antenne Branchée")==1&&PlayerPrefs.GetInt("PileDansRadio")==1&&PlayerPrefs.GetInt("Parapluie")==0)
          {
         AreaCam.SetActive(false);
             Debug.Log("Go");
@@ -89,15 +90,27 @@ public class RadioScript : ClickableObject,IClicked, IAction
             CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible ;
         }*/
 
-        if(PlayerPrefs.GetInt("PileDansRadio")!=1&&PlayerPrefs.GetInt("Antenne Branchee")!=1)
+        if(PlayerPrefs.GetInt("PileDansRadio")==0&&PlayerPrefs.GetInt("Antenne Branchée")==0&&PlayerPrefs.GetInt("Parapluie")!=1)
         {
+            Debug.Log("RIEN EST MIT");
             CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible ;
         }
 
-        if(PlayerPrefs.GetInt("PileDansRadio")==1&&PlayerPrefs.GetInt("Antenne Branchee")==1)
+        if(PlayerPrefs.GetInt("PileDansRadio")==1&&PlayerPrefs.GetInt("Antenne Branchée")==1&&PlayerPrefs.GetInt("Parapluie")!=1)
         {
+            Debug.Log("TOUT EST MIT");
             CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible2 ;
             TexteMeteo.GetComponent<Animator>().SetInteger("PileAntenne",1);
+        }
+         if(PlayerPrefs.GetInt("PileDansRadio")==1&&PlayerPrefs.GetInt("Antenne Branchée")==0&&PlayerPrefs.GetInt("Parapluie")!=1)
+        {
+            Debug.Log("JUSTE PILE");
+            CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible ;
+        }
+        if(PlayerPrefs.GetInt("PileDansRadio")==0&&PlayerPrefs.GetInt("Antenne Branchée")==1&&PlayerPrefs.GetInt("Parapluie")!=1)
+        {
+            Debug.Log("JUSTE ANTENNE");
+            CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible ;
         }
 
         if(PlayerPrefs.GetInt("Parapluie")==1)
