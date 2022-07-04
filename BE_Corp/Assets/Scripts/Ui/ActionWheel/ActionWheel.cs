@@ -83,7 +83,12 @@ public class ActionWheel : MonoBehaviour
 
         Vector2 AnchoredPos ;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(TransformParent, Input.mousePosition, UICanvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : UICamera, out AnchoredPos);
-       
+        
+    
+        if(AnchoredPos.x < -245f) AnchoredPos.x = -245f ;     
+        if(AnchoredPos.x > 245f) AnchoredPos.x = 245f ;     
+        if(AnchoredPos.y < -145f) AnchoredPos.y = -145f ;     
+        if(AnchoredPos.y > 145f) AnchoredPos.y = 145f ;     
         GetComponent<RectTransform>().anchoredPosition = AnchoredPos;
     }
 
@@ -123,12 +128,13 @@ public class ActionWheel : MonoBehaviour
 
             if(ChoicesDisplay.Count <= 1) FillAmountChoiceCircle = angle / 360f;
             else FillAmountChoiceCircle =  choiceObject.ChoiceCirle.fillAmount * 0.8f ;
-            choiceObject.ChoiceCirle.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, (360f * FillAmountChoiceCircle) / 2f -90f));
+            choiceObject.ChoiceCirle.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, ((360f * FillAmountChoiceCircle) / 2f) - (180f / ChoicesDisplay.Count)));
             choiceObject.AnimFillAmount(FillAmountChoiceCircle, true) ;
 
 
             rotation.z = angle * i ; 
-            float radianAngle = rotation.z * Mathf.Deg2Rad - (angle * Mathf.Deg2Rad * 0.5f);    
+            float radianAngle = rotation.z * Mathf.Deg2Rad - (angle * Mathf.Deg2Rad * 0.5f);  
+
 
             choiceObject.transform.localRotation = Quaternion.Euler(rotation);
 
@@ -136,10 +142,15 @@ public class ActionWheel : MonoBehaviour
 
         //    choiceObject.BackgroundAction.sprite = ChoicesDisplay[i].IconAction;
             choiceObject.BackgroundAction.transform.rotation = Quaternion.identity;
-            choiceObject.BackgroundAction.GetComponent<RectTransform>().pivot = SetTextPivot(choiceObject.BackgroundAction.transform.parent.GetComponent<RectTransform>());               
-            SetAngledPosition(choiceObject.BackgroundAction.transform, ActionChoiceContainer.transform.position, radianAngle, /*50f*/ 90f);
+            choiceObject.BackgroundAction.GetComponent<RectTransform>().pivot = SetTextPivot(choiceObject.BackgroundAction.transform.parent.GetComponent<RectTransform>());    
+
+
+            SetAngledPosition(choiceObject.BackgroundAction.transform, ActionChoiceContainer.transform.position, radianAngle, /*50f*/ 90f);     
+            if(Mathf.Abs(choiceObject.GetComponent<RectTransform>().position.y - choiceObject.BackgroundAction.GetComponent<RectTransform>().position.y) >= 40f) 
+            {
+                SetAngledPosition(choiceObject.BackgroundAction.transform, ActionChoiceContainer.transform.position, radianAngle, 60f);                   
+            } 
             //  choiceObject.BackgroundAction.transform.GetComponent<RectTransform>().DOScale(new Vector3(0.75f, 0.75f, 0.75f), 0.125f);
- 
 
 
             choiceObject.NameAction.text = ChoicesDisplay[i].NameActionFR;
@@ -221,8 +232,14 @@ public class ActionWheel : MonoBehaviour
 
     void Update() 
     {
+        if(GameObject.Find("Mouse On") == null && CanClick)
+        {
+            DisableWheel();
+        }
+
         if(CanClick)
         {
+
             for (int CAW = 0; CAW < ActionChoiceContainer.transform.childCount; CAW++)
             {
                 if(ActionChoiceContainer.transform.GetChild(CAW).GetComponent<ActionWheelChoice>().StateMouseOver == ActionOveringState.Overing && CAW != GetAngleMouseOvered()) ActionChoiceContainer.transform.GetChild(CAW).GetComponent<ActionWheelChoice>().StateOvering(false);
@@ -268,11 +285,6 @@ public class ActionWheel : MonoBehaviour
 
     IEnumerator CloseWheel()
     {
-
-        
-
-
-
         CanClick = false ;
 
         for (int i = 0; i < ActionChoiceContainer.transform.childCount; i++)
