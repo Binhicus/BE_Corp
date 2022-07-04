@@ -10,6 +10,7 @@ public class TourneStp : MonoBehaviour
 
 
     public GameObject SymbAllume;
+    public GameObject TemperaureSymbol;
     public bool estAllume;
     public Color couleurbase;
     public Color couleurchaud;
@@ -114,6 +115,7 @@ public class TourneStp : MonoBehaviour
             //Ttemp.GetComponent<TextMeshPro>().text=Temp0.ToString()+ " °";
             TempActuelle=0;
             PlayerPrefs.SetInt("Temper",0);
+            TemperaureSymbol.SetActive(false);
             Ttemp.GetComponent<TextMeshPro>().color=couleurbase;
         
     }
@@ -125,6 +127,7 @@ public class TourneStp : MonoBehaviour
                  //Ttemp.GetComponent<TextMeshPro>().text=Temp1.ToString()+ " °";
             TempActuelle=180;
             PlayerPrefs.SetInt("Temper",180);
+            TemperaureSymbol.SetActive(true);
             Ttemp.GetComponent<TextMeshPro>().color=couleurbase;
             }
        
@@ -137,6 +140,7 @@ public class TourneStp : MonoBehaviour
         //Ttemp.GetComponent<TextMeshPro>().text=Temp2.ToString()+ " °";
             TempActuelle=360;
             PlayerPrefs.SetInt("Temper",360);
+            TemperaureSymbol.SetActive(true);
             Ttemp.GetComponent<TextMeshPro>().color=couleurbase;
             }
         
@@ -148,6 +152,7 @@ public class TourneStp : MonoBehaviour
             {
         //Ttemp.GetComponent<TextMeshPro>().text=Temp3.ToString()+ " °";
             TempActuelle=480;
+            TemperaureSymbol.SetActive(true);
             PlayerPrefs.SetInt("Temper",480);
             Ttemp.GetComponent<TextMeshPro>().color=couleurchaud;
             }
@@ -175,6 +180,7 @@ public class TourneStp : MonoBehaviour
        // Debug.Log("Ok");
         SymbAllume.GetComponent<Animator>().SetInteger("All",0);
         Ttemp.SetActive(false);
+        TemperaureSymbol.SetActive(false);
     }
 
     IEnumerator coroutineA()

@@ -26,7 +26,7 @@ public class Rain : MonoBehaviour
           {
             Lapluie[i].SetActive(true);
             rainSon.Play();
-            rainSon.volume=1;
+            rainSon.volume=0.2f;
           }
         }
     }
