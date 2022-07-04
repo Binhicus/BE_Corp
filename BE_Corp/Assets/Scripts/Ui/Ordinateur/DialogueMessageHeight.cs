@@ -43,6 +43,8 @@ public class DialogueMessageHeight : MonoBehaviour
 
         yield return new WaitForSeconds(0.00001f);
         if(GameObject.Find("Message") != null) GameObject.Find("Message").GetComponent<MessageManager>().HeightDialogueDisplay();
+        yield return new WaitForSeconds(0.05f);
+        if(GameObject.Find("Message") != null) GameObject.Find("Message").GetComponent<MessageManager>().HeightDialogueDisplay();
     }
 
 
