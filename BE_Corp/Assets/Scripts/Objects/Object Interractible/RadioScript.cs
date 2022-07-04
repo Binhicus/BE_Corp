@@ -37,8 +37,8 @@ public class RadioScript : ClickableObject,IClicked, IAction
          }
 
 
-         PlayerPrefs.SetInt("PileDansRadio",1);
-         PlayerPrefs.SetInt("Antenne Branchee",1);
+        // PlayerPrefs.SetInt("PileDansRadio",1);
+         //PlayerPrefs.SetInt("Antenne Branchee",1);
          
     }
 
