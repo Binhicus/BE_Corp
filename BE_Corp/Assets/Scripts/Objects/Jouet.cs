@@ -143,7 +143,7 @@ public class Jouet : ClickableObject, IHasItemInteraction, IClicked, IAction
         iTween.RotateTo(GameObject.Find("Tournevis Pivot(Clone)"), iTween.Hash("rotation", new Vector3(32.347f, 93.134f, -81.13f), "time", 1f, "delay", 2f));
         iTween.ScaleTo(GameObject.Find("Tournevis Pivot(Clone)"), iTween.Hash("scale", new Vector3(0.2246342f, 0.357828f, 0.2526677f), "time", 1f, "delay", 2f));
         Destroy(GameObject.Find("Tournevis Pivot(Clone)"), 4f);
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(4f);
 
         for (int i = 0; i < zonesZoom.Count; i++)
         {
