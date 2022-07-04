@@ -102,6 +102,12 @@ public class ScriptAntenne : MonoBehaviour
             TexteMeteo.GetComponent<Animator>().SetBool("PasLoin", true);
             RadioBug.volume=0.5f;
         }
+
+        if(PlayerPrefs.GetInt("Parapluie")==1)
+        {
+            RadioBug.Stop();
+            RadioBug.volume=0;
+        }
         
 
 
