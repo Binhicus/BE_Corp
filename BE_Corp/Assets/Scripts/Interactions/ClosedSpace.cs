@@ -96,7 +96,7 @@ public class ClosedSpace : ClickableObject, IHasItemInteraction, IClicked, IActi
     void EffetBrume()
     {
         emetteur.GetComponent<BrumeSpawn>().enabled = false;
-        emetteur.GetComponent<Animator>().CrossFade("Fum�e_End", 0.1f);
+        emetteur.GetComponent<Animator>().CrossFade("Fumée_End", 0.1f);
         
         yeux.GetComponent<Animator>().CrossFade("Yeux_fade", 0.1f);
         yeux2.GetComponent<Animator>().CrossFade("Yeux_fade", 0.1f);
@@ -111,7 +111,7 @@ public class ClosedSpace : ClickableObject, IHasItemInteraction, IClicked, IActi
     void EffetEpee()
     {
         epee.SetActive(true);
-        epee.GetComponent<Animator>().CrossFade("MvtEp�e", 0.1f);
+        epee.GetComponent<Animator>().CrossFade("MvtEpée", 0.1f);
     }
 
     // Start is called before the first frame update
