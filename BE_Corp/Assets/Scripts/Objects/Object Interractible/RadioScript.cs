@@ -35,6 +35,10 @@ public class RadioScript : ClickableObject,IClicked, IAction
          {
             TexteMeteo.SetActive(true);
          }
+
+
+         PlayerPrefs.SetInt("PileDansRadio",1);
+         PlayerPrefs.SetInt("Antenne Branchee",1);
          
     }
 

@@ -21,7 +21,7 @@ public class VaseSwitch : ClickableObject
     public AudioSource casse;
     public AudioSource roll;
 
-    public BlockReference Vasecassé;
+    public BlockReference Vasecasse;
     // Start is called before the first frame update
     void Start()
     {
@@ -66,7 +66,7 @@ public class VaseSwitch : ClickableObject
 
     public void Destroyed()
     {
-            Vasecassé.Execute();
+            Vasecasse.Execute();
         casse.Play();
         //Jauge.Instance.stadeProg += 1;
         vase.SetActive(false);
