@@ -69,13 +69,23 @@ public class EmailContainerScript : MonoBehaviour
         
         // Ajout variante si date == jour actuel
         if(ThisAsBeenReceiveToday) DateHoursReveice.text = MailInformations.Heure ;
-        else DateHoursReveice.text = MailInformations.Date ;
+        else DateHoursReveice.text = MailInformations.Date.Remove(5) /*+ " " + *GetPartOfTheDate(MailInformations.Date, 1) + " " + MailInformations.Heure*/ ;
 
         ObjectMail.text = MailInformations.Objet ;
         DescriptionMail.text = MailInformations.Description ;
 
         MailReadOrNot(MailInformations.MailLu) ;
 
+    }
+
+
+    string GetPartOfTheDate(string Date, int PartNeed)
+    {
+        string[] Dates = Date.Split('/') ; //  JJ / MM / YYYY 
+        string[] Month = new string[] {"janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "aout", "sept."," oct.", "nov.", "déc."};
+
+        if(PartNeed != 1) return Dates[PartNeed];
+        else return Month[PartNeed] ;
     }
 
     void MailReadOrNot(bool MailAsBeRead)

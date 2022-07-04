@@ -30,7 +30,16 @@ public class LivreMatisse : ClickableObject,IClicked, IAction
     public void Parle()
     {
         DialogMatisse.Execute();  PlayerPrefs.SetInt("Matisse",1);
-        MisAJourEffect.Instance.PasswordUpdate();
+        if (PlayerPrefs.GetInt("Indice Matisse") == 0)
+        {
+            MisAJourEffect.Instance.PasswordUpdate();
+        }
+        Invoke("PPrefIndice", 0.6f);
+    }
+
+    void PPrefIndice()
+    {
+        PlayerPrefs.SetInt("Indice Matisse", 1);
     }
 
     public void OnOpen() {Debug.Log("Open") ;}

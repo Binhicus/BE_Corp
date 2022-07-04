@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
 
-public class ClosedSpace : MonoBehaviour, IHasItemInteraction, IClicked, IAction
+public class ClosedSpace : ClickableObject, IHasItemInteraction, IClicked, IAction
 {
     public string nomItem;
     public string inventoryItemID => nomItem;
     public AudioSource unlocked;
-    public GameObject fog, emetteur, epee, bloqueur;
+    public GameObject fog, emetteur, epee, bras, yeux, yeux2, bloqueur;
     public GameObject OuverturePorteChambre;
 
     public BlockReference question, inspect ;
@@ -24,12 +24,18 @@ public class ClosedSpace : MonoBehaviour, IHasItemInteraction, IClicked, IAction
     private void Awake() 
     {
 
-        if (PlayerPrefs.GetInt("Séquence 1 Done") == 0)
+        if (PlayerPrefs.GetInt("Sequence 1 Done") == 0)
         {
             this.gameObject.GetComponent<BoxCollider>().enabled = false;
         }
         fog = GameObject.Find("Gray Volume Fog");
         OuverturePorteChambre=GameObject.Find("Ouverture");
+
+        if(PlayerPrefs.GetInt("Brume")==1)
+        {
+            this.GetComponent<BoxCollider>().enabled=false;
+            fog.GetComponent<BoxCollider>().enabled = false;
+        }
     }
 
   /*  void OnMouseOver()
@@ -75,6 +81,7 @@ public class ClosedSpace : MonoBehaviour, IHasItemInteraction, IClicked, IAction
         PlayerPrefs.SetInt("Brume", 1);
         OuverturePorteChambre.GetComponent<BoxCollider>().enabled=true;
         Jauge.Instance.stadeProg += 1;
+        this.GetComponent<BoxCollider>().enabled=false;
     }
 
     public void ItemDropAnim() //////////////
@@ -85,9 +92,12 @@ public class ClosedSpace : MonoBehaviour, IHasItemInteraction, IClicked, IAction
     void EffetBrume()
     {
         emetteur.GetComponent<BrumeSpawn>().enabled = false;
-        emetteur.GetComponent<Animator>().CrossFade("Fumée_End", 0.1f);
+        emetteur.GetComponent<Animator>().CrossFade("Fumï¿½e_End", 0.1f);
+        yeux.GetComponent<Animator>().CrossFade("Yeux_fade", 0.1f);
+        yeux2.GetComponent<Animator>().CrossFade("Yeux_fade", 0.1f);
+        bras.GetComponent<Animator>().CrossFade("Bras_Fade", 0.1f);
         Invoke("DisableFace", 1.3f);
-        //animation d'arrêt
+        //animation d'arrï¿½t
     }
     void DisableFace()
     {
@@ -96,7 +106,7 @@ public class ClosedSpace : MonoBehaviour, IHasItemInteraction, IClicked, IAction
     void EffetEpee()
     {
         epee.SetActive(true);
-        epee.GetComponent<Animator>().CrossFade("MvtEpée", 0.1f);
+        epee.GetComponent<Animator>().CrossFade("MvtEpï¿½e", 0.1f);
     }
 
     // Start is called before the first frame update

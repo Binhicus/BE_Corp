@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,16 +14,6 @@ public class SalonManager : MonoBehaviour
 
     private void OnEnable()
     {
-        vase = GameObject.Find("Switch");
-        key = GameObject.Find("I_Clef");
-        objetsMeteo = GameObject.Find("Umbrella");
-        PilesRobot = GameObject.FindWithTag("Test");
-        ballon = GameObject.Find("Soccer Ball").transform.GetChild(0).gameObject;
-        antenne = GameObject.Find("Antenne");
-        TableauPart1 = GameObject.Find("Part1 tableau");
-        TableauPart2 = GameObject.Find("Part 2 tableau");
-        TableauPart3 = GameObject.Find("Part 3 tableu");
-
         SalonLoader();
     }
 
@@ -35,14 +25,32 @@ public class SalonManager : MonoBehaviour
         {
             TableauPart1.SetActive(true);
         }
+        if(PlayerPrefs.GetInt("Morceau1Tableau")==0)
+        {
+            TableauPart1.SetActive(false);
+        }
         if(PlayerPrefs.GetInt("Morceau2Tableau")==1)
         {
             TableauPart2.SetActive(true);
+        }
+        if(PlayerPrefs.GetInt("Morceau2Tableau")==0)
+        {
+            TableauPart2.SetActive(false);
         }
         if(PlayerPrefs.GetInt("Morceau3Tableau")==1)
         {
             TableauPart3.SetActive(true);
         }
+        if(PlayerPrefs.GetInt("Morceau3Tableau")==0)
+        {
+            TableauPart3.SetActive(false);
+        }
+
+        SalonState();
+        VaseState();
+        UmbrellaState();
+        AntenneState();
+        PilesState();
     }
     public void VaseState()
     {

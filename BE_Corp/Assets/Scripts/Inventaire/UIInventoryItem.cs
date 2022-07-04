@@ -17,18 +17,32 @@ public class UIInventoryItem : MonoBehaviour, IDragHandler, IEndDragHandler
     [Header("Sounds")]
     public AudioSource fusionSound;
     public AudioSource deniedSound;
+    //public Camera cam;
+
+    Vector3 offset;
 
     private void Awake()
     {
-       // mainCamera = CamScript.camInstance.GetComponent<Camera>();
+        // mainCamera = CamScript.camInstance.GetComponent<Camera>();
+        //cam = GameObject.Find("InventoryCam").GetComponent<Camera>();
        Inventaire=GameObject.Find("Inventaire");
        mouseOnInventory=GameObject.Find("Mouse On").GetComponent<MouseOnInventory>();
     }
-
+    void OnMouseDown()
+    {
+        offset = transform.position - MouseWorldPosition();
+    }
     public void OnDrag(PointerEventData eventData)
     {
-        transform.position = Input.mousePosition;
+        transform.position = MouseWorldPosition() + offset;
         CursorController.Instance.BoolFalseSetter();
+    }
+
+    Vector3 MouseWorldPosition()
+    {
+        var mouseScreenPos = Input.mousePosition;
+        mouseScreenPos.z = Camera.main.WorldToScreenPoint(transform.position).z;
+        return Camera.main.ScreenToWorldPoint(mouseScreenPos);
     }
 
     public void OnEndDrag(PointerEventData eventData)
