@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
 
-public class ClosedSpace : MonoBehaviour, IHasItemInteraction, IClicked, IAction
+public class ClosedSpace : ClickableObject, IHasItemInteraction, IClicked, IAction
 {
     public string nomItem;
     public string inventoryItemID => nomItem;
