@@ -8,7 +8,7 @@ public class ClosedSpace : MonoBehaviour, IHasItemInteraction, IClicked, IAction
     public string nomItem;
     public string inventoryItemID => nomItem;
     public AudioSource unlocked;
-    public GameObject fog, emetteur, epee, bloqueur;
+    public GameObject fog, emetteur, epee, bras, yeux, yeux2, bloqueur;
     public GameObject OuverturePorteChambre;
 
     public BlockReference question, inspect ;
@@ -86,6 +86,9 @@ public class ClosedSpace : MonoBehaviour, IHasItemInteraction, IClicked, IAction
     {
         emetteur.GetComponent<BrumeSpawn>().enabled = false;
         emetteur.GetComponent<Animator>().CrossFade("Fumée_End", 0.1f);
+        yeux.GetComponent<Animator>().CrossFade("Yeux_fade", 0.1f);
+        yeux2.GetComponent<Animator>().CrossFade("Yeux_fade", 0.1f);
+        bras.GetComponent<Animator>().CrossFade("Bras_Fade", 0.1f);
         Invoke("DisableFace", 1.3f);
         //animation d'arrêt
     }
