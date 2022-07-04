@@ -68,7 +68,15 @@ public class EntreeManager : MonoBehaviour
     {
         Tournevis.GetComponent<CapsuleCollider>().enabled = true;
         epouvantail.GetComponent<BoxCollider>().enabled = true;
-        fog.GetComponent<BoxCollider>().enabled = true;
+        if (PlayerPrefs.GetInt("Brume") == 0) 
+        { 
+            fog.GetComponent<BoxCollider>().enabled = true;
+        }
+        else if (PlayerPrefs.GetInt("Brume") == 1)
+        {
+            fog.GetComponent<BoxCollider>().enabled = false;
+        }
+
         enveloppe.GetComponent<BoxCollider>().enabled = true;
         
     } 
