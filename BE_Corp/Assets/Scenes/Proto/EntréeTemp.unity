@@ -1647,6 +1647,8 @@ GameObject:
   - component: {fileID: 215823540}
   - component: {fileID: 215823539}
   - component: {fileID: 215823538}
+  - component: {fileID: 215823542}
+  - component: {fileID: 215823541}
   m_Layer: 0
   m_Name: Door Room
   m_TagString: Untagged
@@ -1684,6 +1686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6f0773716e8c3247b388ce4c6f2585d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  direction: 1
   cameraShake: {fileID: 0}
   Panel: {fileID: 0}
   glitchEffectOn: {fileID: 0}
@@ -1692,6 +1695,10 @@ MonoBehaviour:
   PlayerPrefNameState: Porte Ouverte
   LeaveStepNameRef: "Entr\xE9e > Chambre"
   openingSound: {fileID: 110809460}
+  porteClose:
+    block: {fileID: 8580882006690505137}
+  ListInteractPossible:
+  - {fileID: 11400000, guid: fd9a468eca2158d43834b7cad0de46ed, type: 2}
 --- !u!95 &215823539
 Animator:
   serializedVersion: 3
@@ -1724,6 +1731,94 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.007222985, y: 0.037753023, z: 0.020884834}
   m_Center: {x: -3.4924608e-10, y: -2.3283064e-10, z: 0}
+--- !u!114 &215823541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215823536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fe91dc294731a9428c0941ea7579110, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  complexMaskingMode: 0
+  drawingMode: 1
+  outlineLayer: 0
+  outlineTargets:
+  - IsVisible: 1
+    CutoutMask: 8
+    edgeDilateAmount: 5
+    frontEdgeDilateAmount: 5
+    backEdgeDilateAmount: 5
+    renderer: {fileID: 1309880118}
+    SubmeshIndex: 1
+    BoundsMode: 0
+    Bounds:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0.5, y: 0.5, z: 0.5}
+    CutoutThreshold: 0.5
+    CullMode: 2
+    cutoutTextureName: 
+    DilateRenderingMode: 0
+    cutoutTextureIndex: 0
+  renderStyle: 1
+  outlineParameters:
+    enabled: 1
+    color: {r: 1.319508, g: 0.83310115, b: 0.39326513, a: 1}
+    dilateShift: 1
+    blurShift: 1
+    fillPass:
+      shader: {fileID: 0}
+      serializedProperties: []
+  backParameters:
+    enabled: 1
+    color: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+    dilateShift: 1
+    blurShift: 1
+    fillPass:
+      shader: {fileID: 0}
+      serializedProperties: []
+  frontParameters:
+    enabled: 1
+    color: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+    dilateShift: 1
+    blurShift: 1
+    fillPass:
+      shader: {fileID: 0}
+      serializedProperties: []
+--- !u!114 &215823542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215823536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &251803283
 GameObject:
   m_ObjectHideFlags: 0
@@ -1808,6 +1903,9 @@ MonoBehaviour:
   fog: {fileID: 4663679173290741724}
   emetteur: {fileID: 1010350725}
   epee: {fileID: 1724161285}
+  bras: {fileID: 1153358573929586488}
+  yeux: {fileID: 299325429}
+  yeux2: {fileID: 1841189653}
   bloqueur: {fileID: 2045737891}
   OuverturePorteChambre: {fileID: 0}
   question:
@@ -1843,6 +1941,7 @@ GameObject:
   - component: {fileID: 299325430}
   - component: {fileID: 299325432}
   - component: {fileID: 299325431}
+  - component: {fileID: 299325433}
   m_Layer: 0
   m_Name: 'Yeux_Brume '
   m_TagString: Untagged
@@ -1934,6 +2033,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &299325433
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299325429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 034bc47afcbf5e141a58d5c20b7808e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &313840298
 GameObject:
   m_ObjectHideFlags: 0
@@ -3025,7 +3136,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1032.4487
     y: -314.5797
-    width: 108.37832
+    width: 109.31031
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3121,8 +3232,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 370.0917
-    y: 117.51268
-    width: 151.62152
+    y: 115.87334
+    width: 157.58615
     height: 40
   tint: {r: 0.9607843, g: 0.9022256, b: 0.47450978, a: 1}
   useCustomTint: 1
@@ -9176,6 +9287,7 @@ GameObject:
   - component: {fileID: 1096594332}
   - component: {fileID: 1096594334}
   - component: {fileID: 1096594333}
+  - component: {fileID: 1096594335}
   m_Layer: 0
   m_Name: Door Model
   m_TagString: Untagged
@@ -9247,6 +9359,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1096594335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096594331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 034bc47afcbf5e141a58d5c20b7808e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1097345934
 GameObject:
   m_ObjectHideFlags: 0
@@ -9830,6 +9954,7 @@ GameObject:
   - component: {fileID: 1309880117}
   - component: {fileID: 1309880119}
   - component: {fileID: 1309880118}
+  - component: {fileID: 1309880120}
   m_Layer: 0
   m_Name: Porte (2)
   m_TagString: Untagged
@@ -9900,6 +10025,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1309880116}
   m_Mesh: {fileID: -359578995903521744, guid: 9f3e86fe3072c394ea6cd1781285c68a, type: 3}
+--- !u!114 &1309880120
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309880116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 034bc47afcbf5e141a58d5c20b7808e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1311651101
 GameObject:
   m_ObjectHideFlags: 0
@@ -11576,7 +11713,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1685464678
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11867,6 +12004,7 @@ GameObject:
   - component: {fileID: 1724161286}
   - component: {fileID: 1724161288}
   - component: {fileID: 1724161287}
+  - component: {fileID: 1724161289}
   m_Layer: 0
   m_Name: "MvtEp\xE9e01"
   m_TagString: Untagged
@@ -11958,6 +12096,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1724161289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724161285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 034bc47afcbf5e141a58d5c20b7808e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1730685628
 GameObject:
   m_ObjectHideFlags: 0
@@ -12483,6 +12633,7 @@ GameObject:
   - component: {fileID: 1841189654}
   - component: {fileID: 1841189656}
   - component: {fileID: 1841189655}
+  - component: {fileID: 1841189657}
   m_Layer: 0
   m_Name: 'Yeux_Brume2 '
   m_TagString: Untagged
@@ -12574,6 +12725,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1841189657
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1841189653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 034bc47afcbf5e141a58d5c20b7808e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1953298493
 GameObject:
   m_ObjectHideFlags: 0
@@ -12978,6 +13141,7 @@ GameObject:
   - component: {fileID: 2045737895}
   - component: {fileID: 2045737894}
   - component: {fileID: 2045737893}
+  - component: {fileID: 2045737896}
   m_Layer: 0
   m_Name: Blocker
   m_TagString: Untagged
@@ -13061,6 +13225,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2045737891}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2045737896
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045737891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 034bc47afcbf5e141a58d5c20b7808e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2061139290
 GameObject:
   m_ObjectHideFlags: 0
@@ -13256,7 +13432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 0}
+  selectedFlowchart: {fileID: 8580882006690505093}
 --- !u!4 &2100516109
 Transform:
   m_ObjectHideFlags: 1
@@ -14003,6 +14179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6f0773716e8c3247b388ce4c6f2585d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  direction: 0
   cameraShake: {fileID: 0}
   Panel: {fileID: 0}
   glitchEffectOn: {fileID: 0}
@@ -14011,6 +14188,9 @@ MonoBehaviour:
   PlayerPrefNameState: Scarecrow
   LeaveStepNameRef: "Entr\xE9e > Salon"
   openingSound: {fileID: 110809460}
+  porteClose:
+    block: {fileID: 0}
+  ListInteractPossible: []
 --- !u!1 &919132149484160243
 GameObject:
   m_ObjectHideFlags: 0
@@ -14508,7 +14688,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 71.49659
     y: 57.28653
-    width: 160.27016
+    width: 167.2413
     height: 40
   tint: {r: 0.47568527, g: 0.9622642, b: 0.4940556, a: 1}
   useCustomTint: 1
@@ -14661,6 +14841,7 @@ GameObject:
   - component: {fileID: 1153358573929586437}
   - component: {fileID: 1153358573929586438}
   - component: {fileID: 1153358573929586439}
+  - component: {fileID: 1153358573929586489}
   m_Layer: 0
   m_Name: Bras
   m_TagString: Untagged
@@ -14668,6 +14849,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1153358573929586489
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153358573929586488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 034bc47afcbf5e141a58d5c20b7808e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1200169529210064676
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -15373,7 +15566,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 396.57126
     y: 13.4470825
-    width: 125.6756
+    width: 125.86202
     height: 40
   tint: {r: 1, g: 0.5415094, b: 0.9600882, a: 1}
   useCustomTint: 1
@@ -15498,7 +15691,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1062.1416
     y: -175.59024
-    width: 80.27024
+    width: 81.72412
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
@@ -15753,7 +15946,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2372219309808050107}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3fe91dc294731a9428c0941ea7579110, type: 3}
   m_Name: 
@@ -15996,7 +16189,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 211.45529
     y: -163.96977
-    width: 127.83775
+    width: 131.37926
     height: 40
   tint: {r: 1, g: 0.5411765, b: 0.9607843, a: 1}
   useCustomTint: 1
@@ -16058,7 +16251,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1060.224
     y: -78.57941
-    width: 138.64856
+    width: 145.17236
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
@@ -16505,7 +16698,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1380.823
     y: -60.981995
-    width: 134.32423
+    width: 138.27582
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
@@ -16684,7 +16877,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1060.2238
     y: 11.420555
-    width: 112.70264
+    width: 114.827545
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
@@ -17555,6 +17748,7 @@ GameObject:
   - component: {fileID: 7431666733593269776}
   - component: {fileID: 289114917}
   - component: {fileID: 289114916}
+  - component: {fileID: 4663679173290741725}
   m_Layer: 0
   m_Name: Gray Volume Fog
   m_TagString: Untagged
@@ -17562,6 +17756,111 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &4663679173290741725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4663679173290741724}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fe91dc294731a9428c0941ea7579110, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  complexMaskingMode: 0
+  drawingMode: 1
+  outlineLayer: 0
+  outlineTargets:
+  - IsVisible: 1
+    CutoutMask: 8
+    edgeDilateAmount: 5
+    frontEdgeDilateAmount: 5
+    backEdgeDilateAmount: 5
+    renderer: {fileID: 1153358573929586438}
+    SubmeshIndex: 0
+    BoundsMode: 0
+    Bounds:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0.5, y: 0.5, z: 0.5}
+    CutoutThreshold: 0.5
+    CullMode: 0
+    cutoutTextureName: 
+    DilateRenderingMode: 0
+    cutoutTextureIndex: 0
+  - IsVisible: 1
+    CutoutMask: 8
+    edgeDilateAmount: 5
+    frontEdgeDilateAmount: 5
+    backEdgeDilateAmount: 5
+    renderer: {fileID: 299325432}
+    SubmeshIndex: 0
+    BoundsMode: 0
+    Bounds:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0.5, y: 0.5, z: 0.5}
+    CutoutThreshold: 0.5
+    CullMode: 0
+    cutoutTextureName: 
+    DilateRenderingMode: 0
+    cutoutTextureIndex: 0
+  - IsVisible: 1
+    CutoutMask: 8
+    edgeDilateAmount: 5
+    frontEdgeDilateAmount: 5
+    backEdgeDilateAmount: 5
+    renderer: {fileID: 1841189656}
+    SubmeshIndex: 0
+    BoundsMode: 0
+    Bounds:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0.5, y: 0.5, z: 0.5}
+    CutoutThreshold: 0.5
+    CullMode: 0
+    cutoutTextureName: 
+    DilateRenderingMode: 0
+    cutoutTextureIndex: 0
+  - IsVisible: 0
+    CutoutMask: 8
+    edgeDilateAmount: 5
+    frontEdgeDilateAmount: 5
+    backEdgeDilateAmount: 5
+    renderer: {fileID: 1724161288}
+    SubmeshIndex: 0
+    BoundsMode: 0
+    Bounds:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0.5, y: 0.5, z: 0.5}
+    CutoutThreshold: 0.5
+    CullMode: 0
+    cutoutTextureName: 
+    DilateRenderingMode: 0
+    cutoutTextureIndex: 0
+  renderStyle: 1
+  outlineParameters:
+    enabled: 1
+    color: {r: 1.319508, g: 0.83310115, b: 0.39326513, a: 1}
+    dilateShift: 0
+    blurShift: 0.5
+    fillPass:
+      shader: {fileID: 0}
+      serializedProperties: []
+  backParameters:
+    enabled: 1
+    color: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+    dilateShift: 1
+    blurShift: 1
+    fillPass:
+      shader: {fileID: 0}
+      serializedProperties: []
+  frontParameters:
+    enabled: 1
+    color: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+    dilateShift: 1
+    blurShift: 1
+    fillPass:
+      shader: {fileID: 0}
+      serializedProperties: []
 --- !u!33 &4665000261937096588
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -18301,7 +18600,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 99.201385
     y: 361.76614
-    width: 136.48639
+    width: 138.27582
     height: 40
   tint: {r: 0.47568527, g: 0.9622642, b: 0.4940556, a: 1}
   useCustomTint: 1
@@ -18378,7 +18677,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 201.44083
     y: -71.008575
-    width: 134.32423
+    width: 138.27582
     height: 40
   tint: {r: 1, g: 0.5415094, b: 0.9600882, a: 1}
   useCustomTint: 1
@@ -19343,7 +19642,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 631.1868
     y: -171.65472
-    width: 132.16208
+    width: 135.51718
     height: 40
   tint: {r: 1, g: 0.5411765, b: 0.9607843, a: 1}
   useCustomTint: 1
@@ -19395,7 +19694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43b85556abd314f3f870c18c013fdcef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickMode: 3
+  clickMode: 2
   nextClickDelay: 0
   cancelEnabled: 1
   ignoreMenuClicks: 1
@@ -19411,7 +19710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43b85556abd314f3f870c18c013fdcef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickMode: 3
+  clickMode: 2
   nextClickDelay: 0
   cancelEnabled: 1
   ignoreMenuClicks: 1
@@ -19502,7 +19801,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 632.9555
     y: -86.28887
-    width: 125.6756
+    width: 128.62064
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
@@ -19615,7 +19914,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1378.8562
     y: -159.34259
-    width: 106.216156
+    width: 109.31031
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
@@ -20561,7 +20860,6 @@ GameObject:
   - component: {fileID: 8580882006690505098}
   - component: {fileID: 8580882006690505099}
   - component: {fileID: 8580882006690505101}
-  - component: {fileID: 8580882006690505100}
   - component: {fileID: 8580882006690505102}
   - component: {fileID: 8580882006690505103}
   - component: {fileID: 8580882006690505104}
@@ -20597,6 +20895,9 @@ GameObject:
   - component: {fileID: 8580882006690505133}
   - component: {fileID: 8580882006690505134}
   - component: {fileID: 8580882006690505135}
+  - component: {fileID: 8580882006690505137}
+  - component: {fileID: 8580882006690505136}
+  - component: {fileID: 8580882006690505100}
   m_Layer: 0
   m_Name: "Flowchart Entr\xE9e"
   m_TagString: Untagged
@@ -20618,8 +20919,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 3
   indentLevel: 0
-  storyText: "Vos souvenirs semblent \xEAtre tr\xE8s flous, je vais essayer d'explorer
-    pour en savoir plus."
+  storyText: Vos souvenirs sont pour l'instant trop vagues, je vais essayer d'explorer
+    pour en savoir plus.
   description: 
   character: {fileID: 8580882007288285678}
   portrait: {fileID: 0}
@@ -20647,8 +20948,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 433.73087
-    y: -286.2311
-    width: 73.78376
+    y: -288.0493
+    width: 74.827576
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -20667,7 +20968,6 @@ MonoBehaviour:
   - {fileID: 8580882006690505091}
   - {fileID: 8580882006690505099}
   - {fileID: 8580882006690505101}
-  - {fileID: 8580882006690505100}
   suppressAllAutoSelections: 0
 --- !u!114 &8580882006690505093
 MonoBehaviour:
@@ -20682,19 +20982,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 433.1018, y: 355.62207}
+  scrollPos: {x: 64.57187, y: 243.21277}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
-  zoom: 0.3700004
+  zoom: 0.58000034
   scrollViewRect:
     serializedVersion: 2
     x: -343
     y: -340
     width: 1114
     height: 859
-  selectedBlocks:
-  - {fileID: 2513538609787041483}
+  selectedBlocks: []
   selectedCommands: []
   variables:
   - {fileID: 581692646}
@@ -20847,9 +21146,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 73
   indentLevel: 0
-  storyText: "Je risque d'avoir besoin de votre aide pour m'aider \xE0 \xE9claircir
-    vos souvenirs, sans cela, la machine pourrait ne pas avoir r\xE9ussi \xE0 repr\xE9senter
-    certains objets o\xF9 ils pourraient m\xEAme \xEAtre non conformes \xE0 la r\xE9alit\xE9."
+  storyText: "Coop\xE9rons et t\xE2chons d'\xE9claircir vos souvenirs, sans cela,
+    la navigation dans le syst\xE8me ECHO risque d'\xEAtre impr\xE9cise et de mener
+    \xE0 une reconstitution d'objet inexacte."
   description: 
   character: {fileID: 8580882007288285678}
   portrait: {fileID: 0}
@@ -20874,10 +21173,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 75
+  itemId: 228
   indentLevel: 0
-  storyText: Je vous assure que le tableau est ici, nous allons juste devoir fouiller
-    un peu dans vos souvenirs pour le trouver.
+  storyText: "Cette porte est ferm\xE9e \xE0 cl\xE9."
   description: 
   character: {fileID: 8580882007288285678}
   portrait: {fileID: 0}
@@ -20889,7 +21187,7 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
-  setSayDialog: {fileID: 0}
+  setSayDialog: {fileID: 4339818236141037318}
 --- !u!114 &8580882006690505101
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -20904,8 +21202,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 74
   indentLevel: 0
-  storyText: "J'esp\xE8re pour vous que le tableau est ici, sinon cela va tr\xE8s
-    mal aller !"
+  storyText: "J'esp\xE8re pour vous que le tableau est ici, j'ai d'autres imp\xE9ratifs
+    aujourd'hui, et une horreur de perdre mon temps !"
   description: 
   character: {fileID: 8580882007116846411}
   portrait: {fileID: 0}
@@ -20989,7 +21287,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 215.40572
     y: 201.52531
-    width: 158.108
+    width: 164.4827
     height: 40
   tint: {r: 0.47450978, g: 0.9607843, b: 0.7850886, a: 1}
   useCustomTint: 1
@@ -21091,7 +21389,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 87
   indentLevel: 0
-  storyText: Je suis rester longtemps affecter par ces visions...
+  storyText: "J'ai \xE9t\xE9 longtemps affect\xE9e par ces visions."
   description: 
   character: {fileID: 8580882007116846411}
   portrait: {fileID: 0}
@@ -21189,8 +21487,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 90
   indentLevel: 0
-  storyText: La machine m'indique que nous sommes bien dans votre souvenir le plus
-    fort avec ce tableau... cet endroit vous dit-il quelque chose ?
+  storyText: La machine indique que nous sommes bien dans votre souvenir le plus
+    fort avec ce tableau. Cet endroit vous est-il familier ?
   description: 
   character: {fileID: 8580882007288285678}
   portrait: {fileID: 0}
@@ -21290,7 +21588,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 360.00583
     y: 361.4084
-    width: 127.83775
+    width: 128.62064
     height: 40
   tint: {r: 0.9607843, g: 0.9022256, b: 0.47450978, a: 1}
   useCustomTint: 1
@@ -21345,7 +21643,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 228.3201
     y: 440.93256
-    width: 136.48639
+    width: 138.27582
     height: 40
   tint: {r: 0.47450978, g: 0.9607843, b: 0.7850886, a: 1}
   useCustomTint: 1
@@ -21521,7 +21819,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 635.63556
     y: 56.325768
-    width: 158.108
+    width: 161.72406
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
@@ -21650,7 +21948,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 25.61261
     y: -367.58298
-    width: 177.56744
+    width: 185.17233
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
@@ -21704,7 +22002,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 18.088745
     y: -417.85855
-    width: 168.9188
+    width: 175.51717
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
@@ -21771,6 +22069,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 225
   indentLevel: 0
+--- !u!114 &8580882006690505136
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8580882006690505090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d65d551a201c94bc79950076ff3eaf2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 227
+  indentLevel: 0
+  sayDialog: {fileID: 4339818236518761643, guid: 555e864ab86a6154a83a656997f336ae, type: 3}
+--- !u!114 &8580882006690505137
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8580882006690505090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 21.603577
+    y: 185.55844
+    width: 124.48271
+    height: 40
+  tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
+  useCustomTint: 1
+  itemId: 63
+  blockName: "Porte Ferm\xE9e"
+  description: "Dialogue en inspectant la porte ferm\xE9e de la chambre"
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 8580882006690505136}
+  - {fileID: 8580882006690505100}
+  suppressAllAutoSelections: 0
 --- !u!1 &8580882007116846410
 GameObject:
   m_ObjectHideFlags: 0

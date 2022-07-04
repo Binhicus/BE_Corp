@@ -67,7 +67,21 @@ public class UIInventoryItem : MonoBehaviour, IDragHandler, IEndDragHandler
                         fusionSound.Play();
                         GetComponent<Image>().enabled = false;
                         GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
-                        gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                        Destroy(gameObject.transform.GetChild(0).gameObject);
+                        /*if (gameObject.transform.GetChild(0) == true)
+                        {
+                            gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                            Debug.Log("eteint");
+                        }
+                        if (gameObject.transform.GetChild(0) == false)
+                        {
+                            gameObject.transform.GetChild(1).gameObject.SetActive(false);
+                            Debug.Log("nuebe 92i");
+                        }
+                        if (gameObject.transform.GetChild(0) == false && gameObject.transform.GetChild(1) == false)
+                        {
+                            gameObject.transform.GetChild(2).gameObject.SetActive(false);
+                        }*/
                     }
                 }
             }           

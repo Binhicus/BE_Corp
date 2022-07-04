@@ -281,14 +281,14 @@ public class MessageManager : MonoBehaviour
         
         TotalHeight += DiscussionDisplay.GetComponent<VerticalLayoutGroup>().spacing * (DiscussionDisplay.transform.childCount - 1) ;
 
-        TotalHeight += SendEmployeeMessageButton.transform.parent.GetComponent<RectTransform>().sizeDelta.y - 50f ;
+        TotalHeight += SendEmployeeMessageButton.transform.parent.GetComponent<RectTransform>().sizeDelta.y - 50f /**/- 20f ;
 
         TotalHeight += 20f ;
 
-        if(TotalHeight < (1575f -115f)) 
+        if(TotalHeight < (/*1575f -115f -40f*/ 1355f)) 
         {
             DiscussionDisplay.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 0f);
-            DiscussionDisplay.GetComponent<RectTransform>().sizeDelta = new Vector2(1060f,  (1575f -115f)) ;
+            DiscussionDisplay.GetComponent<RectTransform>().sizeDelta = new Vector2(1060f,  (/*1575f -115f -40f*/ 1355f)) ;
 
             DiscussionDisplay.transform.parent.GetComponent<ScrollRect>().enabled = false ;
             DiscussionDisplay.transform.parent.GetComponent<ScrollRect>().verticalScrollbar.gameObject.SetActive(false) ;
@@ -343,15 +343,15 @@ public class MessageManager : MonoBehaviour
         Vector2 NewSize ;
 
         if(TMPCurrent.preferredHeight > 0)    NewSize.y = TMPCurrent.preferredHeight + 20f ; 
-        else NewSize.y = 50f ;
+        else NewSize.y = 50f + 20f ;
     
 
 
         TMPCurrent.transform.parent.GetComponent<RectTransform>().sizeDelta = new Vector2(TMPCurrent.transform.parent.GetComponent<RectTransform>().sizeDelta.x, NewSize.y)  ;
-        TMPCurrent.transform.parent.transform.parent.GetComponent<RectTransform>().sizeDelta = new Vector2(TMPCurrent.transform.parent.transform.parent.GetComponent<RectTransform>().sizeDelta.x, NewSize.y + 20f)  ;  
-        TMPCurrent.transform.parent.transform.parent.transform.parent.GetComponent<RectTransform>().sizeDelta = new Vector2(TMPCurrent.transform.parent.transform.parent.transform.parent.GetComponent<RectTransform>().sizeDelta.x, NewSize.y + 30f + 20f)  ;  
+        TMPCurrent.transform.parent.transform.parent.GetComponent<RectTransform>().sizeDelta = new Vector2(TMPCurrent.transform.parent.transform.parent.GetComponent<RectTransform>().sizeDelta.x, NewSize.y + 40f)  ;  
+        TMPCurrent.transform.parent.transform.parent.transform.parent.GetComponent<RectTransform>().sizeDelta = new Vector2(TMPCurrent.transform.parent.transform.parent.transform.parent.GetComponent<RectTransform>().sizeDelta.x, NewSize.y + 30f + 60f)  ;  
         
-        DiscussionDisplay.transform.parent.GetComponent<RectTransform>().offsetMin = new Vector2(DiscussionDisplay.transform.parent.GetComponent<RectTransform>().offsetMin.x, (NewSize.y + 31f +20f));
+        DiscussionDisplay.transform.parent.GetComponent<RectTransform>().offsetMin = new Vector2(DiscussionDisplay.transform.parent.GetComponent<RectTransform>().offsetMin.x, (NewSize.y + 25f + 60f));
         
         DiscussionDisplay.GetComponent<VerticalLayoutGroup>().spacing = DiscussionDisplay.GetComponent<VerticalLayoutGroup>().spacing ;
     

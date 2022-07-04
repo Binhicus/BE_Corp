@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.Rendering.Universal;
+using EPOOutline;
+using Fungus;
 
+public enum Direction { Salon, Chambre}
 [RequireComponent (typeof(Animator))]
-public class DoorScript : MonoBehaviour
+
+
+public class DoorScript : MonoBehaviour, IClicked, IAction
 {
+    public Direction direction;
     public SplCameraShake cameraShake;
     [SerializeField] private GameObject Panel;
     [SerializeField] private Material glitchEffectOn, glitchEffectOff;
@@ -21,6 +27,9 @@ public class DoorScript : MonoBehaviour
     private bool DoorIsOpen = false ;
     private bool AsCameraShake = false ;
     public AudioSource openingSound;
+    public BlockReference porteClose;
+
+    public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>();
 
     void Awake()
     {
@@ -45,8 +54,11 @@ public class DoorScript : MonoBehaviour
     private void Start() 
     {
         VerifAnimation();
+        if (direction == Direction.Chambre)
+        {
+            this.gameObject.GetComponent<Outlinable>().enabled = false;
+        }
     }
-
     void VerifAnimation()
     {
         if(PlayerPrefs.GetInt(PlayerPrefNameState) == 0)
@@ -63,6 +75,15 @@ public class DoorScript : MonoBehaviour
     {
         MouseOver = true ;
 
+        if (direction == Direction.Chambre)
+        {
+            if (PlayerPrefs.GetInt("Porte Ouverte") == 0)
+            {
+                CursorController.Instance.ChangeCursor(CursorType.Object);
+                this.gameObject.GetComponent<Outlinable>().enabled = true;
+            }
+        }
+
         if(!DoorIsOpen && AsCameraShake && cameraShake.enabled == true)
         {
             if(cameraShake != null) cameraShake.Shaker();
@@ -73,6 +94,15 @@ public class DoorScript : MonoBehaviour
     void OnMouseExit()
     {
         MouseOver = false ;
+        if (direction == Direction.Chambre)
+        {
+            if (PlayerPrefs.GetInt("Porte Ouverte") == 0)
+            {
+                CursorController.Instance.ChangeCursor(CursorType.Default);
+                this.gameObject.GetComponent<Outlinable>().enabled = false;
+            }
+        }
+
 
         if(!DoorIsOpen && AsCameraShake)
         {
@@ -112,5 +142,58 @@ public class DoorScript : MonoBehaviour
         DoorAnimator.SetTrigger("Door Animation");        
         yield return new WaitForSeconds(1.0f);
         LeaveStepRef.GetComponent<DynamicLoad>().DispStep(true);
+    }
+
+    public void OnClickAction()
+    {
+        if (direction == Direction.Chambre)
+        {
+            if (PlayerPrefs.GetInt("Porte Ouverte") == 0)
+            {
+                CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible;
+                CursorController.Instance.ActionWheelScript.TargetAction = this;
+                CursorController.Instance.ActionWheelScript.gameObject.SetActive(true);
+            }
+        }
+
+    }
+
+    public void OnOpen()
+    {
+    }
+
+    public void OnClose()
+    {
+    }
+
+    public void OnTake()
+    {
+    }
+
+    public void OnUse()
+    {
+    }
+
+    public void OnInspect()
+    {
+        if (direction == Direction.Chambre)
+        {
+            if (PlayerPrefs.GetInt("Porte Ouverte") == 0)
+            {
+                porteClose.Execute();
+            }
+        }
+    }
+
+    public void OnQuestion()
+    {
+    }
+
+    public void OnLook()
+    {
+    }
+
+    public void OnLunchActionAfterCloseDialogue()
+    {
     }
 }
