@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
@@ -50,8 +50,8 @@ public class RadioScript : ClickableObject,IClicked, IAction
     void LookZone()
     {
 
-         //if(PlayerPrefs.GetInt("Antenne")==1&&PlayerPrefs.GetInt("PileDansRadio")==1&&PlayerPrefs.GetInt("Parapluie")==0)
-        // {
+         if(PlayerPrefs.GetInt("Antenne")==1&&PlayerPrefs.GetInt("PileDansRadio")==1&&PlayerPrefs.GetInt("Parapluie")==0)
+         {
         AreaCam.SetActive(false);
             Debug.Log("Go");
         CameraActivate.SetActive(true);
@@ -65,13 +65,13 @@ public class RadioScript : ClickableObject,IClicked, IAction
         }
 
         StartCoroutine(coroutineA());
-    // }
+        }
      
-     //else
+     else
 
-     //{
-//Debug.Log("Desole gros mais tu peux pas encore");
-     //}
+     {
+        Debug.Log("Desole gros mais tu peux pas encore");
+     }
         
     }
 
@@ -157,7 +157,6 @@ public class RadioScript : ClickableObject,IClicked, IAction
         yield return new WaitForSeconds(0.6f);
         TexteMeteo.SetActive(true);
         TexteMeteo.GetComponent<Animator>().SetBool("Zero", false);
-    
        
     }
 
