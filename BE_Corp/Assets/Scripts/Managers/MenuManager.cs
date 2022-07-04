@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using TMPro;
 
 public class MenuManager : MonoBehaviour
 {
@@ -11,17 +12,46 @@ public class MenuManager : MonoBehaviour
 
     public ZoomIndiceScript ZIScriptComputer ;
 
+    public TextMeshProUGUI TextTitle ;
+    [SerializeField] private AudioSource KeyboardSound ;
+    private string TextTitleRef;
+
     private void Awake() 
     {
         if(PlayerPrefs.GetInt("Escargot") == 0) EscargotReward.SetActive(false);
         else EscargotReward.SetActive(true);
 
         FadeImage.gameObject.SetActive(true);
+
+        TextTitleRef = TextTitle.text ;
+        TextTitle.text = "" ;
     }
 
     private void Start() 
     {
         StartCoroutine(ShowMenu());
+        StartCoroutine(ShowTitle());
+    }
+
+    IEnumerator ShowTitle()
+    {
+        yield return new WaitForSeconds(1.1f);
+        for (int i = 0; i < TextTitleRef.Length; i++)
+        {
+            TextTitle.text = TextTitleRef.Remove(i) ;
+            PlayKeybordSound();
+            yield return new WaitForSeconds(Random.Range(0.05f,0.25f));
+        }
+        PlayKeybordSound();
+        TextTitle.text = TextTitleRef ;
+    }
+
+    void PlayKeybordSound()
+    {
+        KeyboardSound.Stop();
+        KeyboardSound.volume = Random.Range(0.4f, 0.5f);
+        KeyboardSound.pitch = Random.Range(0.7f, 1.01f);
+        KeyboardSound.Play();        
     }
 
     IEnumerator ShowMenu()
