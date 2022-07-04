@@ -94,7 +94,7 @@ public class ClosedDoor : MonoBehaviour, IHasItemInteraction
         iTween.RotateTo(GameObject.Find("Clef Pivot(Clone)"), iTween.Hash("rotation", new Vector3(0f, -75.535f, 0f), "time", 1f, "delay", 2f));
         iTween.ScaleTo(GameObject.Find("Clef Pivot(Clone)"), iTween.Hash("scale", new Vector3(0.00199823268f, 0.00199823361f, 0.00281441351f), "time", 1f, "delay", 2f));
         Destroy(GameObject.Find("Clef Pivot(Clone)"), 4f);
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(4f);
 
         for (int i = 0; i < zonesZoom.Count; i++)
         {

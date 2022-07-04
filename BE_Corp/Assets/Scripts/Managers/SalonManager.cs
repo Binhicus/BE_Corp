@@ -60,13 +60,13 @@ public class SalonManager : MonoBehaviour
         if (PlayerPrefs.GetInt("VaseAndKey") == 1) //            le joueur a cassé le vase mais n'a pas ramassé la clef
         {
             vase.SetActive(false);
-            ballon.SetActive(false);
+            ballon.GetComponent<SphereCollider>().enabled = false;
             key.SetActive(true);
         }
         if (PlayerPrefs.GetInt("VaseAndKey") == 2) //            le joueur a cassé le vase mais et a ramassé la clef
         {
             vase.SetActive(false);
-            ballon.SetActive(false);
+            ballon.GetComponent<SphereCollider>().enabled = false;
             key.SetActive(false);
         }
     }
