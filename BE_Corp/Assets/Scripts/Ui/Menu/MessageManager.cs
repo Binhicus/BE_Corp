@@ -77,6 +77,8 @@ public class MessageManager : MonoBehaviour
             ChoiceDiscussionContainer.GetChild(0).transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = ChoiceDiscussionContainer.GetChild(1).transform.GetChild(2).GetComponent<TextMeshProUGUI>().text ;
         
             AlertNewMessage.SetActive(false);
+
+            PlayerPrefs.SetInt("Mission1Finish", 0) ;
         }
     }
 
