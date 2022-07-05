@@ -19,6 +19,8 @@ public class TourneStp : MonoBehaviour
     public static float posz;
     public bool Please;
     public FourScript fourScript;
+    public AudioSource Cran;
+    public AudioSource Ventilation;
     //public GameObject TempFour;
 
     public bool BoutonD;
@@ -31,10 +33,20 @@ public class TourneStp : MonoBehaviour
     public int Temp2;
     public int Temp3;
 
+    public bool TuPeux1;
+    public bool TuPeux2;
+    public bool TuPeux3;
+    public bool TuPeux4;
+
+    private bool SonAll;
+    private bool SonEt;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        SonEt=true;
+        TuPeux2=true;
+        TuPeux4=true;
     }
 
     void Awake()
@@ -60,6 +72,7 @@ public class TourneStp : MonoBehaviour
         if(PlayerPrefs.GetInt("Smoke")==2)
         {
             PlayerPrefs.SetInt("Four",20);
+            PlayerPrefs.SetInt("FourOk",2);
             Smoke.Play();
         }
 
@@ -117,6 +130,16 @@ public class TourneStp : MonoBehaviour
             PlayerPrefs.SetInt("Temper",0);
             TemperaureSymbol.SetActive(false);
             Ttemp.GetComponent<TextMeshPro>().color=couleurbase;
+
+            if(TuPeux1==true&&PlayerPrefs.GetInt("FourOk")!=2)
+            {
+                TuPeux1=false;
+                TuPeux2=true;
+                TuPeux3=true;
+                TuPeux4=true;
+                Cran.Play();
+                Ventilation.Stop();
+            }
         
     }
     public void Temperature1()
@@ -129,6 +152,19 @@ public class TourneStp : MonoBehaviour
             PlayerPrefs.SetInt("Temper",180);
             TemperaureSymbol.SetActive(true);
             Ttemp.GetComponent<TextMeshPro>().color=couleurbase;
+
+
+            if(TuPeux2==true&&PlayerPrefs.GetInt("FourOk")!=2)
+            {
+                TuPeux2=false;
+                TuPeux1=true;
+                TuPeux3=true;
+                TuPeux4=true;
+                Cran.Play();
+                Ventilation.Play();
+                Ventilation.volume=0.1f;
+            }
+
             }
        
     }
@@ -142,6 +178,18 @@ public class TourneStp : MonoBehaviour
             PlayerPrefs.SetInt("Temper",360);
             TemperaureSymbol.SetActive(true);
             Ttemp.GetComponent<TextMeshPro>().color=couleurbase;
+
+
+            if(TuPeux3==true&&PlayerPrefs.GetInt("FourOk")!=2)
+            {
+                TuPeux3=false;
+                TuPeux1=true;
+                TuPeux2=true;
+                TuPeux4=true;
+                Cran.Play();
+                Ventilation.Play();
+                Ventilation.volume=0.15f;
+            }
             }
         
     }
@@ -155,6 +203,19 @@ public class TourneStp : MonoBehaviour
             TemperaureSymbol.SetActive(true);
             PlayerPrefs.SetInt("Temper",480);
             Ttemp.GetComponent<TextMeshPro>().color=couleurchaud;
+
+
+            if(TuPeux4==true&&PlayerPrefs.GetInt("FourOk")!=2)
+            {
+                TuPeux4=false;
+                TuPeux1=true;
+                TuPeux2=true;
+                TuPeux3=true;
+                Cran.Play();
+                Ventilation.Play();
+                Ventilation.volume=0.25f;
+            }
+
             }
         
     }
@@ -174,6 +235,14 @@ public class TourneStp : MonoBehaviour
         //Debug.Log("Ok");
         SymbAllume.GetComponent<Animator>().SetInteger("All",1);
         Ttemp.SetActive(true);
+
+        if(SonAll==true)
+        {
+            SonAll=false;
+            SonEt=true;
+            Cran.Play();
+        }
+
     }
     public void Eteins()
     {
@@ -181,6 +250,13 @@ public class TourneStp : MonoBehaviour
         SymbAllume.GetComponent<Animator>().SetInteger("All",0);
         Ttemp.SetActive(false);
         TemperaureSymbol.SetActive(false);
+
+        if(SonEt==true)
+        {
+            SonEt=false;
+            SonAll=true;
+            Cran.Play();
+        }
     }
 
     IEnumerator coroutineA()

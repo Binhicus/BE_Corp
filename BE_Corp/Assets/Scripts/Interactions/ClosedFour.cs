@@ -7,7 +7,7 @@ public class ClosedFour : MonoBehaviour,IHasItemInteraction
     public string nomItem;
     public string inventoryItemID => nomItem;
     public AudioSource unlocked;
-    public Animator test;
+    public GameObject PorteFour;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +23,7 @@ public class ClosedFour : MonoBehaviour,IHasItemInteraction
     public void DoItemInteraction()
     {
         PlayerPrefs.SetInt("Four", 1);
-        //test.SetTrigger("Ouvre");  /!\ CA MARCHE PO
+        PorteFour.GetComponent<Animator>().SetTrigger("Ouvre");
     }
 
     public void ItemDropAnim() //////////////
@@ -33,6 +33,5 @@ public class ClosedFour : MonoBehaviour,IHasItemInteraction
 
     void Awake()
     {
-        test=this.GetComponentInChildren<Animator>();
     }
 }

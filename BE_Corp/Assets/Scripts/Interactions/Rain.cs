@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Rain : MonoBehaviour
 {
-    public List<GameObject> Lapluie = new List <GameObject>();
+    public GameObject FondPluie;
     public AudioSource rainSon;
     private bool Une;
     // Start is called before the first frame update
@@ -22,24 +22,19 @@ public class Rain : MonoBehaviour
     {
         if(PlayerPrefs.GetInt("Parapluie")==1)
         {
-            for(int i = 0; i < Lapluie.Count; i++)
-          {
-            Lapluie[i].SetActive(true);
+           
+            FondPluie.SetActive(true);
             rainSon.Play();
             rainSon.volume=0.2f;
-          }
         }
     }
     // Update is called once per frame
     void Update()
     {
-        if(PlayerPrefs.GetInt("Parapluie")==1)
+        if(PlayerPrefs.GetInt("Parapluie")==1&&Une==false)
         {
-            for(int i = 0; i < Lapluie.Count; i++)
-          {
-            Lapluie[i].SetActive(true);
-            Une=false;
-          }
+          FondPluie.SetActive(true);
+          Une=true;
         }
     }
 }
