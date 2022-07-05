@@ -84,23 +84,23 @@ public class ClosedRadioPile : MonoBehaviour,IHasItemInteraction
             dezoom = GameObject.Find("Dezoom").GetComponent<Button>();
             dezoom.interactable = false;
             GameObject.Find("Pile Pivot(Clone)").transform.SetParent(GameObject.Find("Cam_table").transform);
-            iTween.RotateTo(GameObject.Find("Pile Pivot(Clone)"), iTween.Hash("rotation", new Vector3(27.034f, -127.454f, 30.682f), "time", 1f, "delay", 0.5f));
-            iTween.ScaleTo(GameObject.Find("Pile Pivot(Clone)"), iTween.Hash("scale", new Vector3(0.11976f, 0.11976f, 0.11976f), "time", 0.5f, "delay", 0.5f));
+            iTween.RotateTo(GameObject.Find("Pile Pivot(Clone)"), iTween.Hash("rotation", new Vector3(27.034f, -127.454f, 30.682f), "time", 0.5f, "delay", 0.25f));
+            iTween.ScaleTo(GameObject.Find("Pile Pivot(Clone)"), iTween.Hash("scale", new Vector3(0.11976f, 0.11976f, 0.11976f), "time", 0.5f, "delay", 0.25f));
         }
         else
         {
             GameObject.Find("Pile Pivot(Clone)").transform.SetParent(Camera.main.transform);
-            iTween.RotateTo(GameObject.Find("Pile Pivot(Clone)"), iTween.Hash("rotation", new Vector3(27.034f, -127.454f, 30.682f), "time", 1f, "delay", 0.5f));
-            iTween.ScaleTo(GameObject.Find("Pile Pivot(Clone)"), iTween.Hash("scale", new Vector3(0.380006f, 0.380006f, 0.380006f), "time", 0.5f, "delay", 0.5f));
+            iTween.RotateTo(GameObject.Find("Pile Pivot(Clone)"), iTween.Hash("rotation", new Vector3(27.034f, -127.454f, 30.682f), "time", 0.5f, "delay", 0.25f));
+            iTween.ScaleTo(GameObject.Find("Pile Pivot(Clone)"), iTween.Hash("scale", new Vector3(0.380006f, 0.380006f, 0.380006f), "time", 0.5f, "delay", 0.25f));
         }
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.85f);
         GameObject.Find("Pile Pivot(Clone)").transform.SetParent(GameObject.Find("Radio").transform);
-        iTween.MoveTo(GameObject.Find("Pile Pivot(Clone)"), iTween.Hash("position", GameObject.Find("Piles Target").transform.position, "time", 1.5f, "easetype", iTween.EaseType.easeInOutSine, "delay", 2f));
-        iTween.RotateTo(GameObject.Find("Pile Pivot(Clone)"), iTween.Hash("rotation", new Vector3(0f, 0f, 0f), "time", 1f, "delay", 2f));
-        iTween.ScaleTo(GameObject.Find("Pile Pivot(Clone)"), iTween.Hash("scale", new Vector3(0.035058f, 0.035058f, 0.035058f), "time", 1f, "delay", 2f));
-        Destroy(GameObject.Find("Pile Pivot(Clone)"), 4f);
-        yield return new WaitForSeconds(4f);
+        iTween.MoveTo(GameObject.Find("Pile Pivot(Clone)"), iTween.Hash("position", GameObject.Find("Piles Target").transform.position, "time", 0.75f, "easetype", iTween.EaseType.easeInOutSine, "delay", 1.5f));
+        iTween.RotateTo(GameObject.Find("Pile Pivot(Clone)"), iTween.Hash("rotation", new Vector3(0f, 0f, 0f), "time", 0.75f, "delay", 1.5f));
+        iTween.ScaleTo(GameObject.Find("Pile Pivot(Clone)"), iTween.Hash("scale", new Vector3(0.035058f, 0.035058f, 0.035058f), "time", 0.75f, "delay", 1.5f));
+        Destroy(GameObject.Find("Pile Pivot(Clone)"), 3.5f);
+        yield return new WaitForSeconds(3.5f);
 
         if (Camera.main.orthographicSize != 4.5f)
         dezoom.interactable = true;
@@ -118,7 +118,7 @@ public class ClosedRadioPile : MonoBehaviour,IHasItemInteraction
 
     IEnumerator DelayBeforeDropAnim()
     {
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(4f);
         PlayerPrefs.SetInt("PileDansRadio", 1);
     }
 }
