@@ -14,7 +14,7 @@ public class FourScript : ClickableObject,IClicked, IAction
 
     public GameObject CameraActivate ;
 
-    public BlockReference questionsmoke;
+    public BlockReference questionsmoke,inspect1,inspect2;
 
     
     // Start is called before the first frame update
@@ -90,7 +90,16 @@ public class FourScript : ClickableObject,IClicked, IAction
 
     void DisplayInspection()
     {
-        CursorController.Instance.ActionWheelScript.DialogueDisplayer.SetActive(true);
+       // CursorController.Instance.ActionWheelScript.DialogueDisplayer.SetActive(true);
+       if(PlayerPrefs.GetInt("Temper")==480)
+       {
+        inspect2.Execute();
+       }
+       else
+       {
+        inspect1.Execute();
+       }
+       
     }
 
     void DisplayDialogue()
