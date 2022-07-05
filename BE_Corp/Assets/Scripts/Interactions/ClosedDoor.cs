@@ -43,6 +43,9 @@ public class ClosedDoor : MonoBehaviour, IHasItemInteraction
     public void ItemDropAnim () //////////////
     {
         Instantiate(Key, GameObject.Find("MC_Target").transform.position, Quaternion.identity);
+        Key.transform.GetChild(0).GetComponent<Collider>().enabled = false;
+        Key.transform.GetChild(0).GetComponent<NomObjet>().enabled = false;
+        Key.transform.GetChild(0).transform.GetChild(2).gameObject.active = false;
         StartCoroutine(AnimDrop());
     }
 

@@ -23,6 +23,9 @@ public class Jouet : ClickableObject, IHasItemInteraction, IClicked, IAction
     public void ItemDropAnim() //////////////
     {
         Instantiate(Tournevis, GameObject.Find("MC_Target").transform.position, Quaternion.identity);
+        Tournevis.transform.GetChild(0).GetComponent<Collider>().enabled = false;
+        Tournevis.transform.GetChild(0).GetComponent<NomObjet>().enabled = false;
+        Tournevis.transform.GetChild(0).transform.GetChild(1).gameObject.active = false;
         StartCoroutine(AnimDrop());
     }
 
@@ -162,5 +165,4 @@ public class Jouet : ClickableObject, IHasItemInteraction, IClicked, IAction
         piles.SetActive(true);
         PlayerPrefs.SetInt("Piles", 1);
     }
-
 }
