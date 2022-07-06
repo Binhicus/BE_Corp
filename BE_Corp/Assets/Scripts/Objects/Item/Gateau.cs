@@ -54,7 +54,7 @@ public class Gateau : ClickableObject, IClicked, IItemInventaire, IAction
     {
         if(PlayerPrefs.GetInt("Gateau")==1)
         {
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
         }
     }
     public void OnLook() {}
