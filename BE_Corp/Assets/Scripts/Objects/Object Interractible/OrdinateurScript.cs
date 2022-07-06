@@ -35,6 +35,7 @@ public class OrdinateurScript : ClickableObject, IClicked, IAction
 
     void Update()
     {
+        
     }
 
 

@@ -47,6 +47,7 @@ public class TourneStp : MonoBehaviour
         SonEt=true;
         TuPeux2=true;
         TuPeux4=true;
+        Cran.volume=0;
     }
 
     void Awake()
@@ -54,6 +55,8 @@ public class TourneStp : MonoBehaviour
         if(PlayerPrefs.GetInt("Smoke")==4)
         {
             Smoke.Stop();
+            Ventilation.volume=0;
+            Ventilation.Stop();
         }
 
         /*if(BoutonD)
@@ -67,6 +70,8 @@ public class TourneStp : MonoBehaviour
             PlayerPrefs.SetInt("Smoke",2);
             fourScript.ApresCramax();
             Smoke.Play();
+            Ventilation.volume=0;
+            Ventilation.Stop();
         }
 
         if(PlayerPrefs.GetInt("Smoke")==2)
@@ -74,6 +79,8 @@ public class TourneStp : MonoBehaviour
             PlayerPrefs.SetInt("Four",20);
             PlayerPrefs.SetInt("FourOk",2);
             Smoke.Play();
+            Ventilation.volume=0;
+            Ventilation.Stop();
         }
 
         StartCoroutine(coroutineA());
@@ -137,6 +144,7 @@ public class TourneStp : MonoBehaviour
                 TuPeux2=true;
                 TuPeux3=true;
                 TuPeux4=true;
+                Cran.volume=1;
                 Cran.Play();
                 Ventilation.Stop();
             }
@@ -160,6 +168,7 @@ public class TourneStp : MonoBehaviour
                 TuPeux1=true;
                 TuPeux3=true;
                 TuPeux4=true;
+                Cran.volume=1;
                 Cran.Play();
                 Ventilation.Play();
                 Ventilation.volume=0.1f;
@@ -186,9 +195,10 @@ public class TourneStp : MonoBehaviour
                 TuPeux1=true;
                 TuPeux2=true;
                 TuPeux4=true;
+                Cran.volume=1;
                 Cran.Play();
                 Ventilation.Play();
-                Ventilation.volume=0.15f;
+                Ventilation.volume=0.13f;
             }
             }
         
@@ -211,9 +221,10 @@ public class TourneStp : MonoBehaviour
                 TuPeux1=true;
                 TuPeux2=true;
                 TuPeux3=true;
+                Cran.volume=1;
                 Cran.Play();
                 Ventilation.Play();
-                Ventilation.volume=0.25f;
+                Ventilation.volume=0.15f;
             }
 
             }
@@ -240,6 +251,7 @@ public class TourneStp : MonoBehaviour
         {
             SonAll=false;
             SonEt=true;
+            Cran.volume=1;
             Cran.Play();
         }
 

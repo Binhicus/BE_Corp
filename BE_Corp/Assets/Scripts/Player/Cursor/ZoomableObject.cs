@@ -11,8 +11,12 @@ public class ZoomableObject : MonoBehaviour
     }
     void OnMouseOver()
     {
-        CursorController.Instance.ChangeCursor(CursorType.Observe);
+        if(this.enabled==true)
+        {
+            CursorController.Instance.ChangeCursor(CursorType.Observe);
         this.gameObject.GetComponent<Outlinable>().enabled = true;
+        }
+        
     }
 
     void OnMouseExit()
