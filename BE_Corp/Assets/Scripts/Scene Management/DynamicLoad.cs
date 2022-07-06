@@ -34,6 +34,7 @@ public class DynamicLoad : ClickableSteps, IClicked
     //Scene state
     public bool isLoaded = true; //eviter de charger 2x
     public bool shouldLoad; //pour la méthode en trigger
+    private bool MouseOver = false ;
 
 
     private void Awake() {
@@ -124,26 +125,33 @@ public class DynamicLoad : ClickableSteps, IClicked
     {
         if(other.tag == "Player")
         {
+            MouseOver = true ;
             shouldLoad = true;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if(other.tag == "Player")
         {
+            MouseOver = false ;
             shouldLoad = false;
         }
     }
+    
 
     public void OnClickAction()
     {        
-        CamActuelle.SetActive(false);
-        CamACharger.SetActive(true);
-        LoadScene();
-        LockRoom();
-        UnloadScene();
-        skyboxSwitch.Invoke();
+        if(GameObject.Find("BarbaraDialog") == null && GameObject.Find("AgentDialog") == null)
+        {
+            CamActuelle.SetActive(false);
+            CamACharger.SetActive(true);
+            LoadScene();
+            LockRoom();
+            UnloadScene();
+            skyboxSwitch.Invoke();            
+        }
+
     }
 
     public void LockRoom()
