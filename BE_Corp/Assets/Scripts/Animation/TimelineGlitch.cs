@@ -16,13 +16,13 @@ public class TimelineGlitch : MonoBehaviour
 
     public void StartGlitch()
     {
-        //if (PlayerPrefs.GetInt("Salon Révélé") == 1 && PlayerPrefs.GetInt("Cinématique Salon") == 0)
-        //{
+        if (PlayerPrefs.GetInt("Salon Révélé") == 1 && PlayerPrefs.GetInt("Cinématique Salon") == 0)
+        {
             //cinematique.Execute();
             playableDirector.enabled = true;
             GlitchyBreak.Instance.GlitchEffectOn();
             Invoke("EndGlitchSalon", 2f);
-      //  }
+        }
 
         if (PlayerPrefs.GetInt("Cuisine Révélée") == 1 && PlayerPrefs.GetInt("Cinématique Salon") == 0)
         {
