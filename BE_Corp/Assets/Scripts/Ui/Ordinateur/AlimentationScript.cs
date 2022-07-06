@@ -57,11 +57,6 @@ public class AlimentationScript : MonoBehaviour
         DateEcranVeille.text = GetDayOfTheDate(ComputerInformation.Date) + ", " + GetPartOfTheDate(ComputerInformation.Date, 0) + " " + GetPartOfTheDate(ComputerInformation.Date, 1);
     
         LoadAnimCoroutine = LoadAnimation();    
-
-        if(PlayerPrefs.GetInt("MdpOk")==1)
-        {
-            CanvasGroupPostIt.SetActive(false);
-        }
     }
 
 
@@ -174,7 +169,8 @@ public class AlimentationScript : MonoBehaviour
     }
 
 
-    void PlayLoad(bool Play) {
+    void PlayLoad(bool Play) 
+    {
         {
             if(!Play)
             {
@@ -288,6 +284,7 @@ public class AlimentationScript : MonoBehaviour
     {
         CanvasGroupPostIt.GetComponent<Animator>().SetBool("Disparait", true);
         PlayerPrefs.SetInt("MdpOk",1);
+        IndiceObj.GetComponent<CanvasGroup>().DOFade(0f, 0.5f);
         PlayerPrefs.SetInt("Morceau1Tableau",1);
         IndiceObj.SetActive(false);
         InputLogIn.SetActive(false);
@@ -371,7 +368,7 @@ public class AlimentationScript : MonoBehaviour
             GameObject.Find("HUD").GetComponent<HUD>().DezoomCamera();
         }
 
-
+        IndiceObj.GetComponent<CanvasGroup>().DOFade(0f, 0.5f);
     }
 
 
