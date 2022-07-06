@@ -14,7 +14,7 @@ public class CuisineManager : MonoBehaviour
 
    void Awake()
    {
-    PlayerPrefs.SetInt("Cuisine Révélée",1);
+        //PlayerPrefs.SetInt("Cuisine Révélée",1);
    }
 
     // Update is called once per frame
