@@ -23,6 +23,9 @@ public class Jouet : ClickableObject, IHasItemInteraction, IClicked, IAction
     public void ItemDropAnim() //////////////
     {
         Instantiate(Tournevis, GameObject.Find("MC_Target").transform.position, Quaternion.identity);
+        Tournevis.transform.GetChild(0).GetComponent<Collider>().enabled = false;
+        Tournevis.transform.GetChild(0).GetComponent<NomObjet>().enabled = false;
+        Tournevis.transform.GetChild(0).transform.GetChild(1).gameObject.active = false;
         StartCoroutine(AnimDrop());
     }
 
@@ -135,15 +138,15 @@ public class Jouet : ClickableObject, IHasItemInteraction, IClicked, IAction
             steps[i].GetComponent<Collider>().enabled = false;
         }
 
-        iTween.RotateTo(GameObject.Find("Tournevis Pivot(Clone)"), iTween.Hash("rotation", new Vector3(12.162f, -4.344f, -98.968f), "time", 1f, "delay", 0.5f));
-        iTween.ScaleTo(GameObject.Find("Tournevis Pivot(Clone)"), iTween.Hash("scale", new Vector3(0.1530433f, 0.2437882f, 0.1721426f), "time", 0.5f, "delay", 0.5f));
-        yield return new WaitForSeconds(2f);
+        iTween.RotateTo(GameObject.Find("Tournevis Pivot(Clone)"), iTween.Hash("rotation", new Vector3(12.162f, -4.344f, -98.968f), "time", 0.5f, "delay", 0.25f));
+        iTween.ScaleTo(GameObject.Find("Tournevis Pivot(Clone)"), iTween.Hash("scale", new Vector3(0.1530433f, 0.2437882f, 0.1721426f), "time", 0.5f, "delay", 0.25f));
+        yield return new WaitForSeconds(0.85f);
         GameObject.Find("Tournevis Pivot(Clone)").transform.SetParent(GameObject.Find("Voiture").transform);
-        iTween.MoveTo(GameObject.Find("Tournevis Pivot(Clone)"), iTween.Hash("position", GameObject.Find("Tournevis Target").transform.position, "time", 1.5f, "easetype", iTween.EaseType.easeInOutSine, "delay", 2f));
-        iTween.RotateTo(GameObject.Find("Tournevis Pivot(Clone)"), iTween.Hash("rotation", new Vector3(32.347f, 93.134f, -81.13f), "time", 1f, "delay", 2f));
-        iTween.ScaleTo(GameObject.Find("Tournevis Pivot(Clone)"), iTween.Hash("scale", new Vector3(0.2246342f, 0.357828f, 0.2526677f), "time", 1f, "delay", 2f));
-        Destroy(GameObject.Find("Tournevis Pivot(Clone)"), 4f);
-        yield return new WaitForSeconds(4f);
+        iTween.MoveTo(GameObject.Find("Tournevis Pivot(Clone)"), iTween.Hash("position", GameObject.Find("Tournevis Target").transform.position, "time", 0.75f, "easetype", iTween.EaseType.easeInOutSine, "delay", 1.5f));
+        iTween.RotateTo(GameObject.Find("Tournevis Pivot(Clone)"), iTween.Hash("rotation", new Vector3(32.347f, 93.134f, -81.13f), "time", 0.75f, "delay", 1.5f));
+        iTween.ScaleTo(GameObject.Find("Tournevis Pivot(Clone)"), iTween.Hash("scale", new Vector3(0.2246342f, 0.357828f, 0.2526677f), "time", 0.75f, "delay", 1.5f));
+        Destroy(GameObject.Find("Tournevis Pivot(Clone)"), 3.5f);
+        yield return new WaitForSeconds(3.5f);
 
         for (int i = 0; i < zonesZoom.Count; i++)
         {
@@ -158,9 +161,8 @@ public class Jouet : ClickableObject, IHasItemInteraction, IClicked, IAction
 
     IEnumerator DelayBeforeDropAnim()
     {
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(4f);
         piles.SetActive(true);
         PlayerPrefs.SetInt("Piles", 1);
     }
-
 }
