@@ -92,6 +92,14 @@ public class HUD : MonoBehaviour
             {
                 if(GameObject.Find("Indices Mot de passe") != null) GameObject.Find("Indices Mot de passe").GetComponent<CanvasGroup>().DOFade(0f, 0.5f);
             }
+
+            if(GameObject.Find("Cam_Room") != null && GameObject.Find("Close Computer") != null)
+            {
+                if(PlayerPrefs.GetInt("MailStoryRead") == 1 && PlayerPrefs.GetInt("DialogueAfterMailDisplay") == 0)
+                {
+                    GameObject.Find("Close Computer").GetComponent<AlimentationScript>().LunchDialogueAfterMailRead() ;
+                } 
+            }
         }
 
         GameObject[] IndiceZoneCollider ;

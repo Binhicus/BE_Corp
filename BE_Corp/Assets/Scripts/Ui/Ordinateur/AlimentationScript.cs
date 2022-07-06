@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
+using Fungus;
 
 public class AlimentationScript : MonoBehaviour
 {
@@ -44,6 +45,8 @@ public class AlimentationScript : MonoBehaviour
     public GameObject CanvasGroupPostIt;
     
     private IEnumerator LoadAnimCoroutine ; 
+
+    public BlockReference MessageReadRef ;
     // Start is called before the first frame update
     void Start()
     {
@@ -368,10 +371,13 @@ public class AlimentationScript : MonoBehaviour
             GameObject.Find("HUD").GetComponent<HUD>().DezoomCamera();
         }
 
-        IndiceObj.GetComponent<CanvasGroup>().DOFade(0f, 0.5f);
+        //IndiceObj.GetComponent<CanvasGroup>().DOFade(0f, 0.5f);
     }
 
-
+    public void LunchDialogueAfterMailRead()
+    {
+        MessageReadRef.Execute();
+    }
 
 
 
