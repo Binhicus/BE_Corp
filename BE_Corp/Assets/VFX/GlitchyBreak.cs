@@ -56,5 +56,6 @@ public class GlitchyBreak : Singleton<GlitchyBreak>
         }
 
         glitchEffect.SetFloat("Vector1_96BFCD79", Mathf.Lerp(minValue, maxValue, transition));
+        //glitchEffect.SetFloat("Vector1_96BFCD79", iTween.FloatUpdate(minValue, maxValue, transition));
     }
 }
