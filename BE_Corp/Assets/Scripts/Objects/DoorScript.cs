@@ -142,6 +142,7 @@ public class DoorScript : MonoBehaviour, IClicked, IAction
         DoorAnimator.SetTrigger("Door Animation");        
         yield return new WaitForSeconds(1.0f);
         LeaveStepRef.GetComponent<DynamicLoad>().DispStep(true);
+        GlitchyBreak.Instance.GlitchEffectOff();
     }
 
     public void OnClickAction()
