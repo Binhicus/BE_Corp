@@ -3791,7 +3791,7 @@ MonoBehaviour:
   drawingMode: 1
   outlineLayer: 0
   outlineTargets:
-  - IsVisible: 0
+  - IsVisible: 1
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -19075,7 +19075,6 @@ MonoBehaviour:
     block: {fileID: 1362304272}
   ListInteractPossible:
   - {fileID: 11400000, guid: abdd5633d3b222a47b1e711cbb26bf1e, type: 2}
-  - {fileID: 11400000, guid: fd9a468eca2158d43834b7cad0de46ed, type: 2}
 --- !u!136 &788556131
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -19106,7 +19105,7 @@ MonoBehaviour:
   drawingMode: 1
   outlineLayer: 0
   outlineTargets:
-  - IsVisible: 0
+  - IsVisible: 1
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -28949,7 +28948,7 @@ MonoBehaviour:
   drawingMode: 1
   outlineLayer: 0
   outlineTargets:
-  - IsVisible: 0
+  - IsVisible: 1
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -29567,7 +29566,7 @@ MonoBehaviour:
     cutoutTextureName: 
     DilateRenderingMode: 0
     cutoutTextureIndex: 0
-  - IsVisible: 0
+  - IsVisible: 1
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -31579,7 +31578,6 @@ GameObject:
   - component: {fileID: 1362304228}
   - component: {fileID: 1362304232}
   - component: {fileID: 1362304231}
-  - component: {fileID: 1362304230}
   - component: {fileID: 1362304244}
   - component: {fileID: 1362304243}
   - component: {fileID: 1362304242}
@@ -31596,8 +31594,6 @@ GameObject:
   - component: {fileID: 1362304248}
   - component: {fileID: 1362304247}
   - component: {fileID: 1362304246}
-  - component: {fileID: 1362304245}
-  - component: {fileID: 1362304233}
   - component: {fileID: 1362304252}
   - component: {fileID: 1362304251}
   - component: {fileID: 1362304253}
@@ -31636,7 +31632,6 @@ GameObject:
   - component: {fileID: 1362304286}
   - component: {fileID: 1362304285}
   - component: {fileID: 1362304284}
-  - component: {fileID: 1362304283}
   - component: {fileID: 1362304281}
   - component: {fileID: 1362304280}
   - component: {fileID: 1362304302}
@@ -31655,11 +31650,7 @@ GameObject:
   - component: {fileID: 1362304307}
   - component: {fileID: 1362304306}
   - component: {fileID: 1362304305}
-  - component: {fileID: 1362304310}
   - component: {fileID: 1362304312}
-  - component: {fileID: 1362304282}
-  - component: {fileID: 1362304279}
-  - component: {fileID: 1362304311}
   - component: {fileID: 1362304313}
   - component: {fileID: 1362304318}
   - component: {fileID: 1362304317}
@@ -31683,7 +31674,6 @@ GameObject:
   - component: {fileID: 1362304328}
   - component: {fileID: 1362304327}
   - component: {fileID: 1362304326}
-  - component: {fileID: 1362304336}
   - component: {fileID: 1362304339}
   - component: {fileID: 1362304338}
   - component: {fileID: 1362304337}
@@ -31729,7 +31719,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 274.0595
     y: -190.60869
-    width: 143.74998
+    width: 142.17386
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
@@ -31761,11 +31751,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 1144.5287, y: 823.2625}
+  scrollPos: {x: 258.48502, y: 581.8477}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 315.8
-  zoom: 0.6400001
+  zoom: 0.46000022
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -31773,9 +31763,8 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1362304343}
-  selectedCommands:
-  - {fileID: 1362304342}
+  - {fileID: 1362304272}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -31801,7 +31790,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 10
   indentLevel: 0
-  storyText: "Cet objet ne m'est plus d'aucune utilit\xE9."
+  storyText: "Cet objet ne nous est plus d'aucune utilit\xE9."
   description: 
   character: {fileID: 1770311226}
   portrait: {fileID: 0}
@@ -31845,7 +31834,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 444.91092
     y: -138.21553
-    width: 144.99998
+    width: 143.913
     height: 40
   tint: {r: 0.9607843, g: 0.9019608, b: 0.4745098, a: 1}
   useCustomTint: 1
@@ -31871,8 +31860,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 5
   indentLevel: 0
-  storyText: "Ce jouet semble \xEAtre en \xE9tat de marche, malgr\xE9 sa cache de
-    pile us\xE9e."
+  storyText: "Ce jouet semble \xEAtre en \xE9tat de marche."
   description: 
   character: {fileID: 1770311226}
   portrait: {fileID: 0}
@@ -31916,7 +31904,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 444.12766
     y: -208.66922
-    width: 143.74998
+    width: 142.17386
     height: 40
   tint: {r: 0.9607843, g: 0.9019608, b: 0.4745098, a: 1}
   useCustomTint: 1
@@ -31986,7 +31974,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 80.68598
     y: -12.170464
-    width: 122.499985
+    width: 121.30431
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -31997,9 +31985,6 @@ MonoBehaviour:
   commandList:
   - {fileID: 1362304232}
   - {fileID: 1362304231}
-  - {fileID: 1362304230}
-  - {fileID: 1362304310}
-  - {fileID: 1362304311}
   suppressAllAutoSelections: 0
 --- !u!114 &1362304229
 MonoBehaviour:
@@ -32029,34 +32014,6 @@ MonoBehaviour:
   returnValueType: System.Void
   showInherited: 0
   callMode: 0
---- !u!114 &1362304230
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1362304216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 78
-  indentLevel: 0
-  storyText: "Les signatures c\xE9r\xE9brales sont fragiles dans cette pi\xE8ce,
-    beaucoup de travail de synchronisation nous attend."
-  description: 
-  character: {fileID: 1770311226}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 223347813}
 --- !u!114 &1362304231
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -32071,7 +32028,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 77
   indentLevel: 0
-  storyText: Que se passe-t-il ici ?
+  storyText: "Anne \xE9tait passionn\xE9e par la peinture, son salon en \xE9tait
+    rempli ! C'est vrai qu'elle \xE9tait plut\xF4t dou\xE9e. Mais ce ne sont pas
+    ses oeuvres que je recherche."
   description: 
   character: {fileID: 963957872}
   portrait: {fileID: 0}
@@ -32099,34 +32058,6 @@ MonoBehaviour:
   itemId: 14
   indentLevel: 0
   sayDialog: {fileID: 332132280}
---- !u!114 &1362304233
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1362304216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 100
-  indentLevel: 0
-  storyText: "Ah non non je maintiens, c'\xE9tait une routine p\xE9nible pour pouvoir
-    m'assoir sur une chaise !"
-  description: 
-  character: {fileID: 963957872}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 332132280}
 --- !u!114 &1362304234
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -32240,7 +32171,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -327.82968
     y: -0.7677002
-    width: 153.74998
+    width: 150.8695
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
@@ -32398,7 +32329,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -822.75916
     y: -62.818787
-    width: 136.24998
+    width: 135.21735
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
@@ -32415,34 +32346,6 @@ MonoBehaviour:
   - {fileID: 1362304309}
   - {fileID: 1362304239}
   suppressAllAutoSelections: 0
---- !u!114 &1362304245
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1362304216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 99
-  indentLevel: 0
-  storyText: "Pr\xE9sent\xE9 ainsi je peux comprendre la repr\xE9sentation de cette
-    chaise, mais j'ai bien peur que ce soit un peu excessif pour le coup..."
-  description: 
-  character: {fileID: 1770311226}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 223347813}
 --- !u!114 &1362304246
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -32458,7 +32361,7 @@ MonoBehaviour:
   itemId: 97
   indentLevel: 0
   storyText: "Si vous saviez la violence des efforts que j'avais \xE0 fournir pour
-    prendre place sur ces chaises... Une fois"
+    prendre place sur cette chaise..."
   description: 
   character: {fileID: 963957872}
   portrait: {fileID: 0}
@@ -32530,7 +32433,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -324.63654
     y: -64.62668
-    width: 152.49998
+    width: 149.13039
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
@@ -32542,8 +32445,6 @@ MonoBehaviour:
   - {fileID: 1362304248}
   - {fileID: 1362304247}
   - {fileID: 1362304246}
-  - {fileID: 1362304245}
-  - {fileID: 1362304233}
   suppressAllAutoSelections: 0
 --- !u!114 &1362304250
 MonoBehaviour:
@@ -32910,7 +32811,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -480.8209
     y: -71.48016
-    width: 134.99998
+    width: 131.73909
     height: 40
   tint: {r: 0.9607843, g: 0.9019608, b: 0.4745098, a: 1}
   useCustomTint: 1
@@ -32953,7 +32854,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 295.3211
     y: 380.77893
-    width: 148.74998
+    width: 147.39127
     height: 40
   tint: {r: 0.9607843, g: 0.9019608, b: 0.4745098, a: 1}
   useCustomTint: 1
@@ -33006,8 +32907,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 111
   indentLevel: 0
-  storyText: "Cette table parait toute petite par rapport \xE0 la chaise qui est
-    \xE0 c\xF4t\xE9."
+  storyText: "Cette table parait ridiculement petite par rapport \xE0 la chaise qui
+    se trouve \xE0 cot\xE9."
   description: 
   character: {fileID: 1770311226}
   portrait: {fileID: 0}
@@ -33051,7 +32952,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -678.30566
     y: -62.472748
-    width: 127.499985
+    width: 126.5217
     height: 40
   tint: {r: 0.9607843, g: 0.9019608, b: 0.4745098, a: 1}
   useCustomTint: 1
@@ -33121,7 +33022,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 292.15317
     y: 334.3686
-    width: 157.49998
+    width: 156.08691
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
@@ -33194,7 +33095,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 476.5956
     y: 236.7699
-    width: 143.74998
+    width: 140.43474
     height: 40
   tint: {r: 0.9607843, g: 0.9019608, b: 0.4745098, a: 1}
   useCustomTint: 1
@@ -33264,7 +33165,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -84.256195
     y: -288.87372
-    width: 117.49999
+    width: 114.34779
     height: 40
   tint: {r: 0.67058825, g: 0.65882355, b: 0.5921569, a: 1}
   useCustomTint: 1
@@ -33279,33 +33180,6 @@ MonoBehaviour:
   - {fileID: 1362304304}
   - {fileID: 1362304303}
   suppressAllAutoSelections: 0
---- !u!114 &1362304279
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1362304216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 198
-  indentLevel: 0
-  storyText: ...
-  description: 
-  character: {fileID: 1770311226}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 223347813}
 --- !u!114 &1362304280
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -33320,8 +33194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 171
   indentLevel: 0
-  storyText: "En tout cas j'aime beaucoup son design, \xE7a ferait une d\xE9coration
-    au poil pour le bureau !"
+  storyText: Reprenons l'exploration de vos souvenirs.
   description: 
   character: {fileID: 1770311226}
   portrait: {fileID: 0}
@@ -33348,63 +33221,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 170
   indentLevel: 0
-  storyText: "Cette statue avait une signification particuli\xE8re ?"
+  storyText: Oh cette statuette est sympathique ! J'aimerais bien en avoir une identique
+    sur mon bureau...
   description: 
   character: {fileID: 1770311226}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 223347813}
---- !u!114 &1362304282
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1362304216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 197
-  indentLevel: 0
-  storyText: "Vous \xEAtes sur que cela vient de mes souvenirs ?"
-  description: 
-  character: {fileID: 963957872}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 223347813}
---- !u!114 &1362304283
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1362304216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 168
-  indentLevel: 0
-  storyText: "Et le tableau que je vous ai demand\xE9 dans tout \xE7a ?"
-  description: 
-  character: {fileID: 963957872}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -33429,7 +33249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 167
   indentLevel: 0
-  storyText: Je ne me rappelle pas du tout de cette statue...
+  storyText: "Et le tableau que je vous ait demand\xE9 dans tous \xE7a ?"
   description: 
   character: {fileID: 963957872}
   portrait: {fileID: 0}
@@ -33456,7 +33276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 166
   indentLevel: 0
-  storyText: En toute logique, oui.
+  storyText: ...
   description: 
   character: {fileID: 1770311226}
   portrait: {fileID: 0}
@@ -33500,7 +33320,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 254.44495
     y: 114.631195
-    width: 154.99998
+    width: 149.13039
     height: 40
   tint: {r: 0.10980392, g: 0.5176471, b: 0.1254902, a: 1}
   useCustomTint: 1
@@ -33512,12 +33332,8 @@ MonoBehaviour:
   - {fileID: 1362304286}
   - {fileID: 1362304281}
   - {fileID: 1362304284}
-  - {fileID: 1362304282}
   - {fileID: 1362304285}
   - {fileID: 1362304280}
-  - {fileID: 1362304283}
-  - {fileID: 1362304279}
-  - {fileID: 1362304336}
   suppressAllAutoSelections: 0
 --- !u!114 &1362304288
 MonoBehaviour:
@@ -33604,7 +33420,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -126.96219
     y: -341.33652
-    width: 129.99998
+    width: 129.99997
     height: 40
   tint: {r: 0.9607843, g: 0.9019608, b: 0.4745098, a: 1}
   useCustomTint: 1
@@ -33647,7 +33463,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 253.47339
     y: 158.45284
-    width: 157.49998
+    width: 150.8695
     height: 40
   tint: {r: 0.5176471, g: 0.34901962, b: 0.07058824, a: 1}
   useCustomTint: 1
@@ -33717,7 +33533,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -598.3559
     y: 147.26735
-    width: 133.74998
+    width: 129.99997
     height: 40
   tint: {r: 0.9607843, g: 0.9019608, b: 0.4745098, a: 1}
   useCustomTint: 1
@@ -33870,7 +33686,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -749.7258
     y: 151.12592
-    width: 142.49998
+    width: 138.69562
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
@@ -34068,62 +33884,6 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 223347813}
---- !u!114 &1362304310
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1362304216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 194
-  indentLevel: 0
-  storyText: "Je sais que nous sommes dans un endroit que je c\xF4toyais jeune, mais
-    je ne serais pas capable de restituer formes et couleurs..."
-  description: 
-  character: {fileID: 963957872}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 332132280}
---- !u!114 &1362304311
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1362304216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 199
-  indentLevel: 0
-  storyText: "Soyez tranquille Madame Pinault tout cela est le propre de notre expertise.
-    Permettez-moi de vous aider \xE0 tirer la chose au clair."
-  description: 
-  character: {fileID: 1770311226}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 223347813}
 --- !u!114 &1362304312
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -34158,7 +33918,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -505.0011
     y: -399.38855
-    width: 119.999985
+    width: 119.565186
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
@@ -34356,7 +34116,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -504.47467
     y: -337.54642
-    width: 122.499985
+    width: 121.30431
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
@@ -34411,7 +34171,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -834.07764
     y: -352.3713
-    width: 138.74998
+    width: 135.21735
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
@@ -34466,7 +34226,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -826.55383
     y: -302.0958
-    width: 148.74998
+    width: 145.65213
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
@@ -34521,7 +34281,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -845.8
     y: -434.14603
-    width: 187.49998
+    width: 189.13037
     height: 40
   tint: {r: 0.101960786, g: 0.59607846, b: 0.12156863, a: 1}
   useCustomTint: 1
@@ -34575,7 +34335,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -842.8001
     y: -484.14597
-    width: 187.49998
+    width: 187.39124
     height: 40
   tint: {r: 0.21176471, g: 0.81960785, b: 0.23529412, a: 1}
   useCustomTint: 1
@@ -34630,7 +34390,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -843.6572
     y: -535.5747
-    width: 186.24998
+    width: 185.6521
     height: 40
   tint: {r: 0.4, g: 0.93333334, b: 0.41960785, a: 1}
   useCustomTint: 1
@@ -34740,7 +34500,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -842.8002
     y: -584.7584
-    width: 187.49998
+    width: 187.39124
     height: 40
   tint: {r: 0.6156863, g: 0.98039216, b: 0.627451, a: 1}
   useCustomTint: 1
@@ -34753,33 +34513,6 @@ MonoBehaviour:
   - {fileID: 1362304333}
   - {fileID: 1362304332}
   suppressAllAutoSelections: 0
---- !u!114 &1362304336
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1362304216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 237
-  indentLevel: 0
-  storyText: Remettons-nous au travail.
-  description: 
-  character: {fileID: 1770311226}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 223347813}
 --- !u!114 &1362304337
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -34852,7 +34585,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1010.8339
     y: -408.07202
-    width: 134.99998
+    width: 133.47821
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
@@ -34880,7 +34613,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -403.11703
     y: 270.95334
-    width: 119.999985
+    width: 119.565186
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -34922,7 +34655,7 @@ MonoBehaviour:
   callMode: 0
 --- !u!114 &1362304342
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -34949,7 +34682,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 332132280}
 --- !u!114 &1362304343
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -34963,7 +34696,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1052.185
     y: -524.5126
-    width: 176.24997
+    width: 166.52168
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
@@ -35792,7 +35525,7 @@ MonoBehaviour:
   drawingMode: 1
   outlineLayer: 0
   outlineTargets:
-  - IsVisible: 0
+  - IsVisible: 1
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -35808,7 +35541,7 @@ MonoBehaviour:
     cutoutTextureName: 
     DilateRenderingMode: 0
     cutoutTextureIndex: 0
-  - IsVisible: 0
+  - IsVisible: 1
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5

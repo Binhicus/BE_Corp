@@ -51,7 +51,7 @@ public class GlitchyBreak : Singleton<GlitchyBreak>
         }
         else if(!isOn && transition > 0)
         {
-            transition -= Time.deltaTime * 1 / transitionSpeed;
+            transition -= Time.deltaTime * 1 / (transitionSpeed * 0.75f);
             if (transition < 0) transition = 0;
         }
 
