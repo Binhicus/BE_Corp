@@ -40902,7 +40902,7 @@ PlayableDirector:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1558996148}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 5bb43dcb193ac014184aab08e3dbc3c6, type: 2}
   m_InitialState: 1
@@ -43277,6 +43277,7 @@ GameObject:
   - component: {fileID: 1678765913}
   - component: {fileID: 1678765912}
   - component: {fileID: 1678765911}
+  - component: {fileID: 1678765915}
   m_Layer: 5
   m_Name: MAJ_souvenir
   m_TagString: Untagged
@@ -43373,6 +43374,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1678765909}
   m_CullTransparentMesh: 0
+--- !u!114 &1678765915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678765909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f78883f64c6274fb09746cd527e28d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playableDirector: {fileID: 1558996150}
+  cinematique:
+    block: {fileID: 0}
 --- !u!1 &1700385741
 GameObject:
   m_ObjectHideFlags: 0
@@ -52728,6 +52744,10 @@ PrefabInstance:
       propertyPath: antenne
       value: 
       objectReference: {fileID: 1236805340}
+    - target: {fileID: 7658697887881425316, guid: 63013b8d65859bf45b5b9005a0435afd, type: 3}
+      propertyPath: timeline
+      value: 
+      objectReference: {fileID: 1678765915}
     - target: {fileID: 7658697887881425316, guid: 63013b8d65859bf45b5b9005a0435afd, type: 3}
       propertyPath: PilesRobot
       value: 
