@@ -14,7 +14,7 @@ public class BlancSouvenir : MonoBehaviour
 
     void Awake()
     {
-         ChargeSouvenir();
+         //ChargeSouvenir();
     }
 
     // Update is called once per frame
