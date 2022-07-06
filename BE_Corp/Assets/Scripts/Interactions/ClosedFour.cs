@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ClosedFour : MonoBehaviour,IHasItemInteraction
 {
+    List<GameObject> zonesZoom = new List<GameObject>(); //////////////////
+    List<GameObject> steps = new List<GameObject>(); //////////////////
+    public GameObject Gâteau; ///////////////////////
     public string nomItem;
     public string inventoryItemID => nomItem;
     public AudioSource unlocked;
@@ -22,16 +25,72 @@ public class ClosedFour : MonoBehaviour,IHasItemInteraction
 
     public void DoItemInteraction()
     {
-        PlayerPrefs.SetInt("Four", 1);
-        PorteFour.GetComponent<Animator>().SetTrigger("Ouvre");
+        StartCoroutine(DelayBeforeDropAnim());
     }
 
     public void ItemDropAnim() //////////////
     {
-
+        iTween.RotateTo(GameObject.Find("Porte_Four"), iTween.Hash("rotation", new Vector3(47.891f, -179.164f, -0.867f), "time", 0.75f));
+        Instantiate(Gâteau, GameObject.Find("MC_Target").transform.position, Quaternion.identity);
+        StartCoroutine(AnimDrop());
     }
 
     void Awake()
     {
     }
+
+    IEnumerator AnimDrop() /////////////////////
+    {
+        GameObject.Find("Pie Pivot instantiate(Clone)").transform.SetParent(Camera.main.transform);
+
+        foreach (GameObject indiceZone in GameObject.FindGameObjectsWithTag("Indice Zone"))
+        {
+            zonesZoom.Add(indiceZone);
+        }
+
+        for (int i = 0; i < zonesZoom.Count; i++)
+        {
+            zonesZoom[i].GetComponent<Collider>().enabled = false;
+        }
+
+        foreach (GameObject _steps in GameObject.FindGameObjectsWithTag("Steps"))
+        {
+            if (_steps.GetComponent<Collider>().enabled)
+            {
+                steps.Add(_steps);
+            }
+        }
+
+        for (int i = 0; i < steps.Count; i++)
+        {
+            steps[i].GetComponent<Collider>().enabled = false;
+        }
+
+        iTween.ScaleTo(GameObject.Find("Pie Pivot instantiate(Clone)"), iTween.Hash("scale", new Vector3(0.4405287f, 0.4405287f, 0.4405287f), "time", 0.5f, "delay", 0.25f));
+        yield return new WaitForSeconds(1f);
+        GameObject.Find("Pie Pivot instantiate(Clone)").transform.SetParent(GameObject.Find("Collider_Four").transform);
+        iTween.MoveTo(GameObject.Find("Pie Pivot instantiate(Clone)"), iTween.Hash("position", GameObject.Find("Pie Target").transform.position, "time", 1.5f, "easetype", iTween.EaseType.easeInOutSine, "delay", 3f));
+        iTween.RotateTo(GameObject.Find("Pie Pivot instantiate(Clone)"), iTween.Hash("rotation", new Vector3(0f, 0f, 0f), "time", 0.75f, "delay", 3f));
+        iTween.ScaleTo(GameObject.Find("Pie Pivot instantiate(Clone)"), iTween.Hash("scale", new Vector3(0.2349997f, 0.1377073f, 0.4049899f), "time", 0.75f, "delay", 3f));
+        iTween.RotateTo(GameObject.Find("Porte_Four"), iTween.Hash("rotation", new Vector3(-0.492f, -178.617f, 0.374f), "time", 0.75f, "delay", 3f));
+        Destroy(GameObject.Find("Pie Pivot instantiate(Clone)"), 6f);
+        yield return new WaitForSeconds(3.5f);
+
+        for (int i = 0; i < zonesZoom.Count; i++)
+        {
+            zonesZoom[i].GetComponent<Collider>().enabled = true;
+        }
+
+        for (int i = 0; i < steps.Count; i++)
+        {
+            steps[i].GetComponent<Collider>().enabled = true;
+        }
+    }
+
+    IEnumerator DelayBeforeDropAnim()
+    {
+        yield return new WaitForSeconds(4f);
+        PlayerPrefs.SetInt("Four", 1);
+        PorteFour.GetComponent<Animator>().SetTrigger("Ouvre");
+    } //Vector3(359.590271,194.437576,358.034271)
 }
