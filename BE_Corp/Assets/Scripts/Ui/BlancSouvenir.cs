@@ -30,7 +30,7 @@ public class BlancSouvenir : MonoBehaviour
 
     IEnumerator coroutineA()
     {
-        this.GetComponent<Animator>().SetTrigger("Fade");
+        this.GetComponent<Animator>().CrossFade("Start_Fade", 0.1f);
         GlitchyBreak.Instance.GlitchEffectOn();
         yield return new WaitForSeconds(TempsAttendre);
         GlitchyBreak.Instance.GlitchEffectOff();
