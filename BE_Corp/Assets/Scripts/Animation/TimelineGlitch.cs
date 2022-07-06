@@ -24,7 +24,7 @@ public class TimelineGlitch : MonoBehaviour
             Invoke("EndGlitchSalon", 2f);
         }
 
-        if (PlayerPrefs.GetInt("Cuisine Révélée") == 1 && PlayerPrefs.GetInt("Cinématique Salon") == 0)
+        if (PlayerPrefs.GetInt("Cuisine Révélée") == 1 && PlayerPrefs.GetInt("Cinématique Cuisine") == 0)
         {
             //cinematique.Execute();
             playableDirector.enabled = true;
