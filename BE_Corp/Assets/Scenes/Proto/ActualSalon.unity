@@ -18100,7 +18100,7 @@ MonoBehaviour:
   drawingMode: 1
   outlineLayer: 0
   outlineTargets:
-  - IsVisible: 1
+  - IsVisible: 0
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -18116,7 +18116,7 @@ MonoBehaviour:
     cutoutTextureName: 
     DilateRenderingMode: 0
     cutoutTextureIndex: 0
-  - IsVisible: 1
+  - IsVisible: 0
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -18730,7 +18730,7 @@ MonoBehaviour:
   drawingMode: 1
   outlineLayer: 0
   outlineTargets:
-  - IsVisible: 1
+  - IsVisible: 0
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -27836,7 +27836,7 @@ MonoBehaviour:
   drawingMode: 1
   outlineLayer: 0
   outlineTargets:
-  - IsVisible: 1
+  - IsVisible: 0
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -27915,6 +27915,8 @@ GameObject:
   - component: {fileID: 1233786636}
   - component: {fileID: 1233786635}
   - component: {fileID: 1233786633}
+  - component: {fileID: 1233786640}
+  - component: {fileID: 1233786639}
   m_Layer: 0
   m_Name: Interface Salon
   m_TagString: Untagged
@@ -27967,11 +27969,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 111.57873, y: 87.41822}
+  scrollPos: {x: 173.23544, y: 178.42586}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
-  zoom: 0.7300002
+  zoom: 0.5800002
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -28087,7 +28089,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 89.000015
     y: 106.00001
-    width: 108.9041
+    width: 109.31032
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -28100,6 +28102,61 @@ MonoBehaviour:
   - {fileID: 1233786636}
   - {fileID: 1233786633}
   - {fileID: 1233786635}
+  suppressAllAutoSelections: 0
+--- !u!114 &1233786639
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233786631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 10
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 1678765909}
+  targetComponentAssemblyName: TimelineGlitch, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: TimelineGlitch
+  targetMethod: 
+  targetMethodText: 
+  methodParameters: []
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: 
+  showInherited: 0
+  callMode: 0
+--- !u!114 &1233786640
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233786631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 175.0403
+    y: 195.71193
+    width: 121.72411
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 9
+  blockName: Salon_reveal
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 1233786639}
   suppressAllAutoSelections: 0
 --- !u!1 &1234074196
 GameObject:
@@ -28454,7 +28511,7 @@ MonoBehaviour:
     cutoutTextureName: 
     DilateRenderingMode: 0
     cutoutTextureIndex: 0
-  - IsVisible: 1
+  - IsVisible: 0
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -38553,62 +38610,16 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1555662621}
   m_Mesh: {fileID: 6111999951084287144, guid: 4c080aca5c10f1946941aa5654dbe25b, type: 3}
---- !u!1 &1558996148
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1558996149}
-  - component: {fileID: 1558996150}
-  m_Layer: 0
-  m_Name: Timeline Salon
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1558996149
+--- !u!4 &1558996149 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 6565078493117502630, guid: 075693618b7258b4bb145d32afe3b937, type: 3}
+  m_PrefabInstance: {fileID: 6565078494114426899}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1558996148}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 30281235}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!320 &1558996150
+--- !u!320 &1558996150 stripped
 PlayableDirector:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 6565078493117502629, guid: 075693618b7258b4bb145d32afe3b937, type: 3}
+  m_PrefabInstance: {fileID: 6565078494114426899}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1558996148}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 5bb43dcb193ac014184aab08e3dbc3c6, type: 2}
-  m_InitialState: 1
-  m_WrapMode: 2
-  m_DirectorUpdateMode: 1
-  m_InitialTime: 0
-  m_SceneBindings:
-  - key: {fileID: 3096315009732790208, guid: 5bb43dcb193ac014184aab08e3dbc3c6, type: 2}
-    value: {fileID: 1678765911}
-  - key: {fileID: -6416444827848874980, guid: 5bb43dcb193ac014184aab08e3dbc3c6, type: 2}
-    value: {fileID: 666352205}
-  - key: {fileID: -5713047346060785533, guid: 5bb43dcb193ac014184aab08e3dbc3c6, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: -3874169227968037268, guid: 5bb43dcb193ac014184aab08e3dbc3c6, type: 2}
-    value: {fileID: 494417063}
-  m_ExposedReferences:
-    m_References: []
 --- !u!1 &1567021779
 GameObject:
   m_ObjectHideFlags: 0
@@ -40902,6 +40913,7 @@ GameObject:
   - component: {fileID: 1678765913}
   - component: {fileID: 1678765912}
   - component: {fileID: 1678765911}
+  - component: {fileID: 1678765915}
   m_Layer: 5
   m_Name: MAJ_souvenir
   m_TagString: Untagged
@@ -40998,6 +41010,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1678765909}
   m_CullTransparentMesh: 0
+--- !u!114 &1678765915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678765909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f78883f64c6274fb09746cd527e28d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playableDirector: {fileID: 1558996150}
+  cinematique:
+    block: {fileID: 1233786640}
 --- !u!1 &1700385741
 GameObject:
   m_ObjectHideFlags: 0
@@ -49475,6 +49502,75 @@ Transform:
   m_Father: {fileID: 543450651840395930}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &6565078494114426899
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 30281235}
+    m_Modifications:
+    - target: {fileID: 6565078493117502629, guid: 075693618b7258b4bb145d32afe3b937, type: 3}
+      propertyPath: m_SceneBindings.Array.data[0].value
+      value: 
+      objectReference: {fileID: 1678765911}
+    - target: {fileID: 6565078493117502629, guid: 075693618b7258b4bb145d32afe3b937, type: 3}
+      propertyPath: m_SceneBindings.Array.data[1].value
+      value: 
+      objectReference: {fileID: 666352205}
+    - target: {fileID: 6565078493117502629, guid: 075693618b7258b4bb145d32afe3b937, type: 3}
+      propertyPath: m_SceneBindings.Array.data[2].value
+      value: 
+      objectReference: {fileID: 494417063}
+    - target: {fileID: 6565078493117502630, guid: 075693618b7258b4bb145d32afe3b937, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6565078493117502630, guid: 075693618b7258b4bb145d32afe3b937, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6565078493117502630, guid: 075693618b7258b4bb145d32afe3b937, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6565078493117502630, guid: 075693618b7258b4bb145d32afe3b937, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6565078493117502630, guid: 075693618b7258b4bb145d32afe3b937, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6565078493117502630, guid: 075693618b7258b4bb145d32afe3b937, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6565078493117502630, guid: 075693618b7258b4bb145d32afe3b937, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6565078493117502630, guid: 075693618b7258b4bb145d32afe3b937, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6565078493117502630, guid: 075693618b7258b4bb145d32afe3b937, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6565078493117502630, guid: 075693618b7258b4bb145d32afe3b937, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6565078493117502630, guid: 075693618b7258b4bb145d32afe3b937, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6565078493117502631, guid: 075693618b7258b4bb145d32afe3b937, type: 3}
+      propertyPath: m_Name
+      value: Timeline Salon
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 075693618b7258b4bb145d32afe3b937, type: 3}
 --- !u!1001 &7229727939173897284
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49639,6 +49735,10 @@ PrefabInstance:
       propertyPath: antenne
       value: 
       objectReference: {fileID: 1236805340}
+    - target: {fileID: 7658697887881425316, guid: 63013b8d65859bf45b5b9005a0435afd, type: 3}
+      propertyPath: timeline
+      value: 
+      objectReference: {fileID: 1678765915}
     - target: {fileID: 7658697887881425316, guid: 63013b8d65859bf45b5b9005a0435afd, type: 3}
       propertyPath: PilesRobot
       value: 

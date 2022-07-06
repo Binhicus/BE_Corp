@@ -5,6 +5,7 @@ using UnityEngine;
 public class CuisineManager : MonoBehaviour
 {
     public GameObject cuisineHidden, cuisineReveal;
+    public TimelineGlitch timeline;
     // Start is called before the first frame update
    void OnEnable()
    {
@@ -28,6 +29,10 @@ public class CuisineManager : MonoBehaviour
         {
             cuisineReveal.SetActive(false);
             cuisineHidden.SetActive(true);
+        }
+        if (PlayerPrefs.GetInt("Cuisine Révélée") == 1 && PlayerPrefs.GetInt("Cinématique Salon") == 0)
+        {
+            timeline.enabled = true;
         }
         if (PlayerPrefs.GetInt("Cuisine Révélée") == 1)
         {

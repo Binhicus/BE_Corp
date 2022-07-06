@@ -11,6 +11,7 @@ public class SalonManager : MonoBehaviour
     public GameObject ballon, antenne;
     public GameObject salonAvant, salonApres;
     public GameObject TableauPart1,TableauPart2,TableauPart3;
+    public TimelineGlitch timeline;
 
     private void OnEnable()
     {
@@ -124,10 +125,15 @@ public class SalonManager : MonoBehaviour
             salonAvant.SetActive(true);
             salonApres.SetActive(false);
         }
-        if (PlayerPrefs.GetInt("Salon Révélé") == 1)
+        if (PlayerPrefs.GetInt("Salon Révélé") == 1 && PlayerPrefs.GetInt("Cinématique Salon") == 0)
+        {
+            timeline.enabled = true;
+        }
+
+        if (PlayerPrefs.GetInt("Salon Révélé") == 1 && PlayerPrefs.GetInt("Cinématique Salon") == 0)
         {
             salonAvant.SetActive(false);
-            salonApres.SetActive(true);
+            salonApres.SetActive(true) ;
         }
     }
 
