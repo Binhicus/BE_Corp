@@ -15,6 +15,7 @@ public class BDSalon :ClickableObject,IClicked, IAction
 
     public List<ActionWheelChoiceData> ListInteractPossible2 = new List<ActionWheelChoiceData>();
     public GameObject LivreOuvert,TSommaire;
+    public AudioSource OuvreLivre;
     // Start is called before the first frame update
     void Start()
     {
@@ -65,6 +66,7 @@ public class BDSalon :ClickableObject,IClicked, IAction
         LivreOuvert.SetActive(true);
         TSommaire.SetActive(true);
         TSommaire.GetComponent<Animator>().SetBool("Go", true);
+        OuvreLivre.Play();
         this.gameObject.SetActive(false);
         if(PlayerPrefs.GetInt("Cuisine Révélée")==1)
         {

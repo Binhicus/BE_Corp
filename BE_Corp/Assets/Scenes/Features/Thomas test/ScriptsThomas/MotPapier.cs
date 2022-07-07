@@ -49,11 +49,33 @@ public class MotPapier : MonoBehaviour
     public bool Cinq;
     public bool Six;
 
+    private bool PourSon1;
+    private bool PourSon2;
+    private bool PourSon3;
+    private bool PourSon4;
+    private bool PourSon5;
+    private bool PourSon6;
+
+
+    private bool Retire1;
+    private bool Retire2;
+    private bool Retire3;
+    private bool Retire4;
+    private bool Retire5;
+    private bool Retire6;
+
     public GameObject Book;
+
+    public AudioSource LacheMot;
     // Start is called before the first frame update
     void Start()
     {
-    
+        PourSon1=true;
+        PourSon2=true;
+        PourSon3=true;
+        PourSon4=true;
+        PourSon5=true;
+        PourSon6=true;
     }
 
     void Awake()
@@ -141,6 +163,8 @@ public class MotPapier : MonoBehaviour
         {
             place1Prise=false;
             Survole1=false;
+            PourSon1=true;
+            
 
             if(NumeroChapitre==1&&Prem==true)
             {
@@ -159,6 +183,7 @@ public class MotPapier : MonoBehaviour
             place2Prise=false;
             place2Prise=false;
             Survole2=false;
+            PourSon2=true;
             if(NumeroChapitre==2&&Deux==true)
             {
                 Deux=false;
@@ -176,6 +201,7 @@ public class MotPapier : MonoBehaviour
         {
             place3Prise=false;
             Survole3=false;
+            PourSon3=true;
             if(NumeroChapitre==3&&Trois==true)
             {
                 Trois=false;
@@ -193,6 +219,7 @@ public class MotPapier : MonoBehaviour
         {
             place4Prise=false;
             Survole4=false;
+            PourSon4=true;
             if(NumeroChapitre==4&&Quatre==true)
             {
                 Quatre=false;
@@ -210,6 +237,7 @@ public class MotPapier : MonoBehaviour
         {
             place5Prise=false;
             Survole5=false;
+            PourSon5=true;
             if(NumeroChapitre==5&&Cinq==true)
             {
                 Cinq=false;
@@ -227,6 +255,7 @@ public class MotPapier : MonoBehaviour
         {
             place6Prise=false;
             Survole6=false;
+            PourSon6=true;
             if(NumeroChapitre==6&&Six==true)
             {
                 Six=false;
@@ -264,6 +293,7 @@ public class MotPapier : MonoBehaviour
         {
             Une=true;
             Book.GetComponent<Animator>().SetTrigger("Apparait");
+            PlayerPrefs.SetInt("Cuisine Révélée",1);
             StartCoroutine(coroutineA());
 
         }
@@ -276,6 +306,20 @@ public class MotPapier : MonoBehaviour
     place1Prise=true;
     jeSuisSurLaPlace=1;
     this.GetComponent<RectTransform>().localPosition=new Vector3(163f,81f,0);
+
+    if(PourSon1)
+    {
+        Debug.Log("JoueSOn");
+        PourSon1=false;
+        LacheMot.Play();
+        PourSon2=true;
+        PourSon3=true;
+        PourSon4=true;
+        PourSon5=true;
+        PourSon6=true;
+    }
+
+
 
     if(NumeroChapitre==1&&!Prem)
     {
@@ -296,6 +340,18 @@ public class MotPapier : MonoBehaviour
         place2Prise=true;
         jeSuisSurLaPlace=2;
         this.GetComponent<RectTransform>().localPosition=new Vector3(146f,41f,0);
+
+        if(PourSon2)
+    {
+        PourSon2=false;
+        LacheMot.Play();
+        PourSon1=true;
+        PourSon3=true;
+        PourSon4=true;
+        PourSon5=true;
+        PourSon6=true;
+    }
+
         if(NumeroChapitre==2&&!Deux)
     {
         Deux=true;
@@ -314,6 +370,18 @@ public class MotPapier : MonoBehaviour
         place3Prise=true;
         jeSuisSurLaPlace=3;
         this.GetComponent<RectTransform>().localPosition=new Vector3(128f,-2f,0);
+
+        if(PourSon3)
+    {
+        PourSon3=false;
+        LacheMot.Play();
+        PourSon1=true;
+        PourSon2=true;
+        PourSon4=true;
+        PourSon5=true;
+        PourSon6=true;
+    }
+
         if(NumeroChapitre==3&&!Trois)
     {
         Trois=true;
@@ -331,6 +399,18 @@ public class MotPapier : MonoBehaviour
         place4Prise=true;
         jeSuisSurLaPlace=4;
         this.GetComponent<RectTransform>().localPosition=new Vector3(118f,-50f,0);
+
+        if(PourSon4)
+    {
+        PourSon4=false;
+        LacheMot.Play();
+        PourSon1=true;
+        PourSon2=true;
+        PourSon3=true;
+        PourSon5=true;
+        PourSon6=true;
+    }
+
         if(NumeroChapitre==4&&!Quatre)
     {
         Quatre=true;
@@ -348,6 +428,19 @@ public class MotPapier : MonoBehaviour
         place5Prise=true;
         jeSuisSurLaPlace=5;
         this.GetComponent<RectTransform>().localPosition=new Vector3(101f,-91f,0);
+
+
+        if(PourSon5)
+    {
+        PourSon5=false;
+        LacheMot.Play();
+        PourSon1=true;
+        PourSon2=true;
+        PourSon3=true;
+        PourSon4=true;
+        PourSon6=true;
+    }
+
         if(NumeroChapitre==5&&!Cinq)
     {
         Cinq=true;
@@ -365,6 +458,20 @@ public class MotPapier : MonoBehaviour
         place6Prise=true;
         jeSuisSurLaPlace=6;
         this.GetComponent<RectTransform>().localPosition=new Vector3(87f,-135f,0);
+
+
+        if(PourSon6)
+    {
+        PourSon6=false;
+        LacheMot.Play();
+        PourSon1=true;
+        PourSon2=true;
+        PourSon3=true;
+        PourSon4=true;
+        PourSon5=true;
+    }
+
+
         if(NumeroChapitre==6&&!Six)
     {
         Six=true;
@@ -380,10 +487,8 @@ public class MotPapier : MonoBehaviour
 
     IEnumerator coroutineA()
     {
-        
-        yield return new WaitForSeconds(4.0f);
-        PlayerPrefs.SetInt("Cuisine Révélée",1);
+        yield return new WaitForSeconds(1.5f);
         MisAJourEffect.Instance.MiseAJour();
-        Jauge.Instance.stadeProg += 1;
+        //Jauge.Instance.stadeProg += 1;
     }
 }

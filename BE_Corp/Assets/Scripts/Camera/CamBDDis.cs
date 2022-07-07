@@ -6,6 +6,7 @@ public class CamBDDis : MonoBehaviour
 {
     public GameObject Book;
     public GameObject LivreFerme;
+    public AudioSource SonFerme;
 
     // Start is called before the first frame update
 
@@ -17,6 +18,7 @@ public class CamBDDis : MonoBehaviour
     private void OnEnable() {
         Book=GameObject.Find("BOOK");
         LivreFerme=GameObject.Find("BD_Tournesol_fermée");
+        SonFerme=GameObject.Find("Ferme Livre").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -28,6 +30,7 @@ public class CamBDDis : MonoBehaviour
     private void OnDisable() {
         LivreFerme.SetActive(true);
         Book=GameObject.Find("BOOK");
+        SonFerme.Play();
         Book.SetActive(false);
         PlayerPrefs.SetInt("LivreOpen",0);
     }

@@ -110,8 +110,11 @@ public class FourScript : ClickableObject,IClicked, IAction
         if(PlayerPrefs.GetInt("Smoke")==2)
         {
             questionsmoke.Execute();
-            Debug.Log("ba lance");
-            StartCoroutine(coroutineA());
+        PlayerPrefs.SetInt("Morceau2Tableau",1);
+        PlayerPrefs.SetInt("Smoke",4);
+        PlayerPrefs.SetInt("FourOk",2);
+         this.GetComponent<BoxCollider>().enabled=false;
+            //StartCoroutine(coroutineA());
         }
     }
 
@@ -120,15 +123,15 @@ public class FourScript : ClickableObject,IClicked, IAction
         MisAJourEffect.Instance.TableauUpdated();
     }
 
-    IEnumerator coroutineA()
+   /* IEnumerator coroutineA()
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(0.5f);
         PlayerPrefs.SetInt("Morceau2Tableau",1);
         PlayerPrefs.SetInt("Smoke",4);
         PlayerPrefs.SetInt("FourOk",2);
         this.GetComponent<BoxCollider>().enabled=false;
         //MisAJourEffect.Instance.TableauUpdated();
-    }
+    }*/
 
 
 

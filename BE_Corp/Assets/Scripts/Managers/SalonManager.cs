@@ -20,10 +20,7 @@ public class SalonManager : MonoBehaviour
 
     void Awake()
     {
-        /*PlayerPrefs.SetInt("Morceau1Tableau", 1);
-        PlayerPrefs.SetInt("Morceau2Tableau", 1);
-        PlayerPrefs.SetInt("Morceau3Tableau", 1);
-        PlayerPrefs.SetInt("Salon Révélé", 1);*/
+        //PlayerPrefs.SetInt("Salon Révélé",1);
 
         if(PlayerPrefs.GetInt("Morceau1Tableau")==1)
         {
@@ -133,7 +130,7 @@ public class SalonManager : MonoBehaviour
             timeline.enabled = true;
         }
 
-        if (PlayerPrefs.GetInt("Salon Révélé") == 1 && PlayerPrefs.GetInt("Cinématique Salon") == 1)
+        if (PlayerPrefs.GetInt("Salon Révélé") == 1 && PlayerPrefs.GetInt("Cinématique Salon") == 0)
         {
             salonAvant.SetActive(false);
             salonApres.SetActive(true) ;
