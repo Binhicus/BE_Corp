@@ -183,7 +183,7 @@ public class TourneStp : MonoBehaviour
                 Cran.volume=1;
                 Cran.Play();
                 Ventilation.Play();
-                Ventilation.volume=0.1f;
+                Ventilation.volume=0.05f;
             }
 
             }
@@ -215,7 +215,7 @@ public class TourneStp : MonoBehaviour
                 Cran.volume=1;
                 Cran.Play();
                 Ventilation.Play();
-                Ventilation.volume=0.13f;
+                Ventilation.volume=0.08f;
             }
             }
         
@@ -246,7 +246,7 @@ public class TourneStp : MonoBehaviour
                 Cran.volume=1;
                 Cran.Play();
                 Ventilation.Play();
-                Ventilation.volume=0.15f;
+                Ventilation.volume=0.1f;
             }
 
             }

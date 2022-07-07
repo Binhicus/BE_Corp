@@ -34,7 +34,7 @@ public class CuisineManager : MonoBehaviour
         {
             timeline.enabled = true;
         }
-        if (PlayerPrefs.GetInt("Cuisine Révélée") == 1)
+        if (PlayerPrefs.GetInt("Cuisine Révélée") == 1 && PlayerPrefs.GetInt("Cinématique Salon") == 0)
         {
             cuisineReveal.SetActive(true);
             cuisineHidden.SetActive(false);

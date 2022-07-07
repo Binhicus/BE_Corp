@@ -130,7 +130,7 @@ public class SalonManager : MonoBehaviour
             timeline.enabled = true;
         }
 
-        if (PlayerPrefs.GetInt("Salon Révélé") == 1 && PlayerPrefs.GetInt("Cinématique Salon") == 0)
+        if (PlayerPrefs.GetInt("Salon Révélé") == 1 && PlayerPrefs.GetInt("Cinématique Salon") == 1)
         {
             salonAvant.SetActive(false);
             salonApres.SetActive(true) ;

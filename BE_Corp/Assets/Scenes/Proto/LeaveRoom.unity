@@ -3167,7 +3167,7 @@ RectTransform:
   m_Children:
   - {fileID: 1498264765}
   m_Father: {fileID: 868056607}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6584,8 +6584,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 375831601}
-  - {fileID: 691345189}
   - {fileID: 458163402}
+  - {fileID: 691345189}
   m_Father: {fileID: 634549827}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -25544,7 +25544,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1062.1416
     y: -175.59024
-    width: 82.00001
+    width: 81.72414
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
@@ -25553,7 +25553,6 @@ MonoBehaviour:
   description: Dialogue en finissant le mini-jeu de la Radio
   eventHandler: {fileID: 0}
   commandList:
-  - {fileID: 4108629634651334873}
   - {fileID: 584648311927075716}
   suppressAllAutoSelections: 0
 --- !u!4 &2229123460092435878
@@ -25637,7 +25636,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1060.224
     y: -78.57941
-    width: 146.00003
+    width: 145.17242
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
@@ -25646,7 +25645,6 @@ MonoBehaviour:
   description: Dialogue en questionnant B sur un tableau
   eventHandler: {fileID: 0}
   commandList:
-  - {fileID: 4456083147470768638}
   - {fileID: 5050190989211283632}
   suppressAllAutoSelections: 0
 --- !u!114 &2763510924364078768
@@ -25656,7 +25654,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8580882007359069486}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d65d551a201c94bc79950076ff3eaf2e, type: 3}
   m_Name: 
@@ -25721,7 +25719,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1060.2238
     y: 11.420555
-    width: 115.142876
+    width: 114.82759
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
@@ -25747,21 +25745,6 @@ Transform:
   m_Father: {fileID: 152522763}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4108629634651334873
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8580882007359069486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d65d551a201c94bc79950076ff3eaf2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 43
-  indentLevel: 0
-  sayDialog: {fileID: 4339818236518761643, guid: 555e864ab86a6154a83a656997f336ae, type: 3}
 --- !u!23 &4140091125985357687
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25816,21 +25799,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.60081434, y: 0.76338935, z: 0.91982126}
   m_Center: {x: -6.3681545, y: 1.7909874, z: 2.570217}
---- !u!114 &4456083147470768638
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8580882007359069486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d65d551a201c94bc79950076ff3eaf2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 46
-  indentLevel: 0
-  sayDialog: {fileID: 4339818236518761643, guid: 555e864ab86a6154a83a656997f336ae, type: 3}
 --- !u!1 &4504409719338930828
 GameObject:
   m_ObjectHideFlags: 0
@@ -26773,11 +26741,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -433.8076, y: 680.0744}
+  scrollPos: {x: -496.15936, y: 689.94635}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 354.8
-  zoom: 0.6999998
+  zoom: 0.58
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -26787,7 +26755,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 8580882007359069516}
   selectedCommands:
-  - {fileID: 8580882007359069526}
+  - {fileID: 8580882007359069514}
   variables: []
   description: 
   stepPause: 0
@@ -26824,10 +26792,8 @@ GameObject:
   - component: {fileID: 8580882007359069482}
   - component: {fileID: 8580882007359069481}
   - component: {fileID: 2100376866017748643}
-  - component: {fileID: 4108629634651334873}
   - component: {fileID: 584648311927075716}
   - component: {fileID: 2593844079876674596}
-  - component: {fileID: 4456083147470768638}
   - component: {fileID: 5050190989211283632}
   - component: {fileID: 3538031140194569160}
   - component: {fileID: 2763510924364078768}
@@ -26863,7 +26829,6 @@ GameObject:
   - component: {fileID: 8580882007359069515}
   - component: {fileID: 8580882007359069514}
   - component: {fileID: 8580882007359069519}
-  - component: {fileID: 8580882007359069521}
   - component: {fileID: 8580882007359069520}
   - component: {fileID: 8580882007359069518}
   - component: {fileID: 8580882007359069522}
@@ -26895,7 +26860,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 720.7027
     y: -282.06827
-    width: 120.85716
+    width: 121.724144
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -26965,7 +26930,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1059.0719
     y: -265.7371
-    width: 132.28574
+    width: 131.3793
     height: 40
   tint: {r: 0.9607843, g: 0.828199, b: 0.47450978, a: 1}
   useCustomTint: 1
@@ -27035,8 +27000,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 1062.6024
-    y: -352.7962
-    width: 131.14288
+    y: -354.52036
+    width: 130
     height: 40
   tint: {r: 0.9607843, g: 0.828199, b: 0.47450978, a: 1}
   useCustomTint: 1
@@ -27107,7 +27072,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 899.07227
     y: -318.67865
-    width: 132.28574
+    width: 132.75862
     height: 40
   tint: {r: 0.9607843, g: 0.828199, b: 0.47450978, a: 1}
   useCustomTint: 1
@@ -27178,7 +27143,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1208.4857
     y: -308.09048
-    width: 133.42859
+    width: 132.75862
     height: 40
   tint: {r: 0.9607843, g: 0.828199, b: 0.47450978, a: 1}
   useCustomTint: 1
@@ -27217,7 +27182,7 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
-  setSayDialog: {fileID: 0}
+  setSayDialog: {fileID: 1715898576}
 --- !u!114 &8580882007359069501
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -27234,7 +27199,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 863.6473
     y: -121.06765
-    width: 87.714294
+    width: 87.24138
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -27274,7 +27239,7 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
-  setSayDialog: {fileID: 0}
+  setSayDialog: {fileID: 1231028824}
 --- !u!114 &8580882007359069503
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -27301,7 +27266,7 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
-  setSayDialog: {fileID: 0}
+  setSayDialog: {fileID: 1715898576}
 --- !u!114 &8580882007359069504
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -27328,7 +27293,7 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
-  setSayDialog: {fileID: 0}
+  setSayDialog: {fileID: 1231028824}
 --- !u!114 &8580882007359069505
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -27355,7 +27320,7 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
-  setSayDialog: {fileID: 0}
+  setSayDialog: {fileID: 1715898576}
 --- !u!114 &8580882007359069506
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -27372,7 +27337,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 862.86005
     y: 61.573685
-    width: 67.14286
+    width: 67.93104
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -27410,7 +27375,7 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
-  setSayDialog: {fileID: 0}
+  setSayDialog: {fileID: 1231028824}
 --- !u!114 &8580882007359069508
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -27438,7 +27403,7 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
-  setSayDialog: {fileID: 0}
+  setSayDialog: {fileID: 1715898576}
 --- !u!114 &8580882007359069509
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -27455,7 +27420,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 852.33765
     y: -7.13945
-    width: 117.42859
+    width: 117.58621
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -27483,7 +27448,7 @@ MonoBehaviour:
   indentLevel: 0
   storyText: Vraiment sympa comme tableau.
   description: 
-  character: {fileID: 8580882005909318119}
+  character: {fileID: 8580882005804987714}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -27493,7 +27458,7 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
-  setSayDialog: {fileID: 0}
+  setSayDialog: {fileID: 1715898576}
 --- !u!114 &8580882007359069511
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -27510,7 +27475,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 830.92505
     y: -541.6357
-    width: 148.28574
+    width: 146.55173
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -27537,7 +27502,7 @@ MonoBehaviour:
   indentLevel: 0
   storyText: "On semble deceler un th\xE8me commun \xE0 ces tableaux..."
   description: 
-  character: {fileID: 8580882005909318119}
+  character: {fileID: 8580882005804987714}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -27547,7 +27512,7 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
-  setSayDialog: {fileID: 0}
+  setSayDialog: {fileID: 1715898576}
 --- !u!114 &8580882007359069513
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -27564,7 +27529,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 832.02356
     y: -448.9992
-    width: 149.42859
+    width: 147.93103
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -27604,7 +27569,7 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
-  setSayDialog: {fileID: 0}
+  setSayDialog: {fileID: 1231028824}
 --- !u!114 &8580882007359069515
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -27631,7 +27596,7 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
-  setSayDialog: {fileID: 0}
+  setSayDialog: {fileID: 1715898576}
 --- !u!114 &8580882007359069516
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -27648,7 +27613,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 628.5457
     y: -441.2085
-    width: 133.42859
+    width: 135.51724
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -27731,9 +27696,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 1185.392
+    x: 1183.8295
     y: -179.00618
-    width: 140.28574
+    width: 138.27586
     height: 40
   tint: {r: 0.4745098, g: 0.9607843, b: 0.49411765, a: 1}
   useCustomTint: 1
@@ -27742,7 +27707,6 @@ MonoBehaviour:
   description: Dialogue en finissant le mini-jeu de la Radio
   eventHandler: {fileID: 0}
   commandList:
-  - {fileID: 8580882007359069521}
   - {fileID: 8580882007359069520}
   - {fileID: 8580882007359069518}
   suppressAllAutoSelections: 0
@@ -27776,21 +27740,6 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 1231028824}
---- !u!114 &8580882007359069521
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8580882007359069486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d65d551a201c94bc79950076ff3eaf2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 107
-  indentLevel: 0
-  sayDialog: {fileID: 4339818236518761643, guid: 555e864ab86a6154a83a656997f336ae, type: 3}
 --- !u!114 &8580882007359069522
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -27807,7 +27756,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 723.14276
     y: -201.98283
-    width: 139.14288
+    width: 138.27586
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -27846,7 +27795,7 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
-  setSayDialog: {fileID: 0}
+  setSayDialog: {fileID: 1231028824}
 --- !u!114 &8580882007359069524
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -27874,7 +27823,7 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
-  setSayDialog: {fileID: 0}
+  setSayDialog: {fileID: 1715898576}
 --- !u!114 &8580882007359069525
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -27891,7 +27840,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 540.85016
     y: -289.31943
-    width: 131.14288
+    width: 131.3793
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
