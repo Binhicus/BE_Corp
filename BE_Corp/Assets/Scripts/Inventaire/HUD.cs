@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using DG.Tweening ;
 
 public enum Scene { Menu, Game }
 public class HUD : MonoBehaviour
@@ -86,6 +87,19 @@ public class HUD : MonoBehaviour
         {
             GameObject.FindGameObjectWithTag("Camera Zoom").SetActive(false);
             DezoomButton.SetActive(false);
+
+            if(GameObject.Find("Cam_Room") != null)
+            {
+                if(GameObject.Find("Indices Mot de passe") != null) GameObject.Find("Indices Mot de passe").GetComponent<CanvasGroup>().DOFade(0f, 0.5f);
+            }
+
+            if(GameObject.Find("Cam_Room") != null && GameObject.Find("Close Computer") != null)
+            {
+                if(PlayerPrefs.GetInt("MailStoryRead") == 1 && PlayerPrefs.GetInt("DialogueAfterMailDisplay") == 0)
+                {
+                    GameObject.Find("Close Computer").GetComponent<AlimentationScript>().LunchDialogueAfterMailRead() ;
+                } 
+            }
         }
 
         GameObject[] IndiceZoneCollider ;
@@ -95,5 +109,6 @@ public class HUD : MonoBehaviour
         {
             GameCol.GetComponent<BoxCollider>().enabled = true ;
         }
+        
     }
 }

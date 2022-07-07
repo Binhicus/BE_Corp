@@ -14,7 +14,7 @@ public class BlancSouvenir : MonoBehaviour
 
     void Awake()
     {
-         ChargeSouvenir();
+         //ChargeSouvenir();
     }
 
     // Update is called once per frame
@@ -30,7 +30,7 @@ public class BlancSouvenir : MonoBehaviour
 
     IEnumerator coroutineA()
     {
-        this.GetComponent<Animator>().SetTrigger("Fade");
+        this.GetComponent<Animator>().CrossFade("Start_Fade", 0f);
         GlitchyBreak.Instance.GlitchEffectOn();
         yield return new WaitForSeconds(TempsAttendre);
         GlitchyBreak.Instance.GlitchEffectOff();

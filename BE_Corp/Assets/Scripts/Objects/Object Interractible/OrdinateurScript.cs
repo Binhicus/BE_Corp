@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class OrdinateurScript : ClickableObject, IClicked, IAction
 {
@@ -15,51 +16,31 @@ public class OrdinateurScript : ClickableObject, IClicked, IAction
     {
         CameraActivate = GameObject.Find("---- CAMERAS ----").GetComponent<CameraContainerScript>().CameraOrdi;
 
-        if(PlayerPrefs.GetInt("IndiceEscargot")==1&&PlayerPrefs.GetInt("MdpOk")==0)
-        {
-            Postit[1].SetActive(true);
-        }
-        if(PlayerPrefs.GetInt("NordMeteo")==1&&PlayerPrefs.GetInt("MdpOk")==0)
-        {
-            Postit[3].SetActive(true);
-        }
-        if(PlayerPrefs.GetInt("Matisse")==1&&PlayerPrefs.GetInt("MdpOk")==0)
-        {
-            Postit[2].SetActive(true);
-        }
-        if(PlayerPrefs.GetInt("Tableau1")==1&&PlayerPrefs.GetInt("Tableau2")==1&&PlayerPrefs.GetInt("MdpOk")==0)
-        {
-            Postit[4].SetActive(true);
-        }
+        VerifIndiceDisponible();
     }
 
-    void Update()
+    void VerifIndiceDisponible()
     {
-        
+        if(PlayerPrefs.GetInt("MdpOk") == 0)
+        {
+            if(PlayerPrefs.GetInt("IndiceEscargot") == 1)    Postit[1].SetActive(true);
+            if(PlayerPrefs.GetInt("NordMeteo") == 1)    Postit[3].SetActive(true);
+            if(PlayerPrefs.GetInt("Matisse") == 1)    Postit[2].SetActive(true);
+            if(PlayerPrefs.GetInt("Tableau1") == 1 && PlayerPrefs.GetInt("Tableau2") == 1)    Postit[4].SetActive(true);
+        } else {
+            for (int i = 0; i < Postit.Count; i++)
+            {
+                if(i == 4) Postit[i].SetActive(true);
+                else Postit[i].SetActive(false);
+            }
+        }
+
     }
-
-
-
 
     void LookZone()
     {
-
-        if(PlayerPrefs.GetInt("IndiceEscargot")==1&&PlayerPrefs.GetInt("MdpOk")==0)
-        {
-            Postit[1].SetActive(true);
-        }
-        if(PlayerPrefs.GetInt("NordMeteo")==1&&PlayerPrefs.GetInt("MdpOk")==0)
-        {
-            Postit[2].SetActive(true);
-        }
-        if(PlayerPrefs.GetInt("Matisse")==1&&PlayerPrefs.GetInt("MdpOk")==0)
-        {
-            Postit[3].SetActive(true);
-        }
-        if(PlayerPrefs.GetInt("Tableau1")==1&&PlayerPrefs.GetInt("Tableau2")==1&&PlayerPrefs.GetInt("MdpOk")==0)
-        {
-            Postit[4].SetActive(true);
-        }
+        VerifIndiceDisponible();
+        Postit[0].transform.parent.GetComponent<CanvasGroup>().DOFade(1f, 1f);
 
         CameraActivate.SetActive(true);        
 

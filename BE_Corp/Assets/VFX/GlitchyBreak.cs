@@ -51,10 +51,11 @@ public class GlitchyBreak : Singleton<GlitchyBreak>
         }
         else if(!isOn && transition > 0)
         {
-            transition -= Time.deltaTime * 1 / transitionSpeed;
+            transition -= Time.deltaTime * 1 / (transitionSpeed * 0.75f);
             if (transition < 0) transition = 0;
         }
 
         glitchEffect.SetFloat("Vector1_96BFCD79", Mathf.Lerp(minValue, maxValue, transition));
+        //glitchEffect.SetFloat("Vector1_96BFCD79", iTween.FloatUpdate(minValue, maxValue, transition));
     }
 }
