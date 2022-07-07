@@ -144,5 +144,6 @@ public class SalonManager : MonoBehaviour
         UmbrellaState();
         AntenneState();
         PilesState();
+        Debug.Log(PlayerPrefs.GetInt("Salon Révélé"));
     }
 }
