@@ -2597,7 +2597,7 @@ MonoBehaviour:
   drawingMode: 1
   outlineLayer: 0
   outlineTargets:
-  - IsVisible: 0
+  - IsVisible: 1
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -2613,7 +2613,7 @@ MonoBehaviour:
     cutoutTextureName: 
     DilateRenderingMode: 0
     cutoutTextureIndex: 0
-  - IsVisible: 0
+  - IsVisible: 1
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -2629,7 +2629,7 @@ MonoBehaviour:
     cutoutTextureName: 
     DilateRenderingMode: 0
     cutoutTextureIndex: 0
-  - IsVisible: 0
+  - IsVisible: 1
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -2972,7 +2972,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &444241164
 Transform:
   m_ObjectHideFlags: 0
@@ -6867,7 +6867,7 @@ GameObject:
   - component: {fileID: 925187494}
   - component: {fileID: 925187493}
   m_Layer: 0
-  m_Name: ColliderLampe
+  m_Name: Lampe Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6917,10 +6917,10 @@ MonoBehaviour:
   Son: {fileID: 0}
   ListInteractPossible:
   - {fileID: 11400000, guid: 34cee9d07ecbd2443b457b9dd5f50d37, type: 2}
-  Monstre1: {fileID: 1540406000}
-  Monstre2: {fileID: 444241163}
-  Monstre3: {fileID: 2101416148}
-  Monstre4: {fileID: 1525692795}
+  Monstre1_1: {fileID: 2101416150}
+  Monstre1_2: {fileID: 444241165}
+  Monstre2: {fileID: 1540406002}
+  Monstre3: {fileID: 1525692797}
   LesLampes: {fileID: 1766591089}
 --- !u!114 &925187493
 MonoBehaviour:
@@ -6938,7 +6938,7 @@ MonoBehaviour:
   drawingMode: 1
   outlineLayer: 0
   outlineTargets:
-  - IsVisible: 0
+  - IsVisible: 1
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -10640,7 +10640,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1540406001
 Transform:
   m_ObjectHideFlags: 0
@@ -10653,7 +10653,7 @@ Transform:
   m_LocalScale: {x: 0.2173913, y: 0.2173913, z: 0.2173913}
   m_Children: []
   m_Father: {fileID: 1622758845}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1540406002
 Animator:
@@ -11159,7 +11159,7 @@ MonoBehaviour:
   drawingMode: 1
   outlineLayer: 0
   outlineTargets:
-  - IsVisible: 0
+  - IsVisible: 1
     CutoutMask: 8
     edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
@@ -11351,9 +11351,9 @@ Transform:
   m_LocalScale: {x: 2.3, y: 2.3, z: 2.3}
   m_Children:
   - {fileID: 108545830}
-  - {fileID: 1540406001}
-  - {fileID: 444241164}
   - {fileID: 2101416149}
+  - {fileID: 444241164}
+  - {fileID: 1540406001}
   - {fileID: 1525692796}
   - {fileID: 1906838778}
   - {fileID: 1964687916}
@@ -15823,7 +15823,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2101416149
 Transform:
   m_ObjectHideFlags: 0
@@ -15836,7 +15836,7 @@ Transform:
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children: []
   m_Father: {fileID: 1622758845}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!95 &2101416150
 Animator:
