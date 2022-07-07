@@ -20,7 +20,7 @@ public class SalonManager : MonoBehaviour
 
     void Awake()
     {
-        //PlayerPrefs.SetInt("Salon Révélé",1);
+        PlayerPrefs.SetInt("Salon Révélé",1);
 
         if(PlayerPrefs.GetInt("Morceau1Tableau")==1)
         {
