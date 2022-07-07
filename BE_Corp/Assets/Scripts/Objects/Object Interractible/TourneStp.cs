@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -40,6 +40,8 @@ public class TourneStp : MonoBehaviour
 
     private bool SonAll;
     private bool SonEt;
+    public static bool OuaiAllume;
+    public GameObject TextTemp;
 
     // Start is called before the first frame update
     void Start()
@@ -63,7 +65,7 @@ public class TourneStp : MonoBehaviour
         {
              transform.rotation = new Vector3(0.937f, -3.687f, posz);
         }*/
-        Please=false;
+        Please=true;
 
         if(PlayerPrefs.GetInt("Temper")==480)
         {
@@ -82,21 +84,23 @@ public class TourneStp : MonoBehaviour
             Ventilation.volume=0;
             Ventilation.Stop();
         }
-
-        StartCoroutine(coroutineA());
            
     }
 
     // Update is called once per frame
     void Update()
     {
-        Ttemp.GetComponent<TextMeshPro>().text=TempActuelle.ToString()+ " °";
+        Ttemp.GetComponent<TextMeshPro>().text=TempActuelle.ToString()+ " °C";
         
        // Debug.Log(PlayerPrefs.GetInt("Smoke"));
-        //Debug.Log(TempActuelle);
+       // Debug.Log(TempActuelle);
 
         //Debug.Log(PlayerPrefs.GetInt("Smoke"));
-        //Debug.Log(this.transform.eulerAngles.z);
+        if(BoutonD)
+        {
+            //Debug.Log(this.transform.eulerAngles.z);
+        }
+        
 
 
         if(this.transform.eulerAngles.z>117&&!BoutonD)
@@ -109,21 +113,22 @@ public class TourneStp : MonoBehaviour
         }
         if(this.transform.eulerAngles.z>69.7f&&this.transform.eulerAngles.z<144&&BoutonD&&Please)
         {
+          //  Debug.Log("C'est pour le 0");
             Temperature0();
         }
         if(this.transform.eulerAngles.z>144f&&this.transform.eulerAngles.z<245&&BoutonD&&Please)
         {
-           
+          // Debug.Log("C'est pour le 1");
            Temperature1();
         }
         if(this.transform.eulerAngles.z>245f&&this.transform.eulerAngles.z<340&&BoutonD&&Please)
         {
-            
+            //Debug.Log("C'est pour le 2");
             Temperature2();
         }
         if(this.transform.eulerAngles.z<75&&BoutonD&&Please)
         {
-            
+            //Debug.Log("C'est pour le 3");
             Temperature3();
         }
     }
@@ -131,15 +136,16 @@ public class TourneStp : MonoBehaviour
 
     public void Temperature0()
     {
-        //Debug.Log("F1");
-            //Ttemp.GetComponent<TextMeshPro>().text=Temp0.ToString()+ " °";
+        Debug.Log("F1");
+        if(PlayerPrefs.GetInt("Smoke")!=2)
+            {
             TempActuelle=0;
             PlayerPrefs.SetInt("Temper",0);
             TemperaureSymbol.SetActive(false);
             Ttemp.GetComponent<TextMeshPro>().color=couleurbase;
 
             if(TuPeux1==true&&PlayerPrefs.GetInt("FourOk")!=2)
-            {
+                {
                 TuPeux1=false;
                 TuPeux2=true;
                 TuPeux3=true;
@@ -147,18 +153,24 @@ public class TourneStp : MonoBehaviour
                 Cran.volume=1;
                 Cran.Play();
                 Ventilation.Stop();
+                }
             }
-        
     }
     public void Temperature1()
     {
-         //Debug.Log("F2");
+         Debug.Log("F2");
             if(PlayerPrefs.GetInt("Smoke")!=2)
             {
                  //Ttemp.GetComponent<TextMeshPro>().text=Temp1.ToString()+ " °";
             TempActuelle=180;
             PlayerPrefs.SetInt("Temper",180);
-            TemperaureSymbol.SetActive(true);
+            
+                if(OuaiAllume==true)
+             {
+                 TemperaureSymbol.SetActive(true);
+             }
+            
+            
             Ttemp.GetComponent<TextMeshPro>().color=couleurbase;
 
 
@@ -179,13 +191,18 @@ public class TourneStp : MonoBehaviour
     }
     public void Temperature2()
     {
-        // Debug.Log("F3");
+         Debug.Log("F3");
         if(PlayerPrefs.GetInt("Smoke")!=2)
             {
         //Ttemp.GetComponent<TextMeshPro>().text=Temp2.ToString()+ " °";
             TempActuelle=360;
             PlayerPrefs.SetInt("Temper",360);
-            TemperaureSymbol.SetActive(true);
+             if(OuaiAllume==true)
+             {
+                 TemperaureSymbol.SetActive(true);
+             }
+               
+            
             Ttemp.GetComponent<TextMeshPro>().color=couleurbase;
 
 
@@ -205,12 +222,17 @@ public class TourneStp : MonoBehaviour
     }
     public void Temperature3()
     {
-        // Debug.Log("F4");
+        Debug.Log("F4");
         if(PlayerPrefs.GetInt("Smoke")!=2)
             {
         //Ttemp.GetComponent<TextMeshPro>().text=Temp3.ToString()+ " °";
             TempActuelle=480;
-            TemperaureSymbol.SetActive(true);
+           
+               if(OuaiAllume==true)
+             {
+                 TemperaureSymbol.SetActive(true);
+             }
+            
             PlayerPrefs.SetInt("Temper",480);
             Ttemp.GetComponent<TextMeshPro>().color=couleurchaud;
 
@@ -246,6 +268,8 @@ public class TourneStp : MonoBehaviour
         //Debug.Log("Ok");
         SymbAllume.GetComponent<Animator>().SetInteger("All",1);
         Ttemp.SetActive(true);
+        TextTemp.SetActive(true);
+        OuaiAllume=true;
 
         if(SonAll==true)
         {
@@ -262,6 +286,8 @@ public class TourneStp : MonoBehaviour
         SymbAllume.GetComponent<Animator>().SetInteger("All",0);
         Ttemp.SetActive(false);
         TemperaureSymbol.SetActive(false);
+        TextTemp.SetActive(false);
+        OuaiAllume=false;
 
         if(SonEt==true)
         {
@@ -269,13 +295,5 @@ public class TourneStp : MonoBehaviour
             SonAll=true;
             Cran.Play();
         }
-    }
-
-    IEnumerator coroutineA()
-    {
-        
-        yield return new WaitForSeconds(2.0f);
-        Please=true;
-       
     }
 }
