@@ -29,6 +29,16 @@ public class CrayonCouleurScript : ClickableObject,IClicked, IAction
     {
         Ques.Execute();
         PlayerPrefs.SetInt("Morceau3Tableau",1);
+        this.GetComponent<BoxCollider>().enabled=false;
+
+    }
+
+    void Awake()
+    {
+        if(PlayerPrefs.GetInt("Morceau3Tableau")==1)
+        {
+            this.GetComponent<BoxCollider>().enabled=false;
+        }
     }
 
     public void OnOpen() {Debug.Log("Open") ;}

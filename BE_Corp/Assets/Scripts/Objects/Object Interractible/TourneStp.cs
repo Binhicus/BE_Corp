@@ -136,7 +136,7 @@ public class TourneStp : MonoBehaviour
 
     public void Temperature0()
     {
-        Debug.Log("F1");
+       // Debug.Log("F1");
         if(PlayerPrefs.GetInt("Smoke")!=2)
             {
             TempActuelle=0;

@@ -28,10 +28,12 @@ public class CodeMicroOnde : MonoBehaviour
     public GameObject porteMicro;
 
     public static bool PeutAppuyer;
+    public AudioSource PorteMicroOnde;
 
     //public SpriteRenderer Bon;
 
     public string LeBonCode;
+    private bool UneSeule;
     //public GameObject CodeBonOuvrir;
     public AudioSource BruitMicro;
     // Start is called before the first frame update
@@ -69,23 +71,23 @@ public class CodeMicroOnde : MonoBehaviour
 
     public void Un()
     {
-        if(NumActuel==1)
+        if(NumActuel==1&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             Debug.Log("RRRRAAAA");
             num1=1.ToString();
             StartCoroutine(coroutineA());
         }
-        if(NumActuel==2)
+        if(NumActuel==2&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             num2=1.ToString();
             StartCoroutine(coroutineA());
         }
-        if(NumActuel==3)
+        if(NumActuel==3&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             num3=1.ToString();
             StartCoroutine(coroutineA());
         }
-        if(NumActuel==4)
+        if(NumActuel==4&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             num4=1.ToString();
             StartCoroutine(coroutineA());
@@ -93,23 +95,23 @@ public class CodeMicroOnde : MonoBehaviour
     }
     public void Deux()
     {
-        if(NumActuel==1)
+        if(NumActuel==1&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             num1=2.ToString();
             Debug.Log("Ba");
             StartCoroutine(coroutineA());
         }
-        if(NumActuel==2)
+        if(NumActuel==2&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             num2=2.ToString();
             StartCoroutine(coroutineA());
         }
-        if(NumActuel==3)
+        if(NumActuel==3&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             num3=2.ToString();
             StartCoroutine(coroutineA());
         }
-        if(NumActuel==4)
+        if(NumActuel==4&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             num4=2.ToString();
             StartCoroutine(coroutineA());
@@ -117,22 +119,22 @@ public class CodeMicroOnde : MonoBehaviour
     }
     public void Trois()
     {
-        if(NumActuel==1)
+        if(NumActuel==1&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             num1=3.ToString();
             StartCoroutine(coroutineA());
         }
-        if(NumActuel==2)
+        if(NumActuel==2&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             num2=3.ToString();
             StartCoroutine(coroutineA());
         }
-        if(NumActuel==3)
+        if(NumActuel==3&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             num3=3.ToString();
             StartCoroutine(coroutineA());
         }
-        if(NumActuel==4)
+        if(NumActuel==4&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             num4=3.ToString();
             StartCoroutine(coroutineA());
@@ -140,22 +142,22 @@ public class CodeMicroOnde : MonoBehaviour
     }
     public void Quatre()
     {
-        if(NumActuel==1)
+        if(NumActuel==1&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             num1=4.ToString();
             StartCoroutine(coroutineA());
         }
-        if(NumActuel==2)
+        if(NumActuel==2&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             num2=4.ToString();
             StartCoroutine(coroutineA());
         }
-        if(NumActuel==3)
+        if(NumActuel==3&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             num3=4.ToString();
             StartCoroutine(coroutineA());
         }
-        if(NumActuel==4)
+        if(NumActuel==4&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             num4=4.ToString();
             StartCoroutine(coroutineA());
@@ -164,22 +166,22 @@ public class CodeMicroOnde : MonoBehaviour
     }
     public void Cinq()
     {
-        if(NumActuel==1)
+        if(NumActuel==1&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             num1=5.ToString();
             StartCoroutine(coroutineA());
         }
-        if(NumActuel==2)
+        if(NumActuel==2&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             num2=5.ToString();
             StartCoroutine(coroutineA());
         }
-        if(NumActuel==3)
+        if(NumActuel==3&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             num3=5.ToString();
             StartCoroutine(coroutineA());
         }
-        if(NumActuel==4)
+        if(NumActuel==4&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             num4=5.ToString();
             StartCoroutine(coroutineA());
@@ -187,22 +189,22 @@ public class CodeMicroOnde : MonoBehaviour
     }
     public void Six()
     {
-        if(NumActuel==1)
+        if(NumActuel==1&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             num1=6.ToString();
             StartCoroutine(coroutineA());
         }
-        if(NumActuel==2)
+        if(NumActuel==2&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             num2=6.ToString();
             StartCoroutine(coroutineA());
         }
-        if(NumActuel==3)
+        if(NumActuel==3&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             num3=6.ToString();
             StartCoroutine(coroutineA());
         }
-        if(NumActuel==4)
+        if(NumActuel==4&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             num4=6.ToString();
             StartCoroutine(coroutineA());
@@ -210,22 +212,22 @@ public class CodeMicroOnde : MonoBehaviour
     }
     public void Sept()
     {
-        if(NumActuel==1)
+        if(NumActuel==1&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             num1=7.ToString();
             StartCoroutine(coroutineA());
         }
-        if(NumActuel==2)
+        if(NumActuel==2&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             num2=7.ToString();
             StartCoroutine(coroutineA());
         }
-        if(NumActuel==3)
+        if(NumActuel==3&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             num3=7.ToString();
             StartCoroutine(coroutineA());
         }
-        if(NumActuel==4)
+        if(NumActuel==4&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             num4=7.ToString();
             StartCoroutine(coroutineA());
@@ -233,22 +235,22 @@ public class CodeMicroOnde : MonoBehaviour
     }   
     public void Huit()
     {
-        if(NumActuel==1)
+        if(NumActuel==1&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             num1=8.ToString();
             StartCoroutine(coroutineA());
         }
-        if(NumActuel==2)
+        if(NumActuel==2&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             num2=8.ToString();
             StartCoroutine(coroutineA());
         }
-        if(NumActuel==3)
+        if(NumActuel==3&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             num3=8.ToString();
             StartCoroutine(coroutineA());
         }
-        if(NumActuel==4)
+        if(NumActuel==4&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             num4=8.ToString();
             StartCoroutine(coroutineA());
@@ -256,22 +258,22 @@ public class CodeMicroOnde : MonoBehaviour
     }
     public void Neuf()
     {
-        if(NumActuel==1)
+        if(NumActuel==1&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             num1=9.ToString();
             StartCoroutine(coroutineA());
         }
-        if(NumActuel==2)
+        if(NumActuel==2&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             num2=9.ToString();
             StartCoroutine(coroutineA());
         }
-        if(NumActuel==3)
+        if(NumActuel==3&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             num3=9.ToString();
             StartCoroutine(coroutineA());
         }
-        if(NumActuel==4)
+        if(NumActuel==4&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             num4=9.ToString();
             StartCoroutine(coroutineA());
@@ -279,6 +281,9 @@ public class CodeMicroOnde : MonoBehaviour
     }
 
     private void OnMouseDown() {
+
+    if(PlayerPrefs.GetInt("Morceau3Tableau")==0)
+    {
         if(Bout1&&PeutAppuyer)
         {
             BruitMicro.Play();
@@ -326,6 +331,7 @@ public class CodeMicroOnde : MonoBehaviour
             Neuf();
         }
     }
+    }
 
     public void OnMouseOver() {
         this.GetComponentInChildren<SpriteRenderer>().enabled=true;
@@ -341,8 +347,9 @@ public class CodeMicroOnde : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         NumActuel+=1;
 
-        if(Tcode.GetComponent<TextMeshPro>().text==LeBonCode)
+        if(Tcode.GetComponent<TextMeshPro>().text==LeBonCode&&!UneSeule)
         {
+            UneSeule=true;
             gagne();
         }
        
@@ -355,6 +362,7 @@ public class CodeMicroOnde : MonoBehaviour
         PeutAppuyer=false;
         //Bon.color=new Color32(139,255,0,255);
         porteMicro.GetComponent<Animator>().SetTrigger("Ouvre");
-        PlayerPrefs.SetInt("Morceau3Tableau",1);
+        PorteMicroOnde.Play();
+        //PlayerPrefs.SetInt("Morceau3Tableau",1);
     }
 }

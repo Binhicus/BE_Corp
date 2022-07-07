@@ -21,7 +21,7 @@ public class FourScript : ClickableObject,IClicked, IAction
     void Awake()
     {
         CameraActivate = GameObject.Find("---- CAMERAS ----").GetComponent<CameraContainerScript>().CameraFour;
-        Debug.Log(PlayerPrefs.GetInt("Smoke"));
+       // Debug.Log(PlayerPrefs.GetInt("Smoke"));
 
         if(PlayerPrefs.GetInt("Smoke")==4)
         {

@@ -16,10 +16,12 @@ public class MicroOndeScript : ClickableObject,IClicked, IAction
     public List<ActionWheelChoiceData> ListInteractPossible = new List<ActionWheelChoiceData>() ;
 
 
-
-
     void Awake()
     {
+        if(PlayerPrefs.GetInt("Morceau3Tableau")==1)
+        {
+            this.GetComponent<BoxCollider>().enabled=false;
+        }
         
         CameraActivate = GameObject.Find("---- CAMERAS ----").GetComponent<CameraContainerScript>().CameraMicro;
     }
@@ -49,11 +51,26 @@ public class MicroOndeScript : ClickableObject,IClicked, IAction
         
     }
 
+    void Update()
+    {
+        if(PlayerPrefs.GetInt("Morceau3Tableau")==1)
+        {
+            this.GetComponent<BoxCollider>().enabled=false;
+        }
+    }
 
 
     public void OnClickAction()
     {
+
+       
         CursorController.Instance.ActionWheelScript.ChoicesDisplay = ListInteractPossible ;
+        
+        if(PlayerPrefs.GetInt("Morceau3Tableau")==1)
+        {
+            this.GetComponent<BoxCollider>().enabled=false;
+        }
+        
         CursorController.Instance.ActionWheelScript.TargetAction = this;
         CursorController.Instance.ActionWheelScript.gameObject.SetActive(true);
     }
