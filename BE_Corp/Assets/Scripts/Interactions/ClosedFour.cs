@@ -66,6 +66,7 @@ public class ClosedFour : MonoBehaviour,IHasItemInteraction
             steps[i].GetComponent<Collider>().enabled = false;
         }
 
+        //CursorController.Instance.BoolFalseSetter();
         iTween.ScaleTo(GameObject.Find("Pie Pivot instantiate(Clone)"), iTween.Hash("scale", new Vector3(0.4405287f, 0.4405287f, 0.4405287f), "time", 0.5f, "delay", 0.25f));
         yield return new WaitForSeconds(1.5f);
         GameObject.Find("Pie Pivot instantiate(Clone)").transform.SetParent(GameObject.Find("Collider_Four").transform);
@@ -75,6 +76,7 @@ public class ClosedFour : MonoBehaviour,IHasItemInteraction
         iTween.RotateTo(GameObject.Find("Porte_Four"), iTween.Hash("rotation", new Vector3(-0.492f, -178.617f, 0.374f), "time", 0.75f, "delay", 3f));
         Destroy(GameObject.Find("Pie Pivot instantiate(Clone)"), 6f);
         yield return new WaitForSeconds(4.5f);
+        //CursorController.Instance.BoolTrueSetter();
 
         for (int i = 0; i < zonesZoom.Count; i++)
         {
@@ -92,5 +94,5 @@ public class ClosedFour : MonoBehaviour,IHasItemInteraction
         yield return new WaitForSeconds(4f);
         PlayerPrefs.SetInt("Four", 1);
         PorteFour.GetComponent<Animator>().SetTrigger("Ouvre");
-    } //Vector3(359.590271,194.437576,358.034271)
+    }
 }
