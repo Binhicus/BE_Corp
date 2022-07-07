@@ -41,8 +41,6 @@ public class CodeMicroOnde : MonoBehaviour
         //Tcode = gameObject.AddComponent<TextMesh>();
 
        // Tcode.text = Time.time.ToString();
-
-       porteMicro=GameObject.Find("Porte_Microondes");
     }
     void Start()
     {
@@ -64,7 +62,6 @@ public class CodeMicroOnde : MonoBehaviour
         {
             NumActuel=1;
         }
-
         //Tcode.text = Time.time.ToString();
 
       //  Debug.Log(NumActuel);
@@ -74,6 +71,7 @@ public class CodeMicroOnde : MonoBehaviour
     {
         if(NumActuel==1)
         {
+            Debug.Log("RRRRAAAA");
             num1=1.ToString();
             StartCoroutine(coroutineA());
         }

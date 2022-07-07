@@ -6,7 +6,7 @@ using Fungus;
 public class TableauFinalScript : ClickableObject, IClicked, IAction
 {
 
-    public BlockReference inspect0,inspect1,inspect2,inspect3;
+    public BlockReference inspect0,inspect1,inspect2,inspect3,FINDUJEU;
     public List<ActionWheelChoiceData> ListInteractPossible1 = new List<ActionWheelChoiceData>();
     public List<ActionWheelChoiceData> ListInteractPossible2 = new List<ActionWheelChoiceData>();
      public List<ActionWheelChoiceData> ListInteractPossible3 = new List<ActionWheelChoiceData>();
@@ -94,7 +94,7 @@ public class TableauFinalScript : ClickableObject, IClicked, IAction
         {
             inspect2.Execute();
         }
-        if(PlayerPrefs.GetInt("Morceau1Tableau")==1&&PlayerPrefs.GetInt("Morceau2Tableau")==1&&PlayerPrefs.GetInt("Morceau3Tableau")==1)
+        if(PlayerPrefs.GetInt("Morceau1Tableau")==1&&PlayerPrefs.GetInt("Morceau2Tableau")==1&&PlayerPrefs.GetInt("Morceau3Tableau")==1&&PlayerPrefs.GetInt("Morceau1Tableau")==0)
         {
             inspect3.Execute();
             PlayerPrefs.SetInt("PrendreFin",1);
@@ -115,10 +115,11 @@ public class TableauFinalScript : ClickableObject, IClicked, IAction
 
     public void OnTake()
     {
-        Debug.Log("FIN DU JEU");
+        
         Morceau1.SetActive(false);
         Morceau2.SetActive(false);
         Morceau3.SetActive(false);
+        FINDUJEU.Execute();
     }
 
     public void OnUse() { Debug.Log("Use"); }
