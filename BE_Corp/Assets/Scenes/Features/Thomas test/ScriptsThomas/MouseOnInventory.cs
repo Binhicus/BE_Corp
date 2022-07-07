@@ -7,6 +7,7 @@ public class MouseOnInventory : MonoBehaviour
     public GameObject Inventory;
     public bool isOn;
     public Animator animHUD;
+
     // Start is called before the first frame update
     void Start()
     {
