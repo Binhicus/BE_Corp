@@ -22,8 +22,10 @@ public class Jouet : ClickableObject, IHasItemInteraction, IClicked, IAction
 
     public void ItemDropAnim() //////////////
     {
+        //CursorController.Instance.BoolFalseSetter();
         Instantiate(Tournevis, GameObject.Find("MC_Target").transform.position, Quaternion.identity);
         StartCoroutine(AnimDrop());
+        //CursorController.Instance.BoolTrueSetter();
     }
 
     // Start is called before the first frame update
