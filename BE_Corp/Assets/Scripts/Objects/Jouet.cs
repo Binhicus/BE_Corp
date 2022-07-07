@@ -22,8 +22,10 @@ public class Jouet : ClickableObject, IHasItemInteraction, IClicked, IAction
 
     public void ItemDropAnim() //////////////
     {
+        CursorController.Instance.BoolFalseSetter();
         Instantiate(Tournevis, GameObject.Find("MC_Target").transform.position, Quaternion.identity);
         StartCoroutine(AnimDrop());
+        //CursorController.Instance.BoolTrueSetter();
     }
 
     // Start is called before the first frame update
@@ -122,7 +124,7 @@ public class Jouet : ClickableObject, IHasItemInteraction, IClicked, IAction
             zonesZoom[i].GetComponent<Collider>().enabled = false;
         }
 
-        foreach (GameObject _steps in GameObject.FindGameObjectsWithTag("Steps"))
+        /*foreach (GameObject _steps in GameObject.FindGameObjectsWithTag("Steps"))
         {
             if (_steps.GetComponent<Collider>().enabled)
             {
@@ -133,7 +135,7 @@ public class Jouet : ClickableObject, IHasItemInteraction, IClicked, IAction
         for (int i = 0; i < steps.Count; i++)
         {
             steps[i].GetComponent<Collider>().enabled = false;
-        }
+        }*/
 
         iTween.RotateTo(GameObject.Find("Tournevis Pivot instantiate(Clone)"), iTween.Hash("rotation", new Vector3(12.162f, -4.344f, -98.968f), "time", 0.5f, "delay", 0.25f));
         iTween.ScaleTo(GameObject.Find("Tournevis Pivot instantiate(Clone)"), iTween.Hash("scale", new Vector3(0.1530433f, 0.2437882f, 0.1721426f), "time", 0.5f, "delay", 0.25f));
@@ -150,10 +152,10 @@ public class Jouet : ClickableObject, IHasItemInteraction, IClicked, IAction
             zonesZoom[i].GetComponent<Collider>().enabled = true;
         }
 
-        for (int i = 0; i < steps.Count; i++)
+        /*for (int i = 0; i < steps.Count; i++)
         {
             steps[i].GetComponent<Collider>().enabled = true;
-        }
+        }*/
     }
 
     IEnumerator DelayBeforeDropAnim()

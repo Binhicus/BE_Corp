@@ -181,6 +181,7 @@ public class CursorController : Singleton<CursorController>
     }
     public void BoolFalseSetter() // désactive le controller
     {
+        Debug.Log("uhfhuehfuehfuehf");
         canInteract = false;
     }
 }
