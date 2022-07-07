@@ -170,7 +170,7 @@ public class CursorController : Singleton<CursorController>
         return EventSystem.current.IsPointerOverGameObject();
     }
 
-    public void BoolTrueSetter()
+    public void BoolTrueSetter() // réactive le controller après 0.3 secondes
     {
         Invoke("BoolEqualsTrue", 0.3f);
     }
@@ -179,7 +179,7 @@ public class CursorController : Singleton<CursorController>
     {
         canInteract = true;
     }
-    public void BoolFalseSetter()
+    public void BoolFalseSetter() // désactive le controller
     {
         canInteract = false;
     }
