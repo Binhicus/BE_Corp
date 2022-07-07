@@ -9,7 +9,7 @@ public class TimelineGlitch : MonoBehaviour
     public PlayableDirector playableDirector;
     public BlockReference cinematique;
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         StartGlitch();
     }
@@ -41,13 +41,13 @@ public class TimelineGlitch : MonoBehaviour
         CursorController.Instance.BoolTrueSetter();
         GlitchyBreak.Instance.GlitchEffectOff();
         MisAJourEffect.Instance.MiseAJour();
-        PlayerPrefs.GetInt("Cinématique Salon", 1);
+        PlayerPrefs.SetInt("Cinématique Salon", 1);
     }
     public void EndGlitchCuisine()
     {
         CursorController.Instance.BoolTrueSetter();
         GlitchyBreak.Instance.GlitchEffectOff();
         MisAJourEffect.Instance.MiseAJour();
-        PlayerPrefs.GetInt("Cinématique Cuisine", 1);
+        PlayerPrefs.SetInt("Cinématique Cuisine", 1);
     }
 }
