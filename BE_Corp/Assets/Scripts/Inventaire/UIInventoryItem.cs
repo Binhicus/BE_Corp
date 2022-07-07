@@ -10,13 +10,14 @@ public class UIInventoryItem : MonoBehaviour, IDragHandler, IEndDragHandler
     private CursorController cursorController;
     public string objectID;
     private Transform uiPos;
-    public GameObject Inventaire;
+    public GameObject Inventaire, mouseOn, mouseOff;
     //public GameObject animToSpawn;
     public MouseOnInventory mouseOnInventory;
 
     [Header("Sounds")]
     public AudioSource fusionSound;
     public AudioSource deniedSound;
+    
     //public Camera cam;
 
     Vector3 offset;
@@ -27,6 +28,9 @@ public class UIInventoryItem : MonoBehaviour, IDragHandler, IEndDragHandler
         //cam = GameObject.Find("InventoryCam").GetComponent<Camera>();
        Inventaire=GameObject.Find("Inventaire");
        mouseOnInventory=GameObject.Find("Mouse On").GetComponent<MouseOnInventory>();
+        mouseOn = GameObject.Find("Mouse On");
+        mouseOff = GameObject.Find("Mouse Off");
+        PlayerPrefs.SetInt("DraggingItem", 0);
     }
     void OnMouseDown()
     {
@@ -35,6 +39,9 @@ public class UIInventoryItem : MonoBehaviour, IDragHandler, IEndDragHandler
     public void OnDrag(PointerEventData eventData)
     {
         transform.position = MouseWorldPosition() + offset;
+        mouseOn.SetActive(false);
+        mouseOff.SetActive(false);
+        PlayerPrefs.SetInt("DraggingItem", 1);
         CursorController.Instance.BoolFalseSetter();
     }
 
@@ -47,7 +54,11 @@ public class UIInventoryItem : MonoBehaviour, IDragHandler, IEndDragHandler
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        
         CursorController.Instance.BoolTrueSetter();
+        mouseOn.SetActive(true);
+        mouseOff.SetActive(true);
+        PlayerPrefs.SetInt("DraggingItem", 0);
         Ray ray = Camera.main.ScreenPointToRay(CursorController.Instance.controls.Mouse.Position.ReadValue<Vector2>());
         RaycastHit[] hits = Physics.RaycastAll(ray, 200);
         bool hitSomething = false;

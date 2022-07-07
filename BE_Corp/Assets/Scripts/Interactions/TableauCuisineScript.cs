@@ -44,6 +44,7 @@ public class TableauCuisineScript : ClickableObject, IClicked, IAction
         {
             inspect2.Execute();
             PlayerPrefs.SetInt("Tableau2",1);
+            MisAJourEffect.Instance.MiseAJour();
         }
         
     }
