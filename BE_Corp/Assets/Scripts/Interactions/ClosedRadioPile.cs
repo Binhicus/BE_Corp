@@ -25,6 +25,7 @@ public class ClosedRadioPile : MonoBehaviour,IHasItemInteraction
 
     public void DoItemInteraction()
     {
+        PlayerPrefs.SetInt("PileDansRadio", 1);
         StartCoroutine(DelayBeforeDropAnim());
     }
 
@@ -111,6 +112,5 @@ public class ClosedRadioPile : MonoBehaviour,IHasItemInteraction
     IEnumerator DelayBeforeDropAnim()
     {
         yield return new WaitForSeconds(4f);
-        PlayerPrefs.SetInt("PileDansRadio", 1);
     }
 }
