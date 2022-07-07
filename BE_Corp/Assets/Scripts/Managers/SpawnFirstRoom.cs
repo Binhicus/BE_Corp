@@ -19,6 +19,6 @@ public class SpawnFirstRoom : MonoBehaviour
     {
         SceneManager.LoadSceneAsync("EntréeTemp", LoadSceneMode.Additive);
         PlayerPrefs.SetInt("Mission Started", 1);
-        PlayerPrefs.SetInt("Salon Révélé", 0);
+        PlayerPrefs.SetInt("Salon Reveal", 0);
     }
 }

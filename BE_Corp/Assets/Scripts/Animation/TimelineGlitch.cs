@@ -16,7 +16,7 @@ public class TimelineGlitch : MonoBehaviour
 
     public void StartGlitch()
     {
-        if (PlayerPrefs.GetInt("Salon Révélé") == 1 && PlayerPrefs.GetInt("Cinématique Salon") == 0)
+        if (PlayerPrefs.GetInt("Salon Reveal") == 1 && PlayerPrefs.GetInt("Cinematique Salon") == 0)
         {
             //cinematique.Execute();
             CursorController.Instance.BoolFalseSetter();
@@ -25,7 +25,7 @@ public class TimelineGlitch : MonoBehaviour
             Invoke("EndGlitchSalon", 2f);
         }
 
-        if (PlayerPrefs.GetInt("Cuisine Révélée") == 1 && PlayerPrefs.GetInt("Cinématique Cuisine") == 0)
+        if (PlayerPrefs.GetInt("Cuisine Reveal") == 1 && PlayerPrefs.GetInt("Cinematique Cuisine") == 0)
         {
             //cinematique.Execute();
             CursorController.Instance.BoolFalseSetter();
@@ -41,13 +41,13 @@ public class TimelineGlitch : MonoBehaviour
         CursorController.Instance.BoolTrueSetter();
         GlitchyBreak.Instance.GlitchEffectOff();
         MisAJourEffect.Instance.MiseAJour();
-        PlayerPrefs.SetInt("Cinématique Salon", 1);
+        PlayerPrefs.SetInt("Cinematique Salon", 1);
     }
     public void EndGlitchCuisine()
     {
         CursorController.Instance.BoolTrueSetter();
         GlitchyBreak.Instance.GlitchEffectOff();
         MisAJourEffect.Instance.MiseAJour();
-        PlayerPrefs.SetInt("Cinématique Cuisine", 1);
+        PlayerPrefs.SetInt("Cinematique Cuisine", 1);
     }
 }

@@ -80,7 +80,7 @@ public class MotPapier : MonoBehaviour
 
     void Awake()
     {
-        if(PlayerPrefs.GetInt("Cuisine Révélée")==1)
+        if(PlayerPrefs.GetInt("Cuisine Reveal")==1)
         {
             if(NumeroChapitre==1)
             {
@@ -114,17 +114,17 @@ public class MotPapier : MonoBehaviour
     {
 
         BonneAnswer=BonneReponse;
-        if (Input.GetMouseButtonDown(0)&&Dessus&&!Termine&&PlayerPrefs.GetInt("Cuisine Révélée")!=1)
+        if (Input.GetMouseButtonDown(0)&&Dessus&&!Termine&&PlayerPrefs.GetInt("Cuisine Reveal") !=1)
         {
              deplace=true;
              this.GetComponentInChildren<Image>().color=couleurtouche;
         }
 
-        if (Input.GetMouseButtonUp(0)&&PlayerPrefs.GetInt("Cuisine Révélée")!=1)
+        if (Input.GetMouseButtonUp(0)&&PlayerPrefs.GetInt("Cuisine Reveal") !=1)
         {
             deplace=false;
         }
-        if(deplace&&PlayerPrefs.GetInt("Cuisine Révélée")!=1)
+        if(deplace&&PlayerPrefs.GetInt("Cuisine Reveal") !=1)
         {
             transform.position = new Vector3(Input.mousePosition.x+450,Input.mousePosition.y+100,0);
         }
@@ -293,7 +293,7 @@ public class MotPapier : MonoBehaviour
         {
             Une=true;
             Book.GetComponent<Animator>().SetTrigger("Apparait");
-            PlayerPrefs.SetInt("Cuisine Révélée",1);
+            PlayerPrefs.SetInt("Cuisine Reveal", 1);
             StartCoroutine(coroutineA());
 
         }

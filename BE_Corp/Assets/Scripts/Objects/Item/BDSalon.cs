@@ -68,7 +68,7 @@ public class BDSalon :ClickableObject,IClicked, IAction
         TSommaire.GetComponent<Animator>().SetBool("Go", true);
         OuvreLivre.Play();
         this.gameObject.SetActive(false);
-        if(PlayerPrefs.GetInt("Cuisine Révélée")==1)
+        if(PlayerPrefs.GetInt("Cuisine Reveal") ==1)
         {
             TSommaire.GetComponent<Animator>().SetTrigger("Apparait");
         }

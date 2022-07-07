@@ -120,17 +120,17 @@ public class SalonManager : MonoBehaviour
 
     public void SalonState() 
     { 
-        if(PlayerPrefs.GetInt("Salon Révélé") == 0)
+        if(PlayerPrefs.GetInt("Salon Reveal") == 0)
         {
             salonAvant.SetActive(true);
             salonApres.SetActive(false);
         }
-        if (PlayerPrefs.GetInt("Salon Révélé") == 1 && PlayerPrefs.GetInt("Cinématique Salon") == 0)
+        if (PlayerPrefs.GetInt("Salon Reveal") == 1 && PlayerPrefs.GetInt("Cinematique Salon") == 0)
         {
             timeline.enabled = true;
         }
 
-        if (PlayerPrefs.GetInt("Salon Révélé") == 1 && PlayerPrefs.GetInt("Cinématique Salon") == 0)
+        if (PlayerPrefs.GetInt("Salon Reveal") == 1 && PlayerPrefs.GetInt("Cinematique Salon") == 1)
         {
             salonAvant.SetActive(false);
             salonApres.SetActive(true) ;
@@ -144,6 +144,6 @@ public class SalonManager : MonoBehaviour
         UmbrellaState();
         AntenneState();
         PilesState();
-        Debug.Log(PlayerPrefs.GetInt("Salon Révélé"));
+        Debug.Log(PlayerPrefs.GetInt("Salon Reveal"));
     }
 }
