@@ -68,7 +68,7 @@ public class ScriptAntenne : MonoBehaviour
             TexteMeteo.GetComponent<Animator>().SetBool("Trouve", true);
                 TexteMeteo.GetComponent<Animator>().SetBool("PasLoin", false);
 
-                if(PlayerPrefs.GetInt("Antenne")==1&&PlayerPrefs.GetInt("PileDansRadio")==1&&PlayerPrefs.GetInt("Parapluie")==0)
+                if(PlayerPrefs.GetInt("Antenne Branchée")==1&&PlayerPrefs.GetInt("PileDansRadio")==1&&PlayerPrefs.GetInt("Parapluie")==0)
             {   
                 RadioBug.volume=0.015f; 
             }
@@ -89,7 +89,7 @@ public class ScriptAntenne : MonoBehaviour
 
 
 
-            if(PlayerPrefs.GetInt("Antenne")==1&&PlayerPrefs.GetInt("PileDansRadio")==1&&PlayerPrefs.GetInt("Parapluie")==0)
+            if(PlayerPrefs.GetInt("Antenne Branchée")==1&&PlayerPrefs.GetInt("PileDansRadio")==1&&PlayerPrefs.GetInt("Parapluie")==0)
             {   
                 RadioBug.volume=0.013f; 
             }
@@ -99,7 +99,7 @@ public class ScriptAntenne : MonoBehaviour
             //Debug.Log("3");
             TexteMeteo.GetComponent<Animator>().SetBool("PasLoin", false);
             TexteMeteo.GetComponent<Animator>().SetBool("Trouve", false);
-            if(PlayerPrefs.GetInt("Antenne")==1&&PlayerPrefs.GetInt("PileDansRadio")==1&&PlayerPrefs.GetInt("Parapluie")==0)
+            if(PlayerPrefs.GetInt("Antenne Branchée")==1&&PlayerPrefs.GetInt("PileDansRadio")==1&&PlayerPrefs.GetInt("Parapluie")==0)
             {   
                 RadioBug.volume=0.09f; 
             }
@@ -109,7 +109,7 @@ public class ScriptAntenne : MonoBehaviour
            // Debug.Log("4");
             TexteMeteo.GetComponent<Animator>().SetBool("PasLoin", false);
             TexteMeteo.GetComponent<Animator>().SetBool("Trouve", false);
-            if(PlayerPrefs.GetInt("Antenne")==1&&PlayerPrefs.GetInt("PileDansRadio")==1&&PlayerPrefs.GetInt("Parapluie")==0)
+            if(PlayerPrefs.GetInt("Antenne Branchée")==1&&PlayerPrefs.GetInt("PileDansRadio")==1&&PlayerPrefs.GetInt("Parapluie")==0)
             {   
                 RadioBug.volume=0.09f; 
             }
@@ -120,7 +120,7 @@ public class ScriptAntenne : MonoBehaviour
            // Debug.Log("5");
             TexteMeteo.GetComponent<Animator>().SetBool("Trouve", false);
             TexteMeteo.GetComponent<Animator>().SetBool("PasLoin", true);
-           if(PlayerPrefs.GetInt("Antenne")==1&&PlayerPrefs.GetInt("PileDansRadio")==1&&PlayerPrefs.GetInt("Parapluie")==0)
+           if(PlayerPrefs.GetInt("Antenne Branchée")==1&&PlayerPrefs.GetInt("PileDansRadio")==1&&PlayerPrefs.GetInt("Parapluie")==0)
             {   
                 RadioBug.volume=0.011f; 
             }

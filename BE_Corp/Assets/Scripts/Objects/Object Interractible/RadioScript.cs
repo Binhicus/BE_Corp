@@ -27,17 +27,17 @@ public class RadioScript : ClickableObject,IClicked, IAction
     {       
         CameraActivate = GameObject.Find("---- CAMERAS ----").GetComponent<CameraContainerScript>().CameraRadio;
 
-         if(PlayerPrefs.GetInt("Antenne")==0&&PlayerPrefs.GetInt("PileDansRadio")==0);
+         if(PlayerPrefs.GetInt("Antenne Branchée")==0&&PlayerPrefs.GetInt("PileDansRadio")==0);
          {
             TexteMeteo.SetActive(false);
          }
-         if(PlayerPrefs.GetInt("Antenne")==1&&PlayerPrefs.GetInt("PileDansRadio")==1);
+         if(PlayerPrefs.GetInt("Antenne Branchée")==1&&PlayerPrefs.GetInt("PileDansRadio")==1);
          {
             TexteMeteo.SetActive(true);
          }
 
 
-        // PlayerPrefs.SetInt("PileDansRadio",1);
+         //PlayerPrefs.SetInt("PileDansRadio",1);
          //PlayerPrefs.SetInt("Antenne Branchée",1);
          //PlayerPrefs.SetInt("Parapluie",1);
          
