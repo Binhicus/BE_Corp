@@ -30,11 +30,11 @@ public class CuisineManager : MonoBehaviour
             cuisineReveal.SetActive(false);
             cuisineHidden.SetActive(true);
         }
-        if (PlayerPrefs.GetInt("Cuisine Révélée") == 1 && PlayerPrefs.GetInt("Cinématique Salon") == 0)
+        if (PlayerPrefs.GetInt("Cuisine Révélée") == 1 && PlayerPrefs.GetInt("Cinématique Cuisine") == 0)
         {
             timeline.enabled = true;
         }
-        if (PlayerPrefs.GetInt("Cuisine Révélée") == 1)
+        if (PlayerPrefs.GetInt("Cuisine Révélée") == 1 && PlayerPrefs.GetInt("Cinématique Cuisine") == 1)
         {
             cuisineReveal.SetActive(true);
             cuisineHidden.SetActive(false);

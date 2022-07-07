@@ -29,7 +29,7 @@ public class ScriptAntenne : MonoBehaviour
         pluie=GameObject.Find("SonPluie").GetComponent<AudioSource>();
         RadioBug.Play();
         RadioBug.volume=0;
-        PlayerPrefs.SetInt("Parapluie", 0);
+        //PlayerPrefs.SetInt("Parapluie", 0);
         //transform.rotation = Quaternion.Euler(0, 0, PlayerPrefs.GetFloat("RotationAntenne"));
     }
 

@@ -94,7 +94,7 @@ public class TableauFinalScript : ClickableObject, IClicked, IAction
         {
             inspect2.Execute();
         }
-        if(PlayerPrefs.GetInt("Morceau1Tableau")==1&&PlayerPrefs.GetInt("Morceau2Tableau")==1&&PlayerPrefs.GetInt("Morceau3Tableau")==1&&PlayerPrefs.GetInt("Morceau1Tableau")==0)
+        if(PlayerPrefs.GetInt("Morceau1Tableau")==1&&PlayerPrefs.GetInt("Morceau2Tableau")==1&&PlayerPrefs.GetInt("Morceau3Tableau")==1)
         {
             inspect3.Execute();
             PlayerPrefs.SetInt("PrendreFin",1);
