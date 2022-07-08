@@ -11,6 +11,7 @@ public class LampeChambre : ClickableObject,IClicked, IAction
     public Animator Monstre1_2;
     public Animator Monstre2;
     public Animator Monstre3;
+    public AudioSource AllumeLampe;
     public GameObject LesLampes;
     private bool On = false;
 
@@ -46,6 +47,7 @@ public class LampeChambre : ClickableObject,IClicked, IAction
             Monstre2.SetTrigger("App");
             Monstre2.SetTrigger("App");
             Monstre3.SetTrigger("App");
+            AllumeLampe.Play();
 
             StartCoroutine(WaitAndLunchAnimation1st(Monstre1_1.gameObject, Monstre1_2.gameObject, 7f));
             StartCoroutine(WaitAndLunchAnimation(Monstre2.gameObject, 5.1f));
@@ -58,6 +60,7 @@ public class LampeChambre : ClickableObject,IClicked, IAction
             Monstre1_2.gameObject.SetActive(false);
             Monstre2.gameObject.SetActive(false);
             Monstre3.gameObject.SetActive(false);
+            AllumeLampe.Play();
 
             // Les monsntre son caché
             Monstre1_1.SetTrigger("Disp");
