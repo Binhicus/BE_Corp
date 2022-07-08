@@ -37,7 +37,7 @@ public class ScriptAntenne : MonoBehaviour
     void Update()
     {
 
-        if(PlayerPrefs.GetInt("Parapluie")==1)
+        if(PlayerPrefs.GetInt("Parapluie")!=0)
         {
             RadioBug.volume=0;
             RadioBug.Stop();
@@ -62,7 +62,7 @@ public class ScriptAntenne : MonoBehaviour
             Rotate();
         }
 
-        if(TowerAngle>43&&TowerAngle<46)
+        if(TowerAngle>43&&TowerAngle<46&&PlayerPrefs.GetInt("Parapluie")==0)
         {
             //Debug.Log("1");
             TexteMeteo.GetComponent<Animator>().SetBool("Trouve", true);
@@ -81,7 +81,7 @@ public class ScriptAntenne : MonoBehaviour
             
         }
 
-        if(TowerAngle>40&&TowerAngle<43f)
+        if(TowerAngle>40&&TowerAngle<43f&&PlayerPrefs.GetInt("Parapluie")==0)
         {
            // Debug.Log("2");
             TexteMeteo.GetComponent<Animator>().SetBool("PasLoin", true);
@@ -94,7 +94,7 @@ public class ScriptAntenne : MonoBehaviour
                 RadioBug.volume=0.013f; 
             }
         }
-        if(TowerAngle>49f)
+        if(TowerAngle>49f&&PlayerPrefs.GetInt("Parapluie")==0)
         {
             //Debug.Log("3");
             TexteMeteo.GetComponent<Animator>().SetBool("PasLoin", false);
@@ -104,7 +104,7 @@ public class ScriptAntenne : MonoBehaviour
                 RadioBug.volume=0.09f; 
             }
         }
-         if(TowerAngle<40f)
+         if(TowerAngle<40f&&PlayerPrefs.GetInt("Parapluie")==0)
         {
            // Debug.Log("4");
             TexteMeteo.GetComponent<Animator>().SetBool("PasLoin", false);
@@ -115,7 +115,7 @@ public class ScriptAntenne : MonoBehaviour
             }
         }
 
-        if(TowerAngle>46&&TowerAngle<49f)
+        if(TowerAngle>46&&TowerAngle<49f&&PlayerPrefs.GetInt("Parapluie")==0)
         {
            // Debug.Log("5");
             TexteMeteo.GetComponent<Animator>().SetBool("Trouve", false);

@@ -94,6 +94,10 @@ public class TableauFinalScript : ClickableObject, IClicked, IAction
         {
             inspect2.Execute();
         }
+        if(PlayerPrefs.GetInt("Morceau1Tableau")==1&&PlayerPrefs.GetInt("Morceau2Tableau")==0&&PlayerPrefs.GetInt("Morceau3Tableau")==1)
+        {
+            inspect2.Execute();
+        }
         if(PlayerPrefs.GetInt("Morceau1Tableau")==1&&PlayerPrefs.GetInt("Morceau2Tableau")==1&&PlayerPrefs.GetInt("Morceau3Tableau")==1)
         {
             inspect3.Execute();
@@ -103,10 +107,10 @@ public class TableauFinalScript : ClickableObject, IClicked, IAction
     }
     public void Question()
     {
-        if(PlayerPrefs.GetInt("Morceau1Tableau")==0&&PlayerPrefs.GetInt("Morceau2Tableau")==0&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
+       /* if(PlayerPrefs.GetInt("Morceau1Tableau")==0&&PlayerPrefs.GetInt("Morceau2Tableau")==0&&PlayerPrefs.GetInt("Morceau3Tableau")==0)
         {
             inspect0.Execute();
-        }
+        }*/
     }
 
 
