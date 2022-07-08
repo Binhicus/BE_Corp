@@ -60,13 +60,18 @@ public class EntreeManager : MonoBehaviour
             {
                 fog.SetActive(false);
             }
+            PorteChambreState();
+        }
+        if (PlayerPrefs.GetInt("Brume") == 0)
+        {
+            OuverturePorteChambre.GetComponent<BoxCollider>().enabled = false;
         }
         //ajouter seconde condition pour débloquer la porte
     }
 
     public void PorteChambreState()
     {
-        OuverturePorteChambre = GameObject.Find("Gray Volume Fog");
+        //OuverturePorteChambre = GameObject.Find("Gray Volume Fog");
         if (PlayerPrefs.GetInt("Porte Ouverte") == 0)
         {
             if (OuverturePorteChambre != null)
@@ -104,7 +109,6 @@ public class EntreeManager : MonoBehaviour
     {
         TournevisState();
         //AntenneState();
-        PorteChambreState();
         FogState();
         EpouvantailState();
         if (PlayerPrefs.GetInt("Séquence 1 Done") == 1)
