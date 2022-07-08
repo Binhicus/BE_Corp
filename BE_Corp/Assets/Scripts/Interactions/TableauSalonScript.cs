@@ -42,11 +42,18 @@ public class TableauSalonScript : ClickableObject, IClicked, IAction
         {
             inspect2.Execute();
             PlayerPrefs.SetInt("Tableau1",1);
-            MisAJourEffect.Instance.MiseAJour();
+            if (PlayerPrefs.GetInt("Indice Tableau Salon") == 0)
+            {
+                MisAJourEffect.Instance.PasswordUpdate();
+            }
         }
-        
+        Invoke("PPrefIndice", 0.6f);
     }
 
+    void PPrefIndice()
+    {
+        PlayerPrefs.SetInt("Indice Tableau Salon", 1);
+    }
 
     public void OnOpen() { Debug.Log("Open"); }
     public void OnClose() { Debug.Log("Close"); }

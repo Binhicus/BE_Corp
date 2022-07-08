@@ -90,7 +90,7 @@ public class Piles : ClickableObject, IClicked, IItemInventaire, IAction
 
         for (int i = 0; i < zonesZoom.Count; i++)
         {
-            zonesZoom[i].GetComponent<Collider>().enabled = true;
+            //zonesZoom[i].GetComponent<Collider>().enabled = true;
         }
     }
 }

@@ -44,10 +44,20 @@ public class TableauCuisineScript : ClickableObject, IClicked, IAction
         {
             inspect2.Execute();
             PlayerPrefs.SetInt("Tableau2",1);
-            MisAJourEffect.Instance.PasswordUpdate();
+            if (PlayerPrefs.GetInt("Indice Tableau Cuisine") == 0)
+            {
+                MisAJourEffect.Instance.PasswordUpdate();
+            }             
         }
-        
+        Invoke("PPrefIndice", 0.6f);
     }
+
+    void PPrefIndice()
+    {
+        PlayerPrefs.SetInt("Indice Tableau Cuisine", 1);
+    }
+
+
 
 
     public void OnOpen() { Debug.Log("Open"); }
