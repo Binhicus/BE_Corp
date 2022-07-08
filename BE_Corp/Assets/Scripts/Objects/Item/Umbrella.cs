@@ -83,7 +83,7 @@ public class Umbrella : ClickableObject, IClicked, IItemInventaire, IAction
 
         for (int i = 0; i < zonesZoom.Count; i++)
         {
-            zonesZoom[i].GetComponent<Collider>().enabled = false;
+            //zonesZoom[i].GetComponent<Collider>().enabled = false;
         }
 
         iTween.MoveTo(GameObject.Find("Umbrella Pivot"), iTween.Hash("position", new Vector3(-15.2102027f, 9.1944768f, -8.9273609f), "time", 0.9f, "easetype", iTween.EaseType.easeInOutSine));
