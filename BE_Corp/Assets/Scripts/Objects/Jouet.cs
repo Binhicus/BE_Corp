@@ -134,7 +134,7 @@ public class Jouet : ClickableObject, IHasItemInteraction, IClicked, IAction
 
         for (int i = 0; i < steps.Count; i++)
         {
-            steps[i].GetComponent<Collider>().enabled = false;
+            steps[i].GetComponent<BoxCollider>().center = new Vector3(steps[i].GetComponent<BoxCollider>().center.x, steps[i].GetComponent<BoxCollider>().center.y, steps[i].GetComponent<BoxCollider>().center.z - 10f);
         }
 
         iTween.RotateTo(GameObject.Find("Tournevis Pivot instantiate(Clone)"), iTween.Hash("rotation", new Vector3(12.162f, -4.344f, -98.968f), "time", 0.5f, "delay", 0.25f));
@@ -154,7 +154,7 @@ public class Jouet : ClickableObject, IHasItemInteraction, IClicked, IAction
 
         for (int i = 0; i < steps.Count; i++)
         {
-            steps[i].GetComponent<Collider>().enabled = true;
+            steps[i].GetComponent<BoxCollider>().center = new Vector3(steps[i].GetComponent<BoxCollider>().center.x, steps[i].GetComponent<BoxCollider>().center.y, steps[i].GetComponent<BoxCollider>().center.z + 10f);
         }
     }
 

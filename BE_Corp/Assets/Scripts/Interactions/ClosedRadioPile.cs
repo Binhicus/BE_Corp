@@ -69,7 +69,7 @@ public class ClosedRadioPile : MonoBehaviour,IHasItemInteraction
 
         for (int i = 0; i < steps.Count; i++)
         {
-            steps[i].GetComponent<Collider>().enabled = false;
+            steps[i].GetComponent<BoxCollider>().center = new Vector3(steps[i].GetComponent<BoxCollider>().center.x, steps[i].GetComponent<BoxCollider>().center.y, steps[i].GetComponent<BoxCollider>().center.z - 10f);
         }
 
         if (Camera.main.orthographicSize != 4.5f)
@@ -105,7 +105,7 @@ public class ClosedRadioPile : MonoBehaviour,IHasItemInteraction
 
         for (int i = 0; i < steps.Count; i++)
         {
-            steps[i].GetComponent<Collider>().enabled = true;
+            steps[i].GetComponent<BoxCollider>().center = new Vector3(steps[i].GetComponent<BoxCollider>().center.x, steps[i].GetComponent<BoxCollider>().center.y, steps[i].GetComponent<BoxCollider>().center.z + 10f);
         }
     }
 
