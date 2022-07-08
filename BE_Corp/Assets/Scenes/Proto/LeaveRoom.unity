@@ -973,6 +973,7 @@ MonoBehaviour:
   PorteMicroOnde: {fileID: 1042629880}
   LeBonCode: 12:89
   BruitMicro: {fileID: 1589111661}
+  PencilCollider: {fileID: 1109649090}
 --- !u!61 &135730950
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2570,6 +2571,7 @@ MonoBehaviour:
   PorteMicroOnde: {fileID: 1042629880}
   LeBonCode: 12:89
   BruitMicro: {fileID: 1589111661}
+  PencilCollider: {fileID: 1109649090}
 --- !u!61 &339328987
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3981,6 +3983,7 @@ MonoBehaviour:
   PorteMicroOnde: {fileID: 1042629880}
   LeBonCode: 12:89
   BruitMicro: {fileID: 1589111661}
+  PencilCollider: {fileID: 1109649090}
 --- !u!61 &473528456
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4206,6 +4209,7 @@ MonoBehaviour:
   PorteMicroOnde: {fileID: 1042629880}
   LeBonCode: 12:89
   BruitMicro: {fileID: 1589111661}
+  PencilCollider: {fileID: 1109649090}
 --- !u!61 &494539780
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4523,6 +4527,7 @@ MonoBehaviour:
   PorteMicroOnde: {fileID: 1042629880}
   LeBonCode: 12:89
   BruitMicro: {fileID: 1589111661}
+  PencilCollider: {fileID: 1109649090}
 --- !u!61 &506870392
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8495,6 +8500,7 @@ MonoBehaviour:
   PorteMicroOnde: {fileID: 1042629880}
   LeBonCode: 12:89
   BruitMicro: {fileID: 1589111661}
+  PencilCollider: {fileID: 1109649090}
 --- !u!61 &964917504
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10111,7 +10117,7 @@ BoxCollider:
   m_GameObject: {fileID: 1109649087}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.12594202, y: 0.2650806, z: 0.08168014}
   m_Center: {x: 0.040896844, y: -0.007807015, z: -0.01433223}
@@ -12273,6 +12279,7 @@ GameObject:
   - component: {fileID: 1297291698}
   - component: {fileID: 1297291701}
   - component: {fileID: 1297291699}
+  - component: {fileID: 1297291702}
   m_Layer: 0
   m_Name: Zone Table
   m_TagString: Indice Zone
@@ -12375,8 +12382,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5890098, y: 1.4936023, z: 2.4729629}
-  m_Center: {x: 0.0567019, y: -0.24680114, z: 0.1229918}
+  m_Size: {x: 1.5890098, y: 1.545459, z: 2.4729629}
+  m_Center: {x: 0.0567019, y: -0.22087276, z: 0.1229918}
 --- !u!114 &1297291701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12394,6 +12401,30 @@ MonoBehaviour:
   usageCam: {fileID: 0}
   tips:
     block: {fileID: 1210050428}
+--- !u!114 &1297291702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297291696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b0e8f233ed0ca944b06b52e3dde98a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WhatIsObjectZoom: 0
+  sequence: 0
+  CameraActivate: {fileID: 0}
+  BackgroundComputerClose: {r: 0, g: 0, b: 0, a: 0}
+  BackgroundComptureOpen: {r: 0, g: 0, b: 0, a: 0}
+  BackgroundComputer: {fileID: 0}
+  ComputerWindow: {fileID: 0}
+  CloseCreditsImageButton: {fileID: 0}
+  CloseSettingImageButton: {fileID: 0}
+  anim: {fileID: 0}
+  dynamicMusic: {fileID: 0}
+  MenuManagerScript: {fileID: 0}
 --- !u!1 &1298115786
 GameObject:
   m_ObjectHideFlags: 0
@@ -14483,6 +14514,7 @@ MonoBehaviour:
   PorteMicroOnde: {fileID: 1042629880}
   LeBonCode: 12:89
   BruitMicro: {fileID: 1589111661}
+  PencilCollider: {fileID: 1109649090}
 --- !u!61 &1565070784
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14496,7 +14528,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.3926121, y: 2.3477178}
+  m_Offset: {x: -0.39052582, y: 2.3647323}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -14507,7 +14539,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15138483, y: 0.29681373}
+  m_Size: {x: 0.1555574, y: 0.3308432}
   m_EdgeRadius: 0
 --- !u!1 &1589111659
 GameObject:
@@ -14552,7 +14584,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 2596591923537881330, guid: bec30fffcea7d664a9db982b6ecc9420, type: 2}
   m_audioClip: {fileID: 8300000, guid: ca3e2a8e0f337914487647b30e88053a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.288
+  m_Volume: 0.125
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -14964,6 +14996,7 @@ MonoBehaviour:
   PorteMicroOnde: {fileID: 1042629880}
   LeBonCode: 12:89
   BruitMicro: {fileID: 1589111661}
+  PencilCollider: {fileID: 1109649090}
 --- !u!61 &1687898189
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16060,6 +16093,7 @@ MonoBehaviour:
   PorteMicroOnde: {fileID: 1042629880}
   LeBonCode: 12:89
   BruitMicro: {fileID: 1589111661}
+  PencilCollider: {fileID: 1109649090}
 --- !u!61 &1771529950
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26445,8 +26479,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.60081434, y: 0.76338935, z: 0.91982126}
-  m_Center: {x: -6.3681545, y: 1.7909874, z: 2.570217}
+  m_Size: {x: 0.6008148, y: 0.4512782, z: 0.91982126}
+  m_Center: {x: -6.3681545, y: 1.6349318, z: 2.570217}
 --- !u!1 &4504409719338930828
 GameObject:
   m_ObjectHideFlags: 0

@@ -37,7 +37,7 @@ public class CodeMicroOnde : MonoBehaviour
     //public GameObject CodeBonOuvrir;
     public AudioSource BruitMicro;
     // Start is called before the first frame update
-
+    public BoxCollider PencilCollider ;
     void Awake()
     {
         //Tcode = gameObject.AddComponent<TextMesh>();
@@ -362,6 +362,7 @@ public class CodeMicroOnde : MonoBehaviour
         PeutAppuyer=false;
         //Bon.color=new Color32(139,255,0,255);
         porteMicro.GetComponent<Animator>().SetTrigger("Ouvre");
+        PencilCollider.enabled = true ;
         PorteMicroOnde.Play();
         //PlayerPrefs.SetInt("Morceau3Tableau",1);
     }
