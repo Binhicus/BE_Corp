@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Fungus;
 
 public class MotPapier : MonoBehaviour
 {
@@ -67,6 +68,8 @@ public class MotPapier : MonoBehaviour
     public GameObject Book;
 
     public AudioSource LacheMot;
+
+    public BlockReference TermineBD;
     // Start is called before the first frame update
     void Start()
     {
@@ -294,10 +297,14 @@ public class MotPapier : MonoBehaviour
             Une=true;
             Book.GetComponent<Animator>().SetTrigger("Apparait");
             PlayerPrefs.SetInt("Cuisine Reveal", 1);
-            StartCoroutine(coroutineA());
-
+            TermineBD.Execute();
         }
         
+    }
+
+    public void Maj()
+    {
+        MisAJourEffect.Instance.MiseAJour();
     }
 
     public void Place1()
@@ -482,13 +489,5 @@ public class MotPapier : MonoBehaviour
             Terminado();
         }
     }
-    }
-
-
-    IEnumerator coroutineA()
-    {
-        yield return new WaitForSeconds(1.5f);
-        MisAJourEffect.Instance.MiseAJour();
-        //Jauge.Instance.stadeProg += 1;
     }
 }
