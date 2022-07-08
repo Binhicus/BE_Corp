@@ -5,7 +5,7 @@ using UnityEngine;
 public class EntreeManager : MonoBehaviour
 {
 
-    public GameObject fog, epouvantail, porteManteau, Porte, Pas, Tournevis, antenne, enveloppe;
+    public GameObject fog, epouvantail, porteManteau, Porte, Pas, Tournevis, antenne, enveloppe, OuverturePorteChambre;
 
 
     private void OnEnable()
@@ -64,6 +64,25 @@ public class EntreeManager : MonoBehaviour
         //ajouter seconde condition pour débloquer la porte
     }
 
+    public void PorteChambreState()
+    {
+        OuverturePorteChambre = GameObject.Find("Gray Volume Fog");
+        if (PlayerPrefs.GetInt("Porte Ouverte") == 0)
+        {
+            if (OuverturePorteChambre != null)
+            {
+                OuverturePorteChambre.GetComponent<BoxCollider>().enabled = true;
+            }
+        }
+        else if (PlayerPrefs.GetInt("Porte Ouverte") == 1)
+        {
+            if(OuverturePorteChambre != null)
+            {
+                OuverturePorteChambre.GetComponent<BoxCollider>().enabled = false;
+            }
+        }
+    }
+
     public void IntroState()
     {
         Tournevis.GetComponent<CapsuleCollider>().enabled = true;
@@ -85,6 +104,7 @@ public class EntreeManager : MonoBehaviour
     {
         TournevisState();
         //AntenneState();
+        PorteChambreState();
         FogState();
         EpouvantailState();
         if (PlayerPrefs.GetInt("Séquence 1 Done") == 1)
