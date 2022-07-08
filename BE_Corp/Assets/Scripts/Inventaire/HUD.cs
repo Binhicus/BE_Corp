@@ -85,9 +85,6 @@ public class HUD : MonoBehaviour
     {
         if(GameObject.FindGameObjectWithTag("Camera Zoom") != null)
         {
-            GameObject.FindGameObjectWithTag("Camera Zoom").SetActive(false);
-            DezoomButton.SetActive(false);
-
             if(GameObject.Find("Cam_Room") != null)
             {
                 if(GameObject.Find("Indices Mot de passe") != null) GameObject.Find("Indices Mot de passe").GetComponent<CanvasGroup>().DOFade(0f, 0.5f);
@@ -100,6 +97,9 @@ public class HUD : MonoBehaviour
                     GameObject.Find("Close Computer").GetComponent<AlimentationScript>().LunchDialogueAfterMailRead() ;
                 } 
             }
+
+            GameObject.FindGameObjectWithTag("Camera Zoom").SetActive(false);
+            DezoomButton.SetActive(false);            
         }
 
         GameObject[] IndiceZoneCollider ;

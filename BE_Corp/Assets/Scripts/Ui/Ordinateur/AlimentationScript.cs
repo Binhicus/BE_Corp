@@ -36,7 +36,7 @@ public class AlimentationScript : MonoBehaviour
     public GameObject CloseShutPannelBigButton ;
 
     [SerializeField] private List<string> PassWordRequest ;
-    [SerializeField] private string PassWordHelp = "Il dort tout le temps" ;
+    [SerializeField] private string PassWordHelp = "Mot de passe incorrect" ;
 
     public Color BackgroundShutDown ;
     public Color BackgroundOff ;
@@ -285,9 +285,9 @@ public class AlimentationScript : MonoBehaviour
 
     IEnumerator UnlockComputer()
     {
-        CanvasGroupPostIt.GetComponent<Animator>().SetBool("Disparait", true);
+        //CanvasGroupPostIt.GetComponent<Animator>().SetBool("Disparait", true);
         PlayerPrefs.SetInt("MdpOk",1);
-        IndiceObj.GetComponent<CanvasGroup>().DOFade(0f, 0.5f);
+        CanvasGroupPostIt.GetComponent<CanvasGroup>().DOFade(0f, 0.5f);
         PlayerPrefs.SetInt("Morceau1Tableau",1);
         IndiceObj.SetActive(false);
         InputLogIn.SetActive(false);
