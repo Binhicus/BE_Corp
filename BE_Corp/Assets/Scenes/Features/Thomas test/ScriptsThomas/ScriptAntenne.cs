@@ -154,10 +154,17 @@ public class ScriptAntenne : MonoBehaviour
         
     }
 
+    void Start()
+    {
+        //BulletinMeteo.pitch=0.9f;
+       // BulletinMeteo.Play();
+    }
+
     IEnumerator coroutineA()
     {
         
         yield return new WaitForSeconds(2.0f);
+        BulletinMeteo.pitch=0.9f;
         BulletinMeteo.Play();
         Debug.Log("ENIGME REUSSIE");
         gagne=true;

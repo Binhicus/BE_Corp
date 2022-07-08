@@ -9,7 +9,7 @@ public class MisAJourEffect : Singleton<MisAJourEffect>
 {
     //public Image Fademaj;
     public AudioSource audioCue;
-    public BlockReference maj, tableau, tableauUpdate, password;
+    public BlockReference maj, tableau, tableauUpdate, password,tableautermine;
 
     protected override void Awake()
     {
@@ -31,6 +31,15 @@ public class MisAJourEffect : Singleton<MisAJourEffect>
         //message.text = "Le souvenir a été mis à jour.";
         //animator.CrossFade("MemoryUpdated", 0.3f);
         maj.Execute();
+    }
+    public void TableauOkOk()
+    {
+        //Fademaj.GetComponent<Animator>().SetTrigger("Maj");
+        //loading.GetComponentInChildren<>
+        audioCue.Play();
+        //message.text = "Le souvenir a été mis à jour.";
+        //animator.CrossFade("MemoryUpdated", 0.3f);
+        tableautermine.Execute();
     }
 
     public void TableauReveal()

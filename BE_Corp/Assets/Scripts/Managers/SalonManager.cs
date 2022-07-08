@@ -52,6 +52,12 @@ public class SalonManager : MonoBehaviour
         UmbrellaState();
         AntenneState();
         PilesState();
+
+        if(PlayerPrefs.GetInt("Morceau3Tableau")==1&&PlayerPrefs.GetInt("Morceau2Tableau")==1&&PlayerPrefs.GetInt("Morceau1Tableau")==1&&PlayerPrefs.GetInt("MessageFin")==0)
+        {
+            PlayerPrefs.SetInt("MessageFin",1);
+            MisAJourEffect.Instance.TableauOkOk();
+        }
     }
     public void VaseState()
     {

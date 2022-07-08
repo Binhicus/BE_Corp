@@ -19,6 +19,7 @@ public class ClosedSpace : ClickableObject, IHasItemInteraction, IClicked, IActi
 
     private bool MouseOver = false ;
     private bool AsCameraShake = false ;
+    public AudioSource CoupeEpee;
 
 
     private void Awake() 
@@ -111,6 +112,7 @@ public class ClosedSpace : ClickableObject, IHasItemInteraction, IClicked, IActi
     void EffetEpee()
     {
         epee.SetActive(true);
+        CoupeEpee.Play();
         epee.GetComponent<Animator>().CrossFade("MvtEpée", 0.1f);
     }
 

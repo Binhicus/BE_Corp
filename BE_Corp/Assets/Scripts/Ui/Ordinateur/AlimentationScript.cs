@@ -376,6 +376,7 @@ public class AlimentationScript : MonoBehaviour
 
     public void LunchDialogueAfterMailRead()
     {
+        PlayerPrefs.SetInt("DialogueAfterMailDisplay",1);
         MessageReadRef.Execute();
     }
 
